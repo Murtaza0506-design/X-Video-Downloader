@@ -7,3 +7,6 @@ downloads/
 # Python cache files
 __pycache__/
 *.pyc
+
+# Your personal download history — not for the public repo
+history.json
