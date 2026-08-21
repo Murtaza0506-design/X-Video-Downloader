@@ -32,9 +32,21 @@ from functools import wraps
 from urllib.parse import urlparse
 
 from flask import Flask, request, jsonify, render_template_string, send_from_directory
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from yt_dlp import YoutubeDL
 
 app = Flask(__name__)
+
+# Rate limiting, keyed per visitor IP. This matters most once the site is shared
+# beyond friends — without it, one visitor (or a bot) could queue unlimited
+# downloads and either exhaust the free hosting tier or get the service throttled.
+limiter = Limiter(
+    key_func=get_remote_address,
+    app=app,
+    default_limits=["60 per hour"],
+    storage_uri="memory://",
+)
 
 DOWNLOAD_FOLDER = "downloads"
 HISTORY_FILE = "history.json"
@@ -190,6 +202,7 @@ PAGE = """
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fetch — video downloader</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5706090136429347" crossorigin="anonymous"></script>
 <script>
   // Apply the saved theme before the page paints, so there's no flash of the wrong colour.
   (function () {
@@ -419,6 +432,26 @@ PAGE = """
     background: var(--surface);
   }
   .platform-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .support {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .support p.hint { max-width: 520px; margin-bottom: 16px; }
+  .coffee-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .coffee-link:hover { filter: brightness(1.08); }
+  .coffee-link svg { width: 16px; height: 16px; }
 </style>
 </head>
 <body>
@@ -443,6 +476,7 @@ PAGE = """
     </select>
     <button id="startBtn">Download</button>
   </div>
+  <div id="formError" class="hint" style="display:none; color: var(--error); margin-top: 8px;"></div>
   <div id="jobs"></div>
   <div class="history-header">
     <h2>History</h2>
@@ -473,6 +507,13 @@ PAGE = """
       <a class="platform-pill" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
       <a class="platform-pill" href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">Reddit</a>
     </div>
+  </div>
+  <div class="support">
+    <p class="hint">For personal use only. Only paste links to content you have the right to download — your own posts, public domain material, or Creative Commons content. By using this tool you're confirming that and taking responsibility for what you download.</p>
+    <a class="coffee-link" href="https://buymeacoffee.com/taz99" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+      Buy me a coffee
+    </a>
   </div>
 <script>
 // --- Theme toggle ---
@@ -533,17 +574,34 @@ document.getElementById('history').addEventListener('click', function (e) {
   });
 });
 // --- Download flow ---
+function showFormError(message) {
+  var el = document.getElementById('formError');
+  el.textContent = message;
+  el.style.display = 'block';
+  clearTimeout(showFormError._t);
+  showFormError._t = setTimeout(function () { el.style.display = 'none'; }, 6000);
+}
 async function startDownload() {
   var raw = document.getElementById('urls').value;
   var urls = raw.split('\\n').map(function (s) { return s.trim(); }).filter(Boolean);
   var quality = document.getElementById('quality').value;
   if (urls.length === 0) return;
-  var res = await fetch('/start-download', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({urls: urls, quality: quality})
-  });
-  var data = await res.json();
+  var res, data;
+  try {
+    res = await fetch('/start-download', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({urls: urls, quality: quality})
+    });
+    data = await res.json();
+  } catch (err) {
+    showFormError('Could not reach the server — check your connection and try again.');
+    return;
+  }
+  if (!res.ok) {
+    showFormError(data.error || 'Something went wrong starting the download.');
+    return;
+  }
   data.job_ids.forEach(trackJob);
   document.getElementById('urls').value = '';
 }
@@ -657,6 +715,7 @@ def home():
     return render_template_string(PAGE, history=load_history())
 @app.route("/start-download", methods=["POST"])
 @require_password
+@limiter.limit("6 per minute; 40 per hour")
 def start_download():
     data = request.get_json(force=True)
     urls = [u.strip() for u in data.get("urls", []) if u.strip()]
@@ -681,6 +740,7 @@ def start_download():
     return jsonify({"job_ids": job_ids})
 @app.route("/status/<job_id>", methods=["GET"])
 @require_password
+@limiter.exempt  # the page polls this every ~800ms per active job by design, not abuse
 def status(job_id):
     with jobs_lock:
         job = jobs.get(job_id)
@@ -692,6 +752,12 @@ def status(job_id):
 def clear_history():
     save_history([])
     return jsonify({"ok": True})
+@app.route("/ads.txt")
+def ads_txt():
+    return "google.com, pub-5706090136429347, DIRECT, f08c47fec0942fa0\n", 200, {"Content-Type": "text/plain"}
+@app.errorhandler(429)
+def rate_limit_handler(error):
+    return jsonify({"error": "Too many requests — please slow down and try again in a minute."}), 429
 @app.route("/download/<path:filename>", methods=["GET"])
 @require_password
 def download_file(filename):
