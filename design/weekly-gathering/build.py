@@ -71,49 +71,15 @@ def path(d, cls, w=1.0):
 
 
 # ---------- the medallion (hero) ----------
-def medallion(cx, cy, R, scale_w=1.0):
-    """A rosette built in legible concentric registers — each band given its own air.
-       Radii are chosen so no two figures ever occupy the same ground."""
+def halo(cx, cy, R, seal_r):
+    """A drawn setting for the order's seal: a rim, and ninety-nine marks —
+       a tasbih told in light, with three longer strokes at the thirds."""
     u = R/150.0
-    w = lambda v: round(v*scale_w, 3)
-    g = []
-
-    # register I — the outer rim, and 99 marks: a tasbih told in light,
-    #              with three longer strokes at the thirds.
-    g.append(circle(cx, cy, 150*u, "hair-2", w(1.2)))
-    g.append(circle(cx, cy, 146.4*u, "hair-5", w(0.6)))
-    g += [path(d, "hair-2", w(0.85)) for d in
-          tick_ring(cx, cy, 138*u, 145*u, 99, accents=(0, 33, 66), acc_ext=4.5*u)]
-    g.append(circle(cx, cy, 135*u, "hair-2", w(1.0)))
-
-    # register II — a sixteen-pointed star band, its chords held to the band
-    g.append(f'<defs><clipPath id="bandA" clipPathUnits="userSpaceOnUse">'
-             f'<path clip-rule="evenodd" d="{annulus(cx, cy, 134*u, 102.5*u)}"/></clipPath>'
-             f'<clipPath id="bandB" clipPathUnits="userSpaceOnUse">'
-             f'<path clip-rule="evenodd" d="{annulus(cx, cy, 58.5*u, 22.5*u)}"/></clipPath></defs>')
-    g.append('<g clip-path="url(#bandA)">')
-    for d in star_polygon(cx, cy, 133.5*u, 16, 5):
-        g.append(path(d, "hair-1", w(1.0)))
-    for d in star_polygon(cx, cy, 133.5*u, 16, 5, rot=360/32):
-        g.append(path(d, "hair-4", w(0.6)))
-    g.append('</g>')
-    g.append(circle(cx, cy, 103*u, "hair-3", w(0.85)))
-    g.append(circle(cx, cy, 100*u, "hair-5", w(0.55)))
-
-    # register III — a corona of sixteen petals in its own clear band
-    for d in petal_ring(cx, cy, 62*u, 98*u, 16, rot=360/32):
-        g.append(path(d, "petal", w(0.75)))
-    g.append(circle(cx, cy, 60.5*u, "hair-3", w(0.85)))
-
-    # register IV — the eight-fold heart
-    g.append('<g clip-path="url(#bandB)">')
-    for d in star_polygon(cx, cy, 58*u, 8, 3):
-        g.append(path(d, "hair-1", w(0.95)))
-    g.append('</g>')
-    g.append(circle(cx, cy, 23*u, "hair-2", w(0.85)))
-    for d in petal_ring(cx, cy, 8*u, 21*u, 8, rot=22.5, bulge=0.55):
-        g.append(path(d, "petal-lit", w(0.6)))
-    g.append(f'<circle cx="{cx:.3f}" cy="{cy:.3f}" r="{4.6*u:.3f}" class="dot"/>')
+    g = [circle(cx, cy, 150*u, "hair-5", 0.65),
+         circle(cx, cy, 146*u, "hair-2", 1.15)]
+    g += [path(d, "hair-2", 0.85) for d in
+          tick_ring(cx, cy, 132*u, 140*u, 99, accents=(0, 33, 66), acc_ext=4.5*u)]
+    g.append(circle(cx, cy, seal_r + 7, "hair-5", 0.6))
     return "\n".join(g)
 
 
@@ -178,12 +144,18 @@ FONTS = "\n".join([
     face("Amiri", "Amiri-Regular-400.woff2", "400"),
 ])
 
+def mask_uri(name):
+    return "data:image/png;base64," + base64.b64encode((HERE/name).read_bytes()).decode()
+
+SEAL_URI = mask_uri("mask-seal.png")
+WORD_URI = mask_uri("mask-wordmark.png")
+
 W, H = 1200, 1800
 CX = W/2
 PY_ = 0  # placeholder
 
 # ---------- the scene ----------
-ARCH_L, ARCH_R, ARCH_BASE, ARCH_APEX = 250, 950, 766, 118
+ARCH_L, ARCH_R, ARCH_BASE, ARCH_APEX = 250, 950, 840, 118
 def arch(inset=0.0, cls="hair-4", w=0.8):
     l, r = ARCH_L+inset, ARCH_R-inset
     b, a = ARCH_BASE, ARCH_APEX+inset*0.9
@@ -191,7 +163,7 @@ def arch(inset=0.0, cls="hair-4", w=0.8):
     return (f'<path d="M {l},{b} L {l},{sh} Q {l},{a+95} {CX},{a} '
             f'Q {r},{a+95} {r},{sh} L {r},{b}" class="{cls}" stroke-width="{w}" fill="none"/>')
 
-MED_CY, MED_R = 386, 150
+MED_CY, MED_R, SEAL_D = 360, 149, 238
 
 svg = f'''
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -200,9 +172,11 @@ svg = f'''
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
       <feColorMatrix type="saturate" values="0"/>
     </filter>
-    <radialGradient id="halo" cx="50%" cy="{MED_CY/H*100:.1f}%" r="34%">
-      <stop offset="0%"   stop-color="#EDC784" stop-opacity="0.19"/>
-      <stop offset="55%"  stop-color="#C79A4E" stop-opacity="0.05"/>
+    <radialGradient id="halo" cx="50%" cy="{MED_CY/H*100:.1f}%" r="52%">
+      <stop offset="0%"   stop-color="#EFCB8A" stop-opacity="0.20"/>
+      <stop offset="26%"  stop-color="#DCB068" stop-opacity="0.105"/>
+      <stop offset="48%"  stop-color="#C79A4E" stop-opacity="0.048"/>
+      <stop offset="72%"  stop-color="#A87F3A" stop-opacity="0.016"/>
       <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </radialGradient>
   </defs>
@@ -219,16 +193,16 @@ svg = f'''
   <rect x="57" y="57" width="{W-114}" height="{H-114}" class="hair-5" stroke-width="0.7" fill="none"/>
   {corner(44,44,1,1)}{corner(W-44,44,-1,1)}{corner(44,H-44,1,-1)}{corner(W-44,H-44,-1,-1)}
 
-  <g class="med">{medallion(CX, MED_CY, MED_R)}</g>
+  <g class="med">{halo(CX, MED_CY, MED_R, SEAL_D/2)}</g>
 
   {rule(CX, ARCH_BASE, 350)}
   <line x1="{CX}" y1="{ARCH_BASE+34}" x2="{CX}" y2="{ARCH_BASE+128}" class="rule"/>
 
-  {rule(CX, 1246, 350)}
-  <rect x="{CX-322}" y="1424" width="644" height="152" rx="2" class="hair-3" stroke-width="1" fill="none"/>
-  <rect x="{CX-315}" y="1431" width="630" height="138" rx="1" class="hair-5" stroke-width="0.6" fill="none"/>
-  {lozenge(CX-322,1500,5,8,"fill-ink")}{lozenge(CX+322,1500,5,8,"fill-ink")}
-  {lozenge(CX-322,1500,5,8,"stroke-node")}{lozenge(CX+322,1500,5,8,"stroke-node")}
+  {rule(CX, 1272, 350)}
+  <rect x="{CX-322}" y="1444" width="644" height="152" rx="2" class="hair-3" stroke-width="1" fill="none"/>
+  <rect x="{CX-315}" y="1451" width="630" height="138" rx="1" class="hair-5" stroke-width="0.6" fill="none"/>
+  {lozenge(CX-322,1520,5,8,"fill-ink")}{lozenge(CX+322,1520,5,8,"fill-ink")}
+  {lozenge(CX-322,1520,5,8,"stroke-node")}{lozenge(CX+322,1520,5,8,"stroke-node")}
 </svg>
 <div class="grain"></div>
 '''
@@ -266,11 +240,18 @@ html,body{{background:#000}}
 .stroke-node{{fill:none;stroke:#9A7A3C;stroke-width:1}}
 .rule{{stroke:#8A6C34;stroke-width:1;opacity:.85}}
 .rule-lit{{stroke:#DCBB79;stroke-width:1;opacity:.9}}
-.ground{{opacity:.085}}
+.ground{{opacity:.072}}
 .med{{filter:drop-shadow(0 0 16px rgba(230,192,116,.26))}}
 
 /* --- type --- */
 .at{{position:absolute;left:0;right:0;text-align:center}}
+.mark{{position:absolute;left:50%;transform:translateX(-50%);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-position:center;mask-position:center;
+  background-image:linear-gradient(176deg,#FBEECB 0%,#EBD49B 22%,#C89F55 54%,#F4E5BB 78%,#D2AC64 100%);}}
+.seal{{filter:drop-shadow(0 0 20px rgba(232,194,116,.30)) drop-shadow(0 1px 1px rgba(0,0,0,.5))}}
+.wordmark{{filter:drop-shadow(0 0 16px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.55))}}
 .gold{{background:linear-gradient(178deg,#FBEECB 0%,#E7CD92 26%,#C69E56 58%,#F3E3B7 82%,#D3AE68 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 1px 0 rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(214,172,100,.22))}}
@@ -278,7 +259,7 @@ html,body{{background:#000}}
   direction:rtl;filter:drop-shadow(0 0 16px rgba(214,172,100,.28))}}
 .gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:20.5px;
   letter-spacing:.055em;color:#A98D5C}}
-.t1{{font-family:Cinzel,serif;font-weight:600;font-size:57px;letter-spacing:.135em;
+.t1{{font-family:Cinzel,serif;font-weight:600;font-size:50px;letter-spacing:.135em;
   text-indent:.135em;line-height:1}}
 .t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:43px;
   letter-spacing:.045em;color:#E0C289}}
@@ -312,42 +293,48 @@ html,body{{background:#000}}
 <body><div class="page">
 {svg}
 
-<div class="at ayah" style="top:112px">{AYAH}</div>
-<div class="at gloss" style="top:180px">“ Verily, in the remembrance of God do hearts find rest. ”</div>
+<div class="at ayah" style="top:104px">{AYAH}</div>
+<div class="at gloss" style="top:172px">“ Verily, in the remembrance of God do hearts find rest. ”</div>
 
-<div class="at t1 gold" style="top:568px">TARIQA QADIRIYYA</div>
-<div class="at t1 gold" style="top:634px">BOUTCHICHIYA</div>
-<div class="at t2" style="top:704px">Weekly Dhikr Gathering</div>
+<div class="mark seal" style="top:{MED_CY-SEAL_D//2}px;width:{SEAL_D}px;height:{SEAL_D}px;
+  -webkit-mask-image:url({SEAL_URI});mask-image:url({SEAL_URI})"></div>
+
+<div class="mark wordmark" style="top:528px;width:640px;height:113px;
+  -webkit-mask-image:url({WORD_URI});mask-image:url({WORD_URI})"></div>
+
+<div class="at t1 gold" style="top:664px">TARIQA AL QADIRIYA</div>
+<div class="at t1 gold" style="top:718px">AL BOUTCHICHIYA</div>
+<div class="at t2" style="top:780px">Weekly Dhikr Gathering</div>
 
 <div class="at lab" style="top:{ARCH_BASE+32}px;left:{CX-350}px;width:340px">SATURDAY</div>
 <div class="at val" style="top:{ARCH_BASE+58}px;left:{CX-350}px;width:340px">29 August 2026</div>
 <div class="at lab" style="top:{ARCH_BASE+32}px;left:{CX+10}px;width:340px">EVENING</div>
 <div class="at val" style="top:{ARCH_BASE+58}px;left:{CX+10}px;width:340px">7:00 – 9:00 pm</div>
 
-<div class="at body" style="top:940px;left:{CX-440}px;width:880px">
+<div class="at body" style="top:976px;left:{CX-440}px;width:880px">
 Direct Sufi practice of the Moroccan <em>dhikr</em>, with trained practitioners<br>
 reciting with <em>idhn</em> — permission — from a recognised master<br>
 of the Qadiriyya Boutchichiya Sufi order.
 </div>
 
-<div class="cols" style="top:1100px">
-  <div><div class="rn">I</div><div class="pt" style="margin-top:9px">7:00 — 8:15</div>
+<div class="cols" style="top:1128px">
+  <div><div class="rn">I</div><div class="pt" style="margin-top:9px">7:00 – 8:15</div>
        <div class="pd" style="margin-top:11px">Wadhifa Dhikr<br>and Dhikr al&nbsp;Faraj</div></div>
-  <div><div class="rn">II</div><div class="pt" style="margin-top:9px">8:15 — 8:30</div>
+  <div><div class="rn">II</div><div class="pt" style="margin-top:9px">8:15 – 8:30</div>
        <div class="pd" style="margin-top:11px">Talk</div></div>
   <div><div class="rn">III</div><div class="pt" style="margin-top:9px">8:30</div>
        <div class="pd" style="margin-top:11px">Maghrib, followed<br>by refreshments</div></div>
 </div>
 
-<div class="at venue gold" style="top:1276px">CRESCENT HALL</div>
-<div class="at vsub" style="top:1332px">Crescent Nursery</div>
-<div class="at addr" style="top:1368px">162 Edmund Street · Rochdale OL12 6QG</div>
+<div class="at venue gold" style="top:1302px">CRESCENT HALL</div>
+<div class="at vsub" style="top:1356px">Crescent Nursery</div>
+<div class="at addr" style="top:1392px">162 EDMUND STREET · ROCHDALE OL12 6QG</div>
 
-<div class="at lab" style="top:1458px">PLEASE CONFIRM YOUR ATTENDANCE</div>
-<div class="at wa" style="top:1488px">WhatsApp 07884 053544</div>
-<div class="at note" style="top:1534px">A brothers-only gathering</div>
+<div class="at lab" style="top:1478px">PLEASE CONFIRM YOUR ATTENDANCE</div>
+<div class="at wa" style="top:1508px">WhatsApp 07884 053544</div>
+<div class="at note" style="top:1554px">A brothers-only gathering</div>
 
-<div class="at url" style="top:1660px">WWW.THESUFIWAY.CO.UK</div>
+<div class="at url" style="top:1668px">WWW.THESUFIWAY.CO.UK</div>
 </div></body></html>'''
 
 (HERE/"poster.html").write_text(html, encoding="utf-8")

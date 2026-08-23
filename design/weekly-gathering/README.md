@@ -9,6 +9,19 @@ Tariqa Qadiriyya Boutchichiya · Crescent Hall, Rochdale.
 | `Weekly-Dhikr-Gathering.pdf` | Vector text, 12.5″ × 18.75″ — send to a print shop |
 | `DESIGN-PHILOSOPHY.md` | The aesthetic the poster is built on |
 | `build.py` | Regenerates the artwork |
+| `assets.py` | Lifts the seal and the Arabic wordmark off their backgrounds |
+| `mask-seal.png`, `mask-wordmark.png` | The two supplied marks as alpha masks |
+
+## The two supplied marks
+
+The order's seal and the Arabic wordmark arrived as flat images — the seal gold
+on white, the calligraphy gold on black. `assets.py` reduces each to a pure
+alpha mask, which the page then paints in the poster's own gold gradient, so
+neither sits on the page as a pasted-in rectangle. The red rule beneath the
+calligraphy is removed while the red dots of the *shin* letters are kept and
+carried into gold — they are orthography, not ornament.
+
+Re-run `python3 assets.py` only if the source marks change.
 
 ## Regenerating
 
