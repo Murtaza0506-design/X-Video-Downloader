@@ -323,8 +323,23 @@ INDIGO.update(
     halo0="#F3F6FA", halo1="#D7DEE9", halo2="#B7C2D3", halo3="#8FA0B8",
 )
 
+BLACKGOLD = dict(DEFAULT_PALETTE)
+BLACKGOLD.update(
+    name="Black & Gold", pattern="zellij",
+    bg1="radial-gradient(112% 62% at 50% 24%, #2A2A2A 0%, #1A1A1A 34%, #0D0D0D 62%, #050505 100%)",
+    bg2="radial-gradient(88% 42% at 50% 96%, #161616 0%, #0C0C0C 46%, #040404 100%)",
+    print_bg="#050505",
+    scrim="4,4,4",
+    # hairlines, the frame, the star's own gradient — the "gold" — stay as DEFAULT_PALETTE's.
+    # only the reading text splits: headings and small accents stay gold, body copy turns white.
+    ayah="#F3F1EA", gloss="#D9D6CC", t2="#EDEAE1", val="#F5F3EC",
+    body="#E6E3D9", pt="#F5F3EC", pd="#CFCBBE", vsub="#C9C5B8",
+    addr="#EDEAE0", wa="#F2EFE6", note="#B8B4A6",
+)
+
 if __name__ == "__main__":
     render(DEFAULT_PALETTE, "final-gold")
     render(EMERALD, "final-emerald")
     render(BURGUNDY, "final-burgundy")
     render(INDIGO, "final-indigo")
+    render(BLACKGOLD, "final-blackgold")

@@ -12,6 +12,7 @@ approved.
 | `final-emerald.png` | Emerald Court — deep forest green, gold ornament | Khatim star-and-cross |
 | `final-burgundy.png` | Royal Burgundy — deep wine red, gold ornament | Diamond lattice (mashrabiya) |
 | `final-indigo.png` | Midnight Indigo — deep navy, **silver** ornament instead of gold | Khatim star-and-cross |
+| `final-blackgold.png` | Black & Gold — true black ground; frame, star and headings stay gold, body copy turns white | Khatim star-and-cross |
 
 Indigo is the one structural departure: every gold token (hairlines, the
 star's own gradient, all text) is swapped for a cool silver/platinum
