@@ -129,8 +129,8 @@ html,body{{background:#000}}
 .at.gold{{text-shadow:none}}
 .ayah{{font-family:Amiri,serif;font-size:40px;line-height:1.55;color:{pal['ayah']};
   direction:rtl;filter:drop-shadow(0 0 16px rgba(214,172,100,.28))}}
-.gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:20.5px;
-  letter-spacing:.055em;color:{pal['gloss']}}}
+.gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:31px;
+  letter-spacing:.03em;color:{pal['gloss']}}}
 .t1{{font-family:Cinzel,serif;font-weight:600;font-size:50px;letter-spacing:.135em;
   text-indent:.135em;line-height:1}}
 .t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:43px;
@@ -142,8 +142,8 @@ html,body{{background:#000}}
 .body{{font-family:Cormorant,serif;font-weight:400;font-size:44px;line-height:1.2;
   letter-spacing:.005em;color:{pal['body']}}}
 .body em{{font-style:italic;color:{pal['gloss']}}}
-.pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:20px;letter-spacing:.1em;
-  text-indent:.1em;color:{pal['pt']}}}
+.pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:27px;letter-spacing:.03em;
+  text-indent:.03em;color:{pal['pt']}}}
 .pd{{font-family:Cormorant,serif;font-weight:400;font-size:21.5px;line-height:1.46;
   letter-spacing:.03em;color:{pal['pd']}}}
 .rn{{font-family:Cinzel,serif;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:{pal['rn']}}}
