@@ -143,7 +143,45 @@ def variant_d():
     return v.page(hero, extra_defs=extra_defs, glow_cy=cy0+dh/2, glow_r=44, extra_svg_body=extra_body)
 
 
-VARIANTS = {"A": variant_a, "B": variant_b, "C": variant_c, "D": variant_d}
+# ============================================================ E — Sacred Dome
+import json as _json
+DOME_MASK_URI = v.mask_uri("mask-dome.png")
+DOME_DARK_URI = v.mask_uri("mask-dome-dark.png")
+DOME_W, DOME_H = 1488, 966
+_DOME_PATHS = _json.loads((HERE/"engrave.json").read_text())
+
+def dome_group(x, y, w, h, mask_id, stroke="#F0D8A0", sw=1.7):
+    sx, sy = w/DOME_W, h/DOME_H
+    lines = "\n".join(
+        f'<path d="{p}" fill="none" stroke="{stroke}" stroke-width="{sw}" vector-effect="non-scaling-stroke"/>'
+        for p in _DOME_PATHS["ribs"]+_DOME_PATHS["drum"]+_DOME_PATHS["facade"]+_DOME_PATHS["cornices"])
+    return (
+        f'<defs><mask id="{mask_id}" maskUnits="userSpaceOnUse">'
+        f'<image href="{DOME_MASK_URI}" x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}"/>'
+        f'</mask></defs>\n'
+        f'<image href="{DOME_DARK_URI}" x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}"/>\n'
+        f'<g mask="url(#{mask_id})" transform="translate({x:.1f},{y:.1f}) scale({sx:.5f},{sy:.5f})">{lines}</g>'
+    )
+
+def variant_e():
+    """The Dome of the Rock, engraved: ribs, drum arcade, facade arcade — not a flat block."""
+    bw = 660
+    dh = bw*DOME_H/DOME_W
+    dx, dy = CX-bw/2, 90
+
+    extra_body = (
+        dome_group(dx, dy, bw, dh, "domeMaskE") +
+        f'\n  <line x1="{dx+30:.1f}" y1="{dy+dh+22:.1f}" x2="{dx+bw-30:.1f}" y2="{dy+dh+22:.1f}" class="rule"/>'
+    )
+
+    hero = f'''
+{wordmark(dy+dh+40, 82)}
+{title_block(dy+dh+40+82+18, 46, 50)}
+'''
+    return v.page(hero, glow_cy=dy+dh*0.4, glow_r=54, extra_svg_body=extra_body)
+
+
+VARIANTS = {"A": variant_a, "B": variant_b, "C": variant_c, "D": variant_d, "E": variant_e}
 
 if __name__ == "__main__":
     for key, fn in VARIANTS.items():
