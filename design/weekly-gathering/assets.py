@@ -106,3 +106,14 @@ x0, x1 = max(0, xs.min()-3), min(gold.shape[1], xs.max()+4)
 print("  bbox:", (x0, y0, x1, y1))
 gold = gold[y0:y1, x0:x1]
 save_mask(crisp(gold, 3), HERE/"mask-wordmark.png", 2000)
+
+# ---- 3. the new star mark: gold on black -------------------------------
+im = Image.open(SRC/"8f103573-image.png").convert("RGB")
+a  = np.asarray(im).astype(float)
+band = a[955:1440]                                        # the star only
+val = band.max(2)/255.0
+ys, xs = np.where(val > 0.14)
+y0, y1 = max(0, ys.min()-4), min(band.shape[0], ys.max()+5)
+x0, x1 = max(0, xs.min()-4), min(band.shape[1], xs.max()+5)
+star = val[y0:y1, x0:x1]
+save_mask(crisp(star, 2), HERE/"mask-star.png", 1000)

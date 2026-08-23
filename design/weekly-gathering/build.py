@@ -170,7 +170,7 @@ FONTS = "\n".join([
 def mask_uri(name):
     return "data:image/png;base64," + base64.b64encode((HERE/name).read_bytes()).decode()
 
-SEAL_URI = mask_uri("mask-seal.png")
+SEAL_URI = mask_uri("mask-star.png")
 WORD_URI = mask_uri("mask-wordmark.png")
 
 W, H = 1200, 1800
@@ -256,11 +256,11 @@ html = f'''<!doctype html>
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{background:#000}}
 @page{{size:12.5in 18.75in;margin:0}}
-@media print{{html,body{{background:#0C0704;-webkit-print-color-adjust:exact;print-color-adjust:exact}}}}
+@media print{{html,body{{background:#211609;-webkit-print-color-adjust:exact;print-color-adjust:exact}}}}
 .page{{position:relative;width:{W}px;height:{H}px;overflow:hidden;
   background:
-    radial-gradient(112% 62% at 50% 24%, #3B2711 0%, #26190B 34%, #150E07 62%, #0C0704 100%),
-    radial-gradient(88% 42% at 50% 96%, #241809 0%, #120C06 46%, #0A0603 100%);
+    radial-gradient(112% 62% at 50% 24%, #6B4A22 0%, #4C3316 34%, #302012 62%, #211609 100%),
+    radial-gradient(88% 42% at 50% 96%, #3E2A14 0%, #2A1C0E 46%, #1D1409 100%);
   font-kerning:normal;-webkit-font-smoothing:antialiased;}}
 .layer{{position:absolute;inset:0;width:100%;height:100%}}
 .grain{{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
@@ -285,13 +285,13 @@ html,body{{background:#000}}
 .zf{{stroke:#9A7A3C}}
 .zstud{{fill:#C9A25C}}
 .zb{{stroke:#C6A059}}
-.band{{opacity:.30}}
-.tiles{{opacity:.17}}
+.band{{opacity:.34}}
+.tiles{{opacity:.20}}
 .scrim{{position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(62% 34% at 50% 21%, rgba(10,7,4,.80) 0%, rgba(10,7,4,.42) 58%, rgba(10,7,4,0) 100%),
-    radial-gradient(72% 40% at 50% 61%, rgba(10,7,4,.86) 0%, rgba(10,7,4,.50) 55%, rgba(10,7,4,0) 100%),
-    radial-gradient(64% 26% at 50% 87%, rgba(10,7,4,.84) 0%, rgba(10,7,4,.44) 58%, rgba(10,7,4,0) 100%);}}
+    radial-gradient(62% 34% at 50% 21%, rgba(23,15,7,.64) 0%, rgba(23,15,7,.30) 58%, rgba(23,15,7,0) 100%),
+    radial-gradient(72% 40% at 50% 61%, rgba(23,15,7,.70) 0%, rgba(23,15,7,.36) 55%, rgba(23,15,7,0) 100%),
+    radial-gradient(64% 26% at 50% 87%, rgba(23,15,7,.68) 0%, rgba(23,15,7,.32) 58%, rgba(23,15,7,0) 100%);}}
 .med{{filter:drop-shadow(0 0 16px rgba(230,192,116,.26))}}
 
 /* --- type --- */

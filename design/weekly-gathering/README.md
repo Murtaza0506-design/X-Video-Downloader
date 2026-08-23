@@ -9,8 +9,9 @@ Tariqa Qadiriyya Boutchichiya · Crescent Hall, Rochdale.
 | `Weekly-Dhikr-Gathering.pdf` | Vector text, 12.5″ × 18.75″ — send to a print shop |
 | `DESIGN-PHILOSOPHY.md` | The aesthetic the poster is built on |
 | `build.py` | Regenerates the artwork |
-| `assets.py` | Lifts the seal and the Arabic wordmark off their backgrounds |
-| `mask-seal.png`, `mask-wordmark.png` | The two supplied marks as alpha masks |
+| `assets.py` | Lifts the supplied marks off their backgrounds |
+| `mask-star.png`, `mask-wordmark.png` | The ten-point star mark and the Arabic wordmark, as alpha masks |
+| `mask-seal.png` | The earlier circular seal — kept, no longer used in the poster |
 
 ## The ground
 
@@ -24,14 +25,19 @@ A three-lobe scrim sits between the tilework and the type, dimming the pattern
 only where words fall, so the ground stays rich at the margins without ever
 competing with the text.
 
-## The two supplied marks
+## The supplied marks
 
-The order's seal and the Arabic wordmark arrived as flat images — the seal gold
-on white, the calligraphy gold on black. `assets.py` reduces each to a pure
-alpha mask, which the page then paints in the poster's own gold gradient, so
-neither sits on the page as a pasted-in rectangle. The red rule beneath the
-calligraphy is removed while the red dots of the *shin* letters are kept and
-carried into gold — they are orthography, not ornament.
+The ten-point star and the Arabic wordmark arrived as flat images — the star
+gold on black, the calligraphy gold on black. `assets.py` reduces each to a
+pure alpha mask, which the page then paints in the poster's own gold
+gradient, so neither sits on the page as a pasted-in rectangle. The red rule
+beneath the calligraphy is removed while the red dots of the *shin* letters
+are kept and carried into gold — they are orthography, not ornament.
+
+The star sits inside the same halo — the outer rim and the 99-mark tasbih
+ring — that previously framed the circular seal; only the mark at the centre
+changed. The seal extraction is kept in `assets.py` and `mask-seal.png` in
+case it's wanted again.
 
 Re-run `python3 assets.py` only if the source marks change.
 
