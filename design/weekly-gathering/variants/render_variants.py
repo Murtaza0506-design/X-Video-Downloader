@@ -37,11 +37,17 @@ def wordmark(top, h, w=None):
     return (f'<div class="mark wordmark" style="top:{top}px;width:{w:.0f}px;height:{h}px;'
             f'-webkit-mask-image:url({v.WORD_URI});mask-image:url({v.WORD_URI})"></div>')
 
+def star(top, size=46):
+    """The order's own ten-point star mark, as a small crest — not the hero here,
+       the building is, but the brief was clear: keep the logo in view."""
+    return (f'<div class="mark seal" style="top:{top}px;width:{size}px;height:{size}px;'
+            f'-webkit-mask-image:url({v.STAR_URI});mask-image:url({v.STAR_URI})"></div>')
+
 
 # ============================================================ A — Dusk Court
 def variant_a():
     """The hall itself, seen through the mihrab arch at dusk."""
-    bw = 640
+    bw = 600
     scale = bw/AW
     dw, dh = bw, AH*scale
     dx, dy = CX-dw/2, v.ARCH_BASE-dh          # foot of the silhouette on the arch base
@@ -63,9 +69,10 @@ def variant_a():
   <path d="{v.arch_d(9)} Z" fill="none" class="hair-2" stroke-width="1.1"/>'''
 
     hero = f'''
-{ayah_block(96, 160)}
-{title_block(244, 52, 58)}
-{wordmark(422, 76)}
+{ayah_block(90, 150)}
+{star(196, 44)}
+{title_block(258, 50, 56)}
+{wordmark(420, 72)}
 '''
     return v.page(hero, extra_defs=extra_defs, glow_cy=430, glow_r=46, extra_svg_body=extra_body)
 
@@ -73,8 +80,8 @@ def variant_a():
 # ============================================================ B — Seal of the House
 def variant_b():
     """The hall set as a cameo within the halo that once framed the seal."""
-    MED_CY, R = 372, 150
-    clip_r = 124
+    MED_CY, R = 372, 140
+    clip_r = 116
     d = clip_r*2 * 1.06                      # slight overscan so the crop fills the disc
 
     extra_defs = f'<clipPath id="cameoClip"><circle cx="{CX}" cy="{MED_CY}" r="{clip_r}"/></clipPath>'
@@ -88,8 +95,9 @@ def variant_b():
 
     hero = f'''
 {ayah_block()}
-{wordmark(542, 100)}
-{title_block(660, 50, 54)}
+{wordmark(530, 88)}
+{star(628, 42)}
+{title_block(684, 44, 48)}
 '''
     return v.page(hero, extra_defs=extra_defs, glow_cy=MED_CY, glow_r=50, extra_svg_body=extra_body)
 
@@ -97,7 +105,7 @@ def variant_b():
 # ============================================================ C — Skyline Banner
 def variant_c():
     """A bold graphic skyline as the poster's own letterhead."""
-    bw = 780
+    bw = 740
     scale = bw/AW
     dw, dh = bw, AH*scale
     dx, dy = CX-dw/2, 100
@@ -105,11 +113,13 @@ def variant_c():
     extra_body = f'''
   <image href="{BLDG_ARCH_GOLD}" x="{dx:.1f}" y="{dy:.1f}" width="{dw:.1f}" height="{dh:.1f}"
          preserveAspectRatio="none" style="filter:drop-shadow(0 0 22px rgba(230,190,110,.32))"/>
-  <line x1="{dx+34:.1f}" y1="{dy+dh+24:.1f}" x2="{dx+dw-34:.1f}" y2="{dy+dh+24:.1f}" class="rule"/>'''
+  <line x1="{dx+34:.1f}" y1="{dy+dh+22:.1f}" x2="{dx+dw-34:.1f}" y2="{dy+dh+22:.1f}" class="rule"/>'''
 
+    star_top = dy+dh+38
     hero = f'''
-{wordmark(dy+dh+42, 88)}
-{title_block(dy+dh+42+88+18, 48, 52)}
+{star(star_top, 42)}
+{wordmark(star_top+58, 82)}
+{title_block(star_top+58+82+16, 44, 48)}
 '''
     return v.page(hero, glow_cy=300, glow_r=58, extra_svg_body=extra_body)
 
@@ -117,7 +127,7 @@ def variant_c():
 # ============================================================ D — Framed Keepsake
 def variant_d():
     """A framed photograph of the hall, hung beneath the order's own words."""
-    cw = 560
+    cw = 520
     scale = cw/AW
     dw, dh = cw, AH*scale
     pad = 20
@@ -135,10 +145,13 @@ def variant_d():
   {v.lozenge(CX, cy0+dh+pad, 5, 8, "fill-lit")}'''
 
     frame_bottom = cy0 + dh + pad
+    wm_top = frame_bottom+22
+    star_top = wm_top+84+12
     hero = f'''
 {ayah_block(100, 164)}
-{wordmark(frame_bottom+24, 90)}
-{title_block(frame_bottom+24+90+18, 48, 52)}
+{wordmark(wm_top, 84)}
+{star(star_top, 38)}
+{title_block(star_top+38+12, 42, 46)}
 '''
     return v.page(hero, extra_defs=extra_defs, glow_cy=cy0+dh/2, glow_r=44, extra_svg_body=extra_body)
 
@@ -165,18 +178,21 @@ def dome_group(x, y, w, h, mask_id, stroke="#F0D8A0", sw=1.7):
 
 def variant_e():
     """The Dome of the Rock, engraved: ribs, drum arcade, facade arcade — not a flat block."""
-    bw = 660
+    bw = 620
     dh = bw*DOME_H/DOME_W
     dx, dy = CX-bw/2, 90
 
     extra_body = (
         dome_group(dx, dy, bw, dh, "domeMaskE") +
-        f'\n  <line x1="{dx+30:.1f}" y1="{dy+dh+22:.1f}" x2="{dx+bw-30:.1f}" y2="{dy+dh+22:.1f}" class="rule"/>'
+        f'\n  <line x1="{dx+30:.1f}" y1="{dy+dh+20:.1f}" x2="{dx+bw-30:.1f}" y2="{dy+dh+20:.1f}" class="rule"/>'
     )
 
+    wm_top = dy+dh+38
+    star_top = wm_top+78+10
     hero = f'''
-{wordmark(dy+dh+40, 82)}
-{title_block(dy+dh+40+82+18, 46, 50)}
+{wordmark(wm_top, 78)}
+{star(star_top, 36)}
+{title_block(star_top+36+10, 40, 44)}
 '''
     return v.page(hero, glow_cy=dy+dh*0.4, glow_r=54, extra_svg_body=extra_body)
 
