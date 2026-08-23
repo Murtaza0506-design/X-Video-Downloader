@@ -137,9 +137,9 @@ html,body{{background:#000}}
   letter-spacing:.045em;color:{pal['t2']}}}
 .lab{{font-family:Cinzel,serif;font-weight:400;font-size:12.5px;letter-spacing:.5em;
   text-indent:.5em;color:{pal['lab']}}}
-.val{{font-family:Cormorant,serif;font-weight:400;font-size:33px;letter-spacing:.075em;
+.val{{font-family:Cormorant,serif;font-weight:400;font-size:26px;letter-spacing:.075em;
   text-indent:.075em;color:{pal['val']}}}
-.body{{font-family:Cormorant,serif;font-weight:400;font-size:44px;line-height:1.2;
+.body{{font-family:Cormorant,serif;font-weight:400;font-size:35px;line-height:1.24;
   letter-spacing:.005em;color:{pal['body']}}}
 .body em{{font-style:italic;color:{pal['gloss']}}}
 .pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:27px;letter-spacing:.03em;
