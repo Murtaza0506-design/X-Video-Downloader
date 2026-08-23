@@ -12,6 +12,18 @@ Tariqa Qadiriyya Boutchichiya · Crescent Hall, Rochdale.
 | `assets.py` | Lifts the seal and the Arabic wordmark off their backgrounds |
 | `mask-seal.png`, `mask-wordmark.png` | The two supplied marks as alpha masks |
 
+## The ground
+
+The field is a Moroccan *zellij* tessellation, generated rather than tiled from
+an image: one eight-pointed khatim per repeat, its points reaching exactly to
+the edge of its square so neighbouring stars meet tip to tip and the small
+square between four of them falls out as the cross. The same pattern at a
+finer pitch runs as a dado band between the two frame rules.
+
+A three-lobe scrim sits between the tilework and the type, dimming the pattern
+only where words fall, so the ground stays rich at the margins without ever
+competing with the text.
+
 ## The two supplied marks
 
 The order's seal and the Arabic wordmark arrived as flat images — the seal gold

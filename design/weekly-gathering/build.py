@@ -83,6 +83,30 @@ def halo(cx, cy, R, seal_r):
     return "\n".join(g)
 
 
+def zellij(p_, R=None):
+    """One repeat of the Moroccan star-and-cross. One khatim per tile, its
+       eight points reaching exactly to the tile edge, so neighbouring stars
+       meet tip to tip and the square between four of them is the cross."""
+    R = R or p_/2
+    inner = R*0.76537                      # where the two squares cross
+    star = fmt([P(p_/2, p_/2, R if i % 2 == 0 else inner, i*22.5) for i in range(16)])
+    h = R*(1 - 0.70711)                    # the small square, cornered on four star tips
+    sq = [f"M {cx-h:.2f},{cy-h:.2f} h {2*h:.2f} v {2*h:.2f} h {-2*h:.2f} Z"
+          for cx, cy in ((0,0), (p_,0), (0,p_), (p_,p_))]
+    return [star] + sq
+
+
+def zellij_layer(p_, cls="zh", w=0.9, studs=True):
+    g = [f'<pattern id="zj{int(p_)}" width="{p_}" height="{p_}" patternUnits="userSpaceOnUse">']
+    for d in zellij(p_):
+        g.append(f'<path d="{d}" fill="none" class="{cls}" stroke-width="{w}"/>')
+    if studs:
+        for cx, cy in ((p_/2, p_/2),):
+            g.append(f'<path d="{fmt([P(cx,cy,p_*0.052,a*90) for a in range(4)])}" class="zstud"/>')
+    g.append('</pattern>')
+    return "\n".join(g)
+
+
 def ground_rosette(cx, cy, R):
     """Vast, faint field geometry — felt more than seen."""
     u = R/150.0
@@ -165,6 +189,18 @@ def arch(inset=0.0, cls="hair-4", w=0.8):
 
 MED_CY, MED_R, SEAL_D = 360, 149, 238
 
+tiles = f'''
+<svg class="layer tiles" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    {zellij_layer(104, "zh", 1.0)}
+    {zellij_layer(26, "zf", 0.55, studs=False)}
+  </defs>
+  <rect width="{W}" height="{H}" fill="url(#zj26)" opacity="0.22"/>
+  <rect width="{W}" height="{H}" fill="url(#zj104)"/>
+</svg>
+<div class="scrim"></div>
+'''
+
 svg = f'''
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
@@ -188,10 +224,15 @@ svg = f'''
   {arch(0, "hair-5", 1.0)}
   {arch(11, "hair-5", 0.6)}
 
-  <!-- frame -->
-  <rect x="44" y="44" width="{W-88}" height="{H-88}" class="hair-3" stroke-width="1.1" fill="none"/>
-  <rect x="57" y="57" width="{W-114}" height="{H-114}" class="hair-5" stroke-width="0.7" fill="none"/>
-  {corner(44,44,1,1)}{corner(W-44,44,-1,1)}{corner(44,H-44,1,-1)}{corner(W-44,H-44,-1,-1)}
+  <!-- frame: a tiled band, the way a Moroccan wall carries its dado -->
+  <defs>{zellij_layer(36, "zb", 0.75, studs=False)}</defs>
+  <path class="band" fill-rule="evenodd" fill="url(#zj36)"
+        d="M38,38 H{W-38} V{H-38} H38 Z M74,74 H{W-74} V{H-74} H74 Z"/>
+  <rect x="38" y="38" width="{W-76}" height="{H-76}" class="hair-3" stroke-width="1.15" fill="none"/>
+  <rect x="45" y="45" width="{W-90}" height="{H-90}" class="hair-5" stroke-width="0.6" fill="none"/>
+  <rect x="74" y="74" width="{W-148}" height="{H-148}" class="hair-3" stroke-width="1.0" fill="none"/>
+  <rect x="81" y="81" width="{W-162}" height="{H-162}" class="hair-5" stroke-width="0.6" fill="none"/>
+  {corner(74,74,1,1,0.66)}{corner(W-74,74,-1,1,0.66)}{corner(74,H-74,1,-1,0.66)}{corner(W-74,H-74,-1,-1,0.66)}
 
   <g class="med">{halo(CX, MED_CY, MED_R, SEAL_D/2)}</g>
 
@@ -241,10 +282,22 @@ html,body{{background:#000}}
 .rule{{stroke:#8A6C34;stroke-width:1;opacity:.85}}
 .rule-lit{{stroke:#DCBB79;stroke-width:1;opacity:.9}}
 .ground{{opacity:.072}}
+.zh{{stroke:#C9A25C}}
+.zf{{stroke:#9A7A3C}}
+.zstud{{fill:#C9A25C}}
+.zb{{stroke:#C6A059}}
+.band{{opacity:.30}}
+.tiles{{opacity:.17}}
+.scrim{{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(62% 34% at 50% 21%, rgba(10,7,4,.80) 0%, rgba(10,7,4,.42) 58%, rgba(10,7,4,0) 100%),
+    radial-gradient(72% 40% at 50% 61%, rgba(10,7,4,.86) 0%, rgba(10,7,4,.50) 55%, rgba(10,7,4,0) 100%),
+    radial-gradient(64% 26% at 50% 87%, rgba(10,7,4,.84) 0%, rgba(10,7,4,.44) 58%, rgba(10,7,4,0) 100%);}}
 .med{{filter:drop-shadow(0 0 16px rgba(230,192,116,.26))}}
 
 /* --- type --- */
-.at{{position:absolute;left:0;right:0;text-align:center}}
+.at{{position:absolute;left:0;right:0;text-align:center;
+  text-shadow:0 1px 3px rgba(6,4,2,.72), 0 0 14px rgba(6,4,2,.45)}}
 .mark{{position:absolute;left:50%;transform:translateX(-50%);
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-size:contain;mask-size:contain;
@@ -254,43 +307,46 @@ html,body{{background:#000}}
 .wordmark{{filter:drop-shadow(0 0 16px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.55))}}
 .gold{{background:linear-gradient(178deg,#FBEECB 0%,#E7CD92 26%,#C69E56 58%,#F3E3B7 82%,#D3AE68 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 1px 0 rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(214,172,100,.22))}}
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 5px rgba(6,4,2,.7))
+         drop-shadow(0 0 20px rgba(214,172,100,.26))}}
+.at.gold{{text-shadow:none}}
 .ayah{{font-family:Amiri,serif;font-size:40px;line-height:1.55;color:#E9CE95;
   direction:rtl;filter:drop-shadow(0 0 16px rgba(214,172,100,.28))}}
 .gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:20.5px;
-  letter-spacing:.055em;color:#A98D5C}}
+  letter-spacing:.055em;color:#D5B87E}}
 .t1{{font-family:Cinzel,serif;font-weight:600;font-size:50px;letter-spacing:.135em;
   text-indent:.135em;line-height:1}}
 .t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:43px;
-  letter-spacing:.045em;color:#E0C289}}
+  letter-spacing:.045em;color:#EDD29E}}
 .lab{{font-family:Cinzel,serif;font-weight:400;font-size:12.5px;letter-spacing:.5em;
-  text-indent:.5em;color:#A5874A}}
+  text-indent:.5em;color:#D0B16A}}
 .val{{font-family:Cormorant,serif;font-weight:400;font-size:33px;letter-spacing:.075em;
-  text-indent:.075em;color:#EDD59B}}
-.body{{font-family:Cormorant,serif;font-weight:300;font-size:24.5px;line-height:1.62;white-space:nowrap;
-  letter-spacing:.022em;color:#CBB080}}
+  text-indent:.075em;color:#F5E4B6}}
+.body{{font-family:Cormorant,serif;font-weight:400;font-size:24.5px;line-height:1.62;white-space:nowrap;
+  letter-spacing:.022em;color:#E3C994}}
 .body em{{font-style:italic;color:#E0C289}}
 .pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:400;font-size:14.5px;letter-spacing:.16em;
-  text-indent:.16em;color:#E6CB93}}
-.pd{{font-family:Cormorant,serif;font-weight:300;font-size:21.5px;line-height:1.46;
-  letter-spacing:.03em;color:#B09462}}
-.rn{{font-family:Cinzel,serif;font-size:11px;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:#A08142}}
+  text-indent:.16em;color:#F1DBA9}}
+.pd{{font-family:Cormorant,serif;font-weight:400;font-size:21.5px;line-height:1.46;
+  letter-spacing:.03em;color:#CDB07A}}
+.rn{{font-family:Cinzel,serif;font-size:11px;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:#B99A55}}
 .venue{{font-family:Cinzel,serif;font-weight:600;font-size:39px;letter-spacing:.18em;text-indent:.18em}}
 .vsub{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:23px;
-  letter-spacing:.06em;color:#AC9060}}
+  letter-spacing:.06em;color:#C8A974}}
 .addr{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:400;font-size:24px;letter-spacing:.13em;
-  text-indent:.13em;color:#D3B67F;text-transform:uppercase}}
+  text-indent:.13em;color:#EFD8A6;text-transform:uppercase}}
 .wa{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:400;font-size:34.5px;letter-spacing:.1em;
   text-indent:.1em;color:#F0D9A2}}
 .note{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:20px;
-  letter-spacing:.05em;color:#9C8250}}
-.url{{font-family:Cinzel,serif;font-size:12.5px;letter-spacing:.42em;text-indent:.42em;color:#8A6F3A}}
+  letter-spacing:.05em;color:#B99C66}}
+.url{{font-family:Cinzel,serif;font-size:12.5px;letter-spacing:.42em;text-indent:.42em;color:#C0A05C}}
 .cols{{position:absolute;left:{CX-350}px;width:700px;display:grid;
   grid-template-columns:1fr 1fr 1fr;text-align:center}}
 .cols > div{{padding:0 14px}}
 .cols > div + div{{border-left:1px solid rgba(138,108,52,.5)}}
 </style></head>
 <body><div class="page">
+{tiles}
 {svg}
 
 <div class="at ayah" style="top:104px">{AYAH}</div>
