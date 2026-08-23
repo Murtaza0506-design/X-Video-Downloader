@@ -32,6 +32,22 @@ def save_mask(a, path, target_w=None):
     Image.fromarray(rgba, "RGBA").save(path, optimize=True)
     print(path.name, (w, h))
 
+# The ring carries the same name twice — English over the top, Arabic under.
+# At poster size neither was legible, so the Latin half comes out and the
+# Arabic keeps the ring to itself. The bullets at three and nine o'clock stay,
+# capping the inscription; both circles that bound the band are untouched.
+def strip_arc(m, a0, a1, r0=0.783, r1=0.952):
+    h, w = m.shape
+    cy, cx = (h-1)/2, (w-1)/2
+    R = min(h, w)/2
+    ys, xs = np.mgrid[0:h, 0:w]
+    rad = np.hypot(xs-cx, ys-cy)/R
+    ang = np.degrees(np.arctan2(xs-cx, -(ys-cy))) % 360      # 0 = twelve, clockwise
+    within = (ang >= a0) if a0 > a1 else (ang >= a0) & (ang <= a1)
+    if a0 > a1: within |= (ang <= a1)
+    m[(rad >= r0) & (rad <= r1) & within] = 0.0
+    return m
+
 # ---- 1. the seal: gold on white ----------------------------------------
 im = Image.open(SRC/"82803491-image.png").convert("RGB")
 a  = np.asarray(im).astype(float)[681:1851]              # drop the black bars
@@ -41,6 +57,7 @@ ys, xs = np.where(d > 14)
 pad = 4
 d = d[max(0, ys.min()-pad):ys.max()+pad, max(0, xs.min()-pad):xs.max()+pad]
 seal = np.clip(d/np.percentile(d, 99.4), 0, 1)
+seal = strip_arc(seal, 270.0, 96.0)
 save_mask(crisp(seal, 2), HERE/"mask-seal.png", 1000)
 
 # ---- 2. the calligraphy: gold on black ----------------------------------

@@ -79,7 +79,6 @@ def halo(cx, cy, R, seal_r):
          circle(cx, cy, 146*u, "hair-2", 1.15)]
     g += [path(d, "hair-2", 0.85) for d in
           tick_ring(cx, cy, 132*u, 140*u, 99, accents=(0, 33, 66), acc_ext=4.5*u)]
-    g.append(circle(cx, cy, seal_r + 7, "hair-5", 0.6))
     return "\n".join(g)
 
 
@@ -187,7 +186,7 @@ def arch(inset=0.0, cls="hair-4", w=0.8):
     return (f'<path d="M {l},{b} L {l},{sh} Q {l},{a+95} {CX},{a} '
             f'Q {r},{a+95} {r},{sh} L {r},{b}" class="{cls}" stroke-width="{w}" fill="none"/>')
 
-MED_CY, MED_R, SEAL_D = 360, 149, 238
+MED_CY, MED_R, SEAL_D = 360, 149, 252
 
 tiles = f'''
 <svg class="layer tiles" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
