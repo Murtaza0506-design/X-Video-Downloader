@@ -139,11 +139,11 @@ html,body{{background:#000}}
   text-indent:.5em;color:{pal['lab']}}}
 .val{{font-family:Cormorant,serif;font-weight:400;font-size:33px;letter-spacing:.075em;
   text-indent:.075em;color:{pal['val']}}}
-.body{{font-family:Cormorant,serif;font-weight:400;font-size:24.5px;line-height:1.62;white-space:nowrap;
-  letter-spacing:.022em;color:{pal['body']}}}
+.body{{font-family:Cormorant,serif;font-weight:400;font-size:22px;line-height:1.5;
+  letter-spacing:.02em;color:{pal['body']}}}
 .body em{{font-style:italic;color:{pal['gloss']}}}
-.pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:400;font-size:14.5px;letter-spacing:.16em;
-  text-indent:.16em;color:{pal['pt']}}}
+.pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:20px;letter-spacing:.1em;
+  text-indent:.1em;color:{pal['pt']}}}
 .pd{{font-family:Cormorant,serif;font-weight:400;font-size:21.5px;line-height:1.46;
   letter-spacing:.03em;color:{pal['pd']}}}
 .rn{{font-family:Cinzel,serif;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:{pal['rn']}}}
@@ -204,11 +204,11 @@ def frame_svg(pal, hero_extra):
   {v.rule(CX, v.ARCH_BASE, 350)}
   <line x1="{CX}" y1="{v.ARCH_BASE+34}" x2="{CX}" y2="{v.ARCH_BASE+128}" class="rule"/>
 
-  {v.rule(CX, 1272, 350)}
-  <rect x="{CX-322}" y="1444" width="644" height="152" rx="2" class="hair-3" stroke-width="1" fill="none"/>
-  <rect x="{CX-315}" y="1451" width="630" height="138" rx="1" class="hair-5" stroke-width="0.6" fill="none"/>
-  {v.lozenge(CX-322,1520,5,8,"fill-ink")}{v.lozenge(CX+322,1520,5,8,"fill-ink")}
-  {v.lozenge(CX-322,1520,5,8,"stroke-node")}{v.lozenge(CX+322,1520,5,8,"stroke-node")}
+  {v.rule(CX, 1306, 350)}
+  <rect x="{CX-322}" y="1478" width="644" height="152" rx="2" class="hair-3" stroke-width="1" fill="none"/>
+  <rect x="{CX-315}" y="1485" width="630" height="138" rx="1" class="hair-5" stroke-width="0.6" fill="none"/>
+  {v.lozenge(CX-322,1554,5,8,"fill-ink")}{v.lozenge(CX+322,1554,5,8,"fill-ink")}
+  {v.lozenge(CX-322,1554,5,8,"stroke-node")}{v.lozenge(CX+322,1554,5,8,"stroke-node")}
 </svg>
 <div class="grain"></div>
 '''
@@ -236,30 +236,32 @@ def bottom_html():
 <div class="at lab" style="top:{v.ARCH_BASE+32}px;left:{CX+10}px;width:340px">EVENING</div>
 <div class="at val" style="top:{v.ARCH_BASE+58}px;left:{CX+10}px;width:340px">7:00 – 9:00 pm</div>
 
-<div class="at body" style="top:976px;left:{CX-440}px;width:880px">
-Direct Sufi practice of the Moroccan <em>dhikr</em>, with trained practitioners<br>
-reciting with <em>idhn</em> — permission — from a recognised master<br>
-of the Qadiriyya Boutchichiya Sufi order.
+<div class="at body" style="top:968px;left:{CX-410}px;width:820px">
+Experience the Moroccan tradition of Sufi <em>dhikr</em> within the Qadiriyya Boutchichiya.
+</div>
+<div class="at body" style="top:1040px;left:{CX-410}px;width:820px">
+Guided remembrance, recited with <em>idhn</em> (spiritual permission), in the company of
+those walking the path of spiritual refinement.
 </div>
 
-<div class="cols" style="top:1128px">
-  <div><div class="rn">I</div><div class="pt" style="margin-top:9px">7:00 – 8:15</div>
-       <div class="pd" style="margin-top:11px">Wadhifa Dhikr<br>and Dhikr al&nbsp;Faraj</div></div>
-  <div><div class="rn">II</div><div class="pt" style="margin-top:9px">8:15 – 8:30</div>
-       <div class="pd" style="margin-top:11px">Talk</div></div>
-  <div><div class="rn">III</div><div class="pt" style="margin-top:9px">8:30</div>
-       <div class="pd" style="margin-top:11px">Maghrib, followed<br>by refreshments</div></div>
+<div class="cols" style="top:1160px">
+  <div><div class="rn">I</div><div class="pt" style="margin-top:11px">7:00 – 8:15</div>
+       <div class="pd" style="margin-top:13px">Wadhifa Dhikr<br>and Dhikr al&nbsp;Faraj</div></div>
+  <div><div class="rn">II</div><div class="pt" style="margin-top:11px">8:15 – 8:30</div>
+       <div class="pd" style="margin-top:13px">Talk</div></div>
+  <div><div class="rn">III</div><div class="pt" style="margin-top:11px">8:30</div>
+       <div class="pd" style="margin-top:13px">Maghrib, followed<br>by refreshments</div></div>
 </div>
 
-<div class="at venue gold" style="top:1302px">CRESCENT HALL</div>
-<div class="at vsub" style="top:1356px">Crescent Nursery</div>
-<div class="at addr" style="top:1392px">162 EDMUND STREET · ROCHDALE OL12 6QG</div>
+<div class="at venue gold" style="top:1336px">CRESCENT HALL</div>
+<div class="at vsub" style="top:1390px">Crescent Nursery</div>
+<div class="at addr" style="top:1426px">162 EDMUND STREET · ROCHDALE OL12 6QG</div>
 
-<div class="at lab" style="top:1478px">PLEASE CONFIRM YOUR ATTENDANCE</div>
-<div class="at wa" style="top:1508px">WhatsApp 07884 053544</div>
-<div class="at note" style="top:1554px">A brothers-only gathering</div>
+<div class="at lab" style="top:1512px">PLEASE CONFIRM YOUR ATTENDANCE</div>
+<div class="at wa" style="top:1542px">WhatsApp 07884 053544</div>
+<div class="at note" style="top:1588px">A brothers-only gathering</div>
 
-<div class="at url" style="top:1668px">WWW.THESUFIWAY.CO.UK</div>
+<div class="at url" style="top:1702px">WWW.THESUFIWAY.CO.UK</div>
 '''
 
 def render(pal, out_name, scale=1):
