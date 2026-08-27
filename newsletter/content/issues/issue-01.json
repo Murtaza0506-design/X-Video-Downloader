@@ -1,0 +1,44 @@
+{
+  "issue_number": 1,
+  "issue_label": "Issue 01",
+  "issue_date": "TBC",
+
+  "opening_ayah": {
+    "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+    "english": "Verily, in the remembrance of God do hearts find rest."
+  },
+
+  "at_a_glance": {
+    "_note": "OPEN DECISION (see NOTES.md #2): both dates are still TBC pending confirmation.",
+    "rows": [
+      { "label": "Next Dhikr / Sidi Mounir's talk", "value": "TBC" },
+      { "label": "Next big gathering", "value": "TBC" }
+    ]
+  },
+
+  "key_article": {
+    "eyebrow": "TEACHING",
+    "title": "Beautification, then Detachment",
+    "body_html": [
+      "One of the defining teachings of Sidi Hamza, may God be pleased with him, was that the path begins not with struggle, but with sweetness. &ldquo;Stability of God's love inside the heart, then moving to the practice&rdquo; &mdash; this is <em>at-takhliya ba'da at-tahliya</em>: the heart first tastes the sweetness (<em>tahliya</em>) of remembering God, and only then moves toward purifying itself of its darkness and diseases (<em>takhliya</em>).",
+      "In the past, the seeker was expected to purify the heart first, before being permitted to taste the sweetness of dhikr. Sidi Hamza's renewal of the path reversed the order &mdash; not because the destination changed, but because the door to it was made wider. As he explained, the retreat of the Sufi is <em>inside the heart</em> (<em>al-khalwat fi al-qalb</em>): there is no need to withdraw from the world to walk this path. A person can remain fully present in their work, their family, their social life &mdash; so long as they are, in his words, &ldquo;happy in their hearts.&rdquo;",
+      "This is why the Tariqa Qadiriyya Boutchichiyya welcomes people at every level of knowledge, Muslim and non-Muslim alike, as long as they wish to purify and enlighten their hearts."
+    ]
+  },
+
+  "history": {
+    "subject_id": "sidi_mounir",
+    "eyebrow": "FROM THE HISTORY",
+    "title": "Sidi Mounir al-Qadiri al-Boutchichi",
+    "body_html": [
+      "Known for decades affectionately as &ldquo;Moulay Mounir,&rdquo; Sidi Mounir is the eldest son of Sidi Jamal-ad-Din and the living master of the Tariqa Qadiriyya Boutchichiyya. He grew up within the family of the Qadiri Boutchich, receiving his earliest education from that source, before pursuing academic study in Morocco and France &mdash; graduating from Oujda University in Literary Science (1994), completing a law degree at the Dar al-Hassania Institute in Rabat (1996), a Master's in Social Anthropology in Paris (2001), and a doctorate in Islamic Law at the Sorbonne. He is the author of several publications on Sufism, including <em>The Sufi Presence in an Age of Globalisation</em> (2004).",
+      "His grandfather, Sidi Hamza, confirmed both verbally and in writing that Sidi Mounir would inherit the spiritual legacy of the path. His father, Sidi Jamal, reaffirmed this entrustment before his passing, saying: <em>&ldquo;O Allah, I bear witness to You, Your angels, Your prophets, and Your saints that I entrust this secret to my son, Sidi Mounir, my worthy successor...&rdquo;</em>"
+    ]
+  },
+
+  "did_you_know_id": "boutchichi_name_origin",
+
+  "qa_ids": ["idhn", "wird_different", "welcomes_all", "samaa"],
+
+  "saying_ids": ["know_god_no_limit", "wisdom_in_the_heart", "divine_love_heart"]
+}

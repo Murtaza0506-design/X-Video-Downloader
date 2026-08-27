@@ -1,0 +1,10 @@
+{
+  "_note": "Planned order for the 'From the History' rotating series. Each issue's data file sets history.subject_id to the entry it is featuring; the build marks that one as current and lists the rest (in order) as 'coming in future issues'. Full biography text for the featured subject lives in that issue's own data file, since it is per-issue content, not stored here.",
+  "series": [
+    { "id": "sidi_mounir", "name": "Sidi Mounir al-Qadiri al-Boutchichi" },
+    { "id": "sidi_jamal", "name": "Sidi Jamal-ad-Din" },
+    { "id": "sidi_hamza", "name": "Sidi Hamza" },
+    { "id": "sidi_abbas", "name": "Sidi Al-Hajj Al-Abbas" },
+    { "id": "sidi_boumadyan", "name": "Sidi Abu Madyan (Sidi Boumadyan)" }
+  ]
+}

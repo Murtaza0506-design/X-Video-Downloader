@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ masthead.newsletter_name }} — {{ issue.issue_label }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+{{ css }}
+</style>
+</head>
+<body>
+<article class="sheet">
+  <span class="corner corner-tl">{{ corner_svg }}</span>
+  <span class="corner corner-tr">{{ corner_svg }}</span>
+  <span class="corner corner-br">{{ corner_svg }}</span>
+  <span class="corner corner-bl">{{ corner_svg }}</span>
+
+  <header class="masthead">
+    <div class="logo">{{ khatim_svg }}</div>
+    <p class="arabic-title">{{ masthead.arabic_title }}</p>
+    <h1 class="english-title">{{ masthead.english_title }}</h1>
+    <p class="pub-line"><span class="rule"></span> {{ masthead.newsletter_subtitle }} <span class="rule"></span></p>
+    <p class="newsletter-name">{{ masthead.newsletter_name }}</p>
+    <p class="issue-line"><strong>{{ issue.issue_label }}</strong>{% if issue.issue_date and issue.issue_date != "TBC" %} &middot; {{ issue.issue_date }}{% endif %}</p>
+
+    {% if issue.opening_ayah %}
+    <div class="ayah">
+      <p class="arabic">{{ issue.opening_ayah.arabic }}</p>
+      <p class="english">&ldquo;{{ issue.opening_ayah.english }}&rdquo;</p>
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <p class="eyebrow">AT A GLANCE</p>
+    <div class="glance-box">
+      {% for item in issue.at_a_glance.rows %}
+      <div class="glance-item">
+        <span class="glance-label">{{ item.label }}</span>
+        <span class="glance-value">{{ item.value }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- KEY ARTICLE -->
+  <section class="section">
+    <p class="eyebrow">{{ issue.key_article.eyebrow }}</p>
+    <h2 class="title">{{ issue.key_article.title }}</h2>
+    {% for para in issue.key_article.body_html %}
+    <p>{{ para | safe }}</p>
+    {% endfor %}
+  </section>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- FROM THE HISTORY -->
+  <section class="section">
+    <p class="eyebrow">{{ issue.history.eyebrow }}</p>
+    <h2 class="title">{{ issue.history.title }}</h2>
+    {% for para in issue.history.body_html %}
+    <p>{{ para | safe }}</p>
+    {% endfor %}
+    {% if upcoming_history %}
+    <p class="history-upcoming">Coming in future issues: <strong>{{ upcoming_history | join(', ') }}</strong></p>
+    {% endif %}
+  </section>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- UNDERSTANDING THE WIRD -->
+  <section class="section">
+    <p class="eyebrow">{{ evergreen.understanding_the_wird.eyebrow }}</p>
+    <h2 class="title">{{ evergreen.understanding_the_wird.title }}</h2>
+    <p>{{ evergreen.understanding_the_wird.intro_html | safe }}</p>
+    <p class="list-heading">{{ evergreen.understanding_the_wird.list_heading }}</p>
+    <ul>
+      {% for item in evergreen.understanding_the_wird.list_items %}
+      <li>{{ item | safe }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- WHY WE GATHER -->
+  <section class="section">
+    <p class="eyebrow">{{ evergreen.why_we_gather.eyebrow }}</p>
+    <h2 class="title">{{ evergreen.why_we_gather.title }}</h2>
+    {% for para in evergreen.why_we_gather.body_html %}
+    <p>{{ para | safe }}</p>
+    {% endfor %}
+  </section>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- NEW TO THE PATH -->
+  <section class="section">
+    <p class="eyebrow">{{ evergreen.new_to_the_path.eyebrow }}</p>
+    <h2 class="title">{{ evergreen.new_to_the_path.title | safe }}</h2>
+    <p>{{ evergreen.new_to_the_path.intro_html | safe }}</p>
+    <ul>
+      {% for item in evergreen.new_to_the_path.list_items %}
+      <li>{{ item | safe }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {% if did_you_know %}
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- DID YOU KNOW -->
+  <section class="section">
+    <p class="eyebrow">DID YOU KNOW?</p>
+    <p class="fact-box">{{ did_you_know.fact_html | safe }}</p>
+  </section>
+  {% endif %}
+
+  {% if qa_items %}
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- ASK THE TARIQA -->
+  <section class="section">
+    <p class="eyebrow">ASK THE TARIQA</p>
+    <h2 class="title">Questions &amp; Answers</h2>
+    {% for qa in qa_items %}
+    <div class="qa-item">
+      <p class="qa-question">{{ qa.question | safe }}</p>
+      <p class="qa-answer">{{ qa.answer_html | safe }}</p>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if saying_items %}
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- SAYINGS -->
+  <section class="section">
+    <p class="eyebrow">WORDS OF THE SHAYKH</p>
+    {% for saying in saying_items %}
+    <div class="saying">
+      <blockquote>&ldquo;{{ saying.quote_html | safe }}&rdquo;</blockquote>
+      <p class="attribution">{{ saying.attribution }}</p>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <footer class="footer">
+    <div class="logo-small">{{ khatim_svg }}</div>
+    <p class="website">{{ footer.website }}</p>
+    <p>WhatsApp: {{ footer.whatsapp }}</p>
+    <p>{{ footer.address }}</p>
+  </footer>
+</article>
+</body>
+</html>

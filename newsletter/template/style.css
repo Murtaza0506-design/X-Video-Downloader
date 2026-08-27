@@ -1,0 +1,311 @@
+/* ==========================================================================
+   Tariqa Al Qadiriya Al Boutchichiya — Newsletter template
+   Deep charcoal ground, gold display type, fine ornamental border.
+   ========================================================================== */
+
+:root {
+  --ground: #0b0b0d;
+  --panel: #131315;
+  --panel-raised: #17171a;
+  --gold: #c9a24b;
+  --gold-bright: #e6c878;
+  --gold-dim: #8a723f;
+  --hairline: rgba(201, 162, 75, 0.28);
+  --ink: #f3ecdc;
+  --ink-muted: #b9ae94;
+  --serif-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --serif-body: "EB Garamond", Georgia, serif;
+  --arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ground);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--serif-body);
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 40px 16px 80px;
+}
+
+.sheet {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  padding: 34px;
+  border: 1px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--ground) 60%);
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--hairline);
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+  opacity: 0.9;
+}
+.corner svg { width: 100%; height: 100%; display: block; }
+.corner-tl { top: 14px; left: 14px; }
+.corner-tr { top: 14px; right: 14px; transform: rotate(90deg); }
+.corner-br { bottom: 14px; right: 14px; transform: rotate(180deg); }
+.corner-bl { bottom: 14px; left: 14px; transform: rotate(270deg); }
+
+/* ---------- Masthead ---------- */
+
+.masthead { text-align: center; padding: 6px 8px 26px; position: relative; z-index: 1; }
+
+.masthead .logo {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 14px;
+  color: var(--gold);
+}
+.masthead .logo svg { width: 100%; height: 100%; display: block; }
+
+.masthead .arabic-title {
+  font-family: var(--arabic);
+  font-size: 30px;
+  color: var(--gold-bright);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.masthead .english-title {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.03em;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.masthead .pub-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  color: var(--gold);
+  font-family: var(--serif-body);
+}
+.masthead .pub-line .rule { flex: 1 1 40px; max-width: 60px; height: 1px; background: var(--hairline); }
+.masthead .newsletter-name {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  color: var(--gold-bright);
+  margin: 16px 0 2px;
+}
+.masthead .newsletter-subtitle {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.masthead .issue-line {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.masthead .issue-line strong { color: var(--gold); font-weight: 600; }
+
+.ayah {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+}
+.ayah .arabic {
+  font-family: var(--arabic);
+  font-size: 22px;
+  color: var(--gold-bright);
+  line-height: 1.8;
+}
+.ayah .english {
+  font-family: var(--serif-display);
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* ---------- Ornamental divider ---------- */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 28px;
+}
+.divider .line { flex: 1; height: 1px; background: var(--hairline); }
+.divider .lozenge {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold);
+  opacity: 0.85;
+  flex: none;
+}
+
+/* ---------- Sections ---------- */
+
+.section { position: relative; z-index: 1; padding: 0 4px 8px; }
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: var(--serif-body);
+  margin: 0 0 8px;
+}
+
+.section h2.title {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.section p { margin: 0 0 14px; color: var(--ink); }
+.section p:last-child { margin-bottom: 0; }
+.section em { color: var(--gold-bright); font-style: italic; }
+
+/* At a glance */
+.glance-box {
+  border: 1px solid var(--hairline);
+  background: var(--panel-raised);
+  padding: 18px 20px;
+}
+.glance-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--hairline);
+}
+.glance-item:last-child { border-bottom: none; }
+.glance-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.glance-value {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--gold-bright);
+  text-align: right;
+}
+
+/* Lists */
+.section ul { margin: 0 0 4px; padding-left: 20px; }
+.section ul li { margin-bottom: 8px; color: var(--ink); }
+.list-heading {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 18px 0 10px;
+}
+
+/* From the History */
+.history-upcoming {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--hairline);
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+.history-upcoming strong { color: var(--gold); font-weight: 600; }
+
+/* Did you know */
+.fact-box {
+  border-left: 2px solid var(--gold);
+  padding: 4px 0 4px 18px;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+/* Q&A */
+.qa-item { margin-bottom: 20px; }
+.qa-item:last-child { margin-bottom: 0; }
+.qa-question {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--gold-bright);
+  margin: 0 0 6px;
+}
+.qa-answer { color: var(--ink); }
+
+/* Sayings */
+.saying {
+  text-align: center;
+  padding: 10px 10px 22px;
+}
+.saying blockquote {
+  margin: 0 0 8px;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.saying .attribution {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.footer .logo-small { width: 34px; height: 34px; margin: 0 auto 12px; color: var(--gold); opacity: 0.8; }
+.footer .logo-small svg { width: 100%; height: 100%; }
+.footer p { margin: 4px 0; }
+.footer .website { color: var(--gold-bright); }
+
+@media print {
+  body { padding: 0; background: var(--ground); }
+  .sheet { border-color: var(--gold-dim); box-shadow: none; }
+}
+
+@media (max-width: 520px) {
+  .sheet { padding: 22px 16px; }
+  .masthead .english-title { font-size: 22px; }
+  .glance-item { flex-direction: column; gap: 2px; }
+  .glance-value { text-align: left; }
+}
