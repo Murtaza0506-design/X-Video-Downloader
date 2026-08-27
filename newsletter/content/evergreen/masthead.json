@@ -1,7 +1,7 @@
 {
-  "_note": "OPEN DECISION (see NOTES.md #1): newsletter_name defaults to 'The Sufi Way' — the jama'a's existing site name, reused as the publication title. Replace with a distinct name if TAZ prefers one.",
+  "_note": "OPEN DECISION #1 resolved: newsletter_name set to 'Al Qadariya Al Bouchichia' per TAZ's instruction.",
   "arabic_title": "الطريقة القادرية البودشيشية",
   "english_title": "Tariqa Al Qadiriya Al Boutchichiya",
-  "newsletter_name": "The Sufi Way",
+  "newsletter_name": "Al Qadariya Al Bouchichia",
   "newsletter_subtitle": "Newsletter of the Tariqa"
 }

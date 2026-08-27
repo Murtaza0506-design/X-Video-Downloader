@@ -36,6 +36,21 @@
 
   <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
 
+  {% if issue.photo_strip %}
+  <section class="section photo-strip-section">
+    <div class="photo-strip">
+      {% for photo in issue.photo_strip %}
+      <figure class="photo-frame">
+        <img src="{{ photo.src }}" alt="{{ photo.alt | default(photo.caption, true) | default('', true) }}">
+        {% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+  {% endif %}
+
   <!-- AT A GLANCE -->
   <section class="section">
     <p class="eyebrow">AT A GLANCE</p>
