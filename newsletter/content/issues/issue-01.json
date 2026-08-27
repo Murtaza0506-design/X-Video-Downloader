@@ -8,6 +8,17 @@
     "english": "Verily, in the remembrance of God do hearts find rest."
   },
 
+  "photo_strip": [
+    {
+      "src": "assets/photos/gathering-2026-08-07-samaa.jpg",
+      "caption": "Samaa at the last gathering"
+    },
+    {
+      "src": "assets/photos/gathering-2026-08-07-crowd.jpg",
+      "caption": "7 August 2026"
+    }
+  ],
+
   "at_a_glance": {
     "_note": "OPEN DECISION (see NOTES.md #2): both dates are still TBC pending confirmation.",
     "rows": [

@@ -17,12 +17,12 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    since August 2025 as of this content package. Worth a quick check
    before this issue goes out.
 
-4. **Photo strip from the last gathering.** Built — the template has a
-   `photo_strip` section (framed thumbnails between the masthead and "At
-   a Glance"), on if `issue.photo_strip` is set. Still waiting on the
-   actual photo(s) from TAZ to populate it for issue 1; drop the files
-   into `assets/photos/` and add entries to `content/issues/issue-01.json`
-   (see the `photo_strip` field shape in that file once populated).
+4. **Photo strip from the last gathering.** Resolved — two photos from
+   the 7 August 2026 gathering (Samaa, and the congregation) are in
+   `assets/photos/` and wired into `content/issues/issue-01.json`'s
+   `photo_strip`. The first photo (a phone screenshot with black
+   letterboxing top and bottom) was cropped down to just the photo
+   content before saving.
 
 5. **Which Q&As and sayings to run.** Issue 1 uses 4 of the 8 banked Q&As
    (`idhn`, `wird_different`, `welcomes_all`, `samaa`) and all 3 banked
