@@ -12,7 +12,10 @@ letter-spaced gold eyebrow labels.
 newsletter/
   template/
     newsletter.html.jinja   # masthead, ornaments, section chrome — edit rarely
-    style.css                # all visual styling
+    themes/
+      midnight-gold.css       # ACTIVE theme — charcoal ground, gold ornament
+      emerald-manuscript.css  # parchment ground, emerald + gold, book feel
+      modern-minimal.css      # navy, left-aligned, borderless, editorial
   assets/
     khatim-logo.jpg           # the tariqa's khatim mark, used in masthead + footer
     corner.svg                # gold corner ornament used at all 4 corners
@@ -26,7 +29,7 @@ newsletter/
     issues/
       issue-01.json           # everything specific to one issue
   output/
-    issue-01.html             # generated — do not hand-edit
+    issue-01.html             # generated (active theme) — do not hand-edit
   build.py
 ```
 
@@ -46,6 +49,24 @@ rebuilds every issue found in `content/issues/`.
 
 No template or CSS edits are needed for a routine issue — only the one
 JSON data file.
+
+## Themes
+
+The same content and HTML structure can render in any of the stylesheets
+under `template/themes/`. Only colors, type, and a handful of structural
+CSS rules (alignment, borders, card layout) differ between them — no
+content or template changes needed to compare or switch.
+
+```
+python3 build.py issue-01 --all-themes    # one output file per theme, for comparing
+python3 build.py issue-01 --theme emerald-manuscript   # build just one theme
+```
+
+Once a theme is chosen, set `ACTIVE_THEME` at the top of `build.py` to its
+name — that's what plain `python3 build.py` builds from then on.
+
+Adding a fourth theme is a new `template/themes/NAME.css` file using the
+same class names as `midnight-gold.css`; no other file needs to change.
 
 ## Open decisions (see NOTES.md)
 

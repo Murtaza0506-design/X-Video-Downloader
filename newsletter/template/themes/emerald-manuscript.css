@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Theme: Emerald Manuscript
+   Warm parchment ground, deep emerald headings, antique-gold accents —
+   the feel of an illuminated Andalusian manuscript page.
+   ========================================================================== */
+
+:root {
+  --ground: #f6efdc;
+  --panel: #fbf6e9;
+  --panel-raised: #efe5c8;
+  --emerald: #184d3b;
+  --emerald-bright: #206a51;
+  --gold: #a9832f;
+  --gold-bright: #8c6a1f;
+  --gold-dim: #c7ad74;
+  --hairline: rgba(24, 77, 59, 0.22);
+  --ink: #2a2013;
+  --ink-muted: #6d5a3d;
+  --serif-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --serif-body: "EB Garamond", Georgia, serif;
+  --arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ground);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--serif-body);
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 40px 16px 80px;
+}
+
+.sheet {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  padding: 34px;
+  border: 2px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--ground) 70%);
+  box-shadow: 0 12px 40px rgba(24, 77, 59, 0.08);
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--hairline);
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.corner svg { width: 100%; height: 100%; display: block; }
+.corner-tl { top: 14px; left: 14px; }
+.corner-tr { top: 14px; right: 14px; transform: rotate(90deg); }
+.corner-br { bottom: 14px; right: 14px; transform: rotate(180deg); }
+.corner-bl { bottom: 14px; left: 14px; transform: rotate(270deg); }
+
+/* ---------- Masthead ---------- */
+
+.masthead { text-align: center; padding: 6px 8px 26px; position: relative; z-index: 1; }
+
+.masthead .logo {
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--panel), 0 0 0 4px var(--gold-dim);
+}
+.masthead .logo img { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; }
+
+.masthead .arabic-title {
+  font-family: var(--arabic);
+  font-size: 30px;
+  color: var(--emerald);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.masthead .english-title {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px;
+  color: var(--emerald);
+}
+
+.masthead .pub-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  color: var(--gold-bright);
+  font-family: var(--serif-body);
+}
+.masthead .pub-line .rule { flex: 1 1 40px; max-width: 60px; height: 1px; background: var(--hairline); }
+.masthead .newsletter-name {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  color: var(--gold-bright);
+  margin: 16px 0 2px;
+}
+.masthead .newsletter-subtitle {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.masthead .issue-line {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.masthead .issue-line strong { color: var(--emerald); font-weight: 600; }
+
+.ayah {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+}
+.ayah .arabic {
+  font-family: var(--arabic);
+  font-size: 22px;
+  color: var(--emerald);
+  line-height: 1.8;
+}
+.ayah .english {
+  font-family: var(--serif-display);
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* ---------- Photo strip ---------- */
+
+.photo-strip-section { padding-bottom: 4px; }
+.photo-strip {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.photo-frame {
+  margin: 0;
+  flex: 1 1 150px;
+  max-width: 220px;
+  border: 1px solid var(--gold-dim);
+  padding: 6px;
+  background: var(--panel);
+  box-shadow: 0 4px 14px rgba(24, 77, 59, 0.1);
+}
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  filter: sepia(0.35) saturate(0.85);
+}
+.photo-frame figcaption {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ---------- Ornamental divider ---------- */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 28px;
+}
+.divider .line { flex: 1; height: 1px; background: var(--hairline); }
+.divider .lozenge {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold);
+  opacity: 0.85;
+  flex: none;
+}
+
+/* ---------- Sections ---------- */
+
+.section { position: relative; z-index: 1; padding: 0 4px 8px; }
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  font-family: var(--serif-body);
+  margin: 0 0 8px;
+}
+
+.section h2.title {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  margin: 0 0 16px;
+  color: var(--emerald);
+}
+
+.section p { margin: 0 0 14px; color: var(--ink); }
+.section p:last-child { margin-bottom: 0; }
+.section em { color: var(--emerald-bright); font-style: italic; }
+
+/* At a glance */
+.glance-box {
+  border: 1px solid var(--hairline);
+  background: var(--panel);
+  padding: 18px 20px;
+}
+.glance-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--hairline);
+}
+.glance-item:last-child { border-bottom: none; }
+.glance-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.glance-value {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--emerald);
+  text-align: right;
+}
+
+/* Lists */
+.section ul { margin: 0 0 4px; padding-left: 20px; }
+.section ul li { margin-bottom: 8px; color: var(--ink); }
+.list-heading {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 18px 0 10px;
+}
+
+/* From the History */
+.history-upcoming {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--hairline);
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+.history-upcoming strong { color: var(--emerald); font-weight: 600; }
+
+/* Did you know */
+.fact-box {
+  border-left: 2px solid var(--emerald);
+  padding: 4px 0 4px 18px;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+/* Q&A */
+.qa-item { margin-bottom: 20px; }
+.qa-item:last-child { margin-bottom: 0; }
+.qa-question {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--emerald-bright);
+  margin: 0 0 6px;
+}
+.qa-answer { color: var(--ink); }
+
+/* Sayings */
+.saying {
+  text-align: center;
+  padding: 10px 10px 22px;
+}
+.saying blockquote {
+  margin: 0 0 8px;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.saying .attribution {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.footer .logo-small { width: 44px; height: 44px; margin: 0 auto 12px; border-radius: 50%; opacity: 0.95; }
+.footer .logo-small img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.footer p { margin: 4px 0; }
+.footer .website { color: var(--gold-bright); }
+
+@media print {
+  body { padding: 0; background: var(--ground); }
+  .sheet { border-color: var(--gold-dim); box-shadow: none; }
+}
+
+@media (max-width: 520px) {
+  .sheet { padding: 22px 16px; }
+  .masthead .english-title { font-size: 22px; }
+  .glance-item { flex-direction: column; gap: 2px; }
+  .glance-value { text-align: left; }
+}

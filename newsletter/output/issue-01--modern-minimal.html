@@ -9,22 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================================
-   Tariqa Al Qadiriya Al Boutchichiya — Newsletter template
-   Deep charcoal ground, gold display type, fine ornamental border.
+   Theme: Modern Minimal
+   Deep navy ground, left-aligned editorial masthead, no ornamental frame —
+   a contemporary newsletter read rather than a poster.
    ========================================================================== */
 
 :root {
-  --ground: #0b0b0d;
-  --panel: #131315;
-  --panel-raised: #17171a;
-  --gold: #c9a24b;
-  --gold-bright: #e6c878;
-  --gold-dim: #8a723f;
-  --hairline: rgba(201, 162, 75, 0.28);
-  --ink: #f3ecdc;
-  --ink-muted: #b9ae94;
-  --serif-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --serif-body: "EB Garamond", Georgia, serif;
+  --ground: #0c1015;
+  --panel: #12161d;
+  --panel-raised: #171c24;
+  --gold: #d4a13d;
+  --gold-bright: #f0c169;
+  --gold-dim: #6b5227;
+  --hairline: rgba(212, 161, 61, 0.16);
+  --ink: #eef1f5;
+  --ink-muted: #929cab;
+  --serif-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --serif-body: "Inter", system-ui, -apple-system, sans-serif;
   --arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
 }
 
@@ -39,122 +40,123 @@ html, body {
 
 body {
   font-family: var(--serif-body);
-  font-size: 17px;
-  line-height: 1.65;
-  padding: 40px 16px 80px;
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 0 16px 80px;
 }
 
 .sheet {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
   position: relative;
-  padding: 34px;
-  border: 1px solid var(--gold-dim);
-  background: linear-gradient(180deg, var(--panel) 0%, var(--ground) 60%);
+  padding: 44px 30px 34px;
+  border: none;
+  background: var(--ground);
 }
 
-.sheet::before {
+.sheet::before { display: none; }
+
+.sheet::after {
   content: "";
   position: absolute;
-  inset: 8px;
-  border: 1px solid var(--hairline);
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
 }
 
-.corner {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  color: var(--gold);
-  opacity: 0.9;
-}
-.corner svg { width: 100%; height: 100%; display: block; }
-.corner-tl { top: 14px; left: 14px; }
-.corner-tr { top: 14px; right: 14px; transform: rotate(90deg); }
-.corner-br { bottom: 14px; right: 14px; transform: rotate(180deg); }
-.corner-bl { bottom: 14px; left: 14px; transform: rotate(270deg); }
+.corner { display: none; }
 
 /* ---------- Masthead ---------- */
 
-.masthead { text-align: center; padding: 6px 8px 26px; position: relative; z-index: 1; }
+.masthead {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 26px;
+  position: relative;
+  z-index: 1;
+}
 
 .masthead .logo {
-  width: 128px;
-  height: 128px;
-  margin: 0 auto 14px;
+  width: 60px;
+  height: 60px;
+  margin: 0 0 20px;
   border-radius: 50%;
 }
 .masthead .logo img { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; }
 
 .masthead .arabic-title {
   font-family: var(--arabic);
-  font-size: 30px;
-  color: var(--gold-bright);
-  margin: 0 0 6px;
+  font-size: 22px;
+  color: var(--ink-muted);
+  margin: 0 0 4px;
   line-height: 1.5;
 }
 
 .masthead .english-title {
   font-family: var(--serif-display);
   font-weight: 600;
-  font-size: 27px;
-  letter-spacing: 0.03em;
-  margin: 0 0 10px;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
   color: var(--ink);
 }
 
 .masthead .pub-line {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 11px;
+  letter-spacing: 0.18em;
+  font-size: 10.5px;
+  font-weight: 600;
   color: var(--gold);
   font-family: var(--serif-body);
+  order: -1;
+  margin-bottom: 10px;
 }
-.masthead .pub-line .rule { flex: 1 1 40px; max-width: 60px; height: 1px; background: var(--hairline); }
+.masthead .pub-line .rule { flex: 0 0 24px; height: 1px; background: var(--gold-dim); }
+.masthead .pub-line .rule:last-child { display: none; }
 .masthead .newsletter-name {
   font-family: var(--serif-display);
   font-style: italic;
   font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.01em;
+  font-size: 18px;
+  letter-spacing: 0;
   color: var(--gold-bright);
-  margin: 16px 0 2px;
+  margin: 0 0 4px;
 }
-.masthead .newsletter-subtitle {
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
+.masthead .newsletter-subtitle { display: none; }
 .masthead .issue-line {
-  margin-top: 10px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  margin-top: 2px;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 .masthead .issue-line strong { color: var(--gold); font-weight: 600; }
 
 .ayah {
-  margin-top: 22px;
-  padding-top: 18px;
+  margin-top: 24px;
+  padding: 18px 0 0;
   border-top: 1px solid var(--hairline);
+  width: 100%;
 }
 .ayah .arabic {
   font-family: var(--arabic);
-  font-size: 22px;
-  color: var(--gold-bright);
+  font-size: 20px;
+  color: var(--ink);
   line-height: 1.8;
 }
 .ayah .english {
   font-family: var(--serif-display);
   font-style: italic;
   color: var(--ink-muted);
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 6px;
 }
 
@@ -163,59 +165,61 @@ body {
 .photo-strip-section { padding-bottom: 4px; }
 .photo-strip {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .photo-frame {
   margin: 0;
-  flex: 1 1 150px;
-  max-width: 220px;
-  border: 1px solid var(--gold-dim);
-  padding: 5px;
-  background: var(--panel-raised);
+  flex: 1 1 160px;
+  border: none;
+  padding: 0;
+  background: none;
 }
 .photo-frame img {
   display: block;
   width: 100%;
-  height: 150px;
+  height: 160px;
   object-fit: cover;
-  filter: sepia(0.15) saturate(0.9);
+  filter: none;
+  border-radius: 2px;
 }
 .photo-frame figcaption {
-  margin-top: 6px;
-  text-align: center;
+  margin-top: 8px;
+  text-align: left;
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 
-/* ---------- Ornamental divider ---------- */
+/* ---------- Divider ---------- */
 
 .divider {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 6px 0 28px;
+  margin: 8px 0 26px;
 }
-.divider .line { flex: 1; height: 1px; background: var(--hairline); }
+.divider .line { flex: 0 0 30px; height: 1px; background: var(--gold-dim); }
+.divider .line ~ .line { display: none; }
 .divider .lozenge {
-  width: 7px;
-  height: 7px;
-  transform: rotate(45deg);
+  width: 5px;
+  height: 5px;
+  transform: none;
+  border-radius: 50%;
   background: var(--gold);
-  opacity: 0.85;
+  opacity: 0.9;
   flex: none;
 }
 
 /* ---------- Sections ---------- */
 
-.section { position: relative; z-index: 1; padding: 0 4px 8px; }
+.section { position: relative; z-index: 1; padding: 0 0 8px; }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
   font-family: var(--serif-body);
@@ -225,8 +229,8 @@ body {
 .section h2.title {
   font-family: var(--serif-display);
   font-weight: 600;
-  font-size: 26px;
-  letter-spacing: 0.01em;
+  font-size: 25px;
+  letter-spacing: -0.01em;
   margin: 0 0 16px;
   color: var(--ink);
 }
@@ -235,40 +239,45 @@ body {
 .section p:last-child { margin-bottom: 0; }
 .section em { color: var(--gold-bright); font-style: italic; }
 
-/* At a glance */
+/* At a glance — two-up cards */
 .glance-box {
-  border: 1px solid var(--hairline);
-  background: var(--panel-raised);
-  padding: 18px 20px;
+  border: none;
+  background: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 .glance-item {
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 8px 0;
-  border-bottom: 1px dotted var(--hairline);
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--hairline);
+  background: var(--panel);
+  border-bottom: 1px solid var(--hairline);
 }
-.glance-item:last-child { border-bottom: none; }
 .glance-label {
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: 10px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 .glance-value {
   font-family: var(--serif-display);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 17px;
   color: var(--gold-bright);
-  text-align: right;
+  text-align: left;
 }
 
 /* Lists */
-.section ul { margin: 0 0 4px; padding-left: 20px; }
+.section ul { margin: 0 0 4px; padding-left: 18px; }
 .section ul li { margin-bottom: 8px; color: var(--ink); }
 .list-heading {
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
   margin: 18px 0 10px;
@@ -278,17 +287,17 @@ body {
 .history-upcoming {
   margin-top: 16px;
   padding-top: 12px;
-  border-top: 1px dotted var(--hairline);
+  border-top: 1px solid var(--hairline);
   font-size: 12px;
   color: var(--ink-muted);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 .history-upcoming strong { color: var(--gold); font-weight: 600; }
 
 /* Did you know */
 .fact-box {
   border-left: 2px solid var(--gold);
-  padding: 4px 0 4px 18px;
+  padding: 4px 0 4px 16px;
   font-style: italic;
   color: var(--ink-muted);
 }
@@ -308,20 +317,22 @@ body {
 
 /* Sayings */
 .saying {
-  text-align: center;
-  padding: 10px 10px 22px;
+  text-align: left;
+  padding: 6px 0 20px;
+  border-left: 2px solid var(--gold-dim);
+  padding-left: 18px;
 }
 .saying blockquote {
   margin: 0 0 8px;
   font-family: var(--serif-display);
   font-style: italic;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.55;
   color: var(--ink);
 }
 .saying .attribution {
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -332,25 +343,26 @@ body {
   margin-top: 8px;
   padding-top: 20px;
   border-top: 1px solid var(--hairline);
-  text-align: center;
-  font-size: 13px;
+  text-align: left;
+  font-size: 12.5px;
   color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-.footer .logo-small { width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%; opacity: 0.9; }
+.footer .logo-small { width: 36px; height: 36px; margin: 0; border-radius: 50%; opacity: 0.95; flex: none; }
 .footer .logo-small img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
-.footer p { margin: 4px 0; }
+.footer p { margin: 2px 0; }
 .footer .website { color: var(--gold-bright); }
 
 @media print {
   body { padding: 0; background: var(--ground); }
-  .sheet { border-color: var(--gold-dim); box-shadow: none; }
 }
 
 @media (max-width: 520px) {
-  .sheet { padding: 22px 16px; }
-  .masthead .english-title { font-size: 22px; }
-  .glance-item { flex-direction: column; gap: 2px; }
-  .glance-value { text-align: left; }
+  .sheet { padding: 32px 18px 24px; }
+  .masthead .english-title { font-size: 24px; }
+  .glance-box { grid-template-columns: 1fr; }
 }
 
 </style>

@@ -5,16 +5,24 @@ evergreen content and one issue's data file, and writes a self-contained
 HTML file per issue.
 
 Usage:
-    python3 build.py                 # builds every issue in content/issues/
-    python3 build.py issue-01        # builds just that one issue
+    python3 build.py                          # active theme, every issue
+    python3 build.py issue-01                 # active theme, one issue
+    python3 build.py issue-01 --theme NAME     # a specific theme
+    python3 build.py issue-01 --all-themes     # every theme in template/themes/,
+                                                # one output file per theme (for
+                                                # comparing design directions)
+
+Theme names are the filenames (minus .css) in template/themes/. The active
+theme (used when --theme/--all-themes are omitted) is set by ACTIVE_THEME
+below.
 
 To publish a new issue: add content/issues/issue-NN.json (see issue-01.json
 for the shape) and run this script. No template/CSS changes needed.
 """
+import argparse
 import base64
 import json
 import mimetypes
-import sys
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
@@ -22,8 +30,11 @@ from jinja2 import Environment, FileSystemLoader
 ROOT = Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
 TEMPLATE_DIR = ROOT / "template"
+THEMES_DIR = TEMPLATE_DIR / "themes"
 ASSETS = ROOT / "assets"
 OUTPUT = ROOT / "output"
+
+ACTIVE_THEME = "midnight-gold"
 
 
 def load_json(path: Path):
@@ -63,9 +74,9 @@ def resolve_ids(ids: list, indexed: dict, bank_name: str) -> list:
     return resolved
 
 
-def build_issue(issue_path: Path, env: Environment, evergreen: dict,
+def build_issue(issue_path: Path, theme: str, env: Environment, evergreen: dict,
                  qa_bank: dict, sayings_bank: dict, dyk_bank: dict,
-                 history_series: dict) -> Path:
+                 history_series: dict, suffix: str = "") -> Path:
     issue = load_json(issue_path)
     masthead = evergreen["masthead"]
     footer = evergreen["footer"]
@@ -86,7 +97,10 @@ def build_issue(issue_path: Path, env: Environment, evergreen: dict,
         names = [entry["name"] for entry in series if entry["id"] != subject_id]
         upcoming_history = names
 
-    css = (TEMPLATE_DIR / "style.css").read_text(encoding="utf-8")
+    theme_css_path = THEMES_DIR / f"{theme}.css"
+    if not theme_css_path.exists():
+        raise FileNotFoundError(f"No such theme: {theme} (looked for {theme_css_path})")
+    css = theme_css_path.read_text(encoding="utf-8")
     khatim_logo = data_uri(ASSETS / "khatim-logo.jpg")
     corner_svg = (ASSETS / "corner.svg").read_text(encoding="utf-8")
 
@@ -113,12 +127,22 @@ def build_issue(issue_path: Path, env: Environment, evergreen: dict,
     )
 
     OUTPUT.mkdir(exist_ok=True)
-    out_path = OUTPUT / f"{issue_path.stem}.html"
+    out_path = OUTPUT / f"{issue_path.stem}{suffix}.html"
     out_path.write_text(html, encoding="utf-8")
     return out_path
 
 
+def available_themes() -> list:
+    return sorted(p.stem for p in THEMES_DIR.glob("*.css"))
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("issue", nargs="?", help="issue slug, e.g. issue-01 (default: all issues)")
+    parser.add_argument("--theme", help=f"theme to build (default: {ACTIVE_THEME})")
+    parser.add_argument("--all-themes", action="store_true", help="build every theme in template/themes/, one file each")
+    args = parser.parse_args()
+
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
     evergreen = load_evergreen()
     qa_bank = index_by_id(load_bank("qa_bank"))
@@ -126,16 +150,23 @@ def main():
     dyk_bank = index_by_id(load_bank("did_you_know_bank"))
     history_series = load_bank("history_series")
 
-    if len(sys.argv) > 1:
-        targets = [CONTENT / "issues" / f"{sys.argv[1]}.json"]
+    if args.issue:
+        targets = [CONTENT / "issues" / f"{args.issue}.json"]
     else:
         targets = sorted((CONTENT / "issues").glob("issue-*.json"))
 
+    if args.all_themes:
+        themes = [(t, f"--{t}") for t in available_themes()]
+    else:
+        themes = [(args.theme or ACTIVE_THEME, "")]
+
     for issue_path in targets:
-        out_path = build_issue(
-            issue_path, env, evergreen, qa_bank, sayings_bank, dyk_bank, history_series
-        )
-        print(f"Built {issue_path.name} -> {out_path.relative_to(ROOT)}")
+        for theme, suffix in themes:
+            out_path = build_issue(
+                issue_path, theme, env, evergreen, qa_bank, sayings_bank, dyk_bank,
+                history_series, suffix=suffix,
+            )
+            print(f"Built {issue_path.name} [{theme}] -> {out_path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
