@@ -1,10 +1,10 @@
 # Tariqa Newsletter
 
-A template + swappable data build for the Tariqa Al Qadiriya Al Boutchichiya
-newsletter. Reuses the gold-on-charcoal aesthetic of the existing "Weekly
-Dhikr Gathering" leaflet: ornamental gold border and corners, a khatim
-(eight-point star) medallion, serif display type, and letter-spaced gold
-eyebrow labels.
+A template + swappable data build for the Al Qadariya Al Bouchichia
+newsletter (Tariqa Al Qadiriya Al Boutchichiya). Reuses the gold-on-charcoal
+aesthetic of the existing "Weekly Dhikr Gathering" leaflet: ornamental gold
+border and corners, the tariqa's khatim medallion, serif display type, and
+letter-spaced gold eyebrow labels.
 
 ## Structure
 
@@ -14,8 +14,9 @@ newsletter/
     newsletter.html.jinja   # masthead, ornaments, section chrome — edit rarely
     style.css                # all visual styling
   assets/
-    khatim.svg               # eight-point star medallion (vector, recreated)
+    khatim-logo.jpg           # the tariqa's khatim mark, used in masthead + footer
     corner.svg                # gold corner ornament used at all 4 corners
+    photos/                   # source images for an issue's photo strip
   content/
     evergreen/                # stable across issues: masthead, Wird, Why We
                                # Gather, New to the Path, footer

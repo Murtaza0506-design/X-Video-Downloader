@@ -11,7 +11,9 @@ Usage:
 To publish a new issue: add content/issues/issue-NN.json (see issue-01.json
 for the shape) and run this script. No template/CSS changes needed.
 """
+import base64
 import json
+import mimetypes
 import sys
 from pathlib import Path
 
@@ -27,6 +29,14 @@ OUTPUT = ROOT / "output"
 def load_json(path: Path):
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def data_uri(path: Path) -> str:
+    """Inline an image/asset as a data URI so each built issue stays one
+    self-contained HTML file (no separate image files to keep alongside it)."""
+    mime, _ = mimetypes.guess_type(str(path))
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:{mime};base64,{encoded}"
 
 
 def load_evergreen() -> dict:
@@ -77,8 +87,14 @@ def build_issue(issue_path: Path, env: Environment, evergreen: dict,
         upcoming_history = names
 
     css = (TEMPLATE_DIR / "style.css").read_text(encoding="utf-8")
-    khatim_svg = (ASSETS / "khatim.svg").read_text(encoding="utf-8")
+    khatim_logo = data_uri(ASSETS / "khatim-logo.jpg")
     corner_svg = (ASSETS / "corner.svg").read_text(encoding="utf-8")
+
+    photo_strip = []
+    for photo in issue.get("photo_strip", []):
+        resolved = dict(photo)
+        resolved["src"] = data_uri(ROOT / photo["src"])
+        photo_strip.append(resolved)
 
     template = env.get_template("newsletter.html.jinja")
     html = template.render(
@@ -90,8 +106,9 @@ def build_issue(issue_path: Path, env: Environment, evergreen: dict,
         saying_items=saying_items,
         did_you_know=did_you_know,
         upcoming_history=upcoming_history,
+        photo_strip=photo_strip,
         css=css,
-        khatim_svg=khatim_svg,
+        khatim_logo=khatim_logo,
         corner_svg=corner_svg,
     )
 

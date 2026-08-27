@@ -4,13 +4,12 @@ These are called out in the content brief as decisions rather than facts, so
 nothing was invented — issue 1 ships with a clearly-marked placeholder or an
 honest "TBC" in each case, and each is a one-line edit in a single file.
 
-1. **Newsletter title.** Defaulted to reusing "The Sufi Way" (the jama'a's
-   existing site name) as the publication title, since the brief floated
-   that option. Change `newsletter_name` in
-   `content/evergreen/masthead.json` if a distinct name is preferred.
+1. **Newsletter title.** Resolved — set to "Al Qadariya Al Bouchichia" per
+   TAZ's instruction. Lives in `newsletter_name` in
+   `content/evergreen/masthead.json`.
 
 2. **Next Dhikr / next big gathering dates.** Both left as `"TBC"` in
-   `content/issues/issue-01.json` under `at_a_glance.items` — fill in once
+   `content/issues/issue-01.json` under `at_a_glance.rows` — fill in once
    confirmed.
 
 3. **thesufiway.co.uk as authoritative source.** Not something this build
@@ -18,11 +17,12 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    since August 2025 as of this content package. Worth a quick check
    before this issue goes out.
 
-4. **Photo strip from the last gathering.** Not built — no photos were
-   supplied. The template has room for one (a simple image row could sit
-   between the masthead and "At a Glance") if TAZ supplies photos for a
-   future issue; ask and it can be added as its own template partial that
-   issue data can turn on/off, without touching the rest of the layout.
+4. **Photo strip from the last gathering.** Built — the template has a
+   `photo_strip` section (framed thumbnails between the masthead and "At
+   a Glance"), on if `issue.photo_strip` is set. Still waiting on the
+   actual photo(s) from TAZ to populate it for issue 1; drop the files
+   into `assets/photos/` and add entries to `content/issues/issue-01.json`
+   (see the `photo_strip` field shape in that file once populated).
 
 5. **Which Q&As and sayings to run.** Issue 1 uses 4 of the 8 banked Q&As
    (`idhn`, `wird_different`, `welcomes_all`, `samaa`) and all 3 banked
@@ -32,8 +32,7 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
 
 ## Asset note
 
-No source file for the leaflet's khatim star (`IMG_4446.png`) was available
-in this session, so `assets/khatim.svg` is a freshly-drawn vector redraw of
-the classic eight-point khatim (two overlapping squares in a ring) rather
-than an extraction from that image. Swap in the real asset if the exact
-mark from the leaflet needs to match pixel-for-pixel.
+The real khatim mark was supplied by TAZ and lives at
+`assets/khatim-logo.jpg`, used in the masthead and footer. `build.py`
+inlines it (and any photo-strip images) as a base64 data URI so each
+built issue stays a single self-contained HTML file.

@@ -19,7 +19,7 @@
   <span class="corner corner-bl">{{ corner_svg }}</span>
 
   <header class="masthead">
-    <div class="logo">{{ khatim_svg }}</div>
+    <div class="logo"><img src="{{ khatim_logo }}" alt="Khatim of the Tariqa"></div>
     <p class="arabic-title">{{ masthead.arabic_title }}</p>
     <h1 class="english-title">{{ masthead.english_title }}</h1>
     <p class="pub-line"><span class="rule"></span> {{ masthead.newsletter_subtitle }} <span class="rule"></span></p>
@@ -36,10 +36,10 @@
 
   <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
 
-  {% if issue.photo_strip %}
+  {% if photo_strip %}
   <section class="section photo-strip-section">
     <div class="photo-strip">
-      {% for photo in issue.photo_strip %}
+      {% for photo in photo_strip %}
       <figure class="photo-frame">
         <img src="{{ photo.src }}" alt="{{ photo.alt | default(photo.caption, true) | default('', true) }}">
         {% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}
@@ -173,7 +173,7 @@
   <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
 
   <footer class="footer">
-    <div class="logo-small">{{ khatim_svg }}</div>
+    <div class="logo-small"><img src="{{ khatim_logo }}" alt="Khatim of the Tariqa"></div>
     <p class="website">{{ footer.website }}</p>
     <p>WhatsApp: {{ footer.whatsapp }}</p>
     <p>{{ footer.address }}</p>

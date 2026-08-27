@@ -69,12 +69,12 @@ body {
 .masthead { text-align: center; padding: 6px 8px 26px; position: relative; z-index: 1; }
 
 .masthead .logo {
-  width: 78px;
-  height: 78px;
+  width: 128px;
+  height: 128px;
   margin: 0 auto 14px;
-  color: var(--gold);
+  border-radius: 50%;
 }
-.masthead .logo svg { width: 100%; height: 100%; display: block; }
+.masthead .logo img { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; }
 
 .masthead .arabic-title {
   font-family: var(--arabic);
@@ -326,8 +326,8 @@ body {
   font-size: 13px;
   color: var(--ink-muted);
 }
-.footer .logo-small { width: 34px; height: 34px; margin: 0 auto 12px; color: var(--gold); opacity: 0.8; }
-.footer .logo-small svg { width: 100%; height: 100%; }
+.footer .logo-small { width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%; opacity: 0.9; }
+.footer .logo-small img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
 .footer p { margin: 4px 0; }
 .footer .website { color: var(--gold-bright); }
 
