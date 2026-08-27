@@ -30,6 +30,21 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    in `content/issues/issue-01.json` — ids are listed in
    `content/banks/qa_bank.json` and `content/banks/sayings_bank.json`.
 
+## Correction: membership is Muslims only
+
+The original content brief (drawn from thesufiway.co.uk) described the
+tariqa as welcoming "Muslim and non-Muslim alike." TAZ has corrected this:
+the tariqa is for Muslims. Updated two places to drop the non-Muslim
+framing while keeping the genuine point — that people are welcome at any
+level of knowledge or practice, not just the advanced:
+- `content/banks/qa_bank.json` &rarr; the `welcomes_all` Q&A
+- `content/issues/issue-01.json` &rarr; the closing line of the key article
+
+Left untouched: "Guests of all backgrounds are always welcome" in
+`content/evergreen/why_we_gather.json`, which is about visitors attending
+a gathering, not about who the path itself is for. Worth confirming with
+TAZ that this distinction is still correct before publishing.
+
 ## Asset note
 
 The real khatim mark was supplied by TAZ and lives at
