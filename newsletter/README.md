@@ -23,6 +23,7 @@ newsletter/
     photos/                   # source images for an issue's photo strip
     locations/                # photos for the Find Us section (evergreen)
   content/
+    STYLE.md                   # language rules to check new copy against
     evergreen/                # stable across issues: masthead, Wird, Why We
                                # Gather, New to the Path, locations, footer
     banks/                    # larger pools an issue picks a few items from:
