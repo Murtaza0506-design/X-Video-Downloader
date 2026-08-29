@@ -39,19 +39,40 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
 
 7. **Closing saying, like the prayer timetables.** Added — the footer now
    ends with one saying, matching the convention TAZ uses on the prayer
-   timetables. TAZ asked for it to be able to draw from any prominent
-   Sufi (not only Sidi Hamza) and allowed some humor, so issue 1 closes
-   with the well-known Mulla Nasruddin "looking for my key" teaching
-   tale (`nasruddin_key` in `content/banks/sayings_bank.json`) rather
-   than another Sidi Hamza saying. Set per issue via `footer_saying_id`
-   in `content/issues/issue-01.json`.
-   Note on `quote_html` in the sayings bank: every entry now carries its
-   own opening/closing quotation marks (the template no longer adds
-   them automatically) so that a narrative quote like Nasruddin's, which
-   has its own nested dialogue, can use single quotes inside without a
-   doubled-up outer quote mark. Follow that pattern for any new saying:
-   wrap the whole thing in &ldquo;/&rdquo;, and use &lsquo;/&rsquo; for
-   any quoted speech inside it.
+   timetables. It went through two picks: first the Mulla Nasruddin
+   "looking for my key" tale, then TAZ asked to swap it for Ibn 'Ata'
+   Allah al-Iskandari's "What has he found who has lost God? And what
+   has he lost who has found God?" (`ataillah_lost_god` in
+   `content/banks/sayings_bank.json`), which is what issue 1 now closes
+   with. Set per issue via `footer_saying_id` in
+   `content/issues/issue-01.json`; `nasruddin_key` is still in the bank
+   if a future issue wants something lighter.
+   Note on `quote_html` in the sayings bank: every entry carries its own
+   opening/closing quotation marks (the template doesn't add them
+   automatically) so a narrative quote with its own nested dialogue can
+   use single quotes inside without a doubled-up outer quote mark. Wrap
+   the whole thing in &ldquo;/&rdquo;, and use &lsquo;/&rsquo; for any
+   quoted speech inside it.
+
+8. **Locations, so people can find both places.** Added a "Find Us"
+   section (`content/evergreen/locations.json`) with the Rochdale
+   gathering address and the Madagh zawiya in Morocco, each with a photo
+   and a map link. The footer's address is now a clickable link to the
+   same Rochdale map link. Rochdale uses the exact coordinates TAZ gave
+   (53°37'17.75"N 2°10'12.95"W); Madagh uses the village's coordinates
+   from Wikipedia (35°00'48"N 2°20'23"W) as a general reference point
+   rather than a pin on the zawiya building itself, since I didn't have
+   an exact address for that. Worth double-checking the Madagh pin
+   lands where TAZ expects.
+
+9. **Writing pass.** Went through every content file and removed every
+   em dash from newsletter-facing text (the ones left are only in
+   `_note`/`_source` fields, which are editorial comments and never
+   render), replacing them with periods, colons, or commas depending on
+   what read most naturally. Also loosened a couple of stiff "not X, but
+   Y" sentence constructions in the key article. Nothing in any direct
+   quote (sayings, the hadith qudsi, the Nasruddin tale) was reworded,
+   only my own connecting prose.
 
 ## One saying from each of the three masters
 

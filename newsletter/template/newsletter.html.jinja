@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ masthead.newsletter_name }} — {{ issue.issue_label }}</title>
+<title>{{ masthead.newsletter_name }} &middot; {{ issue.issue_label }}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -155,6 +155,30 @@
   </section>
   {% endif %}
 
+  {% if evergreen.locations %}
+  <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
+
+  <!-- FIND US -->
+  <section class="section">
+    <p class="eyebrow">{{ evergreen.locations.eyebrow }}</p>
+    <h2 class="title">{{ evergreen.locations.title }}</h2>
+    {% if evergreen.locations.intro_html %}<p>{{ evergreen.locations.intro_html | safe }}</p>{% endif %}
+    <div class="locations-grid">
+      {% for place in evergreen.locations.places %}
+      <div class="location-card">
+        <img class="location-photo" src="{{ place.photo_data }}" alt="{{ place.name }}">
+        <div class="location-info">
+          <p class="location-name">{{ place.name }}</p>
+          <p class="location-subtitle">{{ place.subtitle }}</p>
+          <p class="location-address">{{ place.address }}</p>
+          <a class="location-link" href="{{ place.map_url }}" target="_blank" rel="noopener noreferrer">View on map</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {% if saying_items %}
   <div class="divider"><span class="line"></span><span class="lozenge"></span><span class="line"></span></div>
 
@@ -175,7 +199,7 @@
   <footer class="footer">
     <div class="logo-small"><img src="{{ khatim_logo }}" alt="Khatim of the Tariqa"></div>
     <p class="website">{{ footer.website }}</p>
-    <p>{{ footer.address }}</p>
+    <p>{% if evergreen.locations %}<a class="footer-address-link" href="{{ evergreen.locations.places[0].map_url }}" target="_blank" rel="noopener noreferrer">{{ footer.address }}</a>{% else %}{{ footer.address }}{% endif %}</p>
     {% if footer_saying %}
     <div class="footer-saying">
       <p class="footer-saying-quote">{{ footer_saying.quote_html | safe }}</p>

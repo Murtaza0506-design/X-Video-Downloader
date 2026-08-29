@@ -21,9 +21,10 @@ newsletter/
     khatim-logo.jpg           # the tariqa's khatim mark, used in masthead + footer
     corner.svg                # gold corner ornament used at all 4 corners
     photos/                   # source images for an issue's photo strip
+    locations/                # photos for the Find Us section (evergreen)
   content/
     evergreen/                # stable across issues: masthead, Wird, Why We
-                               # Gather, New to the Path, footer
+                               # Gather, New to the Path, locations, footer
     banks/                    # larger pools an issue picks a few items from:
                                # qa_bank.json, sayings_bank.json,
                                # did_you_know_bank.json, history_series.json

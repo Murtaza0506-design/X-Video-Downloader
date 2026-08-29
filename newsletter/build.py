@@ -54,6 +54,9 @@ def load_evergreen() -> dict:
     evergreen = {}
     for path in sorted((CONTENT / "evergreen").glob("*.json")):
         evergreen[path.stem] = load_json(path)
+    if "locations" in evergreen:
+        for place in evergreen["locations"]["places"]:
+            place["photo_data"] = data_uri(ROOT / place["photo"])
     return evergreen
 
 

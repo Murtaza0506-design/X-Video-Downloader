@@ -1,0 +1,21 @@
+{
+  "eyebrow": "FIND US",
+  "title": "Where We Are",
+  "intro_html": "Two places to know if you are new to the tariqa: where we gather each week, and where the tariqa itself is rooted.",
+  "places": [
+    {
+      "name": "Rochdale, Greater Manchester",
+      "subtitle": "Weekly Dhikr gatherings",
+      "address": "Crescent Hall, Crescent Nursery, 162 Edmund Street, Rochdale OL12 6QG",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=53.621597,-2.170264",
+      "photo": "assets/locations/edmund-street.jpg"
+    },
+    {
+      "name": "Madagh, Morocco",
+      "subtitle": "Zawiya of the tariqa",
+      "address": "Madagh, Berkane Province, in the northeast of Morocco",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.013333,-2.339722",
+      "photo": "assets/locations/madagh-zawiya.jpg"
+    }
+  ]
+}
