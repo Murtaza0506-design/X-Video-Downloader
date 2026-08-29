@@ -163,7 +163,7 @@
     <p class="eyebrow">WORDS OF THE SHAYKH</p>
     {% for saying in saying_items %}
     <div class="saying">
-      <blockquote>&ldquo;{{ saying.quote_html | safe }}&rdquo;</blockquote>
+      <blockquote>{{ saying.quote_html | safe }}</blockquote>
       <p class="attribution">{{ saying.attribution }}</p>
     </div>
     {% endfor %}
@@ -178,7 +178,7 @@
     <p>{{ footer.address }}</p>
     {% if footer_saying %}
     <div class="footer-saying">
-      <p class="footer-saying-quote">&ldquo;{{ footer_saying.quote_html | safe }}&rdquo;</p>
+      <p class="footer-saying-quote">{{ footer_saying.quote_html | safe }}</p>
       <p class="footer-saying-attribution">{{ footer_saying.attribution }}</p>
     </div>
     {% endif %}

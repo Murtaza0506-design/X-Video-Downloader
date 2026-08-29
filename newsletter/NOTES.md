@@ -25,10 +25,9 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    content before saving.
 
 5. **Which Q&As and sayings to run.** Issue 1 uses 4 of the 8 banked Q&As
-   (`idhn`, `wird_different`, `welcomes_all`, `samaa`). Of the 3 banked
-   sayings, 2 run in "Words of the Shaykh" and the third
-   (`divine_love_heart`) is reserved for the closing footer saying (see
-   below) — swap either list in `content/issues/issue-01.json`.
+   (`idhn`, `wird_different`, `welcomes_all`, `samaa`) and all 3 of Sidi
+   Hamza's banked sayings in "Words of the Shaykh" — swap either list in
+   `content/issues/issue-01.json`.
 
 6. **Theme.** Resolved — "Emerald Manuscript" (warm sand/terracotta
    ground, emerald + gold, a tessellated octagon pattern in the
@@ -38,10 +37,20 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    worth revisiting.
 
 7. **Closing saying, like the prayer timetables.** Added — the footer now
-   ends with one saying (currently `divine_love_heart`), matching the
-   convention TAZ uses on the prayer timetables. Set per issue via
-   `footer_saying_id` in `content/issues/issue-01.json`, resolved from
-   `content/banks/sayings_bank.json`.
+   ends with one saying, matching the convention TAZ uses on the prayer
+   timetables. TAZ asked for it to be able to draw from any prominent
+   Sufi (not only Sidi Hamza) and allowed some humor, so issue 1 closes
+   with the well-known Mulla Nasruddin "looking for my key" teaching
+   tale (`nasruddin_key` in `content/banks/sayings_bank.json`) rather
+   than another Sidi Hamza saying. Set per issue via `footer_saying_id`
+   in `content/issues/issue-01.json`.
+   Note on `quote_html` in the sayings bank: every entry now carries its
+   own opening/closing quotation marks (the template no longer adds
+   them automatically) so that a narrative quote like Nasruddin's, which
+   has its own nested dialogue, can use single quotes inside without a
+   doubled-up outer quote mark. Follow that pattern for any new saying:
+   wrap the whole thing in &ldquo;/&rdquo;, and use &lsquo;/&rsquo; for
+   any quoted speech inside it.
 
 ## Correction: membership is Muslims only
 

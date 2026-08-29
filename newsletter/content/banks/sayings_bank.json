@@ -1,17 +1,22 @@
 [
   {
     "id": "know_god_no_limit",
-    "quote_html": "To know God is without limit. Every step of the journey is hence more beautiful and marvellous than the previous one.",
+    "quote_html": "&ldquo;To know God is without limit. Every step of the journey is hence more beautiful and marvellous than the previous one.&rdquo;",
     "attribution": "Sidi Hamza al-Qadiri al-Boutchichi"
   },
   {
     "id": "wisdom_in_the_heart",
-    "quote_html": "Wisdom is in the heart. He who wants to find water in his well must dig. The deeper he digs, the more abundant the water; if he stops digging, the water will not exceed the initial level.",
+    "quote_html": "&ldquo;Wisdom is in the heart. He who wants to find water in his well must dig. The deeper he digs, the more abundant the water; if he stops digging, the water will not exceed the initial level.&rdquo;",
     "attribution": "Sidi Hamza al-Qadiri al-Boutchichi"
   },
   {
     "id": "divine_love_heart",
-    "quote_html": "When Divine Love inhabits the heart, nothing appears difficult, and one profits by everything that happens.",
+    "quote_html": "&ldquo;When Divine Love inhabits the heart, nothing appears difficult, and one profits by everything that happens.&rdquo;",
     "attribution": "Sidi Hamza al-Qadiri al-Boutchichi"
+  },
+  {
+    "id": "nasruddin_key",
+    "quote_html": "&ldquo;&lsquo;I am looking for my key,&rsquo; Nasruddin said, on his hands and knees outside his house. &lsquo;Where did you drop it?&rsquo; a neighbour asked. &lsquo;Inside my house,&rsquo; said Nasruddin. &lsquo;Then why are you looking out here?&rsquo; &lsquo;Because there's more light out here.&rsquo;&rdquo;",
+    "attribution": "Mulla Nasruddin, Sufi teaching tradition"
   }
 ]
