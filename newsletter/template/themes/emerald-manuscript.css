@@ -50,8 +50,7 @@ body {
   position: relative;
   padding: 34px;
   border: 2px solid var(--gold-dim);
-  background-image: var(--geo-pattern), linear-gradient(180deg, var(--panel) 0%, var(--ground) 70%);
-  background-repeat: repeat, no-repeat;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--ground) 70%);
   box-shadow: 0 12px 40px rgba(90, 58, 26, 0.12);
 }
 
