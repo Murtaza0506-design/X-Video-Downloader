@@ -176,6 +176,12 @@
     <div class="logo-small"><img src="{{ khatim_logo }}" alt="Khatim of the Tariqa"></div>
     <p class="website">{{ footer.website }}</p>
     <p>{{ footer.address }}</p>
+    {% if footer_saying %}
+    <div class="footer-saying">
+      <p class="footer-saying-quote">&ldquo;{{ footer_saying.quote_html | safe }}&rdquo;</p>
+      <p class="footer-saying-attribution">{{ footer_saying.attribution }}</p>
+    </div>
+    {% endif %}
   </footer>
 </article>
 </body>

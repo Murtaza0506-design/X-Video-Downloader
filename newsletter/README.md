@@ -1,10 +1,11 @@
 # Tariqa Newsletter
 
 A template + swappable data build for the Al Qadariya Al Bouchichia
-newsletter (Tariqa Al Qadiriya Al Boutchichiya). Reuses the gold-on-charcoal
-aesthetic of the existing "Weekly Dhikr Gathering" leaflet: ornamental gold
-border and corners, the tariqa's khatim medallion, serif display type, and
-letter-spaced gold eyebrow labels.
+newsletter (Tariqa Al Qadiriya Al Boutchichiya). Active theme is "Emerald
+Manuscript": a warm sand/terracotta ground with a tessellated octagon
+pattern (classic zellige geometry) woven faintly through the page, deep
+emerald headings, antique-gold accents, the tariqa's khatim medallion, and
+serif display type throughout.
 
 ## Structure
 
@@ -13,9 +14,9 @@ newsletter/
   template/
     newsletter.html.jinja   # masthead, ornaments, section chrome — edit rarely
     themes/
-      midnight-gold.css       # ACTIVE theme — charcoal ground, gold ornament
-      emerald-manuscript.css  # parchment ground, emerald + gold, book feel
-      modern-minimal.css      # navy, left-aligned, borderless, editorial
+      emerald-manuscript.css  # ACTIVE theme — earthy parchment, emerald + gold
+      midnight-gold.css       # original charcoal + gold direction (kept for reference)
+      modern-minimal.css      # navy, left-aligned, borderless, editorial (kept for reference)
   assets/
     khatim-logo.jpg           # the tariqa's khatim mark, used in masthead + footer
     corner.svg                # gold corner ornament used at all 4 corners

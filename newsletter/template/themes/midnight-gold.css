@@ -331,6 +331,28 @@ body {
 .footer p { margin: 4px 0; }
 .footer .website { color: var(--gold-bright); }
 
+.footer-saying {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dotted var(--hairline);
+}
+.footer-saying-quote {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+.footer-saying-attribution {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
 @media print {
   body { padding: 0; background: var(--ground); }
   .sheet { border-color: var(--gold-dim); box-shadow: none; }

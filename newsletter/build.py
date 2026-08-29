@@ -34,7 +34,7 @@ THEMES_DIR = TEMPLATE_DIR / "themes"
 ASSETS = ROOT / "assets"
 OUTPUT = ROOT / "output"
 
-ACTIVE_THEME = "midnight-gold"
+ACTIVE_THEME = "emerald-manuscript"
 
 
 def load_json(path: Path):
@@ -90,6 +90,12 @@ def build_issue(issue_path: Path, theme: str, env: Environment, evergreen: dict,
         if did_you_know is None:
             raise KeyError(f"'{issue['did_you_know_id']}' not found in did_you_know bank")
 
+    footer_saying = None
+    if issue.get("footer_saying_id"):
+        footer_saying = sayings_bank.get(issue["footer_saying_id"])
+        if footer_saying is None:
+            raise KeyError(f"'{issue['footer_saying_id']}' not found in sayings_bank")
+
     upcoming_history = []
     subject_id = issue.get("history", {}).get("subject_id")
     series = history_series["series"]
@@ -120,6 +126,7 @@ def build_issue(issue_path: Path, theme: str, env: Environment, evergreen: dict,
         saying_items=saying_items,
         did_you_know=did_you_know,
         upcoming_history=upcoming_history,
+        footer_saying=footer_saying,
         photo_strip=photo_strip,
         css=css,
         khatim_logo=khatim_logo,

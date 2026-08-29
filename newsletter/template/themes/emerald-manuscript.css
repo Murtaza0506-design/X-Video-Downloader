@@ -1,24 +1,29 @@
 /* ==========================================================================
    Theme: Emerald Manuscript
-   Warm parchment ground, deep emerald headings, antique-gold accents —
-   the feel of an illuminated Andalusian manuscript page.
+   Warm earthy parchment (sand, terracotta undertone), deep emerald
+   headings, antique-gold accents, and a faint tessellated octagon-and-
+   star pattern (classic zellige geometry) woven through the page —
+   the feel of an illuminated Andalusian manuscript rather than plain
+   cream paper.
    ========================================================================== */
 
 :root {
-  --ground: #f6efdc;
-  --panel: #fbf6e9;
-  --panel-raised: #efe5c8;
-  --emerald: #184d3b;
-  --emerald-bright: #206a51;
-  --gold: #a9832f;
-  --gold-bright: #8c6a1f;
-  --gold-dim: #c7ad74;
-  --hairline: rgba(24, 77, 59, 0.22);
-  --ink: #2a2013;
-  --ink-muted: #6d5a3d;
+  --ground: #ecdcb8;
+  --panel: #f5ead0;
+  --panel-raised: #e6d3a9;
+  --emerald: #1c4a38;
+  --emerald-bright: #276b50;
+  --terracotta: #a35b34;
+  --gold: #a9782a;
+  --gold-bright: #8c631d;
+  --gold-dim: #c7a35f;
+  --hairline: rgba(90, 58, 26, 0.25);
+  --ink: #2e2013;
+  --ink-muted: #6b5636;
   --serif-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --serif-body: "EB Garamond", Georgia, serif;
   --arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+  --geo-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpolygon points='14.06,0 33.94,0 48,14.06 48,33.94 33.94,48 14.06,48 0,33.94 0,14.06' fill='none' stroke='%23a35b34' stroke-width='1' stroke-opacity='0.4'/%3E%3C/svg%3E");
 }
 
 * { box-sizing: border-box; }
@@ -26,7 +31,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--ground);
+  background-color: var(--ground);
   color: var(--ink);
 }
 
@@ -35,6 +40,8 @@ body {
   font-size: 17px;
   line-height: 1.65;
   padding: 40px 16px 80px;
+  background-image: var(--geo-pattern);
+  background-repeat: repeat;
 }
 
 .sheet {
@@ -43,8 +50,9 @@ body {
   position: relative;
   padding: 34px;
   border: 2px solid var(--gold-dim);
-  background: linear-gradient(180deg, var(--panel) 0%, var(--ground) 70%);
-  box-shadow: 0 12px 40px rgba(24, 77, 59, 0.08);
+  background-image: var(--geo-pattern), linear-gradient(180deg, var(--panel) 0%, var(--ground) 70%);
+  background-repeat: repeat, no-repeat;
+  box-shadow: 0 12px 40px rgba(90, 58, 26, 0.12);
 }
 
 .sheet::before {
@@ -336,6 +344,28 @@ body {
 .footer .logo-small img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
 .footer p { margin: 4px 0; }
 .footer .website { color: var(--gold-bright); }
+
+.footer-saying {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dotted var(--hairline);
+}
+.footer-saying-quote {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--emerald);
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+.footer-saying-attribution {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 0;
+}
 
 @media print {
   body { padding: 0; background: var(--ground); }
