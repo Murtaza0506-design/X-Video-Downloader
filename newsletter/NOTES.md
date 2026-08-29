@@ -25,8 +25,9 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    content before saving.
 
 5. **Which Q&As and sayings to run.** Issue 1 uses 4 of the 8 banked Q&As
-   (`idhn`, `wird_different`, `welcomes_all`, `samaa`) and all 3 of Sidi
-   Hamza's banked sayings in "Words of the Shaykh" — swap either list in
+   (`idhn`, `wird_different`, `welcomes_all`, `samaa`). The saying section
+   (renamed "Words of the Masters" — see below) runs one saying each from
+   Sidi Hamza, Sidi Jamal, and Sidi Mounir — swap either list in
    `content/issues/issue-01.json`.
 
 6. **Theme.** Resolved — "Emerald Manuscript" (warm sand/terracotta
@@ -51,6 +52,33 @@ honest "TBC" in each case, and each is a one-line edit in a single file.
    doubled-up outer quote mark. Follow that pattern for any new saying:
    wrap the whole thing in &ldquo;/&rdquo;, and use &lsquo;/&rsquo; for
    any quoted speech inside it.
+
+## One saying from each of the three masters
+
+TAZ asked for the main sayings section (previously all 3 quotes from Sidi
+Hamza) to carry one saying each from Sidi Hamza, Sidi Jamal, and Sidi
+Mounir instead. Renamed the section from "Words of the Shaykh" to "Words
+of the Masters" since it's no longer just the one figure.
+
+Sidi Hamza's sayings all came from thesufiway.co.uk's own "Sayings" page
+(76 of them are listed there — plenty more to draw from for future
+issues). Neither thesufiway.co.uk nor Sidi Jamal's or Sidi Mounir's own
+biography pages had any directly-quoted sayings from either of them
+(everything there is written about them, not by them), so I searched
+further and found two verbatim, sourced quotes from an address both of
+them gave at the same event — the World Symposium of Sufism (Mawlid),
+21 November 2018 — published on tariqausa.com:
+- `sidi_jamal_companionship`: &ldquo;Companionship is an obligation for
+  those who want to make their way towards God.&rdquo;
+  (tariqausa.com/16-sidi-jamal)
+- `sidi_mounir_home`: &ldquo;You are not guests here. This is your
+  home.&rdquo; (tariqausa.com/13-sidi-mounir-speech)
+
+Both are genuine direct quotes, not paraphrases, but tariqausa.com is a
+different chapter's site than thesufiway.co.uk — worth a quick check that
+TAZ is comfortable citing it as a source before this goes out. Each entry
+in `content/banks/sayings_bank.json` carries a `_source` note recording
+where it came from (ignored by the build, just for editorial reference).
 
 ## Correction: membership is Muslims only
 
