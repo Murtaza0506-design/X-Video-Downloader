@@ -334,7 +334,10 @@ BLACKGOLD.update(
     # only the reading text splits: headings and small accents stay gold, body copy turns white.
     ayah="#F3F1EA", gloss="#D9D6CC", t2="#EDEAE1", val="#F5F3EC",
     body="#E6E3D9", pt="#F5F3EC", pd="#CFCBBE", vsub="#C9C5B8",
-    addr="#EDEAE0", wa="#F2EFE6", note="#B8B4A6",
+    addr="#EDEAE0", wa="#F2EFE6", note="#C7C3B6",
+    # the small tracked-caps gold accents were tuned against a warm brown ground —
+    # against true black they read dim, so lift them a step for this palette.
+    lab="#E2C685", rn="#D6B876", url="#CDAF77",
 )
 
 if __name__ == "__main__":
