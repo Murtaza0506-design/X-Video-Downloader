@@ -54,29 +54,40 @@ def marks():
             f'-webkit-mask-image:url({v.WORD_URI});mask-image:url({v.WORD_URI})"></div>')
     return star + word
 
-def minaret_group(cx, base_y, cls="hair-1", accent="hair-3"):
+def minaret_group(cx, base_y, pal, dark="#0B0805"):
     """A stylised Moroccan minaret — Koutoubia-esque: a tapered square shaft,
-       blind pointed-arch windows, a lantern stage, and a jamour finial of
-       stacked balls. Bilaterally symmetric, so no mirroring is needed."""
-    g = ['<rect x="-58" y="-26" width="116" height="26" class="%s" stroke-width="1.6"/>' % cls,
-         '<path d="M -52,-26 L -33,-560 L 33,-560 L 52,-26 Z" class="%s" stroke-width="1.5"/>' % cls,
-         '<rect x="-42" y="-580" width="84" height="20" class="%s" stroke-width="1.5"/>' % cls,
-         '<rect x="-24" y="-680" width="48" height="100" class="%s" stroke-width="1.4"/>' % cls,
-         '<path d="M -10,-590 L -10,-610 Q -10,-628 0,-628 Q 10,-628 10,-610 L 10,-590" class="%s" stroke-width="1.1"/>' % accent,
-         '<rect x="-30" y="-692" width="60" height="12" class="%s" stroke-width="1.4"/>' % cls,
-         '<path d="M -22,-692 Q 0,-736 22,-692 Z" class="%s" stroke-width="1.4"/>' % cls,
-         '<line x1="0" y1="-736" x2="0" y2="-760" class="%s" stroke-width="1.3"/>' % cls,
-         '<circle cx="0" cy="-744" r="4" class="%s" stroke-width="1.1"/>' % cls,
-         '<circle cx="0" cy="-754" r="2.6" class="%s" stroke-width="1.0"/>' % cls]
+       a lantern stage and a jamour finial of stacked balls — as a solid
+       gold silhouette, with the windows punched through as dark recesses
+       rather than drawn as hairline outline. Bilaterally symmetric."""
+    fill = "url(#towerGrad)"
+    edge = pal["hair4"]
+    g = [f'<rect x="-58" y="-26" width="116" height="26" fill="{fill}" stroke="{edge}" stroke-width="0.6"/>',
+         f'<path d="M -52,-26 L -33,-560 L 33,-560 L 52,-26 Z" fill="{fill}" stroke="{edge}" stroke-width="0.6"/>',
+         f'<rect x="-42" y="-580" width="84" height="20" fill="{fill}" stroke="{edge}" stroke-width="0.6"/>',
+         f'<rect x="-24" y="-680" width="48" height="100" fill="{fill}" stroke="{edge}" stroke-width="0.6"/>',
+         f'<rect x="-30" y="-692" width="60" height="12" fill="{fill}" stroke="{edge}" stroke-width="0.6"/>',
+         f'<path d="M -22,-692 Q 0,-736 22,-692 Z" fill="{fill}" stroke="{edge}" stroke-width="0.6"/>',
+         f'<line x1="0" y1="-736" x2="0" y2="-760" stroke="{pal["hair2"]}" stroke-width="2.2"/>',
+         f'<circle cx="0" cy="-744" r="4.2" fill="{pal["hair1"]}"/>',
+         f'<circle cx="0" cy="-754" r="2.8" fill="{pal["hair1"]}"/>',
+         f'<path d="M -10,-590 L -10,-610 Q -10,-628 0,-628 Q 10,-628 10,-610 L 10,-590 Z" fill="{dark}"/>']
     for yc in (-150, -330, -480):
         ww, wh = 15, 32
         g.append(f'<path d="M {-ww/2},{yc+wh/2} L {-ww/2},{yc} Q {-ww/2},{yc-wh/2} 0,{yc-wh/2} '
-                 f'Q {ww/2},{yc-wh/2} {ww/2},{yc} L {ww/2},{yc+wh/2}" class="{accent}" stroke-width="1.0"/>')
-    return f'<g class="tower" transform="translate({cx},{base_y})" fill="none">' + "\n".join(g) + '</g>'
+                 f'Q {ww/2},{yc-wh/2} {ww/2},{yc} L {ww/2},{yc+wh/2} Z" fill="{dark}"/>')
+    return f'<g class="tower" transform="translate({cx},{base_y})">' + "\n".join(g) + '</g>'
 
-def moon_group(cx, cy, pal, r=34):
-    """A solid, glowing full moon — a radial halo behind a filled disc,
-       not just an outline, so it reads as a source of light."""
+def tower_grad(pal):
+    return (f'<linearGradient id="towerGrad" x1="0" y1="0" x2="1" y2="1">'
+            f'<stop offset="0%" stop-color="{pal["hair1"]}"/>'
+            f'<stop offset="45%" stop-color="{pal["hair2"]}"/>'
+            f'<stop offset="100%" stop-color="{pal["hair4"]}"/>'
+            f'</linearGradient>')
+
+def moon_group(cx, cy, pal, r=40):
+    """A solid, glowing crescent — a filled disc with a second circle
+       subtracted through an SVG mask, not just an outline."""
+    ox, oy = r*0.58, -r*0.12
     return f'''
   <defs>
     <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
@@ -85,14 +96,20 @@ def moon_group(cx, cy, pal, r=34):
       <stop offset="70%"  stop-color="{pal['halo2']}" stop-opacity="0.10"/>
       <stop offset="100%" stop-color="{pal['halo2']}" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="moonBody" cx="38%" cy="34%" r="70%">
+    <radialGradient id="moonBody" cx="32%" cy="34%" r="75%">
       <stop offset="0%"   stop-color="#FFFBF0"/>
       <stop offset="45%"  stop-color="{pal['fill_lit']}"/>
       <stop offset="100%" stop-color="{pal['halo3']}"/>
     </radialGradient>
+    <mask id="crescentMask">
+      <circle cx="{cx}" cy="{cy}" r="{r}" fill="#fff"/>
+      <circle cx="{cx+ox:.1f}" cy="{cy+oy:.1f}" r="{r*0.86:.1f}" fill="#000"/>
+    </mask>
   </defs>
   <circle cx="{cx}" cy="{cy}" r="{r*3.6:.0f}" fill="url(#moonGlow)"/>
-  <circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#moonBody)" stroke="{pal['hair2']}" stroke-width="1" stroke-opacity="0.85"/>'''
+  <g mask="url(#crescentMask)">
+    <circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#moonBody)"/>
+  </g>'''
 
 def dado_band(pal):
     """A tiled border, the way the poster's own frame carries a dado —
@@ -107,8 +124,9 @@ def dado_band(pal):
 
 def frame_svg(pal, minarets=False, moon=False, rule_y=None):
     rule_y = rule_y if rule_y is not None else VENUE_Y+40
-    towers = (minaret_group(150, H-60) + minaret_group(W-150, H-60)) if minarets else ""
-    moon_svg = moon_group(232, 168, pal) if moon else ""
+    towers = (f'<defs>{tower_grad(pal)}</defs>' +
+              minaret_group(150, H-60, pal) + minaret_group(W-150, H-60, pal)) if minarets else ""
+    moon_svg = moon_group(300, 168, pal) if moon else ""
     return f'''
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
@@ -210,8 +228,8 @@ html,body{{background:#000}}
   text-indent:.115em;line-height:1.24}}
 .venue{{font-family:Cinzel,serif;font-weight:400;font-size:19px;letter-spacing:.32em;
   text-indent:.32em;color:{pal['lab']}}}
-.addr{{font-family:Cormorant,serif;font-weight:400;font-size:17px;letter-spacing:.1em;
-  text-indent:.1em;color:{pal['addr']};text-transform:uppercase}}
+.addr{{font-family:Cormorant,serif;font-weight:700;font-size:24px;letter-spacing:.07em;
+  text-indent:.07em;color:{pal['addr']};text-transform:uppercase}}
 .vsub{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:19px;
   letter-spacing:.03em;color:{pal['vsub']}}}
 .note{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:15px;
