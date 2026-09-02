@@ -54,25 +54,45 @@ def marks():
             f'-webkit-mask-image:url({v.WORD_URI});mask-image:url({v.WORD_URI})"></div>')
     return star + word
 
-def minaret_group(cx, base_y, cls="hair-3"):
+def minaret_group(cx, base_y, cls="hair-1", accent="hair-3"):
     """A stylised Moroccan minaret — Koutoubia-esque: a tapered square shaft,
        blind pointed-arch windows, a lantern stage, and a jamour finial of
        stacked balls. Bilaterally symmetric, so no mirroring is needed."""
-    g = ['<rect x="-58" y="-26" width="116" height="26" class="%s" stroke-width="0.9"/>' % cls,
-         '<path d="M -52,-26 L -33,-560 L 33,-560 L 52,-26 Z" class="%s" stroke-width="0.9"/>' % cls,
-         '<rect x="-42" y="-580" width="84" height="20" class="%s" stroke-width="0.9"/>' % cls,
-         '<rect x="-24" y="-680" width="48" height="100" class="%s" stroke-width="0.85"/>' % cls,
-         '<path d="M -10,-590 L -10,-610 Q -10,-628 0,-628 Q 10,-628 10,-610 L 10,-590" class="%s" stroke-width="0.65"/>' % cls,
-         '<rect x="-30" y="-692" width="60" height="12" class="%s" stroke-width="0.85"/>' % cls,
-         '<path d="M -22,-692 Q 0,-736 22,-692 Z" class="%s" stroke-width="0.85"/>' % cls,
-         '<line x1="0" y1="-736" x2="0" y2="-760" class="%s" stroke-width="0.8"/>' % cls,
-         '<circle cx="0" cy="-744" r="4" class="%s" stroke-width="0.7"/>' % cls,
-         '<circle cx="0" cy="-754" r="2.6" class="%s" stroke-width="0.6"/>' % cls]
+    g = ['<rect x="-58" y="-26" width="116" height="26" class="%s" stroke-width="1.6"/>' % cls,
+         '<path d="M -52,-26 L -33,-560 L 33,-560 L 52,-26 Z" class="%s" stroke-width="1.5"/>' % cls,
+         '<rect x="-42" y="-580" width="84" height="20" class="%s" stroke-width="1.5"/>' % cls,
+         '<rect x="-24" y="-680" width="48" height="100" class="%s" stroke-width="1.4"/>' % cls,
+         '<path d="M -10,-590 L -10,-610 Q -10,-628 0,-628 Q 10,-628 10,-610 L 10,-590" class="%s" stroke-width="1.1"/>' % accent,
+         '<rect x="-30" y="-692" width="60" height="12" class="%s" stroke-width="1.4"/>' % cls,
+         '<path d="M -22,-692 Q 0,-736 22,-692 Z" class="%s" stroke-width="1.4"/>' % cls,
+         '<line x1="0" y1="-736" x2="0" y2="-760" class="%s" stroke-width="1.3"/>' % cls,
+         '<circle cx="0" cy="-744" r="4" class="%s" stroke-width="1.1"/>' % cls,
+         '<circle cx="0" cy="-754" r="2.6" class="%s" stroke-width="1.0"/>' % cls]
     for yc in (-150, -330, -480):
         ww, wh = 15, 32
         g.append(f'<path d="M {-ww/2},{yc+wh/2} L {-ww/2},{yc} Q {-ww/2},{yc-wh/2} 0,{yc-wh/2} '
-                 f'Q {ww/2},{yc-wh/2} {ww/2},{yc} L {ww/2},{yc+wh/2}" class="{cls}" stroke-width="0.65"/>')
-    return f'<g transform="translate({cx},{base_y})" fill="none">' + "\n".join(g) + '</g>'
+                 f'Q {ww/2},{yc-wh/2} {ww/2},{yc} L {ww/2},{yc+wh/2}" class="{accent}" stroke-width="1.0"/>')
+    return f'<g class="tower" transform="translate({cx},{base_y})" fill="none">' + "\n".join(g) + '</g>'
+
+def moon_group(cx, cy, pal, r=34):
+    """A solid, glowing full moon — a radial halo behind a filled disc,
+       not just an outline, so it reads as a source of light."""
+    return f'''
+  <defs>
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="{pal['halo0']}" stop-opacity="0.55"/>
+      <stop offset="35%"  stop-color="{pal['halo1']}" stop-opacity="0.30"/>
+      <stop offset="70%"  stop-color="{pal['halo2']}" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="{pal['halo2']}" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonBody" cx="38%" cy="34%" r="70%">
+      <stop offset="0%"   stop-color="#FFFBF0"/>
+      <stop offset="45%"  stop-color="{pal['fill_lit']}"/>
+      <stop offset="100%" stop-color="{pal['halo3']}"/>
+    </radialGradient>
+  </defs>
+  <circle cx="{cx}" cy="{cy}" r="{r*3.6:.0f}" fill="url(#moonGlow)"/>
+  <circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#moonBody)" stroke="{pal['hair2']}" stroke-width="1" stroke-opacity="0.85"/>'''
 
 def dado_band(pal):
     """A tiled border, the way the poster's own frame carries a dado —
@@ -85,9 +105,10 @@ def dado_band(pal):
   <path fill-rule="evenodd" fill="url(#{band_id})" style="opacity:{pal.get('band_op', 0.30)}"
         d="M30,30 H{W-30} V{H-30} H30 Z M62,62 H{W-62} V{H-62} H62 Z"/>'''
 
-def frame_svg(pal, minarets=False, rule_y=None):
+def frame_svg(pal, minarets=False, moon=False, rule_y=None):
     rule_y = rule_y if rule_y is not None else VENUE_Y+40
     towers = (minaret_group(150, H-60) + minaret_group(W-150, H-60)) if minarets else ""
+    moon_svg = moon_group(232, 168, pal) if moon else ""
     return f'''
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
@@ -104,6 +125,7 @@ def frame_svg(pal, minarets=False, rule_y=None):
   <g class="ground">{v.ground_rosette(CX, H*0.52, 520)}</g>
 
   {towers}
+  {moon_svg}
 
   <path d="{barch_d(0)}" fill="none" class="hair-5" stroke-width="1.1"/>
   <path d="{barch_d(11)}" fill="none" class="hair-5" stroke-width="0.6"/>
@@ -166,6 +188,7 @@ html,body{{background:#000}}
 .zb{{stroke:{pal['zb']}}}
 .ground{{opacity:.10}}
 .med{{filter:drop-shadow(0 0 18px rgba(230,192,116,.28))}}
+.tower{{filter:drop-shadow(0 0 9px rgba(230,192,116,.40))}}
 
 .mark{{position:absolute;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
@@ -195,7 +218,7 @@ html,body{{background:#000}}
   letter-spacing:.03em;color:{pal['note']}}}
 '''
 
-def page(pal, full_address=False, minarets=False, note=True):
+def page(pal, full_address=False, minarets=False, moon=False, note=True):
     venue_text = "CRESCENT HALL" if full_address else "CRESCENT HALL &nbsp;·&nbsp; ROCHDALE"
     addr_line = ('<div class="at addr" style="top:%dpx">162 Edmund Street &nbsp;·&nbsp; Rochdale OL12 6QG</div>'
                  % (VENUE_Y+34)) if full_address else ""
@@ -207,7 +230,7 @@ def page(pal, full_address=False, minarets=False, note=True):
 <style>{css(pal)}</style></head>
 <body><div class="page">
 {tiles_svg(pal)}
-{frame_svg(pal, minarets=minarets, rule_y=rule_y)}
+{frame_svg(pal, minarets=minarets, moon=moon, rule_y=rule_y)}
 {marks()}
 <div class="at t1 gold" style="top:{TITLE_Y}px">TARIQA AL QADIRIYA AL BOUTCHICHIYA</div>
 <div class="at venue" style="top:{VENUE_Y}px">{venue_text}</div>
@@ -226,7 +249,7 @@ PALETTES = {
 
 if __name__ == "__main__":
     for key, pal in PALETTES.items():
-        opts = dict(full_address=True, minarets=True, note=False) if key == "blackgold" else {}
+        opts = dict(full_address=True, minarets=True, moon=True, note=False) if key == "blackgold" else {}
         html = page(pal, **opts)
         p = HERE / f"banner-{key}.html"
         p.write_text(html, encoding="utf-8")
