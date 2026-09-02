@@ -191,7 +191,7 @@ html,body{{background:#000}}
 .grain{{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");}}
 .scrim{{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(58% 66% at 50% 46%, rgba({pal['scrim']},.62) 0%, rgba({pal['scrim']},.38) 42%, rgba({pal['scrim']},0) 76%);}}
+  background:radial-gradient(60% 68% at 50% 46%, rgba({pal['scrim']},.92) 0%, rgba({pal['scrim']},.78) 30%, rgba({pal['scrim']},.42) 56%, rgba({pal['scrim']},0) 82%);}}
 
 .hair-1{{fill:none;stroke:{pal['hair1']};opacity:.97}}
 .hair-2{{fill:none;stroke:{pal['hair2']};opacity:.85}}
