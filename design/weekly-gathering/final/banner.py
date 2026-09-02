@@ -121,6 +121,17 @@ def moon_group(cx, cy, pal, r=40):
     <circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#moonBody)"/>
   </g>'''
 
+def panel_texture(pal):
+    """A faint geometric weave inside the solid niche — felt more than seen,
+       the same way the poster's own ground carries texture under its text."""
+    lattice = pal.get("pattern") == "lattice"
+    pat = f.lattice_layer(46, "zh", 0.55) if lattice else v.zellij_layer(46, "zh", 0.65, studs=False)
+    pid = "lat46" if lattice else "zj46"
+    return (f'<defs><clipPath id="panelClip"><path d="{arch_panel_d(824)}"/></clipPath>{pat}</defs>'
+            f'<g clip-path="url(#panelClip)">'
+            f'<rect x="0" y="0" width="{W}" height="{H}" fill="url(#{pid})" opacity="0.20"/>'
+            f'</g>')
+
 def dado_band(pal):
     """A tiled border, the way the poster's own frame carries a dado —
        far more Islamic detail at the edge than a bare hairline."""
@@ -153,6 +164,7 @@ def frame_svg(pal, minarets=False, moon=False, rule_y=None):
   <g class="ground">{v.ground_rosette(CX, H*0.52, 520)}</g>
 
   <path d="{arch_panel_d(824)}" fill="rgba({pal['scrim']},0.94)"/>
+  {panel_texture(pal)}
 
   {towers}
   {moon_svg}
@@ -160,6 +172,7 @@ def frame_svg(pal, minarets=False, moon=False, rule_y=None):
   <path d="{barch_d(0)}" fill="none" class="hair-4" stroke-width="1.3"/>
   <path d="{barch_d(11)}" fill="none" class="hair-5" stroke-width="0.6"/>
   <path d="{arch_panel_d(824)}" fill="none" class="hair-4" stroke-width="1"/>
+  <path d="{arch_panel_d(808, inset=16)}" fill="none" class="hair-5" stroke-width="0.7"/>
 
   <g class="med">{v.halo(CX, STAR_CY, STAR_R)}</g>
 
