@@ -54,6 +54,26 @@ def marks():
             f'-webkit-mask-image:url({v.WORD_URI});mask-image:url({v.WORD_URI})"></div>')
     return star + word
 
+def minaret_group(cx, base_y, cls="hair-3"):
+    """A stylised Moroccan minaret — Koutoubia-esque: a tapered square shaft,
+       blind pointed-arch windows, a lantern stage, and a jamour finial of
+       stacked balls. Bilaterally symmetric, so no mirroring is needed."""
+    g = ['<rect x="-58" y="-26" width="116" height="26" class="%s" stroke-width="0.9"/>' % cls,
+         '<path d="M -52,-26 L -33,-560 L 33,-560 L 52,-26 Z" class="%s" stroke-width="0.9"/>' % cls,
+         '<rect x="-42" y="-580" width="84" height="20" class="%s" stroke-width="0.9"/>' % cls,
+         '<rect x="-24" y="-680" width="48" height="100" class="%s" stroke-width="0.85"/>' % cls,
+         '<path d="M -10,-590 L -10,-610 Q -10,-628 0,-628 Q 10,-628 10,-610 L 10,-590" class="%s" stroke-width="0.65"/>' % cls,
+         '<rect x="-30" y="-692" width="60" height="12" class="%s" stroke-width="0.85"/>' % cls,
+         '<path d="M -22,-692 Q 0,-736 22,-692 Z" class="%s" stroke-width="0.85"/>' % cls,
+         '<line x1="0" y1="-736" x2="0" y2="-760" class="%s" stroke-width="0.8"/>' % cls,
+         '<circle cx="0" cy="-744" r="4" class="%s" stroke-width="0.7"/>' % cls,
+         '<circle cx="0" cy="-754" r="2.6" class="%s" stroke-width="0.6"/>' % cls]
+    for yc in (-150, -330, -480):
+        ww, wh = 15, 32
+        g.append(f'<path d="M {-ww/2},{yc+wh/2} L {-ww/2},{yc} Q {-ww/2},{yc-wh/2} 0,{yc-wh/2} '
+                 f'Q {ww/2},{yc-wh/2} {ww/2},{yc} L {ww/2},{yc+wh/2}" class="{cls}" stroke-width="0.65"/>')
+    return f'<g transform="translate({cx},{base_y})" fill="none">' + "\n".join(g) + '</g>'
+
 def dado_band(pal):
     """A tiled border, the way the poster's own frame carries a dado —
        far more Islamic detail at the edge than a bare hairline."""
@@ -65,7 +85,9 @@ def dado_band(pal):
   <path fill-rule="evenodd" fill="url(#{band_id})" style="opacity:{pal.get('band_op', 0.30)}"
         d="M30,30 H{W-30} V{H-30} H30 Z M62,62 H{W-62} V{H-62} H62 Z"/>'''
 
-def frame_svg(pal):
+def frame_svg(pal, minarets=False, rule_y=None):
+    rule_y = rule_y if rule_y is not None else VENUE_Y+40
+    towers = (minaret_group(150, H-60) + minaret_group(W-150, H-60)) if minarets else ""
     return f'''
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
@@ -81,12 +103,14 @@ def frame_svg(pal):
 
   <g class="ground">{v.ground_rosette(CX, H*0.52, 520)}</g>
 
+  {towers}
+
   <path d="{barch_d(0)}" fill="none" class="hair-5" stroke-width="1.1"/>
   <path d="{barch_d(11)}" fill="none" class="hair-5" stroke-width="0.6"/>
 
   <g class="med">{v.halo(CX, STAR_CY, STAR_R)}</g>
 
-  {v.rule(CX, VENUE_Y+40, 200)}
+  {v.rule(CX, rule_y, 200)}
 
   {dado_band(pal)}
   <rect x="30" y="30" width="{W-60}" height="{H-60}" class="hair-3" stroke-width="1.1" fill="none"/>
@@ -163,23 +187,32 @@ html,body{{background:#000}}
   text-indent:.115em;line-height:1.24}}
 .venue{{font-family:Cinzel,serif;font-weight:400;font-size:19px;letter-spacing:.32em;
   text-indent:.32em;color:{pal['lab']}}}
+.addr{{font-family:Cormorant,serif;font-weight:400;font-size:17px;letter-spacing:.1em;
+  text-indent:.1em;color:{pal['addr']};text-transform:uppercase}}
 .vsub{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:19px;
   letter-spacing:.03em;color:{pal['vsub']}}}
 .note{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:15px;
   letter-spacing:.03em;color:{pal['note']}}}
 '''
 
-def page(pal):
+def page(pal, full_address=False, minarets=False, note=True):
+    venue_text = "CRESCENT HALL" if full_address else "CRESCENT HALL &nbsp;·&nbsp; ROCHDALE"
+    addr_line = ('<div class="at addr" style="top:%dpx">162 Edmund Street &nbsp;·&nbsp; Rochdale OL12 6QG</div>'
+                 % (VENUE_Y+34)) if full_address else ""
+    rule_y = VENUE_Y + (76 if full_address else 40)
+    note_line = ('<div class="at note" style="top:%dpx">A brothers-only gathering &nbsp;·&nbsp; www.thesufiway.co.uk</div>'
+                 % NOTE_Y) if note else ('<div class="at note" style="top:%dpx">www.thesufiway.co.uk</div>' % NOTE_Y)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Tariqa Al Qadiriya Al Boutchichiya</title>
 <style>{css(pal)}</style></head>
 <body><div class="page">
 {tiles_svg(pal)}
-{frame_svg(pal)}
+{frame_svg(pal, minarets=minarets, rule_y=rule_y)}
 {marks()}
 <div class="at t1 gold" style="top:{TITLE_Y}px">TARIQA AL QADIRIYA AL BOUTCHICHIYA</div>
-<div class="at venue" style="top:{VENUE_Y}px">CRESCENT HALL &nbsp;·&nbsp; ROCHDALE</div>
-<div class="at note" style="top:{NOTE_Y}px">A brothers-only gathering &nbsp;·&nbsp; www.thesufiway.co.uk</div>
+<div class="at venue" style="top:{VENUE_Y}px">{venue_text}</div>
+{addr_line}
+{note_line}
 </div></body></html>'''
 
 PALETTES = {
@@ -193,7 +226,8 @@ PALETTES = {
 
 if __name__ == "__main__":
     for key, pal in PALETTES.items():
-        html = page(pal)
+        opts = dict(full_address=True, minarets=True, note=False) if key == "blackgold" else {}
+        html = page(pal, **opts)
         p = HERE / f"banner-{key}.html"
         p.write_text(html, encoding="utf-8")
         shot(p, HERE / f"banner-{key}.png", W, H, scale=2)

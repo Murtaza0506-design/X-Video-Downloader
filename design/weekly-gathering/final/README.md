@@ -15,6 +15,7 @@ approved.
 | `final-blackgold.png` | Black & Gold — true black ground; frame, star and headings stay gold, body copy turns white | Khatim star-and-cross |
 | `final-earthy.png` | Earthy Gold — Black & Gold with the neutral black swapped for a warm terracotta-clay dark; every gold and white token is untouched | Khatim star-and-cross |
 | `banner-<colour>.png` | The banner (1600×900, `banner.py`), redone as a crest — star, wordmark, name and venue only, no date/time/WhatsApp — against a much denser Islamic geometric ground (a large faint rosette behind the star, a tiled dado border). Rendered in all six palettes: gold, emerald, burgundy, indigo, blackgold, earthy. |
+| `banner-blackgold.png` | Black & Gold only, further customised: the full street address under the venue name, two flanking minaret silhouettes (`minaret_group()` — a Koutoubia-style tapered shaft, blind arches, lantern and jamour finial), and "A brothers-only gathering" dropped from the footer while the site URL stays. |
 
 Indigo is the one structural departure: every gold token (hairlines, the
 star's own gradient, all text) is swapped for a cool silver/platinum
