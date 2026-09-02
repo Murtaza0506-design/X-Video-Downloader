@@ -38,6 +38,16 @@ def barch_d(inset=0.0):
     return (f'M {l},{b} L {l},{sh} Q {l},{a+160} {CX},{a} '
             f'Q {r},{a+160} {r},{sh} L {r},{b}')
 
+def arch_panel_d(base_y, inset=0.0):
+    """The same mihrab curve as barch_d, but with the sides run straight
+       down to base_y and closed — a solid niche the full height of the
+       middle, not just the arch's cap."""
+    l, r = BL+inset, BR-inset
+    a = B_APEX+inset*0.9
+    sh = B_SH+inset*0.35
+    return (f'M {l},{base_y} L {l},{sh} Q {l},{a+160} {CX},{a} '
+            f'Q {r},{a+160} {r},{sh} L {r},{base_y} Z')
+
 STAR_CY, STAR_R, STAR_D = 250, 138, 230
 WORD_W, WORD_H = 420, 74
 WORD_Y = 408
@@ -142,11 +152,14 @@ def frame_svg(pal, minarets=False, moon=False, rule_y=None):
 
   <g class="ground">{v.ground_rosette(CX, H*0.52, 520)}</g>
 
+  <path d="{arch_panel_d(824)}" fill="rgba({pal['scrim']},0.94)"/>
+
   {towers}
   {moon_svg}
 
-  <path d="{barch_d(0)}" fill="none" class="hair-5" stroke-width="1.1"/>
+  <path d="{barch_d(0)}" fill="none" class="hair-4" stroke-width="1.3"/>
   <path d="{barch_d(11)}" fill="none" class="hair-5" stroke-width="0.6"/>
+  <path d="{arch_panel_d(824)}" fill="none" class="hair-4" stroke-width="1"/>
 
   <g class="med">{v.halo(CX, STAR_CY, STAR_R)}</g>
 
