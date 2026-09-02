@@ -4,7 +4,7 @@
 import subprocess, pathlib
 from PIL import Image
 import variants as v
-from final import BLACKGOLD as PAL
+from final import EARTHY as PAL
 
 HERE = v.HERE
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
@@ -98,15 +98,13 @@ def css():
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{background:#000}}
 .page{{position:relative;width:{W}px;height:{H}px;overflow:hidden;
-  background:
-    radial-gradient(80% 90% at 50% 30%, #262626 0%, #171717 34%, #0C0C0C 64%, #050505 100%),
-    radial-gradient(90% 60% at 50% 100%, #161616 0%, #0A0A0A 50%, #040404 100%);
+  background:{PAL['bg1']},{PAL['bg2']};
   font-kerning:normal;-webkit-font-smoothing:antialiased;}}
 .layer{{position:absolute;inset:0;width:100%;height:100%}}
 .grain{{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");}}
 .scrim{{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(56% 64% at 50% 46%, rgba(4,4,4,.34) 0%, rgba(4,4,4,0) 72%);}}
+  background:radial-gradient(56% 64% at 50% 46%, rgba({PAL['scrim']},.34) 0%, rgba({PAL['scrim']},0) 72%);}}
 
 .hair-1{{fill:none;stroke:{PAL['hair1']};opacity:.97}}
 .hair-2{{fill:none;stroke:{PAL['hair2']};opacity:.85}}

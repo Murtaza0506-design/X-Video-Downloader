@@ -340,9 +340,24 @@ BLACKGOLD.update(
     lab="#E2C685", rn="#D6B876", url="#CDAF77",
 )
 
+EARTHY = dict(BLACKGOLD)
+EARTHY.update(
+    name="Earthy Gold",
+    # Everything gold — hairlines, the star, the two titles, the small caps
+    # accents — and the white reading text are untouched from BLACKGOLD.
+    # Only the ground itself changes: from neutral near-black to a warm
+    # terracotta-clay dark, so the gold still sits on black at heart, just
+    # a black with sun-baked earth in it rather than studio neutral.
+    bg1="radial-gradient(115% 65% at 50% 26%, #4E2C16 0%, #35200F 34%, #211408 62%, #130B04 100%)",
+    bg2="radial-gradient(90% 45% at 50% 96%, #2C190B 0%, #1A0F06 46%, #0E0803 100%)",
+    print_bg="#130B04",
+    scrim="19,11,5",
+)
+
 if __name__ == "__main__":
     render(DEFAULT_PALETTE, "final-gold")
     render(EMERALD, "final-emerald")
     render(BURGUNDY, "final-burgundy")
     render(INDIGO, "final-indigo")
     render(BLACKGOLD, "final-blackgold")
+    render(EARTHY, "final-earthy")
