@@ -13,7 +13,7 @@ approved.
 | `final-burgundy.png` | Royal Burgundy — deep wine red, gold ornament | Diamond lattice (mashrabiya) |
 | `final-indigo.png` | Midnight Indigo — deep navy, **silver** ornament instead of gold | Khatim star-and-cross |
 | `final-blackgold.png` | Black & Gold — true black ground; frame, star and headings stay gold, body copy turns white | Khatim star-and-cross |
-| `banner-blackgold.png` | A landscape banner (1600×900, in `banner.py`) for WhatsApp/Facebook — same star, wordmark and palette in a three-column layout, not a crop of the poster | — |
+| `banner-blackgold.png` | A landscape banner (1600×900, in `banner.py`) for WhatsApp/Facebook — one centred composition under a flattened echo of the poster's own arch, not a crop of the poster | — |
 
 Indigo is the one structural departure: every gold token (hairlines, the
 star's own gradient, all text) is swapped for a cool silver/platinum

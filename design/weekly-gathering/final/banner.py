@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""A landscape banner (1600x900) in the Black & Gold poster's own language —
-   for a WhatsApp/Facebook cover, not the print poster itself."""
+"""A landscape banner (1600x900), redone as one centred composition under a
+   flattened echo of the poster's own mihrab arch — not a poster cut down."""
 import subprocess, pathlib
 from PIL import Image
 import variants as v
@@ -9,7 +9,7 @@ from final import BLACKGOLD as PAL
 HERE = v.HERE
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 W, H = 1600, 900
-CX, CY = W/2, H/2
+CX = W/2
 
 def shot(html_path, out_png, w, h, scale=1):
     raw = out_png.with_name("_raw_" + out_png.stem + ".png")
@@ -21,58 +21,56 @@ def shot(html_path, out_png, w, h, scale=1):
     im.save(out_png, optimize=True); raw.unlink()
     print(out_png.name, im.size)
 
-def zellij_layer(p_, cls, w_, studs=True):
-    return v.zellij_layer(p_, cls, w_, studs=studs)
-
-def lozenge(cx, cy, w=6, h=9.5, cls="fill-lit"):
+def lozenge(cx, cy, w=5.5, h=8.5, cls="fill-lit"):
     return v.lozenge(cx, cy, w, h, cls)
 
-def hrule(cx, y, half, node=True):
-    return v.rule(cx, y, half, node)
+def css_diamond(cx, cy, size=8):
+    """A lozenge divider as a plain rotated div — v.lozenge emits a bare SVG
+       <path>, which HTML silently drops outside an <svg> wrapper."""
+    return (f'<div style="position:absolute;left:{cx-size/2:.0f}px;top:{cy-size/2:.0f}px;'
+            f'width:{size}px;height:{size}px;background:{PAL["fill_lit"]};'
+            f'transform:rotate(45deg);box-shadow:0 0 6px rgba(217,185,120,.45)"></div>')
 
-def vrule(x, y0, y1):
-    return f'<line x1="{x}" y1="{y0}" x2="{x}" y2="{y1}" class="rule"/>'
+# ---------- a flattened echo of the poster's mihrab arch ----------
+BL, BR, B_BASE, B_APEX, B_SH = 300, 1300, 600, 46, 300
+def barch_d(inset=0.0):
+    l, r = BL+inset, BR-inset
+    b, a = B_BASE, B_APEX+inset*0.9
+    sh = B_SH+inset*0.35
+    return (f'M {l},{b} L {l},{sh} Q {l},{a+150} {CX},{a} '
+            f'Q {r},{a+150} {r},{sh} L {r},{b}')
 
-# ---------- star + halo, sized for the banner's own height ----------
-STAR_CX, STAR_CY, STAR_R, STAR_D = 300, CY, 210, 350
-def star_group():
-    g = [f'<g class="med">{v.halo(STAR_CX, STAR_CY, STAR_R)}</g>']
-    return "\n".join(g)
-
-STAR_MARK = (f'<div class="mark seal" style="left:{STAR_CX-STAR_D/2:.0f}px;top:{STAR_CY-STAR_D/2:.0f}px;'
+STAR_CY, STAR_R, STAR_D = 232, 120, 200
+STAR_MARK = (f'<div class="mark seal" style="left:{CX-STAR_D/2:.0f}px;top:{STAR_CY-STAR_D/2:.0f}px;'
              f'width:{STAR_D}px;height:{STAR_D}px;'
              f'-webkit-mask-image:url({v.STAR_URI});mask-image:url({v.STAR_URI})"></div>')
 
-WORD_W, WORD_H = 430, 76
-WORD_X, WORD_Y = CX - WORD_W/2, 176
-WORDMARK = (f'<div class="mark wordmark" style="left:{WORD_X:.0f}px;top:{WORD_Y}px;'
+WORD_W, WORD_H = 380, 67
+WORD_Y = 358
+WORDMARK = (f'<div class="mark wordmark" style="left:{CX-WORD_W/2:.0f}px;top:{WORD_Y}px;'
             f'width:{WORD_W}px;height:{WORD_H}px;'
             f'-webkit-mask-image:url({v.WORD_URI});mask-image:url({v.WORD_URI})"></div>')
-
-DIV1_X = 520   # star | centre
-DIV2_X = 1080  # centre | info
 
 def frame_svg():
     return f'''
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
-    <radialGradient id="halo" cx="{STAR_CX/W*100:.1f}%" cy="50%" r="46%">
-      <stop offset="0%"   stop-color="{PAL['halo0']}" stop-opacity="0.20"/>
-      <stop offset="30%"  stop-color="{PAL['halo1']}" stop-opacity="0.10"/>
-      <stop offset="55%"  stop-color="{PAL['halo2']}" stop-opacity="0.045"/>
+    <radialGradient id="halo" cx="50%" cy="{STAR_CY/H*100:.1f}%" r="46%">
+      <stop offset="0%"   stop-color="{PAL['halo0']}" stop-opacity="0.22"/>
+      <stop offset="30%"  stop-color="{PAL['halo1']}" stop-opacity="0.11"/>
+      <stop offset="55%"  stop-color="{PAL['halo2']}" stop-opacity="0.05"/>
       <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </radialGradient>
-    {zellij_layer(30, "zb", 0.7, studs=False)}
   </defs>
 
   <rect width="{W}" height="{H}" fill="url(#halo)"/>
 
-  {star_group()}
+  <path d="{barch_d(0)}" fill="none" class="hair-5" stroke-width="1.1"/>
+  <path d="{barch_d(10)}" fill="none" class="hair-5" stroke-width="0.6"/>
 
-  <line x1="{DIV1_X}" y1="70" x2="{DIV1_X}" y2="{H-70}" class="rule"/>
-  {lozenge(DIV1_X, H/2)}
-  <line x1="{DIV2_X}" y1="70" x2="{DIV2_X}" y2="{H-70}" class="rule"/>
-  {lozenge(DIV2_X, H/2)}
+  <g class="med">{v.halo(CX, STAR_CY, STAR_R)}</g>
+
+  {v.rule(CX, 566, 240)}
 
   <!-- outer frame -->
   <rect x="26" y="26" width="{W-52}" height="{H-52}" class="hair-3" stroke-width="1.1" fill="none"/>
@@ -101,37 +99,36 @@ def css():
 html,body{{background:#000}}
 .page{{position:relative;width:{W}px;height:{H}px;overflow:hidden;
   background:
-    radial-gradient(78% 92% at 20% 50%, #2A2A2A 0%, #1A1A1A 30%, #0D0D0D 58%, #050505 100%),
-    radial-gradient(70% 90% at 82% 50%, #1D1D1D 0%, #0E0E0E 40%, #050505 100%);
+    radial-gradient(80% 90% at 50% 30%, #262626 0%, #171717 34%, #0C0C0C 64%, #050505 100%),
+    radial-gradient(90% 60% at 50% 100%, #161616 0%, #0A0A0A 50%, #040404 100%);
   font-kerning:normal;-webkit-font-smoothing:antialiased;}}
 .layer{{position:absolute;inset:0;width:100%;height:100%}}
 .grain{{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");}}
 .scrim{{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(60% 70% at 50% 50%, rgba(4,4,4,.30) 0%, rgba(4,4,4,0) 70%);}}
+  background:radial-gradient(56% 64% at 50% 46%, rgba(4,4,4,.34) 0%, rgba(4,4,4,0) 72%);}}
 
 .hair-1{{fill:none;stroke:{PAL['hair1']};opacity:.97}}
 .hair-2{{fill:none;stroke:{PAL['hair2']};opacity:.85}}
 .hair-3{{fill:none;stroke:{PAL['hair3']};opacity:.80}}
 .hair-4{{fill:none;stroke:{PAL['hair4']};opacity:.75}}
-.hair-5{{fill:none;stroke:{PAL['hair5']};opacity:.55}}
+.hair-5{{fill:none;stroke:{PAL['hair5']};opacity:.6}}
 .fill-lit{{fill:{PAL['fill_lit']}}}
-.fill-ink{{fill:#0A0A0A}}
 .rule{{stroke:{PAL['rule']};stroke-width:1;opacity:.85}}
+.rule-lit{{stroke:{PAL['rule_lit']};stroke-width:1;opacity:.9}}
 .zh{{stroke:{PAL['zh']}}}
 .zf{{stroke:{PAL['zf']}}}
-.zb{{stroke:{PAL['zb']}}}
-.med{{filter:drop-shadow(0 0 14px rgba(230,192,116,.24))}}
+.med{{filter:drop-shadow(0 0 16px rgba(230,192,116,.26))}}
 
 .mark{{position:absolute;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-size:contain;mask-size:contain;
   -webkit-mask-position:center;mask-position:center;
   background-image:{PAL['mark_grad']};}}
-.seal{{filter:drop-shadow(0 0 16px rgba(232,194,116,.28)) drop-shadow(0 1px 1px rgba(0,0,0,.5))}}
-.wordmark{{filter:drop-shadow(0 0 12px rgba(226,186,108,.22)) drop-shadow(0 1px 1px rgba(0,0,0,.5))}}
+.seal{{filter:drop-shadow(0 0 18px rgba(232,194,116,.30)) drop-shadow(0 1px 1px rgba(0,0,0,.5))}}
+.wordmark{{filter:drop-shadow(0 0 12px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.5))}}
 
-.at{{position:absolute;text-align:center;
+.at{{position:absolute;left:0;right:0;text-align:center;
   text-shadow:0 1px 3px rgba(0,0,0,.75), 0 0 12px rgba(0,0,0,.5)}}
 .gold{{background:{PAL['gold_grad']};
   -webkit-background-clip:text;background-clip:text;color:transparent;
@@ -139,48 +136,34 @@ html,body{{background:#000}}
          drop-shadow(0 0 16px rgba(214,172,100,.24))}}
 .at.gold{{text-shadow:none}}
 
-.t1{{font-family:Cinzel,serif;font-weight:600;font-size:34px;letter-spacing:.09em;
-  text-indent:.09em;line-height:1.22}}
-.t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:24px;
+.t1{{font-family:Cinzel,serif;font-weight:600;font-size:38px;letter-spacing:.11em;
+  text-indent:.11em;line-height:1.24}}
+.t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:25px;
   letter-spacing:.03em;color:{PAL['t2']}}}
-.lab{{font-family:Cinzel,serif;font-weight:400;font-size:12px;letter-spacing:.4em;
-  text-indent:.4em;color:{PAL['lab']}}}
-.val{{font-family:Cormorant,serif;font-weight:400;font-size:26px;letter-spacing:.04em;
-  text-indent:.04em;color:{PAL['val']}}}
-.venue{{font-family:Cinzel,serif;font-weight:600;font-size:26px;letter-spacing:.1em;
-  text-indent:.1em}}
-.vsub{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:18px;
-  letter-spacing:.03em;color:{PAL['vsub']}}}
-.wa{{font-family:Cormorant,serif;font-weight:400;font-size:24px;letter-spacing:.04em;
-  text-indent:.04em;color:{PAL['wa']}}}
+.info{{font-family:Cormorant,serif;font-weight:400;font-size:23px;letter-spacing:.04em;
+  color:{PAL['val']}}}
+.info b{{font-weight:600;color:{PAL['wa']}}}
+.rn{{font-family:Cinzel,serif;font-weight:400;font-size:12.5px;letter-spacing:.42em;
+  text-indent:.42em;color:{PAL['lab']}}}
 .note{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:15px;
   letter-spacing:.03em;color:{PAL['note']}}}
 '''
 
+INFO_Y = 616
+def info_row():
+    """One centred line, gold diamonds standing where a caption would break the flow."""
+    parts = ["29 August 2026", "7:00 – 9:00 pm", "Crescent Hall, Rochdale", "WhatsApp 07884 053544"]
+    seg_w = 1100/len(parts)
+    x0 = CX - 1100/2
+    spans = []
+    for i, txt in enumerate(parts):
+        cxp = x0 + seg_w*(i+0.5)
+        spans.append(f'<div class="at info" style="top:0;left:{cxp-seg_w/2:.0f}px;width:{seg_w:.0f}px">{txt}</div>')
+        if i < len(parts)-1:
+            spans.append(css_diamond(x0+seg_w*(i+1), 15))
+    return f'<div style="position:absolute;left:0;top:{INFO_Y}px;width:{W}px;height:32px">' + "".join(spans) + '</div>'
+
 def page():
-    title = f'''
-<div class="at t1 gold" style="left:{DIV1_X}px;width:{DIV2_X-DIV1_X}px;top:284px">TARIQA AL QADIRIYA</div>
-<div class="at t1 gold" style="left:{DIV1_X}px;width:{DIV2_X-DIV1_X}px;top:326px">AL BOUTCHICHIYA</div>
-<div class="at t2" style="left:{DIV1_X}px;width:{DIV2_X-DIV1_X}px;top:392px">Weekly Dhikr Gathering</div>
-'''
-    info_x, info_w = DIV2_X, W-70-DIV2_X
-    info = f'''
-<div class="at lab" style="left:{info_x}px;width:{info_w}px;top:196px">SATURDAY</div>
-<div class="at val" style="left:{info_x}px;width:{info_w}px;top:222px">29 August 2026</div>
-<div class="at lab" style="left:{info_x}px;width:{info_w}px;top:280px">EVENING</div>
-<div class="at val" style="left:{info_x}px;width:{info_w}px;top:306px">7:00 – 9:00 pm</div>
-
-{hrule((info_x+W-70)/2, 372, (info_w-40)/2, node=False)}
-
-<div class="at venue gold" style="left:{info_x}px;width:{info_w}px;top:404px">CRESCENT HALL</div>
-<div class="at vsub" style="left:{info_x}px;width:{info_w}px;top:444px">Crescent Nursery, Rochdale</div>
-
-{hrule((info_x+W-70)/2, 494, (info_w-40)/2, node=False)}
-
-<div class="at lab" style="left:{info_x}px;width:{info_w}px;top:520px">CONFIRM YOUR ATTENDANCE</div>
-<div class="at wa" style="left:{info_x}px;width:{info_w}px;top:548px">WhatsApp 07884 053544</div>
-<div class="at note" style="left:{info_x}px;width:{info_w}px;top:588px">A brothers-only gathering</div>
-'''
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Weekly Dhikr Gathering — Banner</title>
 <style>{css()}</style></head>
@@ -189,8 +172,10 @@ def page():
 {frame_svg()}
 {STAR_MARK}
 {WORDMARK}
-{title}
-{info}
+<div class="at t1 gold" style="top:{WORD_Y+WORD_H+20}px">TARIQA AL QADIRIYA AL BOUTCHICHIYA</div>
+<div class="at t2" style="top:{WORD_Y+WORD_H+70}px">Weekly Dhikr Gathering</div>
+{info_row()}
+<div class="at note" style="top:{INFO_Y+52}px">A brothers-only gathering &nbsp;·&nbsp; www.thesufiway.co.uk</div>
 </div></body></html>'''
 
 if __name__ == "__main__":
