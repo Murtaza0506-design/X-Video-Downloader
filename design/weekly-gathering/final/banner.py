@@ -152,10 +152,10 @@ def frame_svg(pal, minarets=False, moon=False, rule_y=None):
 <svg class="layer" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
     <radialGradient id="halo" cx="50%" cy="{STAR_CY/H*100:.1f}%" r="50%">
-      <stop offset="0%"   stop-color="{pal['halo0']}" stop-opacity="0.24"/>
-      <stop offset="30%"  stop-color="{pal['halo1']}" stop-opacity="0.12"/>
-      <stop offset="55%"  stop-color="{pal['halo2']}" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0%"   stop-color="{pal['halo0']}" stop-opacity="{0.24*pal.get('halo_mult',1.0):.3f}"/>
+      <stop offset="30%"  stop-color="{pal['halo1']}" stop-opacity="{0.12*pal.get('halo_mult',1.0):.3f}"/>
+      <stop offset="55%"  stop-color="{pal['halo2']}" stop-opacity="{0.05*pal.get('halo_mult',1.0):.3f}"/>
+      <stop offset="100%" stop-color="{pal['halo2']}" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
@@ -217,7 +217,7 @@ html,body{{background:#000}}
 .grain{{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");}}
 .scrim{{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(60% 68% at 50% 46%, rgba({pal['scrim']},.92) 0%, rgba({pal['scrim']},.78) 30%, rgba({pal['scrim']},.42) 56%, rgba({pal['scrim']},0) 82%);}}
+  background:radial-gradient({pal.get('scrim_reach','60% 68%')} at 50% 46%, rgba({pal['scrim']},.92) 0%, rgba({pal['scrim']},.78) 30%, rgba({pal['scrim']},.42) 56%, rgba({pal['scrim']},0) 82%);}}
 
 .hair-1{{fill:none;stroke:{pal['hair1']};opacity:.97}}
 .hair-2{{fill:none;stroke:{pal['hair2']};opacity:.85}}
@@ -230,6 +230,7 @@ html,body{{background:#000}}
 .zh{{stroke:{pal['zh']}}}
 .zf{{stroke:{pal['zf']}}}
 .zb{{stroke:{pal['zb']}}}
+.gh{{fill:none;stroke:{pal['hair5']}}}
 .ground{{opacity:.10}}
 .med{{filter:drop-shadow(0 0 18px rgba(230,192,116,.28))}}
 .tower{{filter:drop-shadow(0 0 9px rgba(230,192,116,.40))}}
@@ -291,10 +292,69 @@ PALETTES = {
     "earthy":    f.EARTHY,
 }
 
+# ---------- light grounds ----------
+# The niche stays exactly as dark and gold as Black & Gold — every reading
+# token (gold_grad, mark_grad, ayah..url) carries over untouched, since that
+# text sits inside the still-dark panel. Only two things change: the outer
+# ground goes pale, and the ornament that has to read against it (hairlines,
+# the pattern, the minarets' own fill) drops to a deeper antique bronze so it
+# doesn't wash out on cream/blush/sage/powder. The soft scrim, which used to
+# bleed dark across most of the canvas, is pulled in tight to the niche —
+# on a light ground that bleed would read as a dirty smudge, not a vignette.
+_DEEP_GOLD = dict(
+    hair1="#8C6B2E", hair2="#75592A", hair3="#5F4922", hair4="#4C3A1B", hair5="#3C2E15",
+    zh="#75592A", zf="#5F4922", zb="#6E5424",
+    fill_lit="#B8934A", rule="#6E5424", rule_lit="#9A7A3C",
+    petal="rgba(117,89,42,.10)", petal_stroke="#6E5424",
+    petal_lit="rgba(140,107,46,.16)", petal_lit_stroke="#8C6B2E",
+    stroke_node="#5F4922", dot="#8C6B2E",
+    scrim_reach="34% 40%", halo_mult=0.18,
+)
+
+IVORY = dict(f.BLACKGOLD); IVORY.update(_DEEP_GOLD)
+IVORY.update(
+    name="Ivory & Gold",
+    bg1="radial-gradient(115% 65% at 50% 26%, #FAF4E6 0%, #F0E6D2 40%, #E4D6B8 70%, #D8C79E 100%)",
+    bg2="radial-gradient(90% 45% at 50% 96%, #ECDFC4 0%, #E0D0AE 50%, #D2BF94 100%)",
+    print_bg="#F0E6D2",
+)
+
+BLUSH = dict(f.BLACKGOLD); BLUSH.update(_DEEP_GOLD)
+BLUSH.update(
+    name="Blush & Gold",
+    bg1="radial-gradient(115% 65% at 50% 26%, #F7E9E4 0%, #EFD9D1 40%, #E3C2B6 70%, #D6AC9C 100%)",
+    bg2="radial-gradient(90% 45% at 50% 96%, #E9D2C8 0%, #DDBBAC 50%, #CFA290 100%)",
+    print_bg="#EFD9D1",
+)
+
+SAGE = dict(f.BLACKGOLD); SAGE.update(_DEEP_GOLD)
+SAGE.update(
+    name="Sage & Gold",
+    bg1="radial-gradient(115% 65% at 50% 26%, #EEF0E2 0%, #E1E5CE 40%, #CFD6B2 70%, #BCC796 100%)",
+    bg2="radial-gradient(90% 45% at 50% 96%, #D9DFC2 0%, #C7D0A6 50%, #B4C08C 100%)",
+    print_bg="#E1E5CE",
+)
+
+POWDER = dict(f.BLACKGOLD); POWDER.update(_DEEP_GOLD)
+POWDER.update(
+    name="Powder & Gold",
+    bg1="radial-gradient(115% 65% at 50% 26%, #E9F0F3 0%, #D8E5EA 40%, #BFD5DE 70%, #A6C3D0 100%)",
+    bg2="radial-gradient(90% 45% at 50% 96%, #CFE0E6 0%, #B8D0D8 50%, #9FBCC6 100%)",
+    print_bg="#D8E5EA",
+)
+
+LIGHT_PALETTES = {"ivory": IVORY, "blush": BLUSH, "sage": SAGE, "powder": POWDER}
+
 if __name__ == "__main__":
     for key, pal in PALETTES.items():
         opts = dict(full_address=True, minarets=True, moon=True, note=False) if key == "blackgold" else {}
         html = page(pal, **opts)
+        p = HERE / f"banner-{key}.html"
+        p.write_text(html, encoding="utf-8")
+        shot(p, HERE / f"banner-{key}.png", W, H, scale=2)
+
+    for key, pal in LIGHT_PALETTES.items():
+        html = page(pal, full_address=True, minarets=True, moon=True, note=False)
         p = HERE / f"banner-{key}.html"
         p.write_text(html, encoding="utf-8")
         shot(p, HERE / f"banner-{key}.png", W, H, scale=2)
