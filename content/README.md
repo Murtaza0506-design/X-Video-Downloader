@@ -13,7 +13,7 @@ heading. Change it in `scripts/build_book.py`.
 |---|---|---|
 | Chapters | 16 | 16 |
 | Entries | 240 | 240 |
-| Words | ~32,000 | ~33,900 |
+| Words | ~32,000 | ~35,300 |
 | Distinct sources | — | 130 |
 
 All sixteen chapters are drafted: a ~300 word opening plus fifteen entries each,
@@ -39,6 +39,19 @@ After editing any chapter:
 ```
 python3 scripts/build_book.py
 ```
+
+## Prose style
+
+Every chapter was revised against `STYLE.md`, which is derived from Provost on
+sentence rhythm, Zinsser on clutter and hedging, Orwell's six rules, Le Guin on
+hearing your own prose, and published work on what makes machine-written text
+identifiable. That last body of research is the reason the targets are numeric:
+the signature of generated prose is low variance held steady across a whole
+document, and a book of 240 near-identical units is the worst possible case for
+it. The format repeats by design, so the prose inside it has to move.
+
+`scripts/measure_style.py` reports the numbers; `scripts/lint_prose.py` flags
+individual hedges and adverbs with context for cutting.
 
 ## Conventions used throughout
 

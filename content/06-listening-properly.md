@@ -6,132 +6,136 @@ title: Listening Properly
 
 # Chapter 6 — Listening Properly
 
-Nearly everyone believes they are a good listener. It is one of those qualities, like having a sense of humour, that almost nobody privately doubts about themselves. And yet most of us can recall the specific feeling of not being listened to, which suggests the maths isn't working out.
+Almost everyone believes they are a good listener. It sits alongside having a sense of humour in the small category of qualities nobody doubts about themselves. And yet every one of us can summon the exact feeling of not being listened to, which suggests the arithmetic does not work.
 
-Here is what usually happens instead of listening. Someone starts talking. Within a sentence or two you've identified the category of thing they're saying, and your mind, satisfied that it knows where this is going, begins preparing. It finds a similar experience of your own. It drafts an opening. From that point you are not receiving anything; you are waiting for a gap, and monitoring their speech only closely enough to spot one.
+Here is what happens instead of listening. Someone begins talking. Within a sentence or two you have identified the category of thing being said, and your mind, satisfied that it knows where this is going, starts preparing: it locates a similar experience of your own, drafts an opening line, and from that point you are no longer receiving anything at all, only monitoring their speech for the gap you need.
 
-The other common failure is more well-meaning and just as unwelcome. Someone describes a problem and you begin solving it, immediately, in detail, because you care and because solving is what you know how to do. They didn't want it solved. They wanted a witness. The two needs look identical from the outside and are completely different inside, and getting them the wrong way round is the source of a remarkable proportion of domestic friction.
+The other failure is kinder and just as unwelcome. Someone describes a problem and you start solving it, in detail, at once, because you care and because solving is what you know how to do.
 
-Real listening is quieter and more effortful than it looks. It involves letting silences sit for slightly longer than is comfortable. It involves asking a second question when you already think you have the point. And it involves tolerating the possibility that what you're being told will not fit the story you'd already assembled about this person and their situation.
+They did not want it solved. They wanted a witness.
 
-It is also, and this is the part people underestimate, the single most effective thing you can do to make someone feel better. Not advice. Attention.
+The two needs look identical from outside and are nothing alike inside, and getting them the wrong way round accounts for a remarkable proportion of domestic friction in this country.
+
+Real listening is quieter and more effortful than it looks. It means letting silences sit a beat longer than is comfortable. It means asking a second question after you already think you have the point. And it means tolerating the possibility that what you are about to hear will not fit the story you had already assembled about this person and their situation.
+
+It is also, and people underestimate this badly, the most effective thing you can do to make somebody feel better. Not advice. Attention.
 
 ---
 
 > "Give every man thy ear, but few thy voice." — William Shakespeare
 
-**What it means.** Polonius is a windbag and the advice is still good. Take in widely, give out sparingly. Most people invert this, offering their view to everyone and their attention to almost nobody, and then wonder why conversations feel thin.
+**What it means.** Polonius is a windbag and the advice is still sound. Take in widely. Give out little. Most people run it the other way round, offering their opinion to everybody and their attention to almost nobody, then wonder why conversations feel thin.
 
-**How to use it.** In your next group conversation, set yourself a ratio and stick to it. Hear four things for every one you contribute. You'll notice how much of what you'd have said was unnecessary, and how much you'd previously missed while assembling it.
+**How to use it.** In your next group conversation, set a ratio and hold to it. Four things heard for every one contributed. You will notice how much of what you were going to say turned out to be unnecessary, and how much you had been missing while assembling it.
 
 ---
 
 > "It is the province of knowledge to speak, and it is the privilege of wisdom to listen." — Oliver Wendell Holmes
 
-**What it means.** Talking demonstrates what you already have. Listening is the only mechanism by which you get anything new. Anyone who does all the talking in a room has spent the whole meeting learning nothing.
+**What it means.** Talking displays what you already have. Listening is the only mechanism by which you acquire anything new. Anyone who does all the talking in a room has spent an hour learning nothing.
 
-**How to use it.** Notice who you are around when you talk most. It's usually the people you feel you have to prove something to. That instinct is exactly backwards: you'd impress them more, and understand them better, by asking two more questions than feels natural.
+**How to use it.** Notice who you are with when you talk most. It is the people you feel you have something to prove to, which is exactly backwards: you would impress them more, and understand them better, by asking two more questions than feels natural and then waiting.
 
 ---
 
 > "He that answereth a matter before he heareth it, it is folly and shame unto him." — Proverbs 18:13
 
-**What it means.** Answering early is not efficiency, it's guessing. You've responded to your prediction of what they were about to say, and the prediction was built from your own assumptions rather than anything they actually told you.
+**What it means.** Answering early is not efficiency. It is guessing. You have responded to your prediction of what they were about to say, and the prediction was assembled out of your own assumptions rather than anything they told you.
 
-**How to use it.** Someone starts explaining a problem and you think you know it by the third sentence: hold the answer. Ask them to keep going. Roughly half the time the situation turns out to have a detail that would have made your quick answer wrong, and slightly humiliating.
+**How to use it.** Someone starts explaining a problem and you think you have it by the third sentence: hold the answer. Ask them to keep going. Half the time the situation contains a detail that would have made your quick answer wrong, and mildly humiliating, in front of people.
 
 ---
 
 > "The right word may be effective, but no word was ever as effective as a rightly timed pause." — Mark Twain
 
-**What it means.** Silence does work that speech can't. Leave a gap after someone finishes and they will almost always continue, and the second thing they say is regularly more honest than the first.
+**What it means.** Silence does work that speech cannot. Leave a gap when somebody finishes and they will almost always keep going, and the second thing they say is more honest than the first.
 
-**How to use it.** Count to three before responding. It feels like an eternity and is invisible from the outside. In a difficult conversation with a teenager, a colleague or a friend who's clearly holding something back, this one small habit gets you more than any question you could have asked.
+**How to use it.** Count to three before responding. It feels like an age from inside and is invisible from outside. In a difficult conversation with a teenager, a colleague, or a friend who is holding something back, that one habit gets you more than any question you could have devised.
 
 ---
 
 > "Silence is a true friend who never betrays." — Confucius
 
-**What it means.** Nothing you don't say can be quoted back, misconstrued, or repeated at the wrong moment. Silence is the only utterly reliable option in a conversation, and it's the one people reach for last.
+**What it means.** Nothing you do not say can be quoted back at you, misconstrued in the retelling, or produced at the wrong moment eighteen months later. Silence is the one reliable option in any conversation, and it is the option people reach for last.
 
-**How to use it.** In any charged situation, a family row, a redundancy meeting, a dispute between friends where you're being invited to take sides, default to saying less. You can always add something tomorrow. You can never remove something today.
+**How to use it.** In anything charged, a family row, a meeting about redundancies, a dispute between friends where you are being invited to pick a side, default to saying less. You can always add something tomorrow. You can never remove something today.
 
 ---
 
 > "The greatest gift you can give another is your undivided attention." — traditional
 
-**What it means.** Undivided is doing the work in that sentence. Partial attention isn't a smaller version of the same gift; it's a different thing entirely, and everyone can feel the difference immediately even when they can't name it.
+**What it means.** Undivided is the word carrying the sentence. Partial attention is not a smaller portion of the same gift. It is a different thing, and everybody feels the difference at once, even when they could not tell you what they felt.
 
-**How to use it.** Put the phone in another room, not face down on the table. Face down still says the call might matter more. This sounds trivial and it changes the quality of an evening more reliably than anything you could say during it.
+**How to use it.** Put the phone in another room rather than face down on the table. Face down still says the call might matter more. This sounds trivial and it changes the quality of an evening more than anything you could think of to say during it.
 
 ---
 
 > "You never really understand a person until you consider things from his point of view." — Harper Lee
 
-**What it means.** Understanding isn't agreement and it isn't approval. It's the reconstruction of how the world looks from where they're standing, which almost always makes behaviour that seemed baffling look, from inside, entirely reasonable.
+**What it means.** Understanding is not agreement and it is not approval. It is the reconstruction of how the world looks from where somebody else is standing, which almost always makes behaviour that seemed baffling look, from the inside, reasonable.
 
-**How to use it.** Take the person currently annoying you most and try to state their position so accurately that they'd endorse the wording. Not a caricature. The strongest version. You'll frequently find their behaviour makes sense given information or fears you hadn't accounted for.
+**How to use it.** Take the person annoying you most this week and state their position so that they would endorse the wording. Not the caricature. The strongest version. You will find their behaviour makes sense given information or fears you had not accounted for, and now and then you will find you were the information they were frightened of.
 
 ---
 
 > "He who does not know how to be silent does not know how to speak." — Ausonius
 
-**What it means.** The two are one skill. Knowing when to stop is what gives what you do say its weight, and someone who talks continuously has no way of signalling that any particular thing matters.
+**What it means.** The two are a single skill. Knowing when to stop is what gives the things you do say their weight, and somebody who talks without pause has no way of signalling that any particular sentence matters more than the others.
 
-**How to use it.** Watch what happens when a habitually quiet person speaks in a meeting: the room turns. That's not their status, it's the scarcity. If you want your words to land, spend fewer of them and let the silences do some of the pointing.
+**How to use it.** Watch what happens when the quiet one speaks in a meeting. The room turns. That is not their status; it is the scarcity. If you want your words to land, spend fewer of them and let the silences do some of the pointing.
 
 ---
 
 > "A wise old owl sat on an oak; the more he saw the less he spoke; the less he spoke the more he heard." — English nursery rhyme
 
-**What it means.** A children's rhyme describing a genuine feedback loop. Speaking less produces more information, which produces better judgement, which reduces the need to speak. It compounds, quietly, over years.
+**What it means.** A children's rhyme describing a real feedback loop. Speaking less produces more information, which produces better judgement, which reduces the need to speak. It compounds, over years, in the people you think of as shrewd.
 
-**How to use it.** For one week, in one setting, be the person who says least. A recurring meeting, family dinner, the group chat. Notice what you learn about who wants what, and who is actually deciding things. It's information that was always available and inaudible over your own voice.
+**How to use it.** For one week, in one setting, be the person who says least. A recurring meeting, Sunday lunch, the group chat. Notice what you learn about who wants what and who is deciding. It was always available and it was inaudible over your own voice.
 
 ---
 
 > "Silence is one of the great arts of conversation." — Cicero
 
-**What it means.** Silence is being described as a technique with a purpose, not a failure to contribute. Used well it invites, emphasises and gives the other person room to arrive somewhere they wouldn't have reached under a steady stream of your commentary.
+**What it means.** Silence described as a technique with a purpose, rather than a failure to contribute. Used well it invites, it emphasises, and it leaves the other person room to arrive somewhere they would never have reached under a steady stream of your commentary.
 
-**How to use it.** If someone's working through something out loud, resist filling the pauses with encouragement. "Mm" is enough. Every helpful interjection is a small interruption of a process that was going fine, and thinking out loud collapses the moment someone starts responding to it.
+**How to use it.** If somebody is working through something out loud, resist filling the pauses with encouragement. "Mm" is enough. Every helpful interjection is a small interruption of a process that was going fine, and thinking aloud collapses the moment it starts being responded to.
 
 ---
 
 > "Be kind, for everyone you meet is fighting a hard battle." — attributed to Ian Maclaren
 
-**What it means.** Whatever is in front of you is a fraction of what's going on. The short reply, the missed deadline, the person who was curt in the queue: all of it sits on top of a situation you know nothing about.
+**What it means.** What you can see is a fraction of what is going on. The curt reply, the missed deadline, the person who was short with you in the queue at the post office: all of it sitting on top of a situation you know nothing whatever about.
 
-**How to use it.** When someone behaves worse than you'd expect, run the charitable explanation first, even if you don't believe it. Not because they deserve it, but because it changes your response, and your response is the only part you control. You'll be right often enough to justify it.
+**How to use it.** When somebody behaves worse than you expected, run the charitable explanation first, even if you do not believe it. Not because they have earned it, but because it changes your response, and your response is the only part of the exchange you control. You will be right enough of the time to justify it.
 
 ---
 
 > "From listening comes wisdom, and from speaking, repentance." — Italian proverb
 
-**What it means.** Look at what you actually regret. It is almost never something you didn't say. The archive of things you wish you'd kept to yourself is long, and the archive of silences you regret is short.
+**What it means.** Look at what you regret. It is almost never something you failed to say. The archive of things you wish you had kept to yourself is long and well catalogued; the archive of regretted silences is short.
 
-**How to use it.** Use your own record as the guide. Before saying the risky thing, ask which list it's likely to join. You have decades of evidence about how this goes for you specifically, and it's more reliable than whatever you're feeling in the moment.
+**How to use it.** Use your own record. Before saying the risky thing, ask which list it is likely to join. You have decades of evidence about how this goes for you, and it is more reliable than whatever you are feeling at half past eleven at night.
 
 ---
 
 > "The first duty of love is to listen." — Paul Tillich
 
-**What it means.** Not to provide, protect or fix, useful as those are. To listen, because it's the only one that requires you to set your own perspective aside, and the only one that can't be performed while thinking about something else.
+**What it means.** Not to provide, protect or fix, useful as those all are. To listen, because it is the only one that requires setting your own perspective aside, and the only one that cannot be performed while thinking about something else.
 
-**How to use it.** With the people closest to you, notice how often you're half-listening because you already know what they're like. Familiarity is what erodes attention: you stop hearing them and start hearing your model of them. Ask something you don't know the answer to this week.
+**How to use it.** With the people closest to you, notice how much of the time you are half-listening because you already know what they are like. Familiarity is what erodes attention: you stop hearing them and start hearing your model of them, which was assembled years ago and has not been updated. Ask something you do not know the answer to.
 
 ---
 
 > "Let thy speech be better than silence, or be silent." — Dionysius the Elder
 
-**What it means.** A test with a high bar. Silence has value by default, so speech has to beat it, not merely fill the space. Most conversational filler fails this and adds nothing but noise.
+**What it means.** A test with a high bar. Silence has a value of its own, so speech has to beat it rather than merely fill the space. Most conversational filler fails this and adds nothing but noise to a room that was fine before.
 
-**How to use it.** Before speaking in a meeting, ask whether this improves on saying nothing. Agreement already expressed by three people doesn't. Restating the problem doesn't. It's a demanding standard and it will cut what you say roughly in half, with no loss.
+**How to use it.** Before speaking in a meeting, ask whether this improves on saying nothing. Agreement that three people have already expressed does not. Restating the problem does not. It is a demanding standard, it will cut what you say roughly in half, and nothing will be lost.
 
 ---
 
 > "A friend to all is a friend to none." — attributed to Aristotle
 
-**What it means.** Attention is finite. Spread it across everyone who wants some and each person gets a thin version, which is why the people who listen to absolutely everybody often end up with no one who knows them well.
+**What it means.** Attention is finite. Spread it across everybody who wants some and each person receives a thin version, which is why the people who listen to everyone end up with nobody who knows them well.
 
-**How to use it.** Here is your permission to stop. You don't owe deep listening to every person who wants an audience. If you're the one everyone comes to, you're allowed to say you haven't got it in you today. Reserve the real attention for the handful who'd do the same for you.
+**How to use it.** Here is your permission to stop. You do not owe deep listening to every person who wants an audience. If you are the one everybody comes to, you are allowed to say you have not got it in you today. Keep the real attention for the handful who would do the same for you.

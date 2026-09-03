@@ -4,21 +4,21 @@
 
 This is a book of two hundred and forty quotations, each with a short explanation and one concrete suggestion for using it. That's the whole design. It is not a collection of inspiring lines to be admired and then forgotten by Thursday.
 
-Quotation books usually fail in the same way. They present a beautiful sentence, attribute it to someone impressive, and leave. You read forty of them in a sitting, feel briefly elevated, and retain nothing, because a sentence on its own has nowhere to attach. What makes an old line useful is not its elegance but knowing precisely when to reach for it: which moment, which conversation, which three in the morning.
+Quotation books fail in the same way every time. They present a beautiful sentence, attribute it to somebody impressive, and leave. You read forty in a sitting, feel briefly elevated, and retain nothing, because a sentence on its own has nowhere to attach itself. What makes an old line useful is not its elegance. It is knowing when to reach for it: which moment, which conversation, which three in the morning.
 
-So every entry here has two parts after the quotation. The first says what the idea actually is, in plain English, assuming you have no interest in the person who said it or the century they said it in. The second gives you somewhere to put it. Not "be more patient" but a specific situation you'll recognise, usually this week.
+So every entry here has two parts after the quotation. The first says what the idea is, in plain English, assuming you have no interest in the person who said it or the century they said it in. The second gives you somewhere to put it. Not "be more patient" but a situation you will recognise, probably from this week.
 
-**How to read it.** Not cover to cover. Sixteen chapters of advice consumed in order will produce the sensation of having been lectured at for four hours, and none of it will stick. The book is arranged by problem, and the intended use is that you go to the chapter matching whatever is currently bothering you and read three or four entries. Someone has behaved appallingly towards you: chapter eight. You cannot make yourself start the thing: chapter eleven. You said something stupid in a meeting and have been replaying it since: chapter ten.
+**How to read it.** Not cover to cover. Sixteen chapters of advice taken in order produces the sensation of having been lectured at for four hours, and none of it sticks. The book is arranged by problem. Go to the chapter matching whatever is bothering you now and read three or four entries. Somebody has behaved appallingly towards you: chapter eight. You cannot make yourself start the thing: chapter eleven. You said something stupid in a meeting on Tuesday and have been replaying it ever since: chapter ten.
 
 Dipping is not a lesser way to read this. It's the design.
 
-**On the disagreements.** The entries contradict each other, sometimes within a page. One tells you to persist and another tells you to stop. One says speak up and another says leave it unsaid. This is deliberate and it isn't sloppiness. Real advice conflicts, because real situations differ, and any book of guidance that never disagrees with itself has been simplified into uselessness. Part of what you're being handed is the judgement about which applies today.
+**On the disagreements.** The entries contradict each other, sometimes within a page. One tells you to persist, another tells you to stop. One says speak up, another says leave it unsaid. This is deliberate. Real advice conflicts, because real situations differ, and any book of guidance that never disagrees with itself has been simplified into uselessness. Part of what you are being handed is the job of deciding which one applies today.
 
-**On the exits.** Near the end of most chapters there is an entry that gives you permission to stop: to leave the grievance unforgiven, to stay angry about ageing, to not have the difficult conversation, to put the book down and go and live instead. These are there because advice without a limit becomes pressure, and pressure is the last thing anyone needs when they're already struggling with something.
+**On the exits.** Near the end of most chapters sits an entry that gives you permission to stop: to leave the grievance unforgiven, to stay angry about ageing, to skip the difficult conversation, to put the book down and go and live instead. They are there because advice without a limit turns into pressure, and pressure is the last thing anybody needs when they are already struggling.
 
-**On the sources.** They range from Marcus Aurelius to English proverbs to a nursery rhyme about an owl. There is no hierarchy of respectability here. A proverb that survived four hundred years of ordinary people repeating it has been tested more thoroughly than most philosophy. Where a line is disputed or has drifted from its original wording, it's marked "attributed to" or "after", and there's a note at the back about why so many famous quotations belong to nobody in particular.
+**On the sources.** They run from Marcus Aurelius to English proverbs to a nursery rhyme about an owl, and there is no hierarchy of respectability here. A proverb that survived four hundred years of ordinary people repeating it has been tested harder than most philosophy. Where a line is disputed, or has drifted from its original wording, it is marked "attributed to" or "after", and there is a note at the back about why so many famous quotations belong to nobody in particular.
 
-**One caution.** Nothing in this book is a substitute for medical help, legal advice or a person who knows your actual situation. Old lines are good at perspective and completely unqualified to diagnose anything. If the worry doesn't stop, if the low period has lasted months, if you're frightened of what you might do, put this down and speak to a doctor. That is not a failure to apply the wisdom. It's the wisest available response, and no proverb covers it.
+**One caution.** Nothing here substitutes for medical help, legal advice, or a person who knows your actual situation. Old lines are good at perspective and unqualified to diagnose anything. If the worry will not stop, if the low period has run for months, if you are frightened of what you might do, put this down and speak to a doctor. That is not a failure to apply the wisdom. It is the wisest response available, and no proverb covers it.
 
 Otherwise: start wherever your week hurts.
 
@@ -27,2116 +27,2170 @@ Otherwise: start wherever your week hurts.
 
 # Chapter 1 — Starting Before You Feel Ready
 
-There is a feeling you are waiting for. You have never named it, but you would recognise it instantly: the moment when the nerves settle, the plan looks complete, and beginning the thing feels obvious rather than frightening. You are waiting to feel ready.
+There is a feeling you are waiting for. You have never given it a name, and you would know it at once: the moment the nerves go quiet, the plan stops having holes in it, and beginning feels obvious instead of frightening.
 
-It does not arrive. Not for the course application, not for the difficult phone call, not for the business, the move, the first draft, the conversation you have been rehearsing for eight months. People who look ready are not people who waited until they felt it. They are people who went ahead while still feeling roughly what you feel now, and discovered afterwards that the feeling was information about the size of the step, not about their ability to take it.
+It isn't coming.
 
-Fear is not a verdict. It is a sensation, and a fairly ordinary one, and it behaves in a specific way that is worth knowing: it grows in proportion to how long you look at a thing without touching it. The version of the task in your head is always worse than the version on the desk. That is why the first ten minutes of anything dreaded are such a relief. Reality is smaller than anticipation, almost every time.
+Not for the application, not for the phone call, not for the business or the move or the first page or the conversation you have been rehearsing since February. The people who look ready did not wait until they felt it: they went while feeling roughly what you are feeling now, halfway certain it was a mistake, and discovered somewhere in the middle that the feeling had been reporting on the size of the step all along rather than on their ability to take it.
 
-This chapter is not about becoming brave. Bravery is a description people apply afterwards; nobody feels it in the moment. It is about the narrower and more useful skill of acting while still afraid, and about telling the difference between the fear that is protecting you from a genuine cliff edge and the fear that is simply what beginning feels like.
+Fear is not a verdict. It is a sensation, and an ordinary one, and it behaves in a way worth knowing about: it grows in proportion to how long you look at a thing without touching it. The version in your head has been under construction for months, gathering detail and menace the whole time, while the version on the desk has stayed exactly the size it was.
 
-Most of the time, it is the second one.
+Which is why the first ten minutes of anything dreaded come as such a relief. Reality is smaller. It nearly always is.
+
+This chapter is not about becoming brave. Nobody feels brave; bravery is a word other people use afterwards. It is about the narrower skill of moving while still frightened, and about telling apart the fear that is guarding a real cliff edge from the fear that is simply what beginning feels like.
+
+Usually the second.
 
 ---
 
 > "Our doubts are traitors, and make us lose the good we oft might win, by fearing to attempt." — William Shakespeare
 
-**What it means.** Doubt presents itself as caution, as though it were on your side, quietly protecting you from embarrassment. It isn't. It costs you things you would have won, and it never sends you the bill, so you never learn how expensive it has been.
+**What it means.** Doubt arrives dressed as caution, apparently on your side, protecting you from embarrassment. It isn't. It costs you things you would have won, and it never sends an invoice, so you never learn the size of the bill.
 
-**How to use it.** Think of one thing you talked yourself out of in the last year: a job you didn't apply for, a message you didn't send. You'll never know if it would have worked. That not knowing is the actual price. Charge it to doubt rather than to bad luck, and the next decision gets easier.
+**How to use it.** Name one thing you talked yourself out of last year. The job, the message, the flat. You will never know how it would have gone. That not knowing is the price, and doubt charged it. Put it on doubt's account rather than down to bad luck, and the next decision gets easier.
 
 ---
 
 > "A ship in harbour is safe, but that is not what ships are built for." — John A. Shedd
 
-**What it means.** Safety is a real good, but it is not the only one, and a life arranged entirely around avoiding loss slowly stops producing anything worth keeping. Purpose usually requires exposure.
+**What it means.** Safety is worth having. It is not the only thing worth having, and a life organised entirely around avoiding loss stops producing anything you would want to keep.
 
-**How to use it.** Notice where you have been in harbour so long you've started calling it home. The savings account you keep adding to instead of using. The job you're not unhappy in. Neither needs abandoning today, but ask what you're preserving it for, and whether the answer is a plan or a habit.
+**How to use it.** Find where you have been moored so long you have started calling it home. The savings you keep adding to and never spend, the job you are not unhappy in, the flat you meant to leave in 2019 and have now repainted twice: none of it has to be abandoned this week, and all of it is worth one honest question, which is what you are preserving it for, and whether the answer is a plan or a habit.
 
 ---
 
 > "The beginning is the most important part of the work." — Plato
 
-**What it means.** Not because it is the most difficult or the most impressive, but because everything else is conditional on it. An unstarted project has no problems, no progress and no existence. Starting is what converts an idea into something that can be worked on.
+**What it means.** Not the hardest part, and not the most impressive. The conditional one. An unstarted project has no problems, no progress and no existence, and starting is the act that turns an idea into something you can work on.
 
-**How to use it.** Lower your definition of "started" until it is almost insultingly small. Open the document and write the title. Book the appointment for a fortnight away. You are not trying to make progress today. You are trying to change the thing's status from imaginary to real.
+**How to use it.** Shrink your definition of "started" until it is almost insulting. Open the file and type the title. Book the appointment for a fortnight away. You are not making progress today. You are moving the thing from imaginary to real, which is a different job.
 
 ---
 
 > "Do the thing you fear and the death of fear is certain." — Ralph Waldo Emerson
 
-**What it means.** Fear does not respond to argument. You cannot reason yourself out of dreading a phone call, because the dread was never built out of reasons. It responds only to evidence, and the only evidence that counts is having done it.
+**What it means.** Fear does not argue back. You cannot reason your way out of dreading a phone call, because the dread was never assembled out of reasons. It answers to evidence, and the only evidence it accepts is having done the thing.
 
-**How to use it.** Pick the smallest version of what you're avoiding and do that one this week. If it's public speaking, ask a question at a meeting. Your nervous system is keeping score of outcomes, not intentions, and one uneventful attempt does more than a month of preparation.
+**How to use it.** Take the smallest version of what you are avoiding and do that one this week. Frightened of speaking in public? Ask a question at a meeting. Your nervous system keeps score of outcomes, not intentions, and one uneventful attempt outweighs a month of preparation.
 
 ---
 
 > "Fortune favours the bold." — Latin proverb, from Virgil
 
-**What it means.** This is not a promise that boldness gets rewarded. It's an observation about who is standing where the luck lands. Good fortune tends to require your presence, and hesitation is mostly a way of not being in the room.
+**What it means.** Not a promise that boldness gets paid. An observation about who happens to be standing where the luck comes down. Good fortune requires your attendance, and hesitation is mostly a way of not being in the room.
 
-**How to use it.** Deciding whether to put your name forward for something uncertain? Stop weighing whether you deserve it. Ask instead whether saying yes puts you nearer the places where useful things happen. Being in the room is not the same as winning, and it is the only reliable precondition for it.
+**How to use it.** Next time you are working out whether to put your name forward, stop weighing whether you deserve it. Ask whether saying yes puts you nearer the places where things happen. Being in the room is not winning. It is the only reliable condition for it.
 
 ---
 
 > "Courage is the first of human qualities because it guarantees all the others." — Aristotle
 
-**What it means.** Every other virtue needs courage to actually appear in the world. Honesty is worthless if you're too frightened to say the true thing. Kindness that evaporates the moment it costs you something was never kindness, only comfort.
+**What it means.** Every other virtue needs nerve before it can appear in the world. Honesty is worth nothing if you are too frightened to say the true thing. Kindness that evaporates the moment it costs you was never kindness. It was comfort.
 
-**How to use it.** When you next feel that your values didn't show up in a moment that mattered, don't conclude you lack the value. Ask whether you lacked the nerve to spend it. That's a much more fixable problem, and it tends to be the real one.
+**How to use it.** When your values fail to show up in a moment that mattered, don't conclude you lack the value. Ask whether you lacked the nerve to spend it. That is a far more fixable problem, and it is generally the real one.
 
 ---
 
 > "Nothing in life is to be feared, it is only to be understood." — Marie Curie
 
-**What it means.** Fear thrives on vagueness. It attaches itself to the shape of a thing rather than to its contents, which is why the dreaded task shrinks the moment you look directly at it and find out what is actually involved.
+**What it means.** Fear lives on vagueness. It attaches to the outline of a thing rather than its contents, which is why the dreaded task shrinks the instant you look straight at it and find out what is actually involved.
 
-**How to use it.** Take the thing frightening you and write down what specifically happens next. Not how you feel about it: the sequence. Ring the surgery, wait on hold, ask for the appointment. Fear struggles to survive contact with a numbered list.
+**How to use it.** Write down what happens next. Not how you feel about it. The sequence. Ring the surgery. Wait on hold. Ask for the appointment. Fear rarely survives contact with a numbered list.
 
 ---
 
 > "The best time to plant a tree was twenty years ago. The second best time is now." — proverb
 
-**What it means.** Regret about a late start is a way of using the past to justify wasting the present. The years you didn't spend are gone whether you brood over them or not. The only question that remains open is what happens to the ones you still have.
+**What it means.** Regret about a late start is a way of spending the present to punish yourself for the past. The years you did not use are gone whether you brood over them or not. What remains open is the question of the ones you still have.
 
-**How to use it.** If you're forty and want to learn an instrument, the objection that you'd be good by now if you'd started at twenty is true and entirely useless. You will be forty-five either way. The only variable is whether you can play by then.
+**How to use it.** You are forty and you want to play the piano. The objection that you would be good by now if you had started at twenty is both true and useless. You will be forty-five either way. The only variable is whether you can play by then.
 
 ---
 
 > "Whatever you can do, or dream you can, begin it." — attributed to Goethe
 
-**What it means.** The line is usually quoted for the mystical bit that follows about providence moving. Ignore that. The practical observation underneath is that beginning generates information, contacts and momentum that were genuinely unavailable to you while you were only thinking.
+**What it means.** The line is usually quoted for the mystical part that follows, about providence moving. Ignore that. The practical observation underneath is that the act of beginning produces information you could not have got any other way, puts you in front of people who were previously abstractions, and generates a momentum that simply does not exist while a thing is still being considered.
 
-**How to use it.** Stop trying to plan your way to certainty about something you've never done. Do a cheap, small, real version and see what you learn. One afternoon of actually attempting it will teach you more than a fortnight of research, and it costs less.
+**How to use it.** Stop planning your way to certainty about something you have never done. Build a cheap, small, real version and watch what happens. One afternoon of attempting it teaches more than a fortnight of reading about it, and costs less.
 
 ---
 
 > "He that is over-cautious will accomplish little." — Friedrich Schiller
 
-**What it means.** Caution feels free because its costs are invisible. Nothing goes wrong. Nothing goes anywhere either. Over a long enough period, the safest available choice made repeatedly becomes its own kind of disaster, just a quiet one.
+**What it means.** Caution feels free because its bills are invisible. Nothing goes wrong. Nothing goes anywhere either. Repeat the safest available choice for long enough and it becomes its own quiet disaster.
 
-**How to use it.** Once a year, look at the decisions where you took the careful option and ask what it bought you. Sometimes the answer is genuine protection. Sometimes it's a decade of not much. Only the second kind needs changing, and you can only see it by looking back deliberately.
+**How to use it.** Once a year, look back at the decisions where you took the careful option and ask what it bought. Sometimes real protection. Sometimes a decade of not much. Only the second sort needs changing, and it is visible only if you look on purpose.
 
 ---
 
 > "The journey of a thousand miles begins with a single step." — Lao Tzu
 
-**What it means.** Worn smooth by repetition, but the point survives: distance is not experienced as distance. It's experienced as one step, then another. The thousand miles exists only in your head, and it's the part doing the frightening.
+**What it means.** Worn smooth by repetition, and the point survives. Distance is never experienced as distance. It is experienced as one step, then another. The thousand miles exists only in your head, which is where the frightening is being done.
 
-**How to use it.** If a goal is large enough to be paralysing, refuse to look at it. Decide only what happens in the next hour, do that, and then decide again. This is not a trick to make the task smaller. It's a way of not carrying the whole thing at once.
+**How to use it.** When a goal is big enough to freeze you, refuse to look at it. Decide what happens in the next hour, do that, then decide again. This is not a trick to make the task smaller. It is a way of not carrying all of it at once.
 
 ---
 
 > "It is hard to fail, but it is worse never to have tried to succeed." — Theodore Roosevelt
 
-**What it means.** Both options hurt, so pick the one that hurts usefully. Failure is painful and specific and finished. Not trying is painful and vague and permanent, and it stays available for revisiting at three in the morning for the rest of your life.
+**What it means.** Both options hurt, so choose the one that hurts usefully. Failure is sharp, specific and over. Not trying is dull and vague and permanent, it never resolves into a story you can tell, and it stays on the shelf indefinitely, available for revisiting at three in the morning for the next forty years.
 
-**How to use it.** When you're deciding, don't compare trying with an imaginary version of not trying where you feel nothing. Compare it with how you'll actually feel in five years having not tried. That's the honest comparison, and it usually settles the matter.
+**How to use it.** Do not compare trying against an imaginary version of not trying in which you feel nothing. Compare it against how you will feel in five years, having not tried. That is the honest comparison. It usually settles the matter in one go.
 
 ---
 
 > "Start where you are. Use what you have. Do what you can." — Arthur Ashe
 
-**What it means.** Waiting for better conditions is usually a socially acceptable way of not beginning. The right equipment, the free weekend, the settled period at work. These are real, and they are also the reason nothing has happened yet.
+**What it means.** Waiting for better conditions is the respectable way of not beginning. The proper equipment, the free weekend, the calm patch at work. All real, and all the reason nothing has happened yet.
 
-**How to use it.** Whatever you're postponing until conditions improve, do a shabby version of it this week with what's already in the house. Bad equipment used is worth more than good equipment planned for. You can upgrade once you know you'll continue.
+**How to use it.** Whatever you are postponing until conditions improve, do a shabby version this week with what is already in the house. Bad equipment used beats good equipment planned for. Upgrade once you know you will continue.
 
 ---
 
 > "Freedom is not worth having if it does not include the freedom to make mistakes." — Mahatma Gandhi
 
-**What it means.** If you only allow yourself choices you're certain will go well, you've quietly reduced your options to the ones you've already done. Getting things wrong is not a failure of the system. It is the cost of being allowed to choose at all.
+**What it means.** Allow yourself only the choices you are certain will go well and you have quietly reduced your options to things you have already done. Getting it wrong is not a fault in the system. It is the price of being allowed to choose at all.
 
-**How to use it.** Before starting something new, decide in advance what a tolerable mistake looks like. Two hundred pounds and an embarrassing conversation, say. Naming the acceptable loss up front converts a frightening open risk into a bounded one, and bounded risks are much easier to take.
+**How to use it.** Decide in advance what a tolerable mistake looks like. Two hundred pounds and an awkward conversation, say. Naming the acceptable loss turns a frightening open risk into a bounded one, and bounded risks are much easier to take.
 
 ---
 
 > "Look before you leap." — English proverb
 
-**What it means.** Everything above has been an argument for moving, and it needs a limit. Some hesitation is not fear. It is your judgement noticing something your enthusiasm hasn't caught up with yet, and it deserves a hearing before you override it.
+**What it means.** Everything above argues for moving, and it needs a limit. Some hesitation is not fear. It is your judgement noticing something your enthusiasm has not caught up with, and it deserves a hearing before you overrule it.
 
-**How to use it.** Ask one question: if this goes badly, do I recover? If the answer is yes, treat the hesitation as fear and proceed. If it's no, because you'd lose the house, the visa or the marriage, that's not nerves. That's the part of you that's paying attention.
+**How to use it.** Ask one question. If this goes badly, do I recover? Yes, and it is nerves; proceed. No, because you would lose the house or the visa or the marriage, and it is not nerves at all. That is the part of you paying attention.
 
 # Chapter 2 — When Things Go Wrong
 
-Something has gone wrong. Not catastrophically, perhaps, but wrong enough that you are carrying it around: the diagnosis, the redundancy, the relationship that ended badly, the money that isn't coming back. And on top of the thing itself sits a second layer, which is your commentary on it. Why this. Why now. Why me. What it says about you that this happened.
+Something has gone wrong. Not a catastrophe, maybe, but wrong enough that you are carrying it about with you: the diagnosis, the redundancy, the friendship that ended in a way you still cannot explain to people, the money that is not coming back.
 
-The second layer is usually heavier than the first, and it is the only one you have any real influence over.
+And sitting on top of the thing itself is a second layer, which is your commentary on it. Why this. Why now. Why you. What it says about you that this happened at all.
 
-That is not a consoling thought at first. When someone says the problem is how you're thinking about it, what you hear is that the problem is you, which is insulting when the boiler has genuinely broken and the money has genuinely gone. But the claim is narrower than that. Events arrive with a certain weight. Then we add interpretation, and the interpretation is frequently the part that keeps you awake. The redundancy costs you an income. The story that you were the obvious one to cut costs you something else entirely, and it isn't in the letter.
+The second layer is heavier than the first. It is also the only one you have any real say in.
 
-The other thing worth saying early: there is a widespread and exhausting expectation that every bad thing should be converted into growth. That you should emerge wiser, with a better perspective and an anecdote. Some difficulties do teach you something. Plenty are just expensive and stupid and never become useful. You are allowed to have had a bad year that meant nothing at all.
+That lands badly at first. When somebody tells you the problem is how you are thinking about it, what you hear is that the problem is you, which is insulting when the boiler has broken and the money has gone. But the claim is narrower than that. Events arrive with a certain weight, and then we add our interpretation, and the interpretation is the part keeping you awake at four in the morning. The redundancy costs you an income; the story that you were the obvious one to cut costs you something else, and that part was never in the letter.
 
-What follows is not about being philosophical while your life falls over. It's about the small number of moves that actually help when it already has: separating the event from your account of it, noticing what remains within your control, and giving the thing enough time to stop being an emergency.
+One more thing, before any of it. There is a widespread and exhausting expectation that every bad experience should be converted into growth, that you ought to come out of it wiser, with better perspective and a usable anecdote. Some difficulty does teach you something. Plenty of it is just expensive and stupid and never becomes useful to anyone.
+
+You are allowed to have had a bad year that meant nothing.
 
 ---
 
 > "What stands in the way becomes the way." — Marcus Aurelius
 
-**What it means.** The obstacle is not blocking the path to what you wanted. It is now the path, in the sense that dealing with it is the only route onward. Time spent objecting that it shouldn't be there is time spent not walking.
+**What it means.** The obstacle is not blocking the path to the thing you wanted. It is now the path, in the sense that getting through it is the only route onward. Time spent objecting to its presence is time spent not walking.
 
-**How to use it.** Catch yourself protesting the existence of a problem, the traffic, the illness, the client who has changed the brief again, and notice that the protest is a separate activity from solving it. You can do both. You just can't do the first one instead of the second and call it coping.
+**How to use it.** Catch yourself protesting that a problem exists: the traffic, the illness, the client who has changed the brief for the third time. Notice that protesting is a separate activity from solving. You can do both. You cannot do the first instead of the second and call it coping.
 
 ---
 
 > "There is nothing either good or bad, but thinking makes it so." — William Shakespeare
 
-**What it means.** This is not a claim that suffering is imaginary. It's a claim about how much of your distress comes from the verdict you've attached to an event rather than the event itself, and the answer is: more than you'd expect.
+**What it means.** Not a claim that suffering is imaginary. A claim about proportion: how much of your distress comes from the verdict you have attached to an event rather than from the event, and the answer is more than you would like.
 
-**How to use it.** Write down what happened in the plainest words available, as though for an insurance form. "My contract wasn't renewed." Then notice everything you were carrying that isn't in that sentence: humiliation, the sense of being found out, the future you'd assumed. Those came from you. Which means they're negotiable.
+**How to use it.** Write what happened in the plainest available words, as though filling in a form. "My contract was not renewed." Then look at everything you were carrying that is not in that sentence. Humiliation. The sense of being found out. The future you had assumed. All of it came from you, which means all of it is negotiable.
 
 ---
 
 > "A gem cannot be polished without friction." — Seneca
 
-**What it means.** Certain capacities can only be built by being used, and using them is unpleasant by definition. You do not learn to hold your nerve in comfortable conditions, because comfortable conditions don't require it.
+**What it means.** Some capacities can only be built by being used, and using them is unpleasant by definition. Nobody learns to hold their nerve in comfortable conditions, because comfortable conditions never ask.
 
-**How to use it.** In the middle of a hard stretch, ask what it is teaching you to do that you couldn't do before. Sit with uncertainty. Have the conversation you'd have avoided. Not everything difficult builds something. But when it does, you can usually name the specific capacity, and naming it makes the stretch more bearable.
+**How to use it.** Mid-way through a hard stretch, ask what it is teaching you to do that you could not do in January. Sit with uncertainty. Have the conversation. Not every difficulty builds something. When it does, you can name the exact capacity, and naming it makes the stretch easier to stand in.
 
 ---
 
 > "This too shall pass." — Persian adage
 
-**What it means.** The line was written to work in both directions. It comforts you in the bad times and unsettles you in the good ones, which is the point: it is about impermanence, not about reassurance. Nothing you are feeling now is the permanent condition.
+**What it means.** Written to cut both ways. It consoles you in the bad times and unsettles you in the good ones, which is the point of it: the subject is impermanence, not reassurance. Nothing you are feeling now is the permanent condition.
 
-**How to use it.** When you're in the worst of something, your mind will insist this is simply how life is now. Test it against your own history. Think of the thing that flattened you five years ago and notice how rarely you think about it. Current pain always feels uniquely permanent. It never is.
+**How to use it.** At the worst of it, your mind will insist this is how life is from here. Test that against your own record. Think of the thing that flattened you five years ago and notice how rarely it crosses your mind now. Present pain always feels permanent. It never is.
 
 ---
 
 > "Although the world is full of suffering, it is also full of the overcoming of it." — Helen Keller
 
-**What it means.** Both facts are true at once, and misery tends to hide the second one. When things are bad, the mind quietly stops registering evidence that people survive things, recover, rebuild, and go on to have ordinary Tuesdays.
+**What it means.** Both halves are true at once, and misery hides the second one. When things are bad the mind stops registering the evidence that people survive, recover, rebuild, and go on to have ordinary Tuesdays afterwards.
 
-**How to use it.** Find one person who has come through the specific thing you're in. Not a celebrity or a memoir. Someone you can actually talk to, or a forum full of people two years further along. You need proof that the other side is populated, and the proof has to be specific to be believed.
+**How to use it.** Find one person who has come through the specific thing you are in. Not a celebrity, not a memoir. Someone you can talk to, or a forum full of people two years further down the road. You need proof that the far side is inhabited, and it has to be specific before you will believe it.
 
 ---
 
 > "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven." — John Milton
 
-**What it means.** Milton gives this line to Satan, who is lying to himself, and that's worth knowing. It isn't a promise that attitude fixes everything. It's a description of how much your interior weather determines your experience of identical circumstances.
+**What it means.** Milton gives the line to Satan, who is lying to himself, and that is worth knowing before you take it as a promise. It is not a claim that attitude fixes things. It is a description of how far your interior weather determines your experience of identical circumstances.
 
-**How to use it.** Notice how differently the same problem looks at 3am and at 11am. Nothing about the situation changed in eight hours. Your capacity did. Make no decisions and reach no conclusions during the bad hours, and treat what your mind tells you then as weather rather than information.
+**How to use it.** Notice how different the same problem looks at three in the morning and at eleven the next day. Nothing changed in eight hours except your capacity. So make no decisions and reach no conclusions in the bad hours, and treat whatever your mind says then as weather rather than information.
 
 ---
 
 > "Fall seven times, stand up eight." — Japanese proverb
 
-**What it means.** The count is deliberately absurd and slightly off, and that's the joke: you get up one more time than you fell, forever, because standing up is not a heroic act. It is just the next thing.
+**What it means.** The count is off by one, and that is the joke. You get up once more than you fell, forever, because standing up is not a heroic act. It is just the next thing that happens.
 
-**How to use it.** Strip the drama from your recoveries. You don't need a new philosophy or a fresh start on Monday. You need to do the ordinary next thing, which is usually smaller than you think: send the email, eat a proper meal, go outside. Recovery is not a decision. It's an accumulation.
+**How to use it.** Take the drama out of your recoveries. You do not need a new philosophy or a fresh start on Monday morning. You need the ordinary next thing, which is smaller than you think: send the email, eat a proper meal, go outside for twenty minutes. Recovery is not a decision. It accumulates.
 
 ---
 
 > "Adversity is the first path to truth." — Lord Byron
 
-**What it means.** Difficulty strips out the polite fictions. You find out quickly which friendships were real, which parts of your work you actually valued, and how much of your identity was resting on things that could be taken away in an afternoon.
+**What it means.** Difficulty strips out the polite fictions. You find out inside a month which friendships were real, which parts of the job you valued, and how much of your sense of yourself was resting on things that could be removed in an afternoon by someone in HR.
 
-**How to use it.** During a bad period, keep a note of what surprised you. Who showed up. What you stopped missing after a fortnight. These observations are only available now, and you'll lose access to them once life is comfortable again. They're the one genuinely useful thing the situation is handing you.
+**How to use it.** Keep a note of what surprises you. Who turned up. What you stopped missing after a fortnight. These observations are available only now, and you will lose access to them the moment life is comfortable again. They are the one useful thing the situation is handing over.
 
 ---
 
 > "Nothing is so bitter that a calm mind cannot find comfort in it." — Seneca
 
-**What it means.** Calm is not the same as being fine, and it isn't optimism. It's the state in which your mind can still work: still weigh options, still notice the exit, still see what's in front of it rather than a fog of alarm.
+**What it means.** Calm is not the same as being fine, and it is not optimism. It is the state in which your mind still works: still weighs options, still notices the exit, still sees what is in front of it instead of a fog of alarm.
 
-**How to use it.** Before making any decision under stress, do whatever reliably lowers your pulse first. A walk, a night's sleep, twenty minutes outside. You're not doing it to feel better. You're doing it because your judgement is measurably worse when you're panicking, and the decision deserves the better version.
+**How to use it.** Before any decision made under stress, do whatever lowers your pulse. A walk, a night's sleep, twenty minutes outdoors. Not to feel better. To think better, because your judgement is worse while you are panicking and the decision deserves the other version of you.
 
 ---
 
 > "Misfortunes one can endure; they come from outside." — Oscar Wilde
 
-**What it means.** Wilde's distinction is between things that happen to you and things you did, and he thought the second sort was far harder to live with. Bad luck is survivable. Your own conduct is what lodges.
+**What it means.** Wilde is separating what happened to you from what you did, and he thought the second sort was far harder to live with. Bad luck is survivable. Your own conduct is the part that lodges and stays lodged.
 
-**How to use it.** Separate the two on paper. What was done to you, and what you actually did. Most bad situations are a mix, and the mind blurs them so it can either take all the blame or none of it. Own your column precisely. It's almost always smaller than the guilt suggests.
+**How to use it.** Separate the two columns on paper. What was done to you, and what you did. Most bad situations are a mixture, and the mind blurs them so it can take either all the blame or none. Be precise about your column. It is nearly always smaller than the guilt suggests.
 
 ---
 
 > "Everything can be taken from a man but one thing: to choose one's attitude in any given set of circumstances." — Viktor Frankl
 
-**What it means.** Frankl earned the right to say this in conditions worse than most of us will meet. His claim is minimal and therefore reliable: even when every external option is gone, your response is still yours.
+**What it means.** Frankl earned the right to say this in conditions worse than most of us will ever meet, and his claim is a small one, which is what makes it hold: when every external option has gone, the response is still yours to choose.
 
-**How to use it.** In the situations you genuinely cannot change, the waiting list, the bereavement, the outcome already decided, stop looking for the action and look for the stance. How do you want to have gone through this, when you look back? That question has an answer even when nothing else does.
+**How to use it.** In the situations you cannot change, the waiting list, the bereavement, the verdict already handed down, stop hunting for the action and look for the stance. How do you want to have gone through this, looking back from ten years out? That question has an answer even when nothing else does.
 
 ---
 
 > "A smooth sea never made a skilled sailor." — English proverb
 
-**What it means.** Competence is built out of trouble handled, not conditions avoided. The person you trust in a crisis is invariably someone who has been in one before, and there is no way to acquire that except the obvious one.
+**What it means.** Competence is built from trouble handled, not conditions avoided. The person everyone trusts in a crisis is always someone who has been in one, and there is no other way of acquiring it.
 
-**How to use it.** In the middle of managing something awful, note privately that you're accumulating the thing you'll be valued for later. It isn't compensation. But the friend everyone calls when their life collapses is always someone whose own life collapsed once, and you're becoming that person now.
+**How to use it.** While you are managing something awful, note, privately, that you are acquiring the thing people will value you for later. It is not compensation. But the friend everybody rings when their life falls over is someone whose own life fell over once, and that is what is happening to you now.
 
 ---
 
 > "Weeping may endure for a night, but joy cometh in the morning." — Psalm 30:5
 
-**What it means.** The consolation here is structural rather than sentimental. Distress is being described as something with a shape and an end, a night rather than a climate, and grief experienced as a night is a different thing from grief experienced as a life sentence.
+**What it means.** The consolation here is structural rather than sentimental. Distress is being given a shape and an end, a night rather than a climate, and grief experienced as a night is a different substance from grief experienced as a life sentence.
 
-**How to use it.** When the feeling is at its worst, resist the urge to extrapolate. You're not forecasting; you're just tired. Give the thing a night. Very often the identical problem at breakfast is a job to be done rather than a hole you're in.
+**How to use it.** At the worst of it, resist the urge to forecast. You are not predicting. You are tired. Give the thing one night. The identical problem at breakfast often turns out to be a job to be done rather than a hole you are in.
 
 ---
 
 > "Loss is nothing else but change, and change is nature's delight." — Marcus Aurelius
 
-**What it means.** Loss feels like a violation of the natural order, as though things were meant to stay and something has gone wrong. Aurelius inverts it: staying was never the arrangement. Everything you have is on loan, and the terms were always these.
+**What it means.** Loss feels like a breach of the natural order, as though things were meant to stay and something has gone wrong. Aurelius turns it over: staying was never the arrangement, everything you have is on loan, and these were always the terms.
 
-**How to use it.** This one is too cold for fresh grief and useful later. Months on, when you're still angry that something ended, try holding the thought that it was never yours permanently to begin with. It doesn't remove the loss. It removes the sense of having been cheated, which is often the sharper part.
+**How to use it.** Too cold for fresh grief. Useful later. Months on, when you are still angry that something ended, try holding the thought that it was never yours to keep. It does not remove the loss. It removes the sense of having been cheated, which is the sharper half.
 
 ---
 
 > "To every thing there is a season: a time to weep, and a time to laugh; a time to mourn, and a time to dance." — Ecclesiastes 3:4
 
-**What it means.** There is a season for grief, and it is not a failure of resilience to be in it. The pressure to have processed something by a reasonable date is entirely modern and entirely invented.
+**What it means.** There is a season for grief and it is not a failure of resilience to be standing in it. The expectation that you will have processed something by a reasonable date is modern, invented, and enforced by people who are not grieving.
 
-**How to use it.** Here is the way out of the rest of this chapter. If you've read all the above and none of it helps yet, that's not a sign you're doing it wrong. Some things need to be lived through before they can be thought about. Put the philosophy down and come back to it in the spring.
+**How to use it.** Here is the way out of the rest of this chapter. If you have read all of the above and none of it helps yet, that is not evidence you are doing it wrong. Some things have to be lived through before they can be thought about. Put the philosophy down. Come back to it in the spring.
 
 # Chapter 3 — Anger and What To Do With It
 
-Anger arrives faster than thought, which is the whole difficulty. By the time you've registered that you're furious, you have already typed the message, raised your voice, or said the specific sentence you will be apologising for on Thursday. The gap between feeling it and acting on it is measured in seconds, and most of the damage happens inside that gap.
+Anger is faster than thought. That is the whole difficulty. By the time you have registered being furious you have already sent the message, raised your voice, or said the one sentence you will still be apologising for on Thursday.
 
-Two bad ideas compete for your attention here. The first is that anger is a defect and a decent person wouldn't feel it. That produces people who swallow everything, are unfailingly pleasant, and are quietly seething about a thing that happened in 2019. The second is that anger is honest and therefore should be expressed, that letting it out is healthy and bottling it up is dangerous. That produces people who shout at their families and call it authenticity.
+Seconds. That is the gap, and nearly all the damage happens inside it.
 
-Neither describes what anger actually is. It's a signal, and a reasonably reliable one: something you care about has been crossed. A boundary, a standard, a sense of fairness. The signal is usually correct. What's almost never correct is the plan it hands you, because the plan was made in half a second by the least sophisticated part of your brain, and it typically involves saying the most wounding available thing to someone you love.
+Two bad ideas compete for your attention here. The first says anger is a defect and a decent person would not feel it. That produces people who swallow everything, are pleasant to everybody, and are still quietly furious about something that happened in 2019. The second says anger is honest and therefore ought to be expressed, that letting it out is healthy and holding it in will make you ill. That produces people who shout at their families and call it authenticity.
 
-So the skill is not suppression and it isn't ventilation. It's delay, long enough to keep the information and discard the impulse. What was crossed? Does it matter? What would actually fix it?
+Neither describes what anger is. It is a signal, and a reliable one: something you care about has been crossed, a boundary or a standard or a sense of fair dealing that you did not know you held until somebody stood on it. The signal is correct.
 
-Sometimes the answer is a hard conversation, held calmly, days later. Sometimes it's that you were hungry and it's fine now. Telling those two apart is most of the work.
+What is almost never correct is the plan attached to it. The plan was drawn up in half a second by the least sophisticated part of your brain, and it involves saying the most wounding available thing to somebody you love.
+
+So the skill is neither suppression nor ventilation. It is delay: long enough to keep the information and throw away the impulse. What was crossed? Does it matter? What would put it right?
+
+Sometimes the answer is a hard conversation, held calmly, on Saturday. Sometimes the answer is that you were hungry and it has passed. Telling those two apart is most of the work.
 
 ---
 
 > "Anger, if not restrained, is frequently more hurtful to us than the injury that provokes it." — Seneca
 
-**What it means.** The original offence is usually finite: a rude email, a broken promise. What you do next can be considerably more expensive. People lose jobs and marriages over their response to things that were, in themselves, survivable.
+**What it means.** The original offence is finite. A rude email, a broken promise. What you do next can cost far more, and people lose jobs and marriages over their response to things that were, in themselves, survivable.
 
-**How to use it.** Before you reply to something infuriating, ask which is likely to cost more in a year: the thing that was done to you, or the thing you're about to do about it. If it's the second, you've just found the actual problem, and it's the one you can still control.
+**How to use it.** Before replying to something infuriating, ask which will cost more in a year: the thing done to you, or the thing you are about to do about it. If it is the second, you have located the actual problem. It is also the only one still under your control.
 
 ---
 
 > "The best answer to anger is silence." — German proverb
 
-**What it means.** Silence isn't surrender and it isn't the silent treatment, which is its own kind of attack. It's the refusal to supply fuel. An argument requires two people; anger left without a partner tends to burn down within minutes.
+**What it means.** Silence is not surrender, and it is not the silent treatment, which is an attack wearing a disguise. It is the refusal to supply fuel. An argument needs two people, and anger left without a partner tends to burn out inside a couple of minutes.
 
-**How to use it.** When someone is shouting, say nothing rather than saying something reasonable. Reasonable statements are also fuel: they get picked apart. Wait. Most people cannot sustain fury alone for more than a minute or two, and what follows the silence is usually the conversation you wanted.
+**How to use it.** When someone is shouting, say nothing rather than something reasonable. Reasonable statements are also fuel; they give the other person things to take apart. Wait. Few people can sustain fury unaccompanied, and what comes after the silence is the conversation you wanted in the first place.
 
 ---
 
 > "Holding onto anger is like drinking poison and expecting the other person to die." — traditional
 
-**What it means.** Sustained resentment is a full-time occupation, and the person you're angry at doesn't participate in it. They're having their dinner. You are the only one doing the work, and you're doing it to yourself.
+**What it means.** Sustained resentment is a full-time occupation and the person you are angry with does not participate in it. They are having their dinner. You are the only one doing the work, and you are doing it to yourself.
 
-**How to use it.** Keep a rough count of how many hours you've spent this month rehearsing an argument with someone who has no idea. Then ask what those hours produced. This isn't about forgiving them, which may not be appropriate. It's about noticing who is paying, and it's you.
+**How to use it.** Count the hours you have spent this month rehearsing an argument in the car, in the shower, at two in the morning, with somebody who has no idea the argument is taking place and would be baffled to hear about it. Then ask what those hours produced. This is not about forgiving them, which may well be inappropriate. It is about noticing who is paying, and it is you.
 
 ---
 
 > "When angry, count to ten before you speak. If very angry, a hundred." — Thomas Jefferson
 
-**What it means.** Deliberately unglamorous advice, and it works for a mechanical reason: the physical surge that makes you want to lash out has a short half-life. Wait it out and you are a genuinely different person, with access to judgement you didn't have.
+**What it means.** Unglamorous advice. It works for a mechanical reason. The physical surge that makes you want to lash out has a short half-life. Wait it out and you are a different person, with access to judgement that was not available a moment ago.
 
-**How to use it.** Build the delay into the tools where you do the damage. Say out loud "I'll answer that tomorrow." Write the furious message in a blank note rather than the reply box. You are not trying to be a calmer person. You're trying to put a barrier between the surge and the send button.
+**How to use it.** Build the delay into the tools where you do the damage. Say out loud that you will answer tomorrow. Write the furious message in a blank note instead of the reply box. You are not trying to become a calmer person. You are putting something between the surge and the send button.
 
 ---
 
 > "Everything that irritates us about others can lead us to an understanding of ourselves." — Carl Jung
 
-**What it means.** Not every irritation is a mirror. But the ones out of proportion, the flare of rage at a colleague's small vanity, often are: we react hardest to traits we're either suppressing in ourselves or were punished for as children.
+**What it means.** Not every irritation is a mirror. But the ones out of all proportion, the flare of rage at a colleague's small vanity, often are, because we react hardest to the traits we are suppressing in ourselves or were punished for as children.
 
-**How to use it.** If someone's behaviour makes you angry far beyond what it warrants, ask why that particular fault and not another. If a friend's showing off enrages you while their unreliability doesn't, that gap is about you. The answer is often useful and almost always slightly uncomfortable.
+**How to use it.** If someone's behaviour angers you far beyond what it warrants, ask why that fault and not another. A friend's showing off enrages you while their unreliability does not? The gap is about you, not them. The answer tends to be useful and uncomfortable, in that order.
 
 ---
 
 > "He who angers you conquers you." — attributed to Elizabeth Kenny
 
-**What it means.** Whoever can reliably provoke you is, in a practical sense, operating you. They choose the moment, you supply the reaction, and it works every time. That's a form of control, whether or not they're using it deliberately.
+**What it means.** Whoever can provoke you at will is, in practical terms, operating you. They pick the moment, you supply the reaction, and it works every time. That is control, whether or not they are doing it on purpose.
 
-**How to use it.** Identify the person who can get a rise out of you with one sentence. A sibling, an ex, a particular colleague. Recognising the mechanism as a mechanism weakens it. Next time, notice the button being pressed while it's happening, and the reaction becomes optional rather than automatic.
+**How to use it.** Identify the person who can get a rise out of you with a single sentence. A sibling, an ex, one particular colleague. Seeing the mechanism as a mechanism weakens it. Next time, watch the button being pressed while it happens, and the reaction becomes something you choose rather than something you produce.
 
 ---
 
 > "It is not he who reviles or strikes you who insults you, but your opinion that these things are insulting." — Epictetus
 
-**What it means.** The sting of an insult is manufactured in the receiving. Someone can say something appalling about you and it lands only if part of you agrees it might be true or fears others will believe it.
+**What it means.** The sting of an insult is manufactured on receipt. Someone can say something appalling about you and it only lands if part of you suspects it might be true, or fears that other people will believe it.
 
-**How to use it.** After an insult that got under your skin, ask what would have to be true for it to be devastating. If a stranger calls you a bad driver you shrug; if they call you a bad parent you don't. The difference is where you're already unsure, and that's worth knowing.
+**How to use it.** After an insult gets under your skin, ask what would have to be true for it to be devastating. A stranger calls you a bad driver and you shrug. A stranger calls you a bad parent and you do not. The difference marks exactly where you are already unsure, and that is worth knowing about.
 
 ---
 
 > "A soft answer turneth away wrath: but grievous words stir up anger." — Proverbs 15:1
 
-**What it means.** The temperature of a conversation is contagious, and it's set at the beginning. Meet heat with heat and you have an argument. Meet it with a lower tone and the other person has to escalate deliberately, which most people won't.
+**What it means.** The temperature of a conversation is contagious and it gets set at the beginning. Meet heat with heat and you have an argument. Meet it a register lower and the other person has to escalate on purpose, which most people will not do.
 
-**How to use it.** When someone opens with an accusation, answer one register below where they're pitched. Not sarcastically calm, which is worse than shouting, but genuinely quieter. On the phone with a company that's overcharged you, this is also simply more effective. Calm people get better outcomes than furious ones.
+**How to use it.** When someone opens with an accusation, answer below the pitch they set. Not sarcastically calm, which is worse than shouting. Just quieter. On the phone to a company that has overcharged you this is also more effective: calm people get better outcomes than furious ones, every time, from staff who deal with furious ones all day.
 
 ---
 
 > "Anybody can become angry, that is easy; but to be angry with the right person, to the right degree, at the right time, for the right purpose, and in the right way, that is not easy." — Aristotle
 
-**What it means.** Aristotle isn't recommending you eliminate anger. He thinks failing to be angry at real injustice is its own defect. The skill is precision: right target, right size, right moment.
+**What it means.** Aristotle is not telling you to eliminate anger. He thinks failing to be angry at real injustice is its own defect. What he is describing is precision: right target, right size, right moment.
 
-**How to use it.** When you're angry, check the four things. Is this the person responsible, or just the one in front of me? Is my reaction the size of the offence? Is now the moment? What am I trying to achieve? Most bad expressions of anger fail at least two of these, and usually the first.
+**How to use it.** Check the four things. Is this the person responsible, or the person in front of me? Is my reaction the size of the offence? Is now the moment? What am I trying to achieve? Most bad expressions of anger fail at least two, and it is the first.
 
 ---
 
 > "Whoever fights monsters should see to it that in the process he does not become a monster." — Friedrich Nietzsche
 
-**What it means.** Prolonged opposition shapes you. Fight something long enough, however justified, and you start borrowing its methods, its tone, its contempt. The cause stays good and you quietly stop being someone you'd have admired at the start.
+**What it means.** Long opposition shapes you. Fight something for years, however justified, and you begin borrowing its methods, its tone, its contempt, until the cause is still good and you have quietly stopped being someone you would have admired at the start.
 
-**How to use it.** In any long-running conflict, a neighbour dispute, a workplace feud, a family rift, occasionally read your own messages as though a stranger wrote them. If they'd sound cruel coming from the other side, they're cruel coming from you. Being in the right doesn't launder the behaviour.
+**How to use it.** In any long-running conflict, the neighbour dispute, the workplace feud, the family rift, read your own messages once a month as though a stranger had written them. If they would sound cruel from the other side, they are cruel from yours. Being in the right does not launder the behaviour.
 
 ---
 
 > "Speak when you are angry and you will make the best speech you will ever regret." — Ambrose Bierce
 
-**What it means.** Anger makes you fluent. The words arrive fast, in good order, and they land, because rage is very good at locating the exact vulnerability of someone you know well. That's precisely why the speech is unforgivable.
+**What it means.** Anger makes you fluent. The words arrive fast, in good order, landing where they are aimed, because rage has been quietly cataloguing the soft spots of everybody you have ever lived with and can produce the file on demand. Which is why the speech is unforgivable.
 
-**How to use it.** Distrust your own eloquence in a row. If a devastating line arrives fully formed, that's not insight; it's ammunition you assembled over months. The fact that it's true does not mean it should be said. Nobody has ever unheard the accurate cruel thing.
+**How to use it.** Distrust your own eloquence in a row. If a devastating line arrives fully formed, that is not insight. It is ammunition you have been assembling for months. True does not mean sayable. Nobody has ever unheard the accurate cruel thing.
 
 ---
 
 > "Anger is never without a reason, but seldom with a good one." — Benjamin Franklin
 
-**What it means.** There is always a justification available, and it's usually sincere. The question isn't whether you have grounds. It's whether the grounds are proportionate, or whether you're building a case for a feeling that arrived first.
+**What it means.** There is always a justification available and it is sincere. The question is not whether you have grounds. It is whether the grounds are proportionate, or whether you have built a case to support a feeling that arrived first and briefed the lawyers afterwards.
 
-**How to use it.** Having explained to yourself exactly why you're entitled to be angry, notice that the explanation came after the anger. Ask whether you'd accept the same reasoning from someone else about you. The case sounds much weaker in the other direction, which tells you something.
+**How to use it.** Having explained to yourself exactly why you are entitled to be angry, notice that the explanation came second. Ask whether you would accept the same reasoning from someone else, about you. It sounds much weaker in that direction, and the weakness is the information.
 
 ---
 
 > "The greatest remedy for anger is delay." — Seneca
 
-**What it means.** Not a resolution, not a technique, not a conversation. Just time. The feeling has a natural duration, and almost everything you'd regret happens well inside it.
+**What it means.** Not a resolution. Not a technique. Not a conversation. Time.
 
-**How to use it.** Make one rule and keep it: nothing consequential within an hour of the feeling. No sent messages, no resignations, no announcements to the family. You can still do all of it tomorrow. The only thing the rule removes is the version you'd have done at maximum heat, and that version was never the good one.
+**How to use it.** Make one rule and keep it: nothing consequential within an hour. No sent messages, no resignations, no announcements at the kitchen table. You can still do all of it tomorrow. The only thing the rule removes is the version you would have produced at maximum heat, and that version was never the good one.
 
 ---
 
 > "To be wroth with one we love doth work like madness in the brain." — Samuel Taylor Coleridge
 
-**What it means.** Anger at people we're close to is a different substance from anger at strangers. It's tangled with love, disappointment and history, which is why it disorients so completely and why the smallest domestic argument can feel unaccountably enormous.
+**What it means.** Anger at people close to you is a different substance from anger at strangers. It comes tangled with love, disappointment and history, which is why it disorients you, and why the smallest domestic row can feel enormous while it is happening.
 
-**How to use it.** In a row with someone you love, say the actual sentence out loud: "I'm angry and I don't want this to become something bigger." It sounds stilted. It also interrupts the momentum, and it reminds you both that you're on the same side of something, which is the fact anger reliably hides.
+**How to use it.** In a row with someone you love, say the sentence out loud: "I'm angry and I don't want this to turn into something bigger." It sounds stilted written down. It also interrupts the momentum, and it reminds you both that you are on the same side of something, which is the fact anger hides first.
 
 ---
 
 > "Always forgive your enemies; nothing annoys them so much." — Oscar Wilde
 
-**What it means.** Wilde is joking, and the joke contains the exit. Letting something go is being offered here not as moral achievement but as the option that costs you least. You don't have to be big about it. You can be petty about it and still put it down.
+**What it means.** Wilde is joking, and the joke contains the exit. Letting go is offered here not as a moral achievement but as the cheapest option available. You do not have to be big about it. You can be petty about it and still put it down.
 
-**How to use it.** If forgiveness feels like a gift you're not willing to give, don't give it. Drop the matter for your own convenience instead, because carrying it is dull and it's using up evenings. You are allowed to stop being angry without the other person deserving it, and without telling them.
+**How to use it.** If forgiveness feels like a gift you are unwilling to give, do not give it. Drop the matter for your own convenience instead, because carrying it is dull and it is eating your evenings. You may stop being angry without the other person having earned it, and without telling them you have.
 
 # Chapter 4 — Worry and the Things You Can't Control
 
-Worry feels like work. That is its great trick, and the reason it's so hard to give up. Lying awake running through the meeting, the scan result, the message that hasn't been answered, you have the distinct sense of doing something about it. You are being responsible. You are staying on top of things. In the morning you are exhausted and nothing has changed, because nothing you did was an action.
+Worry feels like work. That is its great trick and the reason it is so hard to put down. Lying awake going over the meeting, the scan result, the message that has not been answered, you have the clear sense of doing something about it. Being responsible. Staying on top of things.
 
-Some anticipation genuinely is useful. Checking the boiler before winter, saving because your contract ends in March, rehearsing the difficult conversation once. The difference is that useful anticipation terminates in a decision. You think about the problem, you do the thing, you stop. Worry doesn't terminate. It loops, and it prefers problems where nothing can be done, because those never resolve and so the loop can run forever.
+In the morning you are exhausted and nothing has changed. Nothing you did was an action.
 
-The other feature worth naming is how bad worry is at forecasting. It doesn't predict; it generates. Given any uncertainty it produces the worst version, presents it in high definition, and then charges you the emotional cost of the disaster in advance. Then, usually, the disaster doesn't come, and you pay again next time at the same rate. Nobody keeps score of this. If you did, the record would be embarrassing.
+Some anticipation is useful. Checking the boiler before winter, saving because the contract ends in March, running the difficult conversation through once. The difference is that useful anticipation ends in a decision. You think about the problem, you do the thing, you stop. Worry does not stop. It loops, and it prefers the problems where nothing can be done, because those never resolve and the loop can run for years.
 
-None of which makes worry a moral failing or something you can decide to stop. What you can do is smaller and more practical: notice which category a worry is in, act on the ones that have actions, and get better at putting down the ones that don't. And if the loop won't stop whatever you do, that is a thing to take to a doctor, not a thing to be philosophical about.
+The other feature worth naming is how bad worry is at prediction. It does not forecast; it generates. Hand it any uncertainty and it produces the worst available version, renders it in high definition, and then charges you the full emotional cost of the disaster in advance, months before the event, at a rate that would be considered usurious if it were money.
+
+Then the disaster does not arrive. And you pay the same rate again next time.
+
+Nobody keeps score of this. If you did, the record would be embarrassing.
+
+None of which makes worry a moral failing or something you can decide to stop. What you can do is smaller: notice which category a worry falls into, act on the ones with actions attached, and get better at putting down the ones without. And if the loop will not stop whatever you do, that is a thing to take to a doctor rather than a thing to be philosophical about.
 
 ---
 
 > "We suffer more often in imagination than in reality." — Seneca
 
-**What it means.** The mind rehearses catastrophes in full detail and charges the body real distress for each performance. The event itself, if it ever happens, occurs once. You will have experienced it forty times.
+**What it means.** The mind stages catastrophes in full detail and charges the body real distress for every performance. The event, if it ever happens, happens once. You will have sat through it forty times.
 
-**How to use it.** Keep a note on your phone of what you're currently dreading, with the date. Look back in three months. The point isn't reassurance; it's the record. Most people find that the majority never happened, and the ones that did were handled. Your own history is the only evidence your mind will accept.
+**How to use it.** Keep a note on your phone of what you are dreading, with the date beside it. Read it back in three months. This is not for reassurance; it is for the record, and the record shows that most of what you rehearsed never arrived at all, while the parts that did arrive were handled by you, on an ordinary weekday, without any of the collapse you had budgeted for. Your own history is the only evidence your mind will accept.
 
 ---
 
 > "You have power over your mind, not outside events. Realise this, and you will find strength." — Marcus Aurelius
 
-**What it means.** The oldest and most useful sorting mechanism there is. Some things answer to your effort and some do not, and almost all wasted anguish comes from spending yourself on the second category.
+**What it means.** The oldest sorting mechanism there is, and still the most useful. Some things answer to your effort. Some do not. Almost all wasted anguish is effort spent on the second kind.
 
-**How to use it.** Split the worry into two columns. Under one, what you can do this week. Under the other, what is being decided by other people, the weather, or an algorithm. Do the first column today. The second column doesn't get less frightening, but it stops masquerading as a task you're failing at.
+**How to use it.** Two columns. In the first, what you can do this week. In the second, what is being decided by other people, the weather, or an algorithm. Do the first column today. The second column does not get less frightening, and it stops pretending to be a task you are failing at.
 
 ---
 
 > "He who fears he shall suffer, already suffers because he fears." — Michel de Montaigne
 
-**What it means.** Anticipation isn't a preview of the pain, it's an instalment of it. You don't get a discount later for having suffered early. You simply pay twice, once in advance and once on the day, if the day comes at all.
+**What it means.** Anticipation is not a preview of the pain. It is an instalment of it. There is no discount later for having suffered early. You pay twice, once in advance and once on the day, if the day comes at all.
 
-**How to use it.** Catch yourself bracing for bad news that's a week away, and notice that you're spending the week. The result will be identical whether or not you dread it. That fact doesn't stop the feeling, but stated plainly it sometimes loosens its grip enough to let you sleep.
+**How to use it.** Catch yourself bracing for news that is a week away, and notice that you are spending the week. The result will be identical whether you dread it or not. That does not switch the feeling off. Said plainly, it sometimes loosens the grip enough to let you sleep.
 
 ---
 
 > "There is only one way to happiness, and that is to cease worrying about things which are beyond the power of our will." — Epictetus
 
-**What it means.** Epictetus is making a claim about the source of distress: not events, but the mismatch between what we demand of the world and what we can actually influence. Close the gap and most of the misery goes with it.
+**What it means.** Epictetus is making a claim about where distress comes from. Not events, but the gap between what we demand of the world and what we can actually move. Close the gap and most of the misery goes with it.
 
-**How to use it.** Try it somewhere low-stakes first, where you can feel the mechanism working. Traffic, a delayed train, someone else's opinion of your work. Practise letting go of small things you can't move, and the muscle is available when the object is a hospital appointment.
+**How to use it.** Practise on something small, where you can feel the mechanism working. Traffic. A cancelled train. Somebody's opinion of your work. Letting go of little things you cannot move builds the muscle, and the muscle is there when the object is a hospital appointment.
 
 ---
 
 > "Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof." — Matthew 6:34
 
-**What it means.** Not a recommendation to be reckless about the future. It's a limit on how much of the future you carry at once. Today has its own difficulties, which are enough. Tomorrow's will still be there tomorrow, and you'll have a fresh day's strength to meet them.
+**What it means.** Not a recommendation to be reckless about the future. A limit on how much of it you carry at once. Today has its own difficulties, and they are enough. Tomorrow's will still be there tomorrow, and you will have a fresh day's strength to meet them.
 
-**How to use it.** As soon as your mind starts stacking next month's problems on top of today's, say plainly: not today's business. Then do the next thing on today's list. This is the practical version of one day at a time, and it works precisely because it's so limited.
+**How to use it.** When your mind starts stacking next month's problems on top of today's, say it out loud: not today's business. Then do the next thing on today's list. This is the practical version of one day at a time, and it works because of how little it asks.
 
 ---
 
 > "How much pain have cost us the evils which have never happened." — Thomas Jefferson
 
-**What it means.** Imagined disasters have a real price and no corresponding benefit. Nobody thanks you afterwards for the year you spent worrying about a redundancy that never came. The cost is entirely yours and entirely wasted.
+**What it means.** Imagined disasters carry a real price and no corresponding benefit. Nobody thanks you afterwards for the year you spent worrying about a redundancy that never came. The cost was entirely yours and it bought nothing.
 
-**How to use it.** Give the cost a unit so you can see it. Roughly how many hours this month went on a scenario that hasn't occurred? Ten? Forty? Put those hours next to anything else you'd like more time for. The comparison is uncomfortable and it's the most persuasive argument available.
+**How to use it.** Give it a unit so you can see it. How many hours this month went on a scenario that has not occurred? Ten? Forty? Set those hours beside anything else you would like more time for. The comparison is uncomfortable and it is the most persuasive argument available.
 
 ---
 
 > "The mind that is anxious about the future is miserable." — Seneca
 
-**What it means.** Not "will become miserable" but is, already, now. Anxiety about what's coming is not a state you endure on the way to a resolution. It's the misery itself, happening in the present, using up a real day of your life.
+**What it means.** Not "will become miserable". Is. Already. Anxiety about what is coming is not something you endure on the way to a resolution. It is the misery itself, happening now, using up a real day of your life.
 
-**How to use it.** When you notice you're waiting for something to be settled before you can feel all right, check how long you've been waiting. If it's months, the resolution isn't coming in the form you want. You'll have to find a way to live decently inside the uncertainty, because that's where you actually are.
+**How to use it.** If you are waiting for something to be settled before you can feel all right, check how long you have been waiting. Months? Then the resolution is not coming in the shape you want, and the job is to find a way of living decently inside the uncertainty, because the uncertainty is where you live.
 
 ---
 
 > "Worry often gives a small thing a big shadow." — Swedish proverb
 
-**What it means.** Worry distorts scale rather than inventing dangers. The awkward thing you said, the unanswered email, the noise the car is making: all real, all small, all rendered at a size that has nothing to do with their importance.
+**What it means.** Worry distorts scale rather than inventing dangers. The awkward thing you said, the unanswered email, the noise the car has started making. All real. All small. All rendered at a size with no relation to their importance.
 
-**How to use it.** Ask what a friend would say if you described the worry out loud in one sentence. You already know: they'd say it sounds fine. The gap between how it feels inside your head and how it sounds spoken aloud is the shadow. Saying it out loud to someone is often enough to collapse it.
+**How to use it.** Say it out loud to somebody in one sentence. You already know what they will say: it sounds fine. The gap between how it feels inside your head and how it sounds spoken aloud in a kitchen is the shadow, and saying it is generally enough to collapse it.
 
 ---
 
 > "Some of your hurts you have cured, and the sharpest you still have survived." — Ralph Waldo Emerson
 
-**What it means.** You have a track record you don't consult. Every difficult thing in your past was, at the time, an unbearable unknown, and you are here, reading this, which means the survival rate so far is total.
+**What it means.** You have a track record and you never consult it. Every hard thing in your past was, at the time, an unbearable unknown. You are here, reading this, which puts the survival rate so far at one hundred per cent.
 
-**How to use it.** In the middle of the current crisis, deliberately recall the last one. What you were sure you couldn't handle two years ago, and how it went. You're not looking for a lesson, just evidence of competence. Worry insists you're facing this without resources. Your history disagrees.
+**How to use it.** In the middle of the current crisis, deliberately recall the last one. What you were certain you could not handle two years ago, and how it went. You are not looking for a lesson. You are looking for evidence of competence. Worry insists you are facing this without resources; your history says otherwise.
 
 ---
 
 > "Rule your mind, or it will rule you." — Horace
 
-**What it means.** Left unsupervised, the mind will select its own topics, and its preferences are not aligned with your interests. It will choose the humiliating memory and the unresolvable question over anything pleasant, and it will do this all night if permitted.
+**What it means.** Left to itself the mind picks its own subjects, and its preferences are not aligned with your interests. It will choose the humiliating memory and the unanswerable question over anything pleasant, and it will do that all night if you let it.
 
-**How to use it.** Treat attention as something to be directed rather than something that happens to you. When the loop starts, give the mind a specific job instead of an argument: name five things in the room, do a puzzle, read something demanding. You cannot argue a loop into stopping. You can occupy the machinery it runs on.
+**How to use it.** Treat attention as something you point rather than something that happens to you. When the loop starts, give the mind a job instead of an argument: name five things in the room, do a crossword, read something difficult enough that following it takes the whole of you, because a mind fully occupied with a task cannot simultaneously run the other thing. You cannot argue a loop into stopping. You can occupy the machinery it runs on.
 
 ---
 
 > "Anxiety is the dizziness of freedom." — Søren Kierkegaard
 
-**What it means.** A great deal of anxiety isn't fear of a bad outcome but vertigo at the number of possible ones. Standing at the edge of a genuinely open choice, the career change, the move, whether to have children, produces something close to nausea, and that's the freedom, not a warning.
+**What it means.** A great deal of anxiety is not fear of a bad outcome but vertigo at the number of possible ones. Standing at the edge of a genuinely open choice, the move, the career change, whether to have children, produces something close to nausea. That is the freedom, not a warning.
 
-**How to use it.** Facing an open decision and feeling sick about it, ask whether you're frightened of a specific consequence or of the openness itself. If you can't name a consequence, you're dizzy, not endangered. Narrowing the options deliberately, even arbitrarily, usually restores your balance.
+**How to use it.** Facing an open decision and feeling sick about it, ask whether you are frightened of a specific consequence or of the openness. If you cannot name a consequence, you are dizzy rather than in danger. Narrowing the options, even arbitrarily, restores your balance.
 
 ---
 
 > "Nothing is miserable unless you think it so." — Boethius
 
-**What it means.** Boethius wrote this in prison awaiting execution, which is worth knowing before dismissing it as a comfortable sentiment. His claim is that our assessment of a situation, more than the situation, sets how much it hurts.
+**What it means.** Boethius wrote this in a cell, awaiting an execution that duly arrived, which is worth knowing before dismissing it as the sort of thing said by people to whom nothing has happened. His claim is that our assessment of a situation, more than the situation, sets how much it hurts.
 
-**How to use it.** Take the thing you're worrying about and describe it without adjectives. "I have a meeting on Thursday about my performance." Now notice what you'd added: humiliation, threat, the beginning of the end. The bare version is genuinely manageable. Almost everything unmanageable was in the adjectives.
+**How to use it.** Describe the thing without adjectives. "I have a meeting on Thursday about my performance." Now notice what you had added: humiliation, threat, the beginning of the end. The bare version is manageable. Nearly everything unmanageable was in the adjectives.
 
 ---
 
 > "Worry is interest paid on trouble before it falls due." — William Ralph Inge
 
-**What it means.** You are servicing a debt that may never be called in, at a rate you didn't agree to. And unlike real interest, none of it reduces what you'll owe if the trouble does arrive. It's a pure loss.
+**What it means.** You are servicing a debt that may never be called in, at a rate you did not agree to. And unlike real interest, none of it reduces what you will owe if the trouble does arrive. It is a pure loss.
 
-**How to use it.** When you notice the payments starting, ask whether the trouble is due, or merely possible. If it's possible, you're paying early on a debt that might not exist. Naming it as a transaction rather than a duty makes it easier to decline, at least for tonight.
+**How to use it.** When the payments start, ask whether the trouble is due or merely possible. If it is possible, you are paying early on a debt that might not exist. Naming it as a transaction rather than a duty makes it easier to decline, at least for tonight.
 
 ---
 
 > "To conquer fear is the beginning of wisdom." — Bertrand Russell
 
-**What it means.** Russell thought most bad thinking, superstition and cruelty grow out of fear, and that clear sight requires having settled with your own frightened mind first. You cannot see a situation accurately while braced against it.
+**What it means.** Russell thought most bad thinking, superstition and cruelty grow out of fear, and that seeing clearly requires having settled with your own frightened mind first. You cannot look at a situation accurately while braced against it.
 
-**How to use it.** Before making a decision you're anxious about, check whether you're choosing the best option or the least frightening one. They're often different. If every option you're seriously considering is a way of avoiding the same fear, you haven't been choosing at all.
+**How to use it.** Before a decision you are anxious about, check whether you are choosing the best option or the least frightening one. They are frequently different. If every option you are seriously considering avoids the same fear, you have not been choosing at all.
 
 ---
 
 > "A trouble shared is a trouble halved." — English proverb
 
-**What it means.** Worry survives on privacy. Kept inside your head it grows unchecked, immune to correction, and it develops a persuasiveness that would not survive one honest conversation with a person who knows you.
+**What it means.** Worry lives on privacy. Kept inside your head it grows unchecked, immune to correction, and develops a persuasiveness that would not survive one honest conversation with somebody who knows you.
 
-**How to use it.** Everything above has a limit, and this is it. If none of the above has worked and the loop keeps running, stop trying to manage it alone. Tell someone, properly, tonight. And if it's been months, ring the GP. Persistent worry isn't a philosophical problem, and there is no credit for handling it privately.
+**How to use it.** Everything above has a limit, and this is it. If none of it has worked and the loop keeps running, stop managing it alone. Tell someone tonight, properly. And if it has been months, ring the GP. Persistent worry is not a philosophical problem, and there is no prize for handling it privately.
 
 # Chapter 5 — Wanting Less
 
-You have almost certainly had this experience: you wanted something for a long time, you got it, and within about six weeks it had joined the furniture. The car, the promotion, the house with the extra room. There was a brief bright period, then a return to your baseline, then a new thing to want. Nobody warns you that this is how it works, and everybody discovers it independently, usually more than once.
+You have had this experience. You wanted something for a long time, you got it, and within six weeks it had joined the furniture. The car. The promotion. The house with the extra bedroom. There was a bright fortnight, then a return to your ordinary mood, then a new thing to want.
 
-The mechanism is simple enough. Wanting is vivid and having is quiet. Anticipation is the part that lights up, which means the pleasure is concentrated in the period before you get the thing, and the thing itself has to compete with an imagined version that was never going to lose. So you arrive, feel briefly flat, and conclude that you aimed too low rather than that the whole arrangement is designed this way.
+Nobody warns you. Everybody discovers it alone, generally more than once.
 
-This chapter is not an argument for asceticism. Deprivation is not a virtue and there is nothing noble about a cold house. It's about a narrower observation: that the size of the gap between what you have and what you want is the thing that determines how you feel, and there are two ways to close a gap. Everyone spends their whole life working on one of them.
+The mechanism is not complicated. Wanting is vivid and having is quiet. Anticipation is the part that lights up, so the pleasure sits in the period before you get the thing, and the thing itself has to compete with an imagined version that was never going to lose. You arrive. You feel briefly flat. And rather than concluding that the whole arrangement works this way, you conclude that you aimed too low, which sends you back out for a bigger one.
 
-The other one is not much discussed, partly because nobody profits from it. It involves noticing how much of your wanting was installed rather than chosen: by advertising, by the people you follow, by what your colleagues have. Very little of it originated with you. And a want you didn't choose is much easier to put down than one you did, once you can see the join.
+This chapter is not an argument for going without. Deprivation is not a virtue and there is nothing noble about a cold house.
+
+It is about a narrower observation: that what determines how you feel is the size of the gap between what you have and what you want, and that a gap can be closed from either end. Everyone spends their life working on one end of it.
+
+The other end is less discussed, partly because nobody makes money from it. It involves noticing how much of your wanting was installed rather than chosen, by advertising, by the people you follow, by what your colleagues have parked outside. Very little of it originated with you. And a want you did not choose is much easier to put down than one you did, once you can see the join.
 
 ---
 
 > "Wealth consists not in having great possessions, but in having few wants." — Epictetus
 
-**What it means.** Two roads to the same place. You can raise what you have or lower what you require, and the second is faster, cheaper, and cannot be taken away by a recession or an employer.
+**What it means.** Two roads to the same destination. Raise what you have, or lower what you require. The second is faster and cheaper, and it cannot be taken away from you by a recession or an employer.
 
-**How to use it.** Next time you feel short of money, before doing the sums on earning more, list what you're currently paying for that you wouldn't miss in a month. Not out of thrift. Just to see the number. The gap usually closes more from that side than from the other.
+**How to use it.** Next time money feels tight, before doing the sums on earning more, list what you currently pay for that you would not miss in a month. Not out of thrift. Just to see the number. The gap tends to close faster from that side.
 
 ---
 
 > "A man is rich in proportion to the number of things he can afford to let alone." — Henry David Thoreau
 
-**What it means.** Every possession, subscription and commitment has an ongoing cost in attention, not just money. What you own has to be maintained, insured, stored, updated and thought about. Wealth includes the things you've successfully declined.
+**What it means.** Everything you own has a running cost in attention as well as money. It has to be maintained, insured, stored, updated and thought about. Wealth includes the things you successfully declined.
 
-**How to use it.** Price the upkeep as well as the price. The boat is the mooring, the insurance and the weekends. The second home is a second set of everything that can break. Sometimes it's still worth it. But decide with the real figure, not the sticker.
+**How to use it.** Price the upkeep, not the purchase. The boat is the mooring, the insurance and every weekend from April. The second home is a second set of everything that can break. Sometimes it is still worth it. Decide using the real figure rather than the one on the label.
 
 ---
 
 > "It is not the man who has too little, but the man who craves more, that is poor." — Seneca
 
-**What it means.** Poverty here is described as a relationship rather than an amount. Someone comfortable and consumed by wanting more experiences their life as scarcity; someone with less and no craving does not. The bank balance is not what's being measured.
+**What it means.** Poverty here is a relationship rather than an amount. Somebody comfortable and consumed with wanting more experiences their life as scarcity. Somebody with less and no craving does not. The bank balance is not the thing being measured.
 
-**How to use it.** Ask yourself what figure would be enough, and be specific. Most people cannot answer, which is the finding. If every number you name is followed by "and then I'd want", the target is not a number and no amount of earning will reach it.
+**How to use it.** Ask what figure would be enough. Be specific. Most people cannot answer, and that is the finding. If every number you name is followed by "and then I'd want", the target is not a number, and no amount of earning will ever arrive at it.
 
 ---
 
 > "Contentment is natural wealth; luxury is artificial poverty." — attributed to Socrates
 
-**What it means.** Luxury creates the need it then satisfies. Once you've flown business class, economy becomes an ordeal it never was before. Each upgrade quietly relocates the floor, and the new floor is where you now feel deprived.
+**What it means.** Luxury manufactures the need it then meets. Fly business class once and economy becomes an ordeal it never used to be. Every upgrade quietly moves the floor, and the new floor is where you now feel deprived.
 
-**How to use it.** Be careful with treats that could become standards. An occasional taxi is a pleasure; taxis by default make buses feel like hardship. Keep some ordinary things ordinary on purpose, so that the good version stays good rather than becoming the minimum.
+**How to use it.** Be careful with treats that could turn into standards. The occasional taxi is a pleasure; taxis by default make the bus feel like hardship. Keep some ordinary things ordinary on purpose, so the good version stays good instead of becoming the minimum.
 
 ---
 
 > "Enough is as good as a feast." — English proverb
 
-**What it means.** Past the point of sufficiency, more stops adding much. The second helping is less good than the first, the fourth room gets used for storage, and the extra income beyond comfort buys mostly the anxiety of protecting it.
+**What it means.** Past sufficiency, more stops adding much. The second helping is worse than the first, the fourth bedroom becomes storage, and income beyond comfort mostly buys the anxiety of protecting it.
 
-**How to use it.** Find where your own curve flattens. For most people there's a level of spending on food, housing or holidays past which the improvement is barely detectable. Locate it honestly, then stop climbing in that category and put the effort somewhere it still registers.
+**How to use it.** Find where your own curve flattens. There is a level of spending on food, housing or holidays beyond which the improvement becomes so faint that you would fail a blind test between the good version and the expensive one. Locate it honestly, stop climbing in that category, and move the effort somewhere it still registers.
 
 ---
 
 > "Very little is needed to make a happy life; it is all within yourself, in your way of thinking." — Marcus Aurelius
 
-**What it means.** Written by a Roman emperor with access to absolutely everything, which is what makes it credible. He had the means to test the alternative thoroughly and reported back that the good bits were mostly internal.
+**What it means.** Written by a Roman emperor with access to absolutely everything, which is what makes it worth reading. He had the means to test the alternative thoroughly and reported back that the good parts were mostly internal.
 
-**How to use it.** Think about your best day of the last year. Not the most expensive: the best. Almost nobody names a purchase. It's usually people, weather, a walk, something absurd that happened. Notice how little of it money supplied, and then notice how your spending is allocated.
+**How to use it.** Think of your best day this year. Not the most expensive. The best. Almost nobody names a purchase; it is people, weather, a walk, something absurd that happened at exactly the wrong moment and has been repeated at every family gathering since. Notice how little of it money supplied, then look at where your money goes.
 
 ---
 
 > "Poverty wants much; but avarice, everything." — Publilius Syrus
 
-**What it means.** Need has a ceiling. Greed doesn't, because it isn't about the objects at all; it's about a feeling of insufficiency that acquisition never touches. That's why the wealthiest people are not the most satisfied ones.
+**What it means.** Need has a ceiling. Greed does not, because it was never about the objects in the first place: it is about a feeling of insufficiency that acquisition cannot reach, which is why buying the thing works for a fortnight and why the wealthiest people you can name are not the most satisfied ones.
 
-**How to use it.** Distinguish, in your own wanting, between the thing and the feeling you expect it to deliver. If you want a bigger house because yours is genuinely too small, buy one. If you want it because of how you imagine feeling in it, be aware the house has never once delivered that.
+**How to use it.** In your own wanting, separate the thing from the feeling you expect it to deliver. Want a bigger house because yours is too small? Buy one. Want it because of how you imagine feeling inside it? Be aware that the house has never once delivered that, to anybody.
 
 ---
 
 > "Nothing in excess." — inscription at Delphi
 
-**What it means.** Two words, carved above a temple, and among the most durable advice anyone has produced. Not "nothing", note. Excess is the problem, not the thing itself, and excess is defined by consequence rather than quantity.
+**What it means.** Two words, carved above a temple, and among the most durable advice anyone has produced. Note that it does not say "nothing". Excess is the problem, and excess is defined by its consequences rather than by any particular quantity.
 
-**How to use it.** Apply it where you'd rather not. Work, exercise, tidiness and self-improvement all have excessive forms that look like virtue from the outside. The test isn't how much you're doing but what it's crowding out. Anything that has started eating your sleep or your relationships is over the line.
+**How to use it.** Apply it where you would rather not. Work, exercise, tidiness and self-improvement all have excessive forms that look like virtue from outside. The test is not how much you are doing. It is what the doing has started to crowd out, and anything eating your sleep is over the line.
 
 ---
 
 > "Comparison is the thief of joy." — attributed to Theodore Roosevelt
 
-**What it means.** Satisfaction is calculated against a reference point, and if you let other people supply that point, you've handed them control of how you feel about a life that is otherwise unchanged.
+**What it means.** Satisfaction is calculated against a reference point. Let other people set that point and you have handed them control of how you feel about a life that has not otherwise changed at all.
 
-**How to use it.** Notice which specific inputs make you dissatisfied with what you have. For most people it's fifteen minutes of a particular app, or one particular acquaintance. You're allowed to reduce your exposure. This isn't avoidance; it's declining to run a comparison you never agreed to.
+**How to use it.** Work out which specific inputs leave you dissatisfied with what you have. For most people it is fifteen minutes of one app, or one particular acquaintance. You are allowed to reduce your exposure. That is not avoidance. It is declining to run a comparison you never agreed to.
 
 ---
 
 > "A man there was, though some did count him mad; the more he cast away, the more he had." — John Bunyan
 
-**What it means.** Bunyan means it spiritually, about generosity, and it holds up plainly too. Giving things away, money, time, help, reliably produces something that acquiring the same things does not. Nobody has fully explained why, and it's consistent.
+**What it means.** Bunyan means it spiritually, about generosity, and it holds up on the flat too. Giving things away, money, time, help, produces something that acquiring the same things does not. Nobody has fully explained why. It happens anyway.
 
-**How to use it.** When you're feeling short of something, try giving a small amount of it away. Short of time, spend twenty minutes helping someone. Short of money, give a little. The logic is wrong and the result is dependable, which is worth more than the logic.
+**How to use it.** When you feel short of something, give a small amount of it away. Short of time? Spend twenty minutes helping somebody. Short of money? Give a little. The logic is wrong and the result is dependable, which is worth more than the logic.
 
 ---
 
 > "He is a wise man who does not grieve for the things which he has not, but rejoices for those which he has." — Epictetus
 
-**What it means.** Attention is the scarce resource, and you get to point it. The same life described in terms of what's missing and in terms of what's present produces two entirely different experiences, from identical facts.
+**What it means.** Attention is the scarce resource and you decide where it points. The same life described in terms of what is missing and in terms of what is present produces two completely different experiences from one identical set of facts.
 
-**How to use it.** Do it concretely, not as an attitude. Once a week, write three specific things from that week, not "my family" but "Thursday, the kitchen, everyone was laughing at something stupid". Vague gratitude does nothing. Specific recall is what moves the reference point.
+**How to use it.** Do it concretely rather than as an attitude. Once a week write down three specific things. Not "my family" but "Thursday, the kitchen, everyone laughing at something stupid". Vague gratitude does nothing at all. Specific recall is what moves the reference point.
 
 ---
 
 > "Desire is a contract you make with yourself to be unhappy until you get what you want." — Naval Ravikant
 
-**What it means.** The moment you decide you need something, you've also decided that the present is unsatisfactory until further notice. That's a real cost, incurred immediately, and it runs for the whole length of the pursuit.
+**What it means.** The moment you decide you need something, you have also decided that the present is unsatisfactory until further notice. That cost is incurred immediately and runs for the whole length of the pursuit, however long that turns out to be.
 
-**How to use it.** Keep the number of these contracts small and deliberate. One or two big wants at a time is a life with direction. Six is a life spent perpetually behind. Look at what you're currently pursuing and cancel the ones you couldn't justify out loud.
+**How to use it.** Keep the number of open contracts small and deliberate. One or two large wants is a life with a direction; six is a life spent permanently behind, in which every evening is a small failure to have arrived somewhere you have not yet reached. Look at what you are chasing and cancel anything you could not justify out loud to a friend.
 
 ---
 
 > "Simplify, simplify." — Henry David Thoreau
 
-**What it means.** The repetition is the joke, and Emerson reportedly said one "simplify" would have done. Thoreau's actual point is that most of the complexity in a life was added by consent, one reasonable decision at a time, and can be removed the same way.
+**What it means.** The repetition is the joke, and Emerson reportedly said one would have done. Thoreau's real point is that most of the complexity in a life was added by consent, one reasonable decision at a time, and can be removed the same way.
 
-**How to use it.** Pick one area that has silently accumulated: the calendar, the cupboard, the standing orders, the group chats. Halve it. Not as a system or a lifestyle. Just once, this month, to feel how much of it you don't miss.
+**How to use it.** Pick one area that has silently accumulated. The calendar. The cupboard. The standing orders. The group chats. Halve it. Not as a system or a lifestyle. Once, this month, to find out how much of it you do not miss.
 
 ---
 
 > "Enjoy present pleasures in such a way as not to injure future ones." — Seneca
 
-**What it means.** The balance point. Not denial, not indulgence: pleasure taken in a way that doesn't mortgage the version of you who has to be awake tomorrow, or solvent in March.
+**What it means.** The balance point. Not denial, not indulgence, but pleasure taken in a way that does not mortgage the version of you who has to be awake tomorrow, or solvent in March.
 
-**How to use it.** Before the third drink, the impulse purchase, the late night before an early start, ask what tomorrow-you inherits from this. Sometimes the answer is "a good memory and a mild headache", which is a fine trade. The rule isn't to abstain. It's to ask, and to be honest about the answer.
+**How to use it.** Before the third drink, the impulse purchase, the late night before an early start, ask what tomorrow's version of you inherits. Sometimes the answer is a good memory and a mild headache, which is a fine trade. The rule is not to abstain. It is to ask, and to answer honestly.
 
 ---
 
 > "The lack of money is the root of all evil." — Mark Twain
 
-**What it means.** Twain's inversion is a joke with a serious edge. Romanticising having little is easy from a position of comfort. Actual shortage is not simplicity, it's stress, ill health and constrained choices, and it should never be dressed up as wisdom.
+**What it means.** Twain's inversion is a joke with an edge. Romanticising having little is easy from a position of comfort. Real shortage is not simplicity. It is stress, poor health and narrowed choices, and it should never be dressed up as wisdom.
 
-**How to use it.** One exception swallows the chapter. If money is genuinely tight, ignore most of this chapter. Wanting less is a tool for people whose needs are met and whose appetite has outrun them. If yours haven't been met, wanting more is the correct response, and there's nothing unenlightened about it.
+**How to use it.** One exception swallows the chapter. If money is genuinely tight, ignore most of this. Wanting less is a tool for people whose needs are met and whose appetite has outrun them. If yours are not met, wanting more is the correct response, and there is nothing unenlightened about it.
 
 
 # Part Two — Other People
 
 # Chapter 6 — Listening Properly
 
-Nearly everyone believes they are a good listener. It is one of those qualities, like having a sense of humour, that almost nobody privately doubts about themselves. And yet most of us can recall the specific feeling of not being listened to, which suggests the maths isn't working out.
+Almost everyone believes they are a good listener. It sits alongside having a sense of humour in the small category of qualities nobody doubts about themselves. And yet every one of us can summon the exact feeling of not being listened to, which suggests the arithmetic does not work.
 
-Here is what usually happens instead of listening. Someone starts talking. Within a sentence or two you've identified the category of thing they're saying, and your mind, satisfied that it knows where this is going, begins preparing. It finds a similar experience of your own. It drafts an opening. From that point you are not receiving anything; you are waiting for a gap, and monitoring their speech only closely enough to spot one.
+Here is what happens instead of listening. Someone begins talking. Within a sentence or two you have identified the category of thing being said, and your mind, satisfied that it knows where this is going, starts preparing: it locates a similar experience of your own, drafts an opening line, and from that point you are no longer receiving anything at all, only monitoring their speech for the gap you need.
 
-The other common failure is more well-meaning and just as unwelcome. Someone describes a problem and you begin solving it, immediately, in detail, because you care and because solving is what you know how to do. They didn't want it solved. They wanted a witness. The two needs look identical from the outside and are completely different inside, and getting them the wrong way round is the source of a remarkable proportion of domestic friction.
+The other failure is kinder and just as unwelcome. Someone describes a problem and you start solving it, in detail, at once, because you care and because solving is what you know how to do.
 
-Real listening is quieter and more effortful than it looks. It involves letting silences sit for slightly longer than is comfortable. It involves asking a second question when you already think you have the point. And it involves tolerating the possibility that what you're being told will not fit the story you'd already assembled about this person and their situation.
+They did not want it solved. They wanted a witness.
 
-It is also, and this is the part people underestimate, the single most effective thing you can do to make someone feel better. Not advice. Attention.
+The two needs look identical from outside and are nothing alike inside, and getting them the wrong way round accounts for a remarkable proportion of domestic friction in this country.
+
+Real listening is quieter and more effortful than it looks. It means letting silences sit a beat longer than is comfortable. It means asking a second question after you already think you have the point. And it means tolerating the possibility that what you are about to hear will not fit the story you had already assembled about this person and their situation.
+
+It is also, and people underestimate this badly, the most effective thing you can do to make somebody feel better. Not advice. Attention.
 
 ---
 
 > "Give every man thy ear, but few thy voice." — William Shakespeare
 
-**What it means.** Polonius is a windbag and the advice is still good. Take in widely, give out sparingly. Most people invert this, offering their view to everyone and their attention to almost nobody, and then wonder why conversations feel thin.
+**What it means.** Polonius is a windbag and the advice is still sound. Take in widely. Give out little. Most people run it the other way round, offering their opinion to everybody and their attention to almost nobody, then wonder why conversations feel thin.
 
-**How to use it.** In your next group conversation, set yourself a ratio and stick to it. Hear four things for every one you contribute. You'll notice how much of what you'd have said was unnecessary, and how much you'd previously missed while assembling it.
+**How to use it.** In your next group conversation, set a ratio and hold to it. Four things heard for every one contributed. You will notice how much of what you were going to say turned out to be unnecessary, and how much you had been missing while assembling it.
 
 ---
 
 > "It is the province of knowledge to speak, and it is the privilege of wisdom to listen." — Oliver Wendell Holmes
 
-**What it means.** Talking demonstrates what you already have. Listening is the only mechanism by which you get anything new. Anyone who does all the talking in a room has spent the whole meeting learning nothing.
+**What it means.** Talking displays what you already have. Listening is the only mechanism by which you acquire anything new. Anyone who does all the talking in a room has spent an hour learning nothing.
 
-**How to use it.** Notice who you are around when you talk most. It's usually the people you feel you have to prove something to. That instinct is exactly backwards: you'd impress them more, and understand them better, by asking two more questions than feels natural.
+**How to use it.** Notice who you are with when you talk most. It is the people you feel you have something to prove to, which is exactly backwards: you would impress them more, and understand them better, by asking two more questions than feels natural and then waiting.
 
 ---
 
 > "He that answereth a matter before he heareth it, it is folly and shame unto him." — Proverbs 18:13
 
-**What it means.** Answering early is not efficiency, it's guessing. You've responded to your prediction of what they were about to say, and the prediction was built from your own assumptions rather than anything they actually told you.
+**What it means.** Answering early is not efficiency. It is guessing. You have responded to your prediction of what they were about to say, and the prediction was assembled out of your own assumptions rather than anything they told you.
 
-**How to use it.** Someone starts explaining a problem and you think you know it by the third sentence: hold the answer. Ask them to keep going. Roughly half the time the situation turns out to have a detail that would have made your quick answer wrong, and slightly humiliating.
+**How to use it.** Someone starts explaining a problem and you think you have it by the third sentence: hold the answer. Ask them to keep going. Half the time the situation contains a detail that would have made your quick answer wrong, and mildly humiliating, in front of people.
 
 ---
 
 > "The right word may be effective, but no word was ever as effective as a rightly timed pause." — Mark Twain
 
-**What it means.** Silence does work that speech can't. Leave a gap after someone finishes and they will almost always continue, and the second thing they say is regularly more honest than the first.
+**What it means.** Silence does work that speech cannot. Leave a gap when somebody finishes and they will almost always keep going, and the second thing they say is more honest than the first.
 
-**How to use it.** Count to three before responding. It feels like an eternity and is invisible from the outside. In a difficult conversation with a teenager, a colleague or a friend who's clearly holding something back, this one small habit gets you more than any question you could have asked.
+**How to use it.** Count to three before responding. It feels like an age from inside and is invisible from outside. In a difficult conversation with a teenager, a colleague, or a friend who is holding something back, that one habit gets you more than any question you could have devised.
 
 ---
 
 > "Silence is a true friend who never betrays." — Confucius
 
-**What it means.** Nothing you don't say can be quoted back, misconstrued, or repeated at the wrong moment. Silence is the only utterly reliable option in a conversation, and it's the one people reach for last.
+**What it means.** Nothing you do not say can be quoted back at you, misconstrued in the retelling, or produced at the wrong moment eighteen months later. Silence is the one reliable option in any conversation, and it is the option people reach for last.
 
-**How to use it.** In any charged situation, a family row, a redundancy meeting, a dispute between friends where you're being invited to take sides, default to saying less. You can always add something tomorrow. You can never remove something today.
+**How to use it.** In anything charged, a family row, a meeting about redundancies, a dispute between friends where you are being invited to pick a side, default to saying less. You can always add something tomorrow. You can never remove something today.
 
 ---
 
 > "The greatest gift you can give another is your undivided attention." — traditional
 
-**What it means.** Undivided is doing the work in that sentence. Partial attention isn't a smaller version of the same gift; it's a different thing entirely, and everyone can feel the difference immediately even when they can't name it.
+**What it means.** Undivided is the word carrying the sentence. Partial attention is not a smaller portion of the same gift. It is a different thing, and everybody feels the difference at once, even when they could not tell you what they felt.
 
-**How to use it.** Put the phone in another room, not face down on the table. Face down still says the call might matter more. This sounds trivial and it changes the quality of an evening more reliably than anything you could say during it.
+**How to use it.** Put the phone in another room rather than face down on the table. Face down still says the call might matter more. This sounds trivial and it changes the quality of an evening more than anything you could think of to say during it.
 
 ---
 
 > "You never really understand a person until you consider things from his point of view." — Harper Lee
 
-**What it means.** Understanding isn't agreement and it isn't approval. It's the reconstruction of how the world looks from where they're standing, which almost always makes behaviour that seemed baffling look, from inside, entirely reasonable.
+**What it means.** Understanding is not agreement and it is not approval. It is the reconstruction of how the world looks from where somebody else is standing, which almost always makes behaviour that seemed baffling look, from the inside, reasonable.
 
-**How to use it.** Take the person currently annoying you most and try to state their position so accurately that they'd endorse the wording. Not a caricature. The strongest version. You'll frequently find their behaviour makes sense given information or fears you hadn't accounted for.
+**How to use it.** Take the person annoying you most this week and state their position so that they would endorse the wording. Not the caricature. The strongest version. You will find their behaviour makes sense given information or fears you had not accounted for, and now and then you will find you were the information they were frightened of.
 
 ---
 
 > "He who does not know how to be silent does not know how to speak." — Ausonius
 
-**What it means.** The two are one skill. Knowing when to stop is what gives what you do say its weight, and someone who talks continuously has no way of signalling that any particular thing matters.
+**What it means.** The two are a single skill. Knowing when to stop is what gives the things you do say their weight, and somebody who talks without pause has no way of signalling that any particular sentence matters more than the others.
 
-**How to use it.** Watch what happens when a habitually quiet person speaks in a meeting: the room turns. That's not their status, it's the scarcity. If you want your words to land, spend fewer of them and let the silences do some of the pointing.
+**How to use it.** Watch what happens when the quiet one speaks in a meeting. The room turns. That is not their status; it is the scarcity. If you want your words to land, spend fewer of them and let the silences do some of the pointing.
 
 ---
 
 > "A wise old owl sat on an oak; the more he saw the less he spoke; the less he spoke the more he heard." — English nursery rhyme
 
-**What it means.** A children's rhyme describing a genuine feedback loop. Speaking less produces more information, which produces better judgement, which reduces the need to speak. It compounds, quietly, over years.
+**What it means.** A children's rhyme describing a real feedback loop. Speaking less produces more information, which produces better judgement, which reduces the need to speak. It compounds, over years, in the people you think of as shrewd.
 
-**How to use it.** For one week, in one setting, be the person who says least. A recurring meeting, family dinner, the group chat. Notice what you learn about who wants what, and who is actually deciding things. It's information that was always available and inaudible over your own voice.
+**How to use it.** For one week, in one setting, be the person who says least. A recurring meeting, Sunday lunch, the group chat. Notice what you learn about who wants what and who is deciding. It was always available and it was inaudible over your own voice.
 
 ---
 
 > "Silence is one of the great arts of conversation." — Cicero
 
-**What it means.** Silence is being described as a technique with a purpose, not a failure to contribute. Used well it invites, emphasises and gives the other person room to arrive somewhere they wouldn't have reached under a steady stream of your commentary.
+**What it means.** Silence described as a technique with a purpose, rather than a failure to contribute. Used well it invites, it emphasises, and it leaves the other person room to arrive somewhere they would never have reached under a steady stream of your commentary.
 
-**How to use it.** If someone's working through something out loud, resist filling the pauses with encouragement. "Mm" is enough. Every helpful interjection is a small interruption of a process that was going fine, and thinking out loud collapses the moment someone starts responding to it.
+**How to use it.** If somebody is working through something out loud, resist filling the pauses with encouragement. "Mm" is enough. Every helpful interjection is a small interruption of a process that was going fine, and thinking aloud collapses the moment it starts being responded to.
 
 ---
 
 > "Be kind, for everyone you meet is fighting a hard battle." — attributed to Ian Maclaren
 
-**What it means.** Whatever is in front of you is a fraction of what's going on. The short reply, the missed deadline, the person who was curt in the queue: all of it sits on top of a situation you know nothing about.
+**What it means.** What you can see is a fraction of what is going on. The curt reply, the missed deadline, the person who was short with you in the queue at the post office: all of it sitting on top of a situation you know nothing whatever about.
 
-**How to use it.** When someone behaves worse than you'd expect, run the charitable explanation first, even if you don't believe it. Not because they deserve it, but because it changes your response, and your response is the only part you control. You'll be right often enough to justify it.
+**How to use it.** When somebody behaves worse than you expected, run the charitable explanation first, even if you do not believe it. Not because they have earned it, but because it changes your response, and your response is the only part of the exchange you control. You will be right enough of the time to justify it.
 
 ---
 
 > "From listening comes wisdom, and from speaking, repentance." — Italian proverb
 
-**What it means.** Look at what you actually regret. It is almost never something you didn't say. The archive of things you wish you'd kept to yourself is long, and the archive of silences you regret is short.
+**What it means.** Look at what you regret. It is almost never something you failed to say. The archive of things you wish you had kept to yourself is long and well catalogued; the archive of regretted silences is short.
 
-**How to use it.** Use your own record as the guide. Before saying the risky thing, ask which list it's likely to join. You have decades of evidence about how this goes for you specifically, and it's more reliable than whatever you're feeling in the moment.
+**How to use it.** Use your own record. Before saying the risky thing, ask which list it is likely to join. You have decades of evidence about how this goes for you, and it is more reliable than whatever you are feeling at half past eleven at night.
 
 ---
 
 > "The first duty of love is to listen." — Paul Tillich
 
-**What it means.** Not to provide, protect or fix, useful as those are. To listen, because it's the only one that requires you to set your own perspective aside, and the only one that can't be performed while thinking about something else.
+**What it means.** Not to provide, protect or fix, useful as those all are. To listen, because it is the only one that requires setting your own perspective aside, and the only one that cannot be performed while thinking about something else.
 
-**How to use it.** With the people closest to you, notice how often you're half-listening because you already know what they're like. Familiarity is what erodes attention: you stop hearing them and start hearing your model of them. Ask something you don't know the answer to this week.
+**How to use it.** With the people closest to you, notice how much of the time you are half-listening because you already know what they are like. Familiarity is what erodes attention: you stop hearing them and start hearing your model of them, which was assembled years ago and has not been updated. Ask something you do not know the answer to.
 
 ---
 
 > "Let thy speech be better than silence, or be silent." — Dionysius the Elder
 
-**What it means.** A test with a high bar. Silence has value by default, so speech has to beat it, not merely fill the space. Most conversational filler fails this and adds nothing but noise.
+**What it means.** A test with a high bar. Silence has a value of its own, so speech has to beat it rather than merely fill the space. Most conversational filler fails this and adds nothing but noise to a room that was fine before.
 
-**How to use it.** Before speaking in a meeting, ask whether this improves on saying nothing. Agreement already expressed by three people doesn't. Restating the problem doesn't. It's a demanding standard and it will cut what you say roughly in half, with no loss.
+**How to use it.** Before speaking in a meeting, ask whether this improves on saying nothing. Agreement that three people have already expressed does not. Restating the problem does not. It is a demanding standard, it will cut what you say roughly in half, and nothing will be lost.
 
 ---
 
 > "A friend to all is a friend to none." — attributed to Aristotle
 
-**What it means.** Attention is finite. Spread it across everyone who wants some and each person gets a thin version, which is why the people who listen to absolutely everybody often end up with no one who knows them well.
+**What it means.** Attention is finite. Spread it across everybody who wants some and each person receives a thin version, which is why the people who listen to everyone end up with nobody who knows them well.
 
-**How to use it.** Here is your permission to stop. You don't owe deep listening to every person who wants an audience. If you're the one everyone comes to, you're allowed to say you haven't got it in you today. Reserve the real attention for the handful who'd do the same for you.
+**How to use it.** Here is your permission to stop. You do not owe deep listening to every person who wants an audience. If you are the one everybody comes to, you are allowed to say you have not got it in you today. Keep the real attention for the handful who would do the same for you.
 
 # Chapter 7 — Saying the Hard Thing
 
-There is a conversation you are not having. Most people have at least one at any given time, and they are usually able to name it instantly: the friend whose drinking has become a problem, the colleague taking credit for your work, the relative whose comments at Christmas you have absorbed for eleven years, the flatmate and the washing up.
+There is a conversation you are not having. Most people have at least one going at any time, and they can name it inside a second: the friend whose drinking has stopped being funny, the colleague who presents your work as theirs, the relative whose remarks at Christmas you have swallowed for eleven years, the flatmate and the washing-up.
 
-You haven't had it for good reasons. It'll cause a scene. They'll take it badly. It might not be that bad. You'd rather not be the sort of person who makes things awkward. And underneath all of those, usually, the real one: you are not certain enough of the relationship to test it.
+You have not had it for good reasons. It will cause a scene. They will take it badly. It might not be that bad. You would rather not be the one who makes things awkward.
 
-The cost of not having it is invisible, which is why the arrangement persists. Nothing bad happens today. What happens instead is slower: a small distance opens up, then a slightly larger one, and your affection for the person is gradually replaced by a careful management of them. People rarely fall out over the hard conversation. They drift apart over the twenty they didn't have.
+And underneath all of those, the real one: you are not certain enough of the relationship to test it.
 
-The other thing worth naming is that honesty has been given a bad name by people who use it as cover. "I'm just being honest" is very often the preamble to something cruel that the speaker wanted to say anyway. That isn't what this chapter is about. Saying a hard thing well takes preparation, kindness and a clear sense of what you actually want to change. It is more work than being blunt, not less.
+The cost of not having it stays invisible, which is why the arrangement survives. Nothing bad happens today. What happens instead is slower and harder to notice: a small distance opens up, then a slightly larger one, and your affection for the person gives way to a careful management of them, until you are being pleasant to somebody you used to be close to. People rarely fall out over the hard conversation. They drift apart over the twenty they did not have.
 
-Which means the goal is not to become someone who says whatever they think. It's to become someone who can say the necessary thing, once, cleanly, and then stop.
+Worth naming too: honesty has acquired a bad name because of people who use it as cover. "I'm just being honest" is the run-up to something cruel that the speaker wanted to say regardless.
+
+That is not this. Saying a hard thing well takes preparation, warmth and a clear idea of what you want to change. It is more work than being blunt, not less.
+
+So the aim is not to become somebody who says whatever they think. It is to become somebody who can say the necessary thing, once, cleanly, and then stop talking.
 
 ---
 
 > "Speak the truth, but leave immediately after." — Slovenian proverb
 
-**What it means.** Say the difficult thing and then get out of the way. Most damage in these conversations comes from what follows: the elaboration, the justification, the second and third examples offered to prove you're being fair.
+**What it means.** Say the difficult thing and then get out of the way. Most of the damage in these conversations comes from what follows it: the elaboration, the justification, the second and third examples produced to prove you are being fair.
 
-**How to use it.** Prepare one clear sentence, say it, and stop talking. Let them respond. Don't fill the silence with softening or evidence. If you've said it well, it doesn't need reinforcing, and every reinforcement makes it feel more like an ambush.
+**How to use it.** Prepare one clear sentence. Say it. Stop. Let them respond. Do not fill the silence with softening or evidence, because every reinforcement makes the thing feel more like an ambush that was planned in advance, which, to be fair, it was.
 
 ---
 
 > "Faithful are the wounds of a friend; but the kisses of an enemy are deceitful." — Proverbs 27:6
 
-**What it means.** The person who tells you something you don't want to hear is usually taking a risk on your behalf. The person who agrees with everything you say might just have decided you're not worth the trouble.
+**What it means.** Anyone who tells you something you do not want to hear is taking a risk on your behalf. Anyone who agrees with everything you say may simply have decided you are not worth the trouble.
 
-**How to use it.** Someone tells you a hard truth: notice that your first instinct is to reassess them rather than the information. Sit with the discomfort for a day before responding. And remember it when your turn comes: being the one who says it is a cost, not an indulgence.
+**How to use it.** When somebody tells you a hard truth, notice that your first instinct is to reassess them rather than the information. Sit with it for a day before responding. Then remember it when your turn comes: being the one who says it is a cost, not an indulgence.
 
 ---
 
 > "Admonish your friends privately, but praise them openly." — Publilius Syrus
 
-**What it means.** The setting changes the content. The same words in front of others become a performance and a humiliation, and the person will spend all their energy defending their standing rather than considering what you said.
+**What it means.** The setting changes the content. The same words spoken in front of other people become a performance and a humiliation, and the person spends everything they have defending their standing instead of considering what you said.
 
-**How to use it.** Never give critical feedback with an audience, including the audience of one that is your partner sitting nearby. And reverse it for praise: say the good thing where other people can hear it. The private version of praise is worth about a tenth as much.
+**How to use it.** Never give critical feedback with an audience, and that includes the audience of one sitting at the other end of the sofa. Then reverse it for praise. Say the good thing where other people can hear it, because the private version is worth about a tenth as much.
 
 ---
 
 > "The truth is rarely pure and never simple." — Oscar Wilde
 
-**What it means.** Most difficult conversations aren't a clean matter of one person being right. Your account is partial, shaped by what you happened to see and what you already believed, and there is a version of events in which you're the difficulty.
+**What it means.** Most difficult conversations are not a clean matter of one party being right. Your account is partial, shaped by what you witnessed and what you already believed, and there exists a version of events in which you are the difficulty.
 
-**How to use it.** Before raising something, work out what your own contribution has been. Say that part first and mean it. Not as a technique to soften the blow, but because it's usually true, and starting there produces a conversation instead of a verdict.
+**How to use it.** Work out your own contribution before you raise anything. Say that part first, and mean it. Not as a technique for softening the blow, but because it is true, and because starting there produces a conversation rather than a verdict.
 
 ---
 
 > "Silence gives consent." — proverb
 
-**What it means.** Saying nothing is not neutral. Over time it reads as agreement, both to the person doing the thing and to everyone else present, and it becomes progressively harder to object to something you've watched without comment for two years.
+**What it means.** Saying nothing is not neutral. Over time it reads as agreement, both to the person doing the thing and to everybody else in the room, and it gets harder every month to object to something you have watched in silence for two years.
 
-**How to use it.** The first instance is the cheapest time to speak. The comment at the first dinner is a light remark; the same comment at the fortieth dinner is a confrontation about years of behaviour. If something has just started, say something now while it's still small.
+**How to use it.** The first instance is the cheapest moment to speak. A light remark at the first dinner costs nothing; the identical remark at the fortieth is a confrontation about a decade of behaviour, and it will be received as one. If something has just started, say something while it is still small.
 
 ---
 
 > "Better a friendly refusal than an unwilling promise." — German proverb
 
-**What it means.** Saying no clearly is kinder than saying yes resentfully. The reluctant yes costs you the task and costs them a version of your help that is worse than none, delivered late and with visible irritation.
+**What it means.** A clear no is kinder than a resentful yes. The reluctant yes costs you the task and costs them a version of your help that is worse than none at all, delivered late and with the irritation showing.
 
-**How to use it.** When asked for something you don't want to do, say no in the moment rather than "let me see". The delay doesn't soften it, it just extends their planning problem. "I can't take that on" is a complete answer and doesn't require a reason.
+**How to use it.** Asked for something you do not want to do, say no in the moment rather than "let me see". The delay does not soften anything; it just extends their planning problem. "I can't take that on" is a complete answer and does not require a reason to follow it.
 
 ---
 
 > "I am not bound to please thee with my answer." — William Shakespeare
 
-**What it means.** You are not obliged to produce a response the other person will enjoy. Politeness governs how you say things; it doesn't oblige you to supply the answer someone was hoping for.
+**What it means.** You are not obliged to produce a response the other person will enjoy. Politeness governs how you say things. It does not oblige you to supply the answer somebody was hoping for.
 
-**How to use it.** Feel yourself softening a no into a maybe, or an assessment into a compliment, and notice what you're managing: their feelings, or your discomfort with their feelings. Usually the second. You can be perfectly courteous and still say the thing they don't want.
+**How to use it.** Feel yourself softening a no into a maybe, or an assessment into a compliment, and notice what you are managing: their feelings, or your own discomfort with their feelings. It is the second. You can be perfectly courteous and still say the thing they did not want.
 
 ---
 
 > "Whoever is careless with the truth in small matters cannot be trusted with important matters." — Albert Einstein
 
-**What it means.** Credibility is built out of small accuracies. The habit of shading things slightly, in the direction that makes life easier, is noticed long before anyone mentions it, and it quietly devalues everything else you say.
+**What it means.** Credibility is assembled out of small accuracies. The habit of shading things, always in the direction that makes life easier, gets noticed long before anybody mentions it, and it devalues everything else you say.
 
-**How to use it.** Watch the tiny lies: the invented reason for being late, the enthusiasm for a plan you dislike, the "no, it's fine". Each one is minor. The aggregate is a reputation. And you'll need people to believe you on the day something serious is at stake.
+**How to use it.** Watch the tiny ones. The invented reason for being late. The enthusiasm for a plan you dislike. The "no, it's fine". Each is nothing on its own, and the aggregate is a reputation, and you will need people to believe you on the day something serious depends on it.
 
 ---
 
 > "Ask yourself: is it true, is it necessary, is it kind?" — attributed to the Buddha
 
-**What it means.** Three filters, and most difficult things worth saying pass all three. The line is often used to justify silence, but that misreads it. Necessary things are frequently unkind to hear and kind to say.
+**What it means.** Three filters, and most difficult things worth saying pass all three. The line gets used to justify silence, which misreads it. Necessary things are often unkind to hear and kind to say.
 
-**How to use it.** Run the test properly, including the hard direction. If something is true and necessary but you're avoiding it because it's uncomfortable, the test says speak. Failing on "kind" means find a kinder way to say it, not swallow it.
+**How to use it.** Run the test in the hard direction too. If something is true and necessary and you are avoiding it because it is uncomfortable, the test says speak. Failing on "kind" means find a kinder way to say it. It does not mean swallow it for another year.
 
 ---
 
 > "Speaking the truth in love." — Ephesians 4:15
 
-**What it means.** Both halves are load-bearing. Truth without warmth is an attack, and warmth without truth is flattery. The phrase describes the narrow thing that's actually useful, which is honesty delivered by someone who is plainly on your side.
+**What it means.** Both halves carry weight. Truth without warmth is an attack; warmth without truth is flattery. The phrase describes the narrow thing that is actually useful, which is honesty delivered by somebody plainly on your side.
 
-**How to use it.** Make the goodwill explicit rather than assuming it's understood. "I'm saying this because I want you to hear it from me and not from someone who doesn't care." People can accept a great deal of hard information when they're certain of the motive, and almost none when they're not.
+**How to use it.** Make the goodwill explicit instead of assuming it is understood. "I'm telling you because I'd rather you heard it from me than from somebody who doesn't care." People can absorb a great deal of hard information when they are certain of the motive, and almost none when they are not.
 
 ---
 
 > "A lie which is half a truth is ever the blackest of lies." — Alfred, Lord Tennyson
 
-**What it means.** Technically accurate statements arranged to leave a false impression are worse than plain lies, because they come with deniability. You get the benefit of the deception and the defence of never having said anything untrue.
+**What it means.** Accurate statements arranged to leave a false impression are worse than plain lies, because they arrive with deniability attached. You get the benefit of the deception and the defence of never having said anything untrue.
 
-**How to use it.** After giving a difficult piece of feedback or a partial explanation, ask what impression you left. If it's one you know to be wrong, and you're relying on the wording to protect you, you haven't been honest. Fix it while it's still a clarification rather than a discovery.
+**How to use it.** After giving partial feedback or a partial explanation, ask what impression you left behind. If it is one you know to be wrong, and you are relying on the exact wording to protect you, you were not honest. Fix it while it is still a clarification rather than a discovery.
 
 ---
 
 > "Praise loudly, blame softly." — Russian proverb
 
-**What it means.** Volume should run opposite to severity. The heavier the criticism, the quieter and more private the delivery, because the content is already doing the work and any added force just triggers defence.
+**What it means.** Volume should run opposite to severity. The heavier the criticism, the quieter and more private the delivery, because the content is already doing the work and added force only raises the defences.
 
-**How to use it.** When you have something serious to say, say it more gently than the material warrants. Understatement is more devastating and better received than emphasis. If you have to raise your voice to make the point land, the point isn't what's landing.
+**How to use it.** Say the serious thing more gently than the material warrants. Understatement is more devastating and better received than emphasis. If you have to raise your voice to make the point land, the point is not what is landing.
 
 ---
 
 > "A refusal given quickly is a favour." — Publilius Syrus
 
-**What it means.** People can plan around a no. What they can't plan around is an ambiguous maybe that they have to keep chasing, which occupies their attention for weeks and then delivers the same answer.
+**What it means.** People can plan around a no. What they cannot plan around is an ambiguous maybe they have to keep chasing, which occupies their attention for a fortnight and then delivers exactly the same answer.
 
-**How to use it.** Answer the invitation, the request, the proposal within a day, even when the answer's no, especially when the answer's no. The person waiting on you is holding a decision open. Releasing them quickly is more generous than the drawn-out kindness you thought you were offering.
+**How to use it.** Answer the invitation, the request, the proposal within a day, and above all when the answer is no. The person waiting on you is holding a decision open on your account. Releasing them quickly is more generous than the drawn-out kindness you thought you were offering.
 
 ---
 
 > "Say what you mean and mean what you say." — traditional
 
-**What it means.** Two separate demands. The first is about clarity: no hints, no hoping they'll infer it. The second is about consistency: what you said stands after the conversation ends, including when it becomes inconvenient.
+**What it means.** Two separate demands. The first is about clarity: no hints, no hoping they will infer it. The second is about consistency: what you said still stands after the conversation ends, including on the days when standing by it is inconvenient.
 
-**How to use it.** Notice when you're hinting. "It'd be nice if the kitchen got sorted at some point" is not a request; it's a complaint disguised as one, and it will still be unsorted next week. Ask directly for what you want, with a time attached.
+**How to use it.** Notice when you are hinting. "It'd be nice if the kitchen got sorted at some point" is not a request. It is a complaint wearing the costume of one, and the kitchen will still be like that on Friday. Ask for what you want, with a day attached to it.
 
 ---
 
 > "All truths are not to be told." — English proverb
 
-**What it means.** Not everything true is yours to say, or worth the damage. Some observations serve only the person making them, and "I felt they should know" is occasionally a cover for wanting to be the one who told them.
+**What it means.** Not everything true is yours to say or worth the damage it does. Some observations serve nobody but the person making them, and "I felt they ought to know" is sometimes a cover for wanting to be the one who told them.
 
-**How to use it.** Everything in this chapter stops here. Before raising it, ask what changes if you do. If the answer is nothing, because it's about something unalterable, long past, or purely a matter of your taste, you're allowed to leave it. Restraint is not the same as cowardice, and you're the only one who can tell which you're exercising.
+**How to use it.** Everything in this chapter stops here. Before raising it, ask what changes if you do. If the answer is nothing, because the thing is unalterable, long past, or purely a matter of your taste, you are allowed to leave it. Restraint is not cowardice, and you are the only one who can tell which you are exercising.
 
 # Chapter 8 — When Someone Wrongs You
 
-Someone has done something to you. Perhaps recently, perhaps a long time ago and you are still carrying it. A betrayal at work, money that never came back, a friend who said the unforgivable thing, a parent who wasn't what they should have been. The injury is real and you're not exaggerating it, and the standard advice you've been offered on the subject has been almost entirely useless.
+Somebody has done something to you. Last month, or twenty years ago and you are still carrying it: the betrayal at work, the money that never came back, the friend who said the unforgivable thing at exactly the moment you were least able to hear it, the parent who was not what a parent is meant to be.
 
-The useless advice comes in two flavours. One says you must forgive, ideally soon, because bitterness will poison you. Delivered by people who haven't experienced the thing, this feels like being asked to do the wrongdoer a favour on top of everything else. The other says you should stand up for yourself, get even, refuse to be a doormat. That one is more satisfying and tends to cost more than it returns.
+The injury is real. You are not exaggerating. And the standard advice on the subject has been close to useless.
 
-What actually seems to be true is narrower. Carrying a grievance is genuinely expensive, and the expense is paid entirely by you, in attention, in evenings, in the small souring of things that have nothing to do with it. Putting it down is worth doing for that reason alone, and for no nobler reason at all. It is not a gift to them. It's housekeeping.
+It arrives in two flavours. One says you must forgive, ideally soon, because bitterness will poison you. Delivered by somebody who has not been through it, this sounds like a request to do the wrongdoer a favour on top of everything else. The other says stand up for yourself, get even, refuse to be a doormat. That one is more satisfying and it costs more than it returns.
 
-And putting it down does not require forgiving, forgetting, reconciling, or ever speaking to them again. Those are separate decisions, and they get muddled together so often that people stay angry for years rather than accept a package they never wanted. You can decide the matter is finished while still believing they were entirely in the wrong, still declining to have them in your house, and still telling the truth about what happened if anyone asks.
+What appears to be true is narrower. Carrying a grievance is expensive, and the whole of the expense is paid by you, in attention, in evenings, in the small souring of things that have nothing to do with it. Putting it down is worth doing for that reason and no nobler one. It is not a gift to them. It is housekeeping.
 
-The aim of this chapter is to get the cost off you. What happens to them is a different question, and usually not one you get to decide.
+And putting it down does not require forgiving, forgetting, reconciling, or ever speaking to them again. Those are separate decisions, and they get bundled together so often that people stay angry for years rather than accept a package they never wanted. You can decide the matter is finished while still believing they were wholly in the wrong, still declining to have them in your house, and still telling the truth about what happened if anybody asks you.
+
+The aim of this chapter is to get the cost off you. What happens to them is a different question, and not usually yours to decide.
 
 ---
 
 > "To err is human; to forgive, divine." — Alexander Pope
 
-**What it means.** Getting things wrong is the ordinary condition, yours included. Forgiveness is described as the harder, rarer act precisely because it isn't natural. Nobody should pretend it comes easily or that failing at it makes you defective.
+**What it means.** Getting things wrong is the ordinary condition, yours included. Forgiveness is named as the harder and rarer act precisely because it does not come easily, and nobody should pretend that failing at it makes you defective.
 
-**How to use it.** Start with the first half rather than the second. Before deciding what someone's behaviour reveals about their character, ask whether you've ever done something of roughly that shape. Often you have, in a smaller way, and it changes the size of the thing without excusing it.
+**How to use it.** Start with the first half rather than the second. Before deciding what somebody's behaviour reveals about their character, ask whether you have ever done something of roughly that shape. Often you have, in a smaller way, and it changes the size of the thing without excusing it.
 
 ---
 
 > "In taking revenge, a man is but even with his enemy; but in passing it over, he is superior." — Francis Bacon
 
-**What it means.** Revenge, at absolute best, restores parity. You've spent effort, time and a portion of your character to arrive back where you started. Letting it go costs you nothing further and leaves you ahead.
+**What it means.** Revenge at its very best restores parity. You have spent effort, time and a portion of your character to arrive back where you started, and the scoreboard reads nil-nil. Letting it go costs nothing further and leaves you ahead.
 
-**How to use it.** Drafting the devastating reply, or planning the manoeuvre that will embarrass them, work out honestly what you end up with if it succeeds. Usually: brief satisfaction, a permanent enemy, and a story you can't tell well. Then price the alternative, which is your Tuesday evening back.
+**How to use it.** Drafting the devastating reply, or planning the manoeuvre that will embarrass them, work out what you are actually left holding if it succeeds. Brief satisfaction. A permanent enemy. A story you cannot tell well at dinner. Then price the alternative, which is your Tuesday evening back.
 
 ---
 
 > "Never ascribe to malice that which is adequately explained by stupidity." — Hanlon's razor
 
-**What it means.** Most harm is not aimed. People are thoughtless, overloaded, badly informed and preoccupied with themselves, and the slight you're certain was deliberate was frequently just someone not thinking about you at all.
+**What it means.** Most harm is not aimed. People are thoughtless, overloaded, badly informed and preoccupied with themselves, and the slight you were certain was aimed was somebody not thinking about you at all.
 
-**How to use it.** Before deciding you've been targeted, construct the boring explanation. They forgot. They didn't know. They were dealing with something. If the boring version fits the facts, act on that one, because you can recover a relationship from thoughtlessness and rarely from an accusation of malice.
+**How to use it.** Build the boring explanation before you decide you were targeted. They forgot. They did not know. They were dealing with something at home. If the boring version fits the facts, act on that one, because a relationship recovers from thoughtlessness and rarely from an accusation of malice.
 
 ---
 
 > "The best revenge is to be unlike him who performed the injury." — Marcus Aurelius
 
-**What it means.** The most durable damage someone can do is to make you into a version of themselves: suspicious, cold, ready to strike first. Staying recognisably yourself is the one outcome they can't take from you.
+**What it means.** The most durable damage anybody can do to you is to turn you into a version of themselves: suspicious, cold, ready to strike first. Staying yourself is the one outcome they cannot take.
 
-**How to use it.** After being treated badly, notice the new habits you're acquiring. Are you now the person who checks up, keeps records of slights, assumes the worst? Some of that is sensible caution. Watch for the point where it stops being about them and becomes how you treat everybody.
+**How to use it.** After being treated badly, watch the new habits arriving. Are you now the person who checks up, keeps a record of slights, assumes the worst as a matter of policy? Some of that is sensible caution. Watch for where it stops being about them and becomes how you treat everybody.
 
 ---
 
 > "Revenge is a dish best served cold." — proverb
 
-**What it means.** Usually quoted as a threat. Read it as a delay instruction instead, because the same waiting period that's supposed to make revenge more effective almost always dissolves the appetite for it entirely.
+**What it means.** Usually quoted as a threat. Read it as a delay instruction instead, because the waiting period that is meant to make revenge more effective dissolves the appetite for it.
 
-**How to use it.** Commit to doing nothing about it for a month, deliberately, telling yourself you're only postponing. In four weeks, revisit. The urgent need to act will have gone, and what remains is a much clearer view of whether anything actually needs doing.
+**How to use it.** Do nothing for a month, deliberately, telling yourself you are only postponing. Then revisit. The urgent need to act will have gone, and what remains is a much clearer view of whether anything needs doing at all.
 
 ---
 
 > "He who cannot forgive others breaks the bridge over which he himself must pass." — George Herbert
 
-**What it means.** You will need this eventually. Everyone does something requiring another person's tolerance, and the standard you enforce on others is the one that comes back around when it's your turn to be in the wrong.
+**What it means.** You will need this eventually. Everybody does something that requires another person's tolerance, and the standard you enforce on others is the one waiting for you when your turn comes to be in the wrong.
 
-**How to use it.** When you're deciding whether something is unforgivable, imagine having done it yourself, in circumstances where it made sense at the time. Not everything survives that test, and plenty does. The ones that survive it are the ones to let go of first.
+**How to use it.** Deciding whether something is unforgivable, imagine having done it yourself, in circumstances where it made sense at the time. Not everything survives that test. Plenty does, and the ones that survive it are the ones to put down first.
 
 ---
 
 > "Before you embark on a journey of revenge, dig two graves." — attributed to Confucius
 
-**What it means.** The pursuit consumes the pursuer. Sustained campaigns against a person become a full-time occupation that eats years, relationships and peace, and the destination is usually less satisfying than any single day spent getting there cost.
+**What it means.** The pursuit consumes the pursuer. A sustained campaign against a person becomes a full-time occupation that eats years, relationships and peace, and the destination is always worth less than a single day of getting there cost.
 
-**How to use it.** Count the actual hours. If you're in a long dispute, a legal fight, a family feud, a running argument with a company, add up what it's taken. Sometimes the fight is still right. But make the decision knowing the price, rather than discovering it in year three.
+**How to use it.** Count the hours. If you are in a long dispute, a legal fight, a family feud, a running argument with a utility company, add up what it has taken so far. Sometimes the fight is still right. Make that decision knowing the price, rather than discovering it in year three.
 
 ---
 
 > "Forgive us our trespasses, as we forgive them that trespass against us." — Matthew 6:12
 
-**What it means.** The clause is conditional, and deliberately uncomfortable. It asks you to be judged by your own standard, on the reasonable grounds that a person who requires mercy and won't extend it hasn't understood what they're asking for.
+**What it means.** The clause is conditional and deliberately uncomfortable. It asks to be judged by your own standard, on the reasonable grounds that somebody who requires mercy and will not extend it has not understood what they are asking for.
 
-**How to use it.** Think of the last time you needed someone to overlook something you did. Recall what it was like to be forgiven, and what it would have been like not to be. That memory is more persuasive than any argument about the merits of the current case.
+**How to use it.** Think of the last time you needed somebody to overlook something you did. Remember what being forgiven was like, and what it would have been like not to be. That memory argues more effectively than any assessment of the current case.
 
 ---
 
 > "An eye for an eye only ends up making the whole world blind." — attributed to Mahatma Gandhi
 
-**What it means.** Proportionate retaliation sounds fair and doesn't stop. Each side's response is justified by the last one, the exchange has no natural end, and everyone involved ends up worse off than if the first injury had simply been absorbed.
+**What it means.** Proportionate retaliation sounds fair and never stops. Each side's response is justified by the last one, the exchange has no natural end, and everybody involved finishes worse off than if the first injury had been absorbed and left there.
 
-**How to use it.** Look at any long-running feud you're near: family, neighbours, ex-partners sharing children. Notice nobody can say who started it, and everyone is certain they're responding. Someone has to absorb one round without returning it. That's not weakness; it's the only exit anyone has found.
+**How to use it.** Look at any long feud near you: family, neighbours, ex-partners with children between them. Notice that nobody can say who started it and everybody is certain they are responding. Somebody has to absorb one round without returning it. That is not weakness. It is the only exit anyone has found.
 
 ---
 
 > "A wise man gets more use from his enemies than a fool from his friends." — Baltasar Gracián
 
-**What it means.** Enemies pay you a strange compliment: they study you closely and tell the truth about your weaknesses, which friends usually won't. The criticism is delivered maliciously and can still be accurate.
+**What it means.** Enemies pay you a strange compliment. They study you hard and tell the truth about your weaknesses, which friends will not do. The criticism comes wrapped in malice and it can still be accurate.
 
-**How to use it.** After someone attacks you unfairly, wait a week, then examine the accusation for the two per cent that lands. Discard the rest. You've just been given free, unflinching information about a flaw that people who like you have been tactfully declining to mention.
+**How to use it.** After an unfair attack, wait a week, then go through it for the two per cent that lands. Discard the rest. You have been given free, unflinching information about a flaw that everybody who likes you has been too polite to mention for years.
 
 ---
 
 > "Time heals what reason cannot." — Seneca
 
-**What it means.** You can't argue yourself out of a wound on schedule. Understanding why it happened, deciding it doesn't matter, resolving to move on: none of these work directly. What works is duration, and there's no substitute for it.
+**What it means.** You cannot argue yourself out of a wound on schedule. Understanding why it happened, deciding it does not matter, resolving to move on: none of these work directly. What works is duration, and there is no substitute available at any price.
 
-**How to use it.** Stop treating your continuing distress as a failure of effort. If something still stings after six months, that's normal and doesn't mean you've handled it badly. Do the ordinary things, keep the person at whatever distance you need, and let the calendar do the part your reasoning can't.
+**How to use it.** Stop treating your continuing distress as a failure of effort. Still stinging after six months is normal, and it is not evidence that you handled it badly. Do the ordinary things, keep the person at whatever distance you need, and let the calendar do the part your reasoning cannot.
 
 ---
 
 > "Injuries may be forgiven, but not forgotten." — Aesop
 
-**What it means.** Forgiveness and amnesia are different, and the confusion between them keeps people stuck. You can release the grievance while retaining the entirely sensible knowledge of what this person is capable of.
+**What it means.** Forgiveness and amnesia are different things, and confusing the two is what keeps people stuck. You can release the grievance and retain the entirely sensible knowledge of what this person turned out to be capable of.
 
-**How to use it.** If someone insists you've forgiven them but keeps bringing it up because your behaviour has changed, you can say honestly: I'm not angry, and I'm not going to pretend it didn't happen. Remembering isn't punishment. It's just an accurate record, and you're allowed one.
+**How to use it.** If somebody insists you have forgiven them but keeps raising it because your behaviour has changed, you can say honestly: I am not angry, and I am not going to pretend it did not happen. Remembering is not punishment. It is an accurate record, and you are allowed one.
 
 ---
 
 > "Living well is the best revenge." — George Herbert
 
-**What it means.** The most effective response is not directed at them at all. It's the reallocation of everything you'd have spent on the grievance into a life that is manifestly fine without them in it.
+**What it means.** The most effective response is not aimed at them at all. It is the reallocation of everything you would have spent on the grievance into a life that is plainly fine without them anywhere near it.
 
-**How to use it.** Take the energy currently going into the imagined confrontation and put it somewhere visible: fitness, work, people you like. This isn't performed for their benefit, and it's why it works. The version done for their benefit is still a relationship with them.
+**How to use it.** Take the energy currently going into the imagined confrontation and put it somewhere that shows: fitness, work, people you like. This is not performed for their benefit, which is why it works. The version done for their benefit is still a relationship with them.
 
 ---
 
 > "Forgiveness does not change the past, but it does enlarge the future." — Paul Boese
 
-**What it means.** Nothing available to you affects what happened. The only variable is how much of what's ahead the past gets to occupy, and holding the grievance is the mechanism by which it keeps claiming more.
+**What it means.** Nothing available to you affects what happened. The only variable left is how much of what remains the past gets to occupy, and holding the grievance is the mechanism by which it keeps claiming more.
 
-**How to use it.** Ask what the next five years look like with this still in them, and what they look like without. If the answer is meaningfully better without, that's your reason, and it has nothing to do with what the other person deserves or whether they ever apologise.
+**How to use it.** Ask what the next five years look like with this still in them, and what they look like without. If the second is better, that is your reason, and it has nothing to do with what the other person deserves or whether they ever apologise.
 
 ---
 
 > "Trust, but verify." — Russian proverb
 
-**What it means.** Letting something go does not oblige you to restore the arrangement that allowed it. You can be entirely at peace with someone and still not lend them money, mind their words less carefully, or leave them alone with your affairs.
+**What it means.** Letting something go does not oblige you to restore the arrangement that allowed it to happen. You can be entirely at peace with somebody and still not lend them money, still weigh your words, still decline to leave them alone with your affairs.
 
-**How to use it.** Here is the part most versions of this advice leave out. If everything above feels like pressure to reconcile, ignore it. Putting the anger down and keeping your distance are compatible, and for some people it's the only sane combination. You owe them the absence of malice. You don't owe them access.
+**How to use it.** Here is the part most versions of this advice leave out. If everything above feels like pressure to reconcile, ignore it. Putting the anger down and keeping your distance are compatible, and for some people that combination is the only sane one. You owe them the absence of malice. You do not owe them access.
 
 # Chapter 9 — Persuading Without Pushing
 
-Most of us try to change someone's mind by pushing harder. We repeat ourselves, but louder. We stack up more evidence. We explain again, more slowly, as though the problem were that they didn't hear us the first time.
+You have said it three times now. Slower each time. A little more evidence each time. And each time, the person across the table has become fractionally more certain they were right to begin with.
 
-It almost never works. People don't change their minds because they've been out-argued. They change their minds when changing feels like their own idea. The moment someone senses they're being pushed, they brace. Everything you say after that lands against a wall you built yourself.
+This is the standard method and it fails on almost everybody. We assume that disagreement is a shortage of information, so we supply more of it, louder, on the theory that the first delivery must have gone astray. It didn't. They heard you. They simply arrived at a different answer, and the volume is now doing something you didn't intend: it is telling them they are being handled.
 
-This chapter is about the alternative: changing the conditions rather than attacking the position. It's slower. It requires giving up the satisfaction of winning the argument out loud. But it's the only thing that reliably works on adults.
+That's the moment the shutter comes down. Nobody announces it. There is no visible change beyond a slight stillness in the face, and from then on every word you produce lands against a wall that you built yourself, brick by brick, out of your own reasonable and well-organised evidence.
+
+What actually moves people is duller than winning. It is changing the conditions around a position rather than attacking the position itself: removing what makes agreement expensive, giving them room to move without looking like they lost, and then having the patience to let them get there in their own time and call it their own idea.
+
+It costs you the good bit. You don't get the moment where they concede and everyone sees it. You get the outcome instead, sometimes weeks later, usually presented back to you as something they thought of.
+
+Take the outcome.
 
 ---
 
 > **The North Wind and the Sun** — Aesop
 
-**What it means.** The wind and the sun compete to remove a traveller's cloak. The wind blows harder and harder; the traveller only grips it tighter. The sun simply shines, and the man takes the cloak off himself. Force creates resistance. Warmth creates willingness.
+**What it means.** The wind and the sun compete to remove a traveller's cloak. The wind blows harder and harder, and the man grips it tighter. Then the sun comes out. He takes it off himself. Force creates resistance; warmth creates willingness.
 
-**How to use it.** When someone is digging in, whether it's a partner, a teenager or a colleague, notice whether you're being the wind. The tell is repetition: if you're saying the same thing more forcefully than you did ten minutes ago, stop. Change the temperature of the conversation instead of the volume.
+**How to use it.** Watch for repetition in your own voice. If you are saying the same sentence with more force than you used ten minutes ago, you have become the wind. Stop. Change the temperature rather than the volume, and see what happens to the grip.
 
 ---
 
 > "It is difficult to get a man to understand something when his salary depends upon his not understanding it." — Upton Sinclair
 
-**What it means.** People aren't only reasoning about what's true. They're also, quietly, reasoning about what's safe for them to believe. If accepting your point costs someone their job, their standing, or their sense of themselves, no amount of evidence will get through.
+**What it means.** People are not only working out what is true. Underneath, quietly, they are working out what is safe to believe. If your point costs someone their job, their standing, or their picture of themselves, evidence will not reach them, because evidence was never what was holding the position up.
 
-**How to use it.** Before you make your case, ask what it would cost the other person to agree with you. If the answer is "they'd have to admit they've been wrong for two years in front of their team," find a way to let them change position without that cost. Give them a door, not just an argument.
+**How to use it.** Before you make the case, price it from their side. If agreeing means admitting to a room full of colleagues that they got it wrong for two years, no argument you construct will be worth that. Build them a door. Something like "the situation has changed" costs them nothing and gets you the same result.
 
 ---
 
 > "Never interrupt your enemy when he is making a mistake." — attributed to Napoleon Bonaparte
 
-**What it means.** There is a strong pull to point out an error the moment you spot it. But pointing it out often helps the other person more than it helps you, and it turns a private mistake into a public confrontation.
+**What it means.** Spotting an error produces an almost physical urge to name it. Resist. Naming it hands the other person a correction they would otherwise have had to make themselves, and it converts a private mistake into a public event, which is the one form guaranteed to be defended.
 
-**How to use it.** When someone in a meeting is talking themselves into a hole, let them finish. Half the time they'll notice the hole on their own, which is worth far more than you noticing it for them. Save your interventions for when they'd actually change the outcome.
+**How to use it.** Someone is talking themselves into a hole in a meeting. Let them. Half the time they find the hole unaided, which is worth ten of you finding it for them. Save your interruptions for the ones where speaking changes the outcome rather than the scoreline.
 
 ---
 
 > "We have two ears and one mouth, so that we may listen twice as much as we speak." — attributed to Epictetus
 
-**What it means.** Simple arithmetic as a rule of life. Most people, in most conversations, are waiting rather than listening, assembling their reply while the other person is still talking.
+**What it means.** Arithmetic as a rule of life. Most people in most conversations are not listening. They are queuing, assembling their reply while the other person's mouth is still moving, waiting for the gap.
 
-**How to use it.** In your next difficult conversation, set yourself a target: you're not allowed to state your position until you can summarise theirs well enough that they'd say "yes, that's it." You'll find the disagreement is often smaller than you thought, and sometimes somewhere else entirely.
+**How to use it.** Set a condition for your next difficult conversation: you may not state your position until you can summarise theirs well enough that they would say "yes, that's it." It takes longer than you want. You will also discover that the disagreement is smaller than you thought, and frequently somewhere else entirely.
 
 ---
 
 > "The best way to convince a fool he is wrong is to let him have his own way." — Josh Billings
 
-**What it means.** Some arguments can't be won with words because the other person hasn't yet met the consequences of being wrong. Experience teaches what explanation can't.
+**What it means.** Some arguments cannot be won with words, because the other person has not yet met the consequences. Experience teaches what explanation cannot, and it teaches faster.
 
-**How to use it.** Reserve this one for low stakes. If your colleague insists on a spreadsheet format that'll fall apart in a month, and the cost of it falling apart is an afternoon, let them. If the cost is the company, keep arguing. The skill is telling the two apart honestly rather than using this as an excuse to stop trying.
+**How to use it.** Keep this for small stakes. Your colleague wants a spreadsheet format that will fall apart by March, and the cost of it falling apart is one wasted afternoon? Let it fall apart. If the cost is the company, keep arguing. The skill is telling those two apart honestly, rather than reaching for this line whenever you are tired of trying.
 
 ---
 
 > "A man convinced against his will is of the same opinion still." — English proverb
 
-**What it means.** You can force someone into public agreement and change nothing underneath. They'll nod, they'll stop objecting, and they'll go on believing exactly what they believed before, now with added resentment.
+**What it means.** You can force the words out of someone and change nothing underneath. They nod. They stop objecting. They go on believing exactly what they believed before, with a fresh layer of resentment on top, and now you have both the original problem and a new one.
 
-**How to use it.** Watch for agreement that arrives too fast, especially from someone with less power than you. A quick "yeah, fine, you're right" from an employee or a child usually means the conversation has ended without the disagreement ending. Ask what they still think.
+**How to use it.** Be suspicious of agreement that arrives too fast, particularly from someone with less power than you. "Yeah, fine, you're right" from an employee or a fifteen-year-old means the conversation has ended. It does not mean the disagreement has. Ask them what they still think, and mean it.
 
 ---
 
 > "Seek first to understand, then to be understood." — Stephen Covey
 
-**What it means.** Understanding isn't a courtesy you extend before making your real point. It's the thing that makes your point possible, because until you know what someone actually believes, you're arguing with a version of them you invented.
+**What it means.** Understanding is not a courtesy you perform before getting to your real point. It is the thing that makes the point possible, because until you know what someone believes, you are arguing with a version of them you invented, and winning against that version achieves nothing.
 
-**How to use it.** Notice when you're about to respond to a caricature. The signal is the phrase "so what you're saying is," followed by something they'd never say. Ask instead. You'll be wrong about their position more often than feels comfortable.
+**How to use it.** Catch yourself responding to a caricature. The tell is the phrase "so what you're saying is," followed by something they would never say. Ask instead. You will be wrong about their actual position more often than is comfortable.
 
 ---
 
 > "If you want to build a ship, don't drum up men to gather wood — teach them to long for the sea." — Antoine de Saint-Exupéry
 
-**What it means.** Instructions produce compliance. Desire produces initiative. If people only do the task because you assigned it, you'll have to assign every task forever.
+**What it means.** Instructions produce compliance. Wanting produces initiative. If people do the task only because you assigned it, you have signed up to assign every task, forever, including the ones you have not thought of yet.
 
-**How to use it.** When you're delegating, spend a minute on why before you spend ten on how. Not a motivational speech, just the actual reason this matters and what it's for. People who understand the point solve problems you didn't anticipate; people following instructions bring the problems back to you.
+**How to use it.** Spend a minute on why before you spend ten on how. Not a speech. The actual reason it matters and what it feeds into. People who understand the point will solve problems you never anticipated; people following instructions bring those problems back to your desk.
 
 ---
 
 > "Speak softly and carry a big stick." — Theodore Roosevelt
 
-**What it means.** Real leverage doesn't need announcing. The person who has to keep reminding you of their power generally doesn't have much. Quiet strength gives the other side room to move without losing face.
+**What it means.** Real leverage does not need announcing. Anyone who has to keep reminding you of their power is telling you how little of it they have. Quiet strength leaves the other side somewhere to go.
 
-**How to use it.** In a negotiation over a salary, a landlord or a builder's quote, state your position once, calmly, and stop talking. Don't threaten. Don't justify it three times. Silence after a clear position does more work than any amount of pressure.
+**How to use it.** Negotiating a salary, a rent increase, a builder's quote: say your position once, calmly, then stop talking. Do not threaten. Do not justify it three times over. The silence after a clear position does more work than any pressure you could apply, and most people cannot sit in it.
 
 ---
 
 > "You can lead a horse to water, but you cannot make it drink." — English proverb
 
-**What it means.** Your responsibility has a boundary. You can give someone the information, the opportunity, and the encouragement. You cannot supply the wanting.
+**What it means.** Your responsibility has an edge to it. You can supply the information, the opportunity and the encouragement. You cannot supply the wanting. Nobody can.
 
-**How to use it.** This is the release valve for the rest of the chapter. When you've done the persuading well and the person still won't move, that's the end of your part. Keeping on is no longer persuasion. It's nagging, and it costs you the relationship without changing the outcome.
+**How to use it.** This is the release valve for everything above. When you have done the persuading well and the person still will not move, your part is finished. Carrying on is not persuasion any more. It is nagging, and it costs you the relationship while changing nothing at all.
 
 ---
 
 > "Men must be taught as if you taught them not, and things unknown proposed as things forgot." — Alexander Pope
 
-**What it means.** Nobody enjoys being corrected. But most people are quite happy to be reminded, because a reminder implies they already knew, and lets them keep their dignity while changing their mind.
+**What it means.** Nobody enjoys being corrected. Most people are perfectly happy to be reminded, because a reminder implies they already knew, which lets them change position and keep their dignity in the same movement.
 
-**How to use it.** Swap "actually, that's wrong" for "didn't we find last time that..." It's the same correction, but the second version lets the other person arrive at it with you rather than receive it from you. The information lands identically. The resistance doesn't.
+**How to use it.** Swap "actually, that's wrong" for "didn't we find last time that...". Same correction. The second version lets them arrive at it alongside you instead of receiving it from you. The information lands identically. The resistance does not.
 
 ---
 
 > "When the hill will not come to Mahomet, Mahomet will go to the hill." — Francis Bacon
 
-**What it means.** Bacon wrote this about people who bluff when reality refuses to cooperate, but the useful reading is the plain one. If the obstacle won't move, you move. Adaptation isn't defeat.
+**What it means.** Bacon wrote it about people who bluff when reality declines to cooperate, but the plain reading is the useful one. If the obstacle will not move, you move. Adaptation is not defeat.
 
-**How to use it.** When you've been trying the same approach with someone for months, stop asking why they won't change and start asking what you could change. Different time of day, different setting, different person making the request. Often the argument was fine and only the conditions were wrong.
+**How to use it.** You have tried the same approach with the same person for eight months. Stop asking why they will not change. Ask what you could change instead: the time of day, the setting, the person doing the asking, whether it happens over a desk or on a walk. Often the argument was fine all along and only the conditions were wrong.
 
 ---
 
 > "Nothing is so contagious as enthusiasm." — Samuel Taylor Coleridge
 
-**What it means.** Feeling travels between people faster than reasoning does. Your mood in a conversation is itself an argument, usually a stronger one than whatever you're actually saying.
+**What it means.** Feeling travels between people faster than reasoning does, and it arrives first. Your mood in a conversation is itself an argument, and generally a stronger one than the case you prepared.
 
-**How to use it.** Before a conversation you care about, check your own state. If you arrive tired and irritated, that's what the other person will catch, whatever your words are. Fifteen minutes of delay to arrive in a better state does more than an hour of preparing your points.
+**How to use it.** Check your own state before a conversation you care about. Arrive tired and irritable and that is what the other person catches, whatever your words are doing. A quarter of an hour spent arriving in a better state beats an hour spent sharpening your points.
 
 ---
 
 > "It is better to be defeated on principle than to win on lies." — Arthur Calwell
 
-**What it means.** There's always a shortcut available: the exaggerated statistic, the emotional pressure, the argument you know is weak but that will land. Winning that way costs you something you can't buy back.
+**What it means.** There is always a shortcut on the table: the statistic stretched a little, the emotional pressure, the argument you know is weak but that will land anyway. Winning that way spends something you cannot buy back.
 
-**How to use it.** Notice the moment in an argument where you reach for something you don't quite believe because it'll work. That's the moment. Not using it may lose you this particular exchange, and it's what makes people trust you the next twenty times.
+**How to use it.** Notice the moment you reach for something you do not quite believe because it will work. That is the moment. Declining it may lose you this particular exchange. It is also the reason people believe you the next twenty times, which is worth more than any single argument.
 
 ---
 
 > "Judge a man by his questions rather than his answers." — attributed to Voltaire
 
-**What it means.** What someone asks reveals what they're actually trying to find out, and whether they're trying to find anything out at all. A question designed to trap isn't a question.
+**What it means.** What someone asks shows what they are trying to find out, and whether they are trying to find anything out at all. A question built to trap is not a question. It is a statement wearing a question mark.
 
-**How to use it.** Turn this on yourself mid-argument. Are your questions genuine, or are you laying traps? If you already know the answer you want, you're not asking, you're prosecuting. People can always tell, and it ends the conversation whether they say so or not.
+**How to use it.** Turn it on yourself mid-argument. Are these real questions, or are you laying traps? If you already know the answer you want, you are not asking. You are prosecuting. People can always tell, and the conversation ends there whether or not they say so.
 
 # Chapter 10 — Being Wrong in Public
 
-You realise, halfway through defending your position, that you're wrong. Everyone is looking at you. There is a version of the next thirty seconds where you say so, and a version where you find a technicality, restate your point more confidently, and move the conversation on before anyone can press.
+You realise, halfway through defending your position, that you are wrong. Everyone is looking at you.
 
-Almost everyone takes the second option, at least sometimes, and it works. That's the trouble. The cover-up usually succeeds in the moment, which is why we keep doing it, and the costs turn up later and are never obviously connected to the incident.
+There is a version of the next thirty seconds in which you say so. There is another in which you find a technicality, restate the point with more confidence than you felt a minute ago, and move the conversation along before anybody can press.
 
-What's actually happening is that being wrong feels, physically, like a threat to standing rather than an error of fact. The body responds accordingly: heat, defensiveness, an urgent need to say something. That response evolved for a world where losing face in front of your group had serious consequences, and it now fires over a misremembered statistic in a meeting of eleven people, most of whom have forgotten it by lunch.
+Most people take the second one, at least sometimes, and it works. That is the trouble. The cover-up succeeds in the moment, which is why we keep doing it, and the costs turn up years later attached to nothing in particular.
 
-The counter-intuitive part, and it's reliable enough to bet on, is that conceding immediately costs far less than anyone expects. When someone says "you're right, I had that wrong", the room does not think less of them. It thinks they're confident enough not to need the point. The person who never concedes anything is the one being quietly discounted, and nobody tells them, which is why they never find out.
+What is happening is that being wrong registers as a threat to your standing rather than an error of fact, and the body responds accordingly: heat in the face, a defensive tightening, an urgent need to produce a sentence. That response was built for a world in which losing face in front of your group had consequences you might not survive, and it now fires over a misremembered statistic in a meeting of eleven people, most of whom will have forgotten it by lunch.
 
-There's a limit to this, and it matters: admitting error should be proportionate. The person who apologises constantly, elaborately, for everything, is doing something else, and it isn't humility. One clean correction is worth more than a page of self-criticism.
+The counter-intuitive part is reliable enough to bet on. Conceding on the spot costs far less than anyone expects. Say "you're right, I had that wrong" and the room does not think less of you. It thinks you are secure enough not to need the point. The person who never concedes anything is the one being discounted, and nobody ever tells them, which is why they never find out.
+
+There is a limit, and it matters. Admitting error should be proportionate. The person who apologises for everything, at length, is doing something else, and it is not humility.
+
+One clean correction beats a page of self-criticism.
 
 ---
 
 > "A man should never be ashamed to own he has been in the wrong, which is but saying that he is wiser today than he was yesterday." — Alexander Pope
 
-**What it means.** A neat reframing of what a correction actually announces. You're not confessing to a defect; you're reporting an improvement. The only alternative on offer is to be as wrong tomorrow as you were yesterday.
+**What it means.** A neat reframing of what a correction announces. You are not confessing a defect. You are reporting an improvement. The only alternative on offer is being just as wrong tomorrow as you were yesterday, in front of the same people.
 
-**How to use it.** Say it in those terms out loud: "I've changed my mind on this since last week." It sounds different from an admission of error, describes exactly the same event, and after using it a few times you'll notice how little resistance there is to changing your position in public.
+**How to use it.** Say it in those words: "I've changed my mind on this since last week." It sounds different from an admission of error, describes exactly the same event, and after a few outings you will notice how little resistance there is to changing your position out loud.
 
 ---
 
 > "The first principle is that you must not fool yourself, and you are the easiest person to fool." — Richard Feynman
 
-**What it means.** External correction is the easy part. The difficult work is noticing your own errors before anyone else does, when there's no pressure to look and every incentive not to.
+**What it means.** External correction is the easy half. The hard half is catching your own errors before anybody else does, at the point where there is no pressure to look and every incentive to leave it alone.
 
-**How to use it.** Before defending a position you're attached to, ask what evidence would change your mind. If you can't name any, you don't have a position, you have a loyalty. That question, asked honestly and in private, catches more mistakes than any amount of external scrutiny.
+**How to use it.** Before defending a position you are attached to, ask what evidence would change your mind. If you cannot name any, you do not have a position. You have a loyalty. That question, asked honestly and in private, catches more mistakes than any amount of external scrutiny.
 
 ---
 
 > "A man who has committed a mistake and doesn't correct it is committing another mistake." — Confucius
 
-**What it means.** The original error is finished and mostly forgivable. What follows is a fresh choice, made deliberately, with full information, and it's the one people actually judge you for.
+**What it means.** The original error is finished and mostly forgivable. What comes next is a fresh choice, made deliberately, with full information, and it is the one people actually judge you for.
 
-**How to use it.** Spot an old mistake still standing, the wrong figure in a document that's been circulating, the thing you told someone that turned out not to be true, correct it now even though the moment has passed. The awkwardness of a late correction is much smaller than the awkwardness of being found out.
+**How to use it.** Spot an old mistake still standing, the wrong figure in a document that has been circulating for a month, the thing you told somebody that turned out not to be true, and correct it now, even though the moment has passed. A late correction is awkward. Being found out is worse.
 
 ---
 
 > "The fool doth think he is wise, but the wise man knows himself to be a fool." — William Shakespeare
 
-**What it means.** Confidence and competence are only loosely related, and often run in opposite directions. The people most sure of themselves in an area are frequently the ones who haven't yet discovered how much of it they don't know.
+**What it means.** Confidence and competence are loosely related at best, and run in opposite directions more often than anyone admits. The people most certain about a subject are the ones who have not yet discovered how much of it there is.
 
-**How to use it.** Treat your own certainty as a datum rather than a conclusion. When you feel completely sure about something outside your actual expertise, that's the moment to check, not the moment to speak. Real knowledge tends to arrive with qualifications attached.
+**How to use it.** Treat your own certainty as a piece of data rather than a conclusion. Feeling entirely sure about something outside your expertise is the moment to check, not the moment to speak. Real knowledge tends to arrive with qualifications already attached.
 
 ---
 
 > "The greatest deception men suffer is from their own opinions." — Leonardo da Vinci
 
-**What it means.** Once you hold a view, it stops being a view and starts being the lens. Evidence for it registers as significant; evidence against it registers as noise, exceptions, or the other side being unreasonable.
+**What it means.** Once you hold a view it stops being a view and becomes the lens. Evidence in its favour registers as significant, evidence against it registers as noise, or exceptions, or the other side being unreasonable again.
 
-**How to use it.** Once a year, deliberately read the strongest case against something you believe. Not the weak version by someone easy to dismiss. The best one you can find. You'll usually keep your position, and you'll hold it differently, with the objections included rather than avoided.
+**How to use it.** Once a year, read the strongest case against something you believe. Not the weak version by somebody easy to dismiss. The best one you can find, argued by someone who means it. You will usually keep your position, and you will hold it differently, with the objections inside it rather than outside.
 
 ---
 
 > "Experience is simply the name we give our mistakes." — Oscar Wilde
 
-**What it means.** The valuable thing people call experience is mostly a record of errors already made and not repeated. There's no route to it that skips the errors, which means someone with no visible mistakes has usually attempted very little.
+**What it means.** The valuable thing people call experience is largely a record of errors already made and not repeated. There is no route to it that skips the errors, which means anybody with no visible mistakes has attempted very little.
 
-**How to use it.** When interviewing, dating, or working out whether to trust someone's judgement, ask what they've got wrong and what they learned. The people who can answer specifically are the ones who've been paying attention. A flawless account is a warning, not a recommendation.
+**How to use it.** When interviewing, dating, or working out whether to trust somebody's judgement, ask what they have got wrong and what they learned. The ones who can answer specifically have been paying attention. A flawless account is a warning rather than a recommendation.
 
 ---
 
 > "It is the mark of an educated mind to be able to entertain a thought without accepting it." — after Aristotle
 
-**What it means.** You can hold an idea up, examine it, and follow where it leads without committing to it. Many people can't do this. Considering an idea feels, to them, like endorsing it, so they refuse at the door.
+**What it means.** You can pick an idea up, examine it, follow where it leads, and put it down again without ever committing to it. A great many people cannot do this. Considering an idea feels, to them, like endorsing it, so they refuse at the door.
 
-**How to use it.** In a disagreement, try saying "suppose you're right, what would follow?" and actually working it through. You're not conceding. You're testing. And it's the fastest way to find either the flaw in their case or the flaw in yours, which is the same useful outcome.
+**How to use it.** In a disagreement, try "suppose you're right, what would follow?" and then work it through properly. You are not conceding. You are testing. It is the fastest way to find either the flaw in their case or the flaw in yours, and both are the same useful outcome.
 
 ---
 
 > "He who knows only his own side of the case knows little of that." — John Stuart Mill
 
-**What it means.** You don't understand your own position until you can see what it's competing with. Someone who has only ever heard the argument they agree with doesn't know why it's right, only that it is.
+**What it means.** You do not understand your own position until you can see what it is competing with. Somebody who has only ever heard the argument they agree with knows that it is right without knowing why, which is a weaker holding than it feels.
 
-**How to use it.** Before arguing for something, state the opposing case well enough that someone holding it would nod. If you can't, you're not ready to argue. This takes ten minutes and prevents most of the situations where you end up defending something you hadn't examined.
+**How to use it.** Before arguing for something, state the opposing case well enough that a person holding it would nod along. If you cannot, you are not ready. It takes ten minutes and prevents most of the occasions on which people defend things they never examined.
 
 ---
 
 > "Convictions are more dangerous enemies of truth than lies." — Friedrich Nietzsche
 
-**What it means.** A lie can be checked and dropped. A conviction is protected by identity, sunk cost and everyone who's heard you express it, which makes it enormously harder to give up even when the evidence has clearly turned.
+**What it means.** A lie can be checked and dropped. A conviction is defended by your identity, your sunk costs and everybody who has heard you express it, which makes it far harder to abandon even after the evidence has turned.
 
-**How to use it.** Watch for beliefs you've stated publicly and repeatedly. Those are the ones where your reasoning is least reliable, because abandoning them now costs you consistency in front of people who remember. Check those first, and reduce how often you announce a view before you're settled on it.
+**How to use it.** Watch the beliefs you have stated publicly and repeatedly. Those are where your reasoning is least trustworthy, because giving them up now costs you consistency in front of people who remember. Check those first, and announce fewer views before you are settled on them.
 
 ---
 
 > "Every man is a fool for at least five minutes a day; wisdom consists in not exceeding the limit." — Elbert Hubbard
 
-**What it means.** Being wrong is scheduled, ordinary, unavoidable. The skill isn't in avoiding it but in keeping it brief, which means noticing early and stopping rather than defending it into the second hour.
+**What it means.** Being wrong is scheduled, ordinary, unavoidable. The skill is not avoidance but brevity: notice early and stop, rather than defending the position into its second hour with reinforcements.
 
-**How to use it.** Set yourself a limit for how long you'll defend a position under pressure. If you're still arguing after ten minutes and haven't produced a new point, you're not persuading, you're committed. Say you'll think about it and leave. That's the five minutes ending on time.
+**How to use it.** Set yourself a limit for how long you will defend anything under pressure. Still arguing after ten minutes without a new point? You are not persuading. You are committed. Say you will think about it and leave, which is what the five minutes ending on time looks like.
 
 ---
 
 > "I may be wrong and you may be right, and by an effort we may get nearer the truth." — Karl Popper
 
-**What it means.** The best available starting position for any disagreement. It doesn't concede anything and it removes the assumption, held by both sides in most arguments, that one of you already has the answer and the job is transmission.
+**What it means.** The best opening position available for a disagreement. It concedes nothing, and it removes the assumption held by both parties in most arguments, which is that one of them already has the answer and the job is transmission.
 
-**How to use it.** Say a version of it out loud at the start of a difficult conversation. It sounds formal written down and it works, because it changes the activity from a contest into a joint problem, and people argue very differently once that's been established.
+**How to use it.** Say a version of it out loud at the start. It looks formal written down and it works, because it converts the activity from a contest into a shared problem, and people argue very differently once that has been established in the first minute.
 
 ---
 
 > "Man prefers to believe what he prefers to be true." — Francis Bacon
 
-**What it means.** Wanting something to be so exerts a steady, invisible pressure on your assessment of whether it is. This isn't a failure of intelligence; clever people just build more sophisticated justifications for the conclusion they wanted.
+**What it means.** Wanting something to be so exerts a steady, invisible pressure on your assessment of whether it is. This is not a failure of intelligence. Clever people build better justifications for the conclusion they wanted at the outset.
 
-**How to use it.** When you reach a conclusion, ask whether it happens to be the convenient one. If your careful analysis of the housing market has concluded you should buy the house you already love, apply extra scrutiny. Not because you're wrong, but because you had a thumb on the scale.
+**How to use it.** When you reach a conclusion, ask whether it happens to be the convenient one. If your careful analysis of the housing market has concluded that you should buy the house you already love, apply extra scrutiny. Not because you are wrong. Because you had a thumb on the scale.
 
 ---
 
 > "Confess your faults one to another." — James 5:16
 
-**What it means.** Error admitted aloud loses most of its power. Concealed, it grows, requires maintenance and separates you from people. Said plainly to another person, it turns out to be roughly the size it always was.
+**What it means.** An error admitted aloud loses most of its power. Concealed, it grows, needs maintenance, and separates you from people. Said plainly to another person, it turns out to be roughly the size it always was.
 
-**How to use it.** Got something wrong that's bothering you? Tell one person before you tell anyone else. Not for absolution, just to hear yourself say it. Things sound enormous in your head and ordinary in a kitchen, and you'll handle the public version far better having done the private one first.
+**How to use it.** Got something wrong that is bothering you? Tell one person before you tell anybody else. Not for absolution. Just to hear yourself say it. Things sound enormous inside your head and ordinary in somebody's kitchen, and you will handle the public version far better for having done the private one first.
 
 ---
 
 > "Doubt is not a pleasant condition, but certainty is absurd." — Voltaire
 
-**What it means.** Uncertainty is uncomfortable and it's also the accurate state for most questions worth discussing. Certainty is more comfortable and is usually a claim about your feelings rather than about the evidence.
+**What it means.** Uncertainty is uncomfortable and it is also the accurate state for most questions worth discussing. Certainty is more comfortable, and it is a claim about how you feel rather than about the evidence in front of you.
 
-**How to use it.** Get used to saying "I think" and "probably" and "as far as I know". It feels weaker and it's more accurate, and it means that when you do say you're sure about something, people can tell the difference. Reserve certainty so it retains its value.
+**How to use it.** Get used to "I think", "probably", "as far as I know". It sounds weaker and it is more accurate, and it means that on the day you say you are sure, people hear the difference. Ration certainty and it keeps its value.
 
 ---
 
 > "Never make a defence or apology before you be accused." — Charles I
 
-**What it means.** Pre-emptive apologising is its own problem. Explaining faults nobody has noticed, opening with a disclaimer, apologising for taking up time: it draws attention to a weakness the room hadn't identified and asks them to reassure you.
+**What it means.** Pre-emptive apologising is a problem of its own. Explaining faults nobody had noticed, opening with a disclaimer, apologising for taking up time: each one points at a weakness the room had not identified, then asks the room to reassure you about it.
 
-**How to use it.** Some readers need the reverse of this chapter. If you're someone who apologises constantly, the advice in this chapter isn't for you. Your work is the opposite: say the thing without the preamble, let the small errors pass unremarked, and save the apology for when you've genuinely done something.
+**How to use it.** Some readers need the reverse of this chapter. If you are somebody who apologises for everything, none of the above is for you. Your work is the opposite: say the thing without the preamble, let the small errors go by unmentioned, and save the apology for when you have actually done something.
 
 
 # Part Three — The Work
 
 # Chapter 11 — Getting Started
 
-This is not about fear. You are not frightened of the expenses claim, the tax return, or the email to the letting agent. You simply have not done them, for nine days, while doing a remarkable number of other things.
+This is not about fear. You are not frightened of the expenses claim, the tax return, or the email to the letting agent. You have not done them for nine days, while doing a remarkable number of other things.
 
-Procrastination is usually described as laziness, which is wrong and unhelpful, because the people best at it are frequently exhausted. What's actually happening is that the task, as it exists in your head, has no starting point. It's a cloud rather than a sequence. "Sort out the finances" is not something a person can begin; it's a topic. And when the mind is handed a topic instead of an action, it does what anyone would do with a vague instruction: it goes and does something with clearer edges instead, like the washing up, or four hours of research.
+Procrastination gets described as laziness, which is wrong and unhelpful, since the people best at it are exhausted. What is actually happening is that the task, as it exists in your head, has no starting point. It is a cloud rather than a sequence. "Sort out the finances" is not something a person can begin; it is a topic. And handed a topic instead of an action, the mind does what anybody would do with a vague instruction, which is to go and find something with clearer edges, like the washing-up, or four hours of research.
 
-The second mechanism is that we badly misjudge the emotional cost of beginning. Dread is at its maximum immediately before starting and drops sharply once you're in. Everyone knows this from experience, and nobody applies it, because at the moment of choosing you're feeling the peak and using it to forecast the whole task. You're pricing an hour of work at the rate of its worst ninety seconds.
+The second mechanism is that we misjudge the cost of beginning. Dread peaks in the minute before you start and drops off a cliff once you are in. Everybody knows this from experience and nobody uses it, because at the moment of choosing you are feeling the peak and using it to forecast the whole afternoon.
 
-So the useful moves here are mechanical rather than motivational. Reduce the task until a starting action is obvious. Lower the standard for what counts as beginning. Accept that you will feel no more like doing it next Tuesday than you do now, and that waiting to want to is the same as not doing it.
+You are pricing an hour of work at the rate of its worst ninety seconds.
 
-Motivation, on the evidence, mostly arrives after the start rather than before it. Which is inconvenient, because it means the thing you're waiting for is on the other side of the thing you're avoiding.
+So the useful moves here are mechanical rather than motivational. Shrink the task until a starting action is obvious. Lower the bar for what counts as beginning. And accept that you will feel no more like doing it next Tuesday than you do now, which means waiting until you want to is the same as not doing it.
+
+Motivation, on the evidence, turns up after the start rather than before it. Which is inconvenient, since it puts the thing you are waiting for on the far side of the thing you are avoiding.
 
 ---
 
 > "The secret of getting ahead is getting started." — attributed to Mark Twain
 
-**What it means.** Not a slogan about ambition. It's an observation about where the difficulty is concentrated: almost entirely at the front. The middle of a task is usually fine, sometimes even enjoyable, and completely inaccessible until the first few minutes are done.
+**What it means.** Not a slogan about ambition. An observation about where the difficulty sits, which is almost entirely at the front. The middle of a task is fine, sometimes enjoyable, and shut off from you until the first few minutes are done.
 
-**How to use it.** Stop planning the whole thing and identify the single first physical action. Not "do the tax return" but "find the folder with the receipts". If your next step isn't something you could do in the next two minutes, you haven't finished breaking it down.
+**How to use it.** Stop planning the whole thing and name the single first physical action. Not "do the tax return" but "find the folder with the receipts in it". If your next step is not something you could do in two minutes, you have not finished breaking it down.
 
 ---
 
 > "Well begun is half done." — Horace
 
-**What it means.** Partly about doing the opening properly, and mostly about the ratio. The effort required to go from nothing to something is out of all proportion to the effort of continuing, which is why a half-finished thing feels so much lighter than an unstarted one.
+**What it means.** Partly about doing the opening properly, and mostly about the ratio. The effort of going from nothing to something is out of all proportion to the effort of continuing, which is why a half-finished thing sits so much more lightly than an unstarted one.
 
-**How to use it.** Short of time? Don't skip the task, start it badly. Fifteen minutes of a rough first attempt converts it from a dread into a work in progress. Tomorrow you'll be editing rather than beginning, and editing is a completely different order of difficulty.
+**How to use it.** Short of time? Do not skip it. Start it badly. Fifteen minutes of a rough first attempt turns the thing from a dread into a work in progress, and tomorrow you will be editing rather than beginning, which is a different order of difficulty altogether.
 
 ---
 
 > "The best is the enemy of the good." — Voltaire
 
-**What it means.** Holding out for the excellent version frequently produces nothing at all. The standard you've set becomes the reason you can't start, and a high standard that prevents work is worth less than a modest one that produces some.
+**What it means.** Holding out for the excellent version tends to produce nothing at all. The standard becomes the reason you cannot start, and a high standard that prevents work is worth less than a modest one that produces some.
 
-**How to use it.** Decide in advance what "good enough to send" looks like, and make it lower than you'd like. Most work has a level of polish beyond which nobody notices and only you can see. Find that level, hit it, stop, and put the time into the next thing.
+**How to use it.** Decide in advance what "good enough to send" looks like, and set it lower than you would like. Most work has a level of polish past which nobody notices anything and only you can see it. Find that level, hit it, stop, and spend the difference on the next thing.
 
 ---
 
 > "Do the hard jobs first. The easy jobs will take care of themselves." — Dale Carnegie
 
-**What it means.** The unpleasant task doesn't sit quietly while you work through the easy ones. It runs in the background all day, consuming attention, and every small job you complete first is done under its shadow.
+**What it means.** The unpleasant task does not sit quietly waiting while you work through the easy ones. It runs in the background all day, consuming attention, and every small job you complete first gets done under its shadow.
 
-**How to use it.** Take the thing you least want to do and do it before you open your email. Not as discipline, for the relief. The whole rest of the day is lighter, and you'll notice how much of your usual afternoon fatigue was actually the weight of that one avoided item.
+**How to use it.** Take the thing you least want to do and do it before you open your email. Not as discipline. For the relief. The rest of the day is lighter, and you will notice how much of your usual afternoon fatigue was the weight of that one avoided item.
 
 ---
 
 > "Little strokes fell great oaks." — Benjamin Franklin
 
-**What it means.** Large things yield to repeated small applications. This is obvious and almost nobody organises their work around it, preferring to wait for a clear day that would allow the whole job in one go. The clear day doesn't come.
+**What it means.** Large things yield to small repeated applications. This is obvious, and almost nobody organises their work around it. We wait for a clear day that would allow the whole job in one sitting. The clear day does not arrive.
 
-**How to use it.** Give the big thing twenty minutes a day rather than waiting for a free Saturday. A book, a qualification, a garden, a decluttering. Twenty minutes daily is roughly two full days a month, arriving in a form you can actually schedule.
+**How to use it.** Give the big thing twenty minutes a day instead of waiting for a free Saturday. A book, a qualification, a garden, the cupboard under the stairs. Twenty minutes daily is about two full days a month, arriving in a form you can actually put in a diary.
 
 ---
 
 > "Thinking is easy, acting is difficult, and to put one's thoughts into action is the most difficult thing in the world." — Goethe
 
-**What it means.** Planning is genuinely pleasant. It has all the sense of progress and none of the exposure, which is why an afternoon of research feels productive and produces nothing that exists outside your head.
+**What it means.** Planning is pleasant. It carries the whole sense of progress and none of the exposure, which is why an afternoon of research feels productive while producing nothing that exists outside your own head.
 
-**How to use it.** Set a hard limit on preparation. One evening of reading about the thing, then you start doing it badly. If you've been researching a subject for more than a fortnight without producing anything, you're not preparing any more. You're hiding, comfortably.
+**How to use it.** Put a hard limit on preparation. One evening of reading, then you start badly. If you have been researching a subject for a fortnight without making anything, you are no longer preparing. You are hiding, in a way nobody will criticise.
 
 ---
 
 > "Work expands so as to fill the time available for its completion." — C. Northcote Parkinson
 
-**What it means.** Tasks have no natural size. Given a week, a job takes a week; given an afternoon, the same job takes an afternoon and is often no worse, because the extra time went on hesitation and refinement rather than substance.
+**What it means.** Tasks have no natural size. Given a week a job takes a week; given an afternoon the same job takes an afternoon and is no worse, because the extra time went on hesitation and second-guessing rather than substance.
 
-**How to use it.** Give things artificially short windows. "I'll write this in forty minutes" produces a draft; "I'll write this today" produces an evening of circling. Set a timer where possible. The constraint does the work that willpower was failing to do.
+**How to use it.** Give things artificially short windows. "I'll write this in forty minutes" produces a draft. "I'll write this today" produces an evening of circling the kitchen. Set a timer where you can. The constraint does the work that willpower had been failing to do.
 
 ---
 
 > "Whatsoever thy hand findeth to do, do it with thy might." — Ecclesiastes 9:10
 
-**What it means.** The instruction is to engage fully with what's actually in front of you, rather than performing a half version while wishing you were doing something else. Half-attention makes ordinary tasks longer and considerably more tedious.
+**What it means.** The instruction is to engage fully with whatever is actually in front of you, rather than performing half a version while wishing you were doing something else. Half-attention makes ordinary tasks longer and far more tedious.
 
-**How to use it.** If you're going to do the dull task, do it properly and quickly rather than dragging it out while checking your phone. The distracted version takes three times as long and feels worse throughout. Full attention is the fastest route out of a job you dislike.
+**How to use it.** If you are going to do the dull job, do it properly and fast rather than dragging it out with your phone beside you. The distracted version takes three times as long and feels worse throughout. Full attention is the quickest way out of work you dislike.
 
 ---
 
 > "Genius is one percent inspiration and ninety-nine percent perspiration." — Thomas Edison
 
-**What it means.** The idea is the cheap part. Everyone has ideas; most people have several good ones a year. What's scarce is the willingness to do the unglamorous middle section where the idea becomes an actual thing.
+**What it means.** The idea is the cheap part. Everybody has ideas. Most people have several good ones a year. What is scarce is the willingness to do the unglamorous middle section in which the idea turns into an actual thing that exists.
 
-**How to use it.** Stop waiting for a better idea. The one you've had for two years is almost certainly good enough, and its problem is not quality. Pick it up and do the boring part this week. The gap between you and the people who've done it is not the concept.
+**How to use it.** Stop waiting for a better idea. The one you have had for two years is good enough, and quality was never its problem. Pick it up and do the boring part this week. What separates you from the people who have done it is not the concept.
 
 ---
 
 > "Cut your coat according to your cloth." — English proverb
 
-**What it means.** Scope the job to what you actually have: this much time, this much money, this much energy. Ambitious plans built on resources you don't possess fail at the first contact with a normal week.
+**What it means.** Scope the job to what you have: this much time, this much money, this much energy on a normal Wednesday. Ambitious plans built on resources you do not have fail at first contact with an ordinary week.
 
-**How to use it.** When planning anything, use your real available time rather than your hoped-for time. If you genuinely have four hours a week, design something that fits four hours. The plan built for the twelve hours you keep meaning to free up will collapse by the second week, and you'll conclude you lack discipline.
+**How to use it.** Plan with your real available time rather than your hoped-for time. If you genuinely have four hours a week, design something that fits four hours. The plan built for the twelve hours you keep meaning to free up will collapse by the second week, and you will conclude, wrongly, that you lack discipline.
 
 ---
 
 > "Beware the barrenness of a busy life." — attributed to Socrates
 
-**What it means.** Activity is not the same as progress, and busyness is the most respectable form of avoidance available. Nobody criticises you for having too much on, which is exactly what makes it such an effective hiding place.
+**What it means.** Activity is not progress, and busyness is the most respectable form of avoidance there is. Nobody criticises you for having too much on, which is what makes it such a good place to hide.
 
-**How to use it.** At the end of a very busy week, ask what moved. If the answer is nothing that matters, the problem isn't your workload. It's that the load is composed of things that are easy to do and easy to justify, and the difficult important thing is being crowded out on purpose.
+**How to use it.** At the end of a very busy week, ask what moved. If the answer is nothing that matters, your workload is not the problem. The problem is that the load consists of things that are easy to do and easy to justify, and the difficult important thing is being crowded out on purpose.
 
 ---
 
 > "The gods help them that help themselves." — Aesop
 
-**What it means.** From the fable of the carter whose wagon is stuck and who prays for help without putting his shoulder to the wheel. Assistance, luck and opportunity arrive to people already in motion, and very rarely to people waiting.
+**What it means.** From the fable of the carter whose wagon is stuck and who prays for assistance without putting his shoulder to the wheel. Help, luck and opportunity arrive to people already in motion, and rarely to people waiting.
 
-**How to use it.** Notice how much you're waiting for: the right moment, someone else's decision, a piece of luck. Then do the part that's available now, however small. Things do turn up, and they overwhelmingly turn up to people who've already started and are visibly trying.
+**How to use it.** Notice how much you are waiting for: the right moment, somebody else's decision, a piece of luck. Then do the part available now, however small. Things do turn up, and they turn up to the people who have started and are plainly trying.
 
 ---
 
 > "By failing to prepare, you are preparing to fail." — attributed to Benjamin Franklin
 
-**What it means.** The counterweight to everything above. Starting immediately is a virtue for tasks you understand; for anything with real consequences, a modest amount of preparation saves an enormous amount of doing.
+**What it means.** The counterweight to everything above. Starting at once is a virtue for tasks you understand. For anything with real consequences, a modest amount of preparation saves an enormous amount of doing.
 
-**How to use it.** Match the preparation to the stakes and to how reversible the thing is. An email needs none. A house purchase, a business, a medical decision needs a lot. The failure is applying the wrong one to the wrong thing, which is usually over-preparing for the small and rushing the large.
+**How to use it.** Match the preparation to the stakes and to how reversible the thing is. An email needs none. A house purchase, a business, a medical decision needs a great deal. The failure is applying the wrong one to the wrong thing, which in practice means over-preparing for the small and rushing the large.
 
 ---
 
 > "He who begins many things finishes but few." — Italian proverb
 
-**What it means.** Starting is the most enjoyable part of any project, and the enjoyment is repeatable: you can have it again and again by beginning new things and quietly abandoning each one at the point where the work turns dull.
+**What it means.** Starting is the best part of any project, and the pleasure is repeatable: you can have it again and again by beginning new things and abandoning each one at the point where the work turns dull.
 
-**How to use it.** Count your open projects honestly, including the ones you'd call "on hold". If there are more than three, the problem isn't starting, it's that starting is your favourite part. Close two, formally, before you begin anything else.
+**How to use it.** Count your open projects honestly, including the ones you would describe as "on hold". If there are more than three, starting is not your problem. Starting is your favourite part. Close two, formally, before you begin anything else.
 
 ---
 
 > "Never put off till tomorrow what may be done day after tomorrow just as well." — Mark Twain
 
-**What it means.** Twain is joking and he's also pointing at something real. A proportion of the tasks weighing on you don't need doing at all, and delay is a crude but effective way of finding out which ones.
+**What it means.** Twain is joking and he is pointing at something real. A proportion of the tasks weighing on you do not need doing at all, and delay is a crude but effective way of finding out which.
 
-**How to use it.** Here is the get-out. Look at what's been on the list longest. If it's been six months and nothing has gone wrong, consider that its absence is evidence. Cross it off rather than doing it, and notice how much of the list was self-imposed.
+**How to use it.** Here is the get-out. Look at what has been on the list longest. If it has been six months and nothing has gone wrong, treat its absence as evidence. Cross it off instead of doing it, and notice how much of the list you had imposed on yourself.
 
 # Chapter 12 — Keeping Going
 
-Every long undertaking has a middle, and the middle is where things are actually decided. Not at the start, which is exciting, and not at the end, which is in sight. Somewhere around week five, or month eight, or year three, when the novelty has completely gone, the finish is nowhere visible, and nobody is watching.
+Every long undertaking has a middle, and the middle is where it gets decided. Not at the start, which is exciting. Not at the end, which is in sight. Somewhere around week five, or month eight, or year three, when the novelty has gone completely, the finish is nowhere visible, and nobody is watching.
 
-The middle has a particular texture. Progress becomes invisible: you're doing roughly the same amount of work and it no longer produces a noticeable change, because early progress is always fastest and you've spent it. The thing has also lost its glamour by now. It's turned into a set of specific, repetitive tasks, and you know exactly what tomorrow's will be.
+The middle has a texture of its own. Progress goes invisible: you are doing the same amount of work you were doing in the first month, putting in the same evenings, and it no longer produces any detectable change at all, because early progress is always the fastest progress and you have already spent it. The thing has lost its glamour by now, too. It has turned into a set of specific repetitive tasks and you know exactly what tomorrow's will be.
 
-This is where most things stop, and they rarely stop with a decision. Almost nobody quits the language, the training plan, the business or the manuscript. They just have a bad week, skip it, then have a busy fortnight, and six months later it's a thing they used to be doing. The absence of a decision is what makes it so easy.
+This is where things stop, and they rarely stop with a decision. Almost nobody quits the language, the training plan, the business or the manuscript. They have a bad week and skip it, then a busy fortnight, and six months later it is something they used to do.
 
-Two things seem to help, and neither is motivation. The first is lowering the required daily amount to something so small you'll do it on a bad day, because continuity matters more than volume and a broken chain is far harder to restart than a thin one is to maintain. The second is separating the work from how you feel about it. You will feel like an impostor, you will find it dull, and you will be convinced it isn't good. All of that can be true while the work continues.
+The absence of a decision is what makes it so easy.
 
-Rest belongs here too, properly taken rather than collapsed into. Endurance that ignores the body isn't endurance, it's a countdown.
+Two things help, and neither is motivation. The first is lowering the required daily amount to something so small that you will do it on a bad day, because continuity matters more than volume and a broken chain is far harder to restart than a thin one is to keep. The second is separating the work from your feelings about it. You will feel like an impostor. You will find it dull. You will be convinced it is no good. All of that can be true while the work goes on.
+
+Rest belongs here as well, taken properly rather than collapsed into. Endurance that ignores the body is not endurance. It is a countdown.
 
 ---
 
 > "Diligence is the mother of good fortune." — Miguel de Cervantes
 
-**What it means.** What looks like luck from the outside is usually the visible portion of a long, unglamorous period of showing up. The break arrives at a moment; the readiness to use it took years and nobody saw it.
+**What it means.** What looks like luck from outside is the visible part of a long, unglamorous run of showing up. The break arrives in a moment. The readiness to use it took eight years and nobody saw any of that.
 
-**How to use it.** If someone's success looks sudden, find out what they were doing for the five years before it. It's almost always the same thing, repeatedly, without much reward. That's the actual shape of the thing you're in the middle of, and it's normal for it to feel like nothing is happening.
+**How to use it.** When somebody's success looks sudden, find out what they were doing for the five years before it. It is almost always the same thing, over and over, with no reward attached. That is the actual shape of the stretch you are in, and it is normal for it to feel like nothing is happening.
 
 ---
 
 > "It does not matter how slowly you go as long as you do not stop." — attributed to Confucius
 
-**What it means.** Rate is negotiable, continuity is not. Slow progress compounds into something substantial; stopped progress compounds into nothing, no matter how impressive the pace was before it stopped.
+**What it means.** Rate is negotiable. Continuity is not. Slow progress compounds into something substantial, and stopped progress compounds into nothing at all, however impressive the pace was on the day before you stopped.
 
-**How to use it.** On a bad week, cut the amount rather than skipping. Ten minutes instead of an hour. Two sentences instead of a page. This looks pointless and it isn't, because you're not maintaining output, you're maintaining the fact that this is something you do.
+**How to use it.** On a bad week, cut the amount instead of skipping. Ten minutes rather than an hour. Two sentences rather than a page. It looks pointless, and it is the opposite of pointless, because what you are maintaining is no longer the output but the simple fact that this is a thing you do, which is the part that would have been hard to get back.
 
 ---
 
 > "Never give in, never give in, never, never, never." — Winston Churchill
 
-**What it means.** Worth knowing the rest of the sentence: he added "except to convictions of honour and good sense". It's not a call to be immovable about everything. It's about not surrendering to weariness or the mere difficulty of continuing.
+**What it means.** Worth knowing the rest of the sentence, since he went on to add "except to convictions of honour and good sense". It is not a demand that you be immovable about everything. It is about not surrendering to weariness or the simple difficulty of carrying on.
 
-**How to use it.** Distinguish between quitting because it's hard and quitting because it's wrong. Fatigue, boredom and a bad patch are not reasons; they're weather. A change in the actual merits is a reason. Being honest about which one you're facing is the whole skill.
+**How to use it.** Separate quitting because it is hard from quitting because it is wrong. Fatigue, boredom and a bad patch are not reasons. They are weather. A change in the actual merits is a reason. Being honest about which of the two you are looking at is the whole of the skill.
 
 ---
 
 > "Slow and steady wins the race." — Aesop
 
-**What it means.** The hare loses to boredom and confidence, not to lack of ability. Sustainable pace beats brilliant bursts over any meaningful distance, mostly because bursts are followed by recovery periods that undo them.
+**What it means.** The hare loses to boredom and confidence rather than to any shortage of ability. Sustainable pace beats brilliant bursts over any real distance, largely because bursts are followed by recovery periods that undo them.
 
-**How to use it.** Set your effort at the level you could sustain on an average week, not a good one. The training plan built around your best fortnight will break in the first difficult one. Aim to be slightly under-extended, permanently. It's much faster over a year.
+**How to use it.** Set your effort at the level you could sustain in an average week, not a good one. The training plan built around your best fortnight breaks in the first difficult one. Aim to be slightly under-extended, permanently. Over a year it is much faster.
 
 ---
 
 > "Great works are performed not by strength but by perseverance." — Samuel Johnson
 
-**What it means.** Big things are not achieved in one heroic push. They're built out of many ordinary sessions, most of which felt unremarkable while they were happening, and none of which would have looked impressive to an observer.
+**What it means.** Big things are not achieved in one heroic push. They are assembled out of many ordinary sessions, most of which felt unremarkable at the time and none of which would have looked impressive to anybody watching.
 
-**How to use it.** Stop waiting for the day you'll have the energy to make a real dent. That day either won't come or will be one day. What produces the result is a hundred adequate sessions, and today can be one of them regardless of how you feel.
+**How to use it.** Stop waiting for the day you will have the energy to make a real dent. That day will not come, or it will come once. What produces the result is a hundred adequate sessions, and today can be one of them regardless of how you feel about it.
 
 ---
 
 > "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time." — Thomas Edison
 
-**What it means.** Persistence is presented here as a mechanical advantage rather than a virtue. Attempt count is a variable you control directly, unlike talent or luck, and it's the one most people stop adjusting far too early.
+**What it means.** Persistence presented as a mechanical advantage rather than a virtue. Attempt count is the one variable you control directly, unlike talent or luck or timing or who happens to read your email on a Tuesday, and it is the variable most people stop adjusting long before they have to.
 
-**How to use it.** Having decided something has failed, add one more attempt with one thing changed. The job applications, the pitch, the recipe, the difficult conversation. Not indefinitely: once. The marginal cost is small and the number of things that work on the fourth attempt is surprising.
+**How to use it.** Having decided something has failed, make one more attempt with one thing changed. The application, the pitch, the recipe, the difficult conversation. Not indefinitely. Once. The marginal cost is small, and the number of things that work on the fourth attempt is genuinely surprising.
 
 ---
 
 > "Step by step one goes a long way." — French proverb
 
-**What it means.** Nobody can sustain effort towards a goal three years away; the mind won't hold it. What people actually do is complete a series of short, finishable stretches, which happen to point in the same direction.
+**What it means.** Nobody can sustain effort towards a goal three years away, because the mind will not hold it. What people do instead is finish a series of short, completable stretches that happen to point in the same direction.
 
-**How to use it.** Break the long thing into units with real endings. A month, a chapter, a term. Finish one, mark it, start the next. You get the satisfaction of completion at regular intervals, and that satisfaction is what keeps the machine running.
+**How to use it.** Break the long thing into units with real endings. A month. A chapter. A term. Finish one, mark it, start the next. You get the satisfaction of completion at intervals, and that satisfaction is what keeps the machine running when the goal itself is too far off to see.
 
 ---
 
 > "Constant dropping wears away a stone." — Lucretius
 
-**What it means.** Repetition beats force on a long enough timescale. No individual drop does anything measurable, which is precisely why the effect is so easy to disbelieve while you're in the middle of it.
+**What it means.** Repetition beats force over a long enough period. No individual drop does anything measurable, which is exactly why the effect is so hard to believe in while you are the drop.
 
-**How to use it.** Keep a record so the accumulation becomes visible: days practised, miles run, words written. Not for discipline. For evidence. The progress is genuinely invisible day to day, and without a record you'll conclude nothing is happening and stop.
+**How to use it.** Keep a record so the accumulation becomes visible: days practised, miles run, words written, a line in a notebook that takes four seconds and turns an invisible process into something you can look at. Not for discipline. For evidence. The progress is invisible day to day, and without a record you will conclude that nothing is happening and stop, which is how most of it ends.
 
 ---
 
 > "The race is not to the swift, nor the battle to the strong, but time and chance happeneth to them all." — Ecclesiastes 9:11
 
-**What it means.** Effort does not guarantee outcome. Luck, timing and circumstance participate in every result, and pretending otherwise sets you up to read a bad outcome as a personal verdict.
+**What it means.** Effort does not guarantee outcome. Luck, timing and circumstance take part in every result, and pretending otherwise sets you up to read a bad outcome as a verdict on you personally.
 
-**How to use it.** Judge yourself on what you controlled: whether you did the work, made the attempt, prepared properly. Outcomes are a joint product of your effort and the world's mood. Keeping the two accounts separate is what allows you to continue after something you did well went badly.
+**How to use it.** Judge yourself on what you controlled: whether you did the work, made the attempt, prepared properly. Outcomes are a joint product of your effort and the world's mood on the day. Keeping those two accounts separate is what lets you carry on after something you did well went badly.
 
 ---
 
 > "Ever tried. Ever failed. No matter. Try again. Fail again. Fail better." — Samuel Beckett
 
-**What it means.** Not a motivational slogan, whatever the posters suggest. Beckett is describing continuation without the promise of success, which is the actual condition of most long work. Better failure is a genuine improvement and it may be all you get.
+**What it means.** Not a motivational slogan, whatever the posters suggest. Beckett is describing continuation without any promise of success, which is the actual condition of most long work. Better failure is a real improvement and it may be all you get.
 
-**How to use it.** Measure whether this attempt failed in a more interesting way than the last one. New problems mean progress. The same problem repeating means something needs to change in your method, not in your effort.
+**How to use it.** Ask whether this attempt failed in a more interesting way than the last one. New problems mean progress. The same problem repeating means something has to change in the method rather than in the effort, and more effort is the answer people reach for first.
 
 ---
 
 > "Energy and persistence conquer all things." — Benjamin Franklin
 
-**What it means.** An overstatement with a useful core. Persistence alone doesn't conquer everything, and it does outlast most obstacles, because most obstacles are maintained by someone or something with less staying power than a determined person.
+**What it means.** An overstatement with a useful core. Persistence does not conquer everything. It does outlast most obstacles, because most obstacles are maintained by somebody or something with less staying power than a determined person.
 
-**How to use it.** In any long process involving institutions, an appeal, a claim, a complaint, a diagnosis, understand that the system is counting on you giving up. Politely, calmly, keep coming back. A remarkable proportion of these are decided by who is still there at the end.
+**How to use it.** In any long process involving an institution, an appeal or a claim or a complaint or a diagnosis nobody will commit to, understand that the system is not neutral about whether you continue: it is quietly counting on you giving up, and it has been designed by people who know how many will. Politely, calmly, keep coming back. A remarkable number of these are decided by who is still there at the end.
 
 ---
 
 > "He conquers who endures." — Persius
 
-**What it means.** Two words in the original Latin, and it's about outlasting rather than overpowering. In a great many contests, the winner is not the strongest party but the one who was still standing when the others had gone.
+**What it means.** Two words in the Latin, and the subject is outlasting rather than overpowering. In a great many contests the winner is not the strongest party but the one still standing when everybody else has gone home.
 
-**How to use it.** When you're in a difficult stretch with no clear end, drop the goal of winning and adopt the goal of remaining. Just still being in it in six months is a real achievement and often the decisive one. Survival is a strategy, not a consolation prize.
+**How to use it.** In a difficult stretch with no clear end, drop the goal of winning and adopt the goal of remaining. Still being in it in six months is a real achievement and often the decisive one. Survival is a strategy, not a consolation prize.
 
 ---
 
 > "Rome was not built in a day." — proverb
 
-**What it means.** The most reassuring cliché available, and worth taking seriously rather than as a platitude. Everything substantial took considerably longer than it appears to have taken from the outside, including the things you're comparing yourself against.
+**What it means.** The most reassuring cliché available, and worth taking seriously rather than as something to say. Everything substantial took considerably longer than it appears to have taken from outside, including the things you measure yourself against.
 
-**How to use it.** Impatient with your own progress? Find out how long the comparable thing actually took someone else. Not the polished version of their story, the dates. It is almost always years longer than you assumed, and knowing that changes what a reasonable pace feels like.
+**How to use it.** Impatient with your own progress? Find out how long the comparable thing actually took somebody else. Not the polished version of the story. The dates. It is invariably years longer than you assumed, and knowing that changes what a reasonable pace feels like.
 
 ---
 
 > "Many of life's failures are people who did not realise how close they were to success when they gave up." — Thomas Edison
 
-**What it means.** You can't see your position from inside the work. The last stretch feels identical to the middle, which means the decision to stop is always made without knowing how much was left.
+**What it means.** You cannot see your position from inside the work. The last stretch feels identical to the middle, which means the decision to stop is always taken without knowing how much was left.
 
-**How to use it.** When you decide to stop, decide it on a good day rather than a bad one. A quitting decision made in the middle of a discouraging week is being made by the discouragement. If it's still right on a Wednesday when things are going fine, it's probably right.
+**How to use it.** Decide to stop on a good day rather than a bad one. A quitting decision made in the middle of a discouraging week is being made by the discouragement. If it still looks right on a Wednesday when things are going fine, it probably is.
 
 ---
 
 > "Rest is not idleness, and to lie sometimes on the grass under trees on a summer's day is by no means a waste of time." — John Lubbock
 
-**What it means.** Rest is part of the work, not a lapse in it. Continuous effort without recovery produces diminishing output and then no output, and the collapse is generally mistaken for a failure of character.
+**What it means.** Rest is part of the work rather than a lapse in it. Continuous effort without recovery produces diminishing output and then no output, and the collapse gets mistaken for a failure of character by everybody, including the person collapsing.
 
-**How to use it.** Take this as the permission slip. If you've been pushing through for months and everything has gone grey, the answer isn't more discipline. Take a proper break, the kind with a defined end so it doesn't become the stopping. Then come back. Endurance includes the pauses; it always did.
+**How to use it.** Take this as the permission slip. If you have been pushing through for months and everything has gone grey, the answer is not more discipline. Take a proper break, with a defined end so it does not become the stopping. Then come back. Endurance always included the pauses.
 
 # Chapter 13 — Knowing When to Stop
 
-We are taught, relentlessly and from a young age, not to give up. Persistence is a virtue, quitting is a failure of character, and the stories we're told all involve someone who kept going when others wouldn't. Nobody writes books about the man who sensibly closed the shop in year two and got his weekends back, though he probably made the better decision.
+We are taught from an early age not to give up. Persistence is a virtue, quitting is a failure of character, and every story we are told features somebody who kept going when others would not. Nobody writes books about the man who closed the shop in year two and got his weekends back, though he very likely made the better decision.
 
-The result is that most people are far worse at stopping than at continuing. They stay in the job, the course, the relationship, the argument, the doomed project, long past the point where anyone looking in from outside could see it. And the reason is rarely optimism. It's usually the money and years already spent, which feel like they'd be wasted by stopping and are in fact wasted either way. That's the whole trap: the past is gone regardless, and the only question is what you do with what's left.
+So most people are far worse at stopping than at continuing. They stay in the job, the course, the relationship, the argument, the doomed project, long past the point where anybody outside could see it.
 
-There's a second difficulty, which is that stopping well and quitting badly look identical from a distance. Both involve not continuing. The difference is entirely in the reasoning, and it's a difference you have to be honest with yourself about, because everyone can construct a respectable case for whichever they were going to do anyway.
+The reason is rarely optimism. It is the money and the years already spent, which feel as though they would be wasted by stopping and are in fact wasted either way. That is the whole trap. The past has gone regardless, and the only live question is what happens to what remains.
 
-A rough test: are you stopping because the situation has changed, or because today was hard? Would this still look like the right call on a good Wednesday, with a decent night's sleep behind you? Have you asked one person who has no stake in it?
+There is a second difficulty, which is that stopping well and quitting badly look identical from any distance at all, since both consist of the same visible act, which is that a thing which was happening is now not happening. The difference lives entirely in the reasoning, and it is a difference you have to be honest with yourself about, because everybody can construct a respectable case for whichever course they were going to take anyway.
 
-This chapter is about finishing things, leaving things, and telling the difference between a lull and a dead end. It's also, quietly, about the fact that stopping frees up the only genuinely irreplaceable resource you have.
+A rough test. Are you stopping because the situation has changed, or because today was hard? Would this still look right on a good Wednesday, after a decent night's sleep? Have you asked one person with no stake in it?
+
+This chapter is about finishing things, leaving things, and telling a lull apart from a dead end. It is also, quietly, about the fact that stopping frees up the one resource you cannot replace.
 
 ---
 
 > "When you find yourself in a hole, stop digging." — modern maxim, often attributed to Denis Healey
 
-**What it means.** The instinct when something isn't working is to apply more of the same, harder. More hours, more money, more explaining. But effort applied to a failing approach makes the hole deeper rather than shallower.
+**What it means.** The instinct when something is not working is to apply more of the same, harder. More hours, more money, more explaining. Effort applied to a failing approach makes the hole deeper rather than shallower, and does it faster.
 
-**How to use it.** Increased your effort twice and got the same result twice? Stop increasing. Put the shovel down for a week. The pause feels like giving up and is actually the only way to see whether the problem is the amount of digging or the choice of location.
+**How to use it.** Increased your effort twice and got the same result twice? Stop increasing. Put the shovel down for a week. It feels like giving up, and it is the only way to find out whether the problem is the amount of digging or the choice of location.
 
 ---
 
 > "There is a tide in the affairs of men which, taken at the flood, leads on to fortune; omitted, all the voyage of their life is bound in shallows." — William Shakespeare
 
-**What it means.** Timing is a real component of outcomes, and it doesn't wait for you to feel ready. Opportunities have windows, and the same decision made a year late is frequently not the same decision at all.
+**What it means.** Timing is a real component of outcomes and it does not wait for you to feel ready. Opportunities have windows, and the same decision taken a year late is frequently not the same decision at all.
 
-**How to use it.** When you find yourself saying "not yet" about something time-limited, ask what specifically you're waiting for and whether it will still be available when it arrives. Sometimes the honest answer is that the window is closing and you're hoping it will politely wait.
+**How to use it.** When you catch yourself saying "not yet" about something time-limited, ask what exactly you are waiting for and whether it will still be there when it arrives. Sometimes the honest answer is that the window is closing and you are hoping it will wait politely.
 
 ---
 
 > "Don't throw good money after bad." — English proverb
 
-**What it means.** What you've already spent is gone and has no bearing on whether the next pound is a good idea. Every decision starts from where you are now, not from what it cost to get here, although almost nobody can feel this.
+**What it means.** What you have already spent is gone and has no bearing on whether the next pound is a good idea. Every decision starts from where you stand now rather than from what it cost to get here, and almost nobody can feel this, which is why the proverb had to be invented.
 
-**How to use it.** Ask the outsider's question: if I arrived at this situation today, with no history, would I put in the next six months? If the answer's no, the only thing keeping you in is the previous six months, and those aren't coming back whatever you decide.
+**How to use it.** Ask the outsider's question. If I arrived at this situation today, knowing what I know and owing it nothing, would I sign up for the next six months? If the answer is no, then the only thing holding you in place is the six months you have already spent, and those are gone in either version of the future, whichever one you choose.
 
 ---
 
 > "To every thing there is a season: a time to get, and a time to lose; a time to keep, and a time to cast away." — Ecclesiastes 3:6
 
-**What it means.** Keeping and discarding are given equal standing, as ordinary phases of the same cycle. Holding on is not automatically the responsible option, and letting go is not automatically a loss.
+**What it means.** Keeping and discarding are given equal standing, as ordinary phases of one cycle. Holding on is not automatically the responsible choice, and letting go is not automatically a loss.
 
-**How to use it.** Take stock once a year of what you're keeping out of habit: subscriptions, commitments, roles, a volunteer position you've held for nine years. Ask of each whether it's still in its season. Most things have a natural length, and we usually notice long after it's passed.
+**How to use it.** Once a year, take stock of what you are keeping out of habit: subscriptions, commitments, roles, the volunteer position you have held for nine years. Ask of each whether it is still in its season. Most things have a natural length and we notice long after it has passed.
 
 ---
 
 > "He will win who knows when to fight and when not to fight." — Sun Tzu
 
-**What it means.** Choosing your engagements is more important than winning them. Someone who fights everything spends themselves on trivial battles and arrives at the important one with nothing left.
+**What it means.** Choosing your engagements matters more than winning them. Somebody who fights everything, the parking notice and the misworded email and the colleague who takes credit for small things, spends themselves on trivial battles and arrives at the one that mattered with nothing left in reserve.
 
-**How to use it.** Before entering any conflict, the complaint, the escalation, the point of principle in a meeting, ask what winning gets you and what it costs. Some fights are worth losing money over. Most aren't worth the fortnight of preoccupation, and knowing which is which is a skill worth more than being right.
+**How to use it.** Before entering any conflict, the complaint, the escalation, the point of principle in a meeting, ask what winning gets you and what it costs. Some fights are worth losing money over. Most are not worth the fortnight of preoccupation, and telling those apart is worth more than being right.
 
 ---
 
 > "A poem is never finished, only abandoned." — Paul Valéry
 
-**What it means.** Creative work has no natural completion point. There is always another revision available, and you don't finish so much as decide, at some arbitrary moment, to stop and let the thing exist as it is.
+**What it means.** Creative work has no natural completion point. There is always another revision available, so you do not finish. You decide, at some arbitrary moment, to stop and let the thing exist as it is.
 
-**How to use it.** Set the stopping point in advance rather than waiting to feel done, because that feeling doesn't arrive. Three drafts and it goes. Two weekends and the room is painted. The alternative isn't a better version; it's a thing that never leaves your hands.
+**How to use it.** Set the stopping point in advance instead of waiting to feel done, because the feeling of being done does not arrive on its own and waiting for it is how projects quietly turn into hobbies. Three drafts and it goes. Two weekends and the room is painted. The alternative is not a better version. It is a thing that never leaves your hands at all.
 
 ---
 
 > "Leave the table while you still feel like eating." — Spanish proverb
 
-**What it means.** The right moment to stop is generally slightly before you want to. Whether it's food, a party, a working day or a good run of form, stopping at the peak leaves you with an appetite; stopping at exhaustion leaves you with an aversion.
+**What it means.** The right moment to stop is generally just before you want to. Food, a party, a working day, a good run of form: stop at the peak and you keep the appetite. Stop at exhaustion and you acquire an aversion.
 
-**How to use it.** End the writing session while you still know what comes next. Leave the social event while you're enjoying it. Finish the workout with something in reserve. The point isn't restraint. It's that tomorrow's willingness is set by how today ended.
+**How to use it.** End the writing session while you still know what comes next. Leave the party while you are enjoying it. Finish the run with something in reserve. The point is not restraint. It is that tomorrow's willingness gets set by how today finished.
 
 ---
 
 > "It is not enough to be busy. The question is: what are we busy about?" — Henry David Thoreau
 
-**What it means.** Activity provides its own justification, which is why it's so easy to spend a decade being extremely busy about something that stopped mattering to you around year three.
+**What it means.** Activity supplies its own justification, which is how somebody can spend a decade being extremely busy about something that stopped mattering to them around year three.
 
-**How to use it.** Look at the largest recurring thing in your week and ask what it's for. Not what it produces, what it's for, in terms of a life you'd choose. If you can't answer, it doesn't automatically follow that you should stop. But you should probably find out before another year goes on it.
+**How to use it.** Look at the largest recurring thing in your week and ask what it is for. Not what it produces. What it is for, in terms of a life you would choose. If you cannot answer, it does not follow that you should stop. It does follow that you should find out before another year goes into it.
 
 ---
 
 > "In everything the middle course is best: all things in excess bring trouble." — Plautus
 
-**What it means.** Virtues become faults when overextended, and the point of failure is usually invisible from the inside. Thoroughness becomes paralysis. Loyalty becomes staying too long. Dedication becomes the thing that ruins your health.
+**What it means.** Virtues turn into faults when overextended, and the point at which one turns into the other is invisible from inside the person doing it. Thoroughness becomes paralysis. Loyalty becomes staying too long. Dedication becomes the thing that wrecks your health.
 
-**How to use it.** Ask whether the quality you're proud of has passed its useful point. If your attention to detail now delays every piece of work, it isn't a strength any more, whatever it says on your appraisal. The fix is a limit, not a personality change.
+**How to use it.** Ask whether the quality you are proudest of has passed its useful point. If your attention to detail now delays every piece of work, it has stopped being a strength, whatever the appraisal says. The fix is a limit, not a change of personality.
 
 ---
 
 > "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away." — Antoine de Saint-Exupéry
 
-**What it means.** Finishing is often a matter of subtraction. The last stage of most work isn't adding the missing element; it's removing the four things that are obscuring what's already there.
+**What it means.** Finishing is often a matter of subtraction. The last stage of most work is not adding the missing element. It is removing the four things obscuring what is already there.
 
-**How to use it.** If something is nearly done and won't come together, stop adding. Cut the weakest third. The paragraph you're proudest of is often the one making it worse. This applies to documents, presentations, plans and to a schedule that has too much in it to work.
+**How to use it.** If something is nearly done and will not come together, stop adding. Cut the weakest third. The paragraph you are proudest of is frequently the one making it worse. This applies to documents, presentations, plans, and to a schedule with too much in it to work.
 
 ---
 
 > "Half of the troubles of this life can be traced to saying yes too quickly and not saying no soon enough." — Josh Billings
 
-**What it means.** Two separate failures with a common root. The first is agreeing before you've thought. The second is continuing to honour an agreement long after it stopped being sensible, out of embarrassment about changing your mind.
+**What it means.** Two separate failures with one root. The first is agreeing before you have thought. The second is continuing to honour an agreement long after it stopped making sense, out of embarrassment at changing your mind in front of somebody.
 
-**How to use it.** Buy time on the front end: "let me check and come back to you tomorrow" costs nothing and prevents most of it. And when you're in something you shouldn't have agreed to, withdraw early. The cost of pulling out rises steeply with every week you delay.
+**How to use it.** Buy time at the front: "let me check and come back to you tomorrow" costs nothing and prevents most of it. And when you are in something you should not have agreed to, withdraw early, because the cost of pulling out rises steeply with every week you leave it.
 
 ---
 
 > "Let go, or be dragged." — Zen proverb
 
-**What it means.** Some things are ending whether or not you consent. The choice on offer is not between ending and continuing; it's between releasing with some dignity and being pulled along behind it.
+**What it means.** Some things are ending whether you consent or not. The choice on offer is not between ending and continuing. It is between releasing with some dignity and being pulled along behind it.
 
-**How to use it.** When you're fighting something genuinely settled, a decision that's been made, a relationship that's over, a role that's been given to someone else, notice that the fight isn't a strategy any more. Your energy is better spent on what comes next, and it starts being available the moment you stop.
+**How to use it.** When you are fighting something already settled, a decision made, a relationship over, a job given to somebody else, notice that the fight has stopped being a strategy. Your energy is worth more spent on what comes next, and it becomes available the moment you stop.
 
 ---
 
 > "He that fights and runs away, may turn and fight another day." — English proverb, after Tacitus
 
-**What it means.** Withdrawal preserves the capacity to act later. Treating every retreat as a defeat produces people who exhaust themselves on unwinnable ground and have nothing left for the situations they could actually have changed.
+**What it means.** Withdrawal preserves the capacity to act later. Treat every retreat as a defeat and you produce people who exhaust themselves on unwinnable ground and have nothing left for the situations they could have changed.
 
-**How to use it.** Leaving a job, a course or a project with your resources intact is a result, not a failure. Frame it that way when you explain it, to others and to yourself, because the story you tell about it determines how quickly you're able to start the next thing.
+**How to use it.** Leaving a job, a course or a project with your resources intact is a result, not a failure. Say it that way when you explain it, to other people and to yourself, because the story you tell about it determines how quickly you are able to start the next thing.
 
 ---
 
 > "Better a lean peace than a fat victory." — Dutch proverb
 
-**What it means.** A modest settlement now often beats a better outcome pursued to the end. The extra you'd win rarely covers what the pursuit costs in time, money and the wearing effect of a long dispute.
+**What it means.** A modest settlement now usually beats a better outcome pursued to the end. The extra you would win rarely covers what the pursuit costs in time, money and the grinding effect of a long dispute on everything else.
 
-**How to use it.** In any negotiation or argument that's dragged on, work out what remains in contention and price your own time against it. If you're arguing over three hundred pounds and it's occupied five weekends, take the deal. Being right has a market rate, and it's lower than people assume.
+**How to use it.** In any argument that has dragged, work out what is still in contention and price your own time against it. Arguing over three hundred pounds and it has taken five weekends? Take the deal. Being right has a market rate and it is lower than people think.
 
 ---
 
 > "The grass is always greener on the other side of the fence." — proverb
 
-**What it means.** The urge to stop is not always information about the thing you're stopping. Sometimes it's just the ordinary dissatisfaction of being in the middle of something real, and it will attach itself equally to whatever you do next.
+**What it means.** The urge to stop is not always information about the thing you want to stop. Sometimes it is the ordinary dissatisfaction of being in the middle of something real, and it will attach itself to whatever you do next with equal enthusiasm.
 
-**How to use it.** This is the counterweight to the chapter. Before leaving, check whether you've felt exactly this at the same stage of the last three things. If so, the pattern is yours and it will follow you over the fence. Stop for reasons that live in the situation, not in the feeling.
+**How to use it.** Before leaving, check whether you have felt exactly this at the same stage of the last three things. If so, the pattern is yours and it will follow you over the fence. Stop for reasons that live in the situation, not for reasons that live in you.
 
 # Chapter 14 — Time and Where It Goes
 
-Ask someone where their money goes and they can usually give you a rough account. Ask where their time goes and you tend to get a pause, then something vague about being busy. This is odd, since time is the more limited of the two and the only one that cannot be replaced, borrowed or earned back.
+Ask somebody where their money goes and they can give you a rough account. Ask where their time goes and you get a pause, then something vague about being busy.
 
-The vagueness is not accidental. Time disappears in a way money doesn't, because there's no statement at the end of the month. It goes in fragments, twenty minutes here, a scrolled half hour there, an evening that somehow ended without anything happening in it, and none of the individual pieces are large enough to notice. Then a year has gone and you can't account for it, which is disconcerting enough that most people don't look.
+This is odd, given that time is the more limited of the two and the only one that cannot be replaced, borrowed or earned back.
 
-There's a second problem, which is the assumption of abundance. Everything you're putting off assumes a future that will be roomier than the present: when work calms down, when the children are older, when I retire. Some of that future arrives and it's never as spacious as forecast, because whatever is filling your time now is a habit rather than a temporary condition, and habits travel.
+The vagueness is not an accident. Time disappears in a way money does not, because no statement arrives at the end of the month. It goes in fragments: twenty minutes here, a scrolled half hour there, an evening that somehow ended without anything happening in it, and not one of those pieces is ever large enough to register as a loss at the moment it is being taken. Then a year has gone and you cannot account for it, which is unsettling enough that most people decide not to look.
 
-None of this argues for optimising every hour. Life measured in productive units is a miserable thing, and the people who track their time in fifteen-minute blocks are not conspicuously happier. The useful version is simpler: know roughly where it goes, spend it more deliberately on the things you'd defend, and be honest about how much of it is being taken by things you wouldn't.
+There is a second problem, which is the assumption of abundance. Everything you are putting off assumes a future roomier than the present. When work calms down. When the children are older. When I retire. Some of that future does arrive, and it is never as spacious as forecast, because whatever is filling your time now is a habit rather than a temporary condition, and habits travel.
 
-And then leave a decent amount of it unaccounted for, on purpose. That's not a failure of the system. It's most of the point.
+None of this is an argument for optimising every hour. A life measured in productive units is a miserable thing, and the people who track themselves in fifteen-minute blocks are not conspicuously happier than anyone else.
+
+The useful version is plainer. Know roughly where it goes. Spend it deliberately on the things you would defend. Be honest about how much is being taken by things you would not.
+
+Then leave a decent quantity of it unaccounted for, on purpose. That is not a failure of the system. That is most of the point.
 
 ---
 
 > "It is not that we have a short time to live, but that we waste much of it." — Seneca
 
-**What it means.** The complaint that life is too short is, in Seneca's view, usually a complaint about its length when the real issue is its use. A life is a substantial quantity of time. What's short is the portion anyone spends deliberately.
+**What it means.** The complaint that life is too short is, on Seneca's reading, a complaint about its length when the real trouble is its use. A life is a large quantity of time. What is short is the portion anybody spends on purpose.
 
-**How to use it.** Before saying you haven't got time for something, check whether that's true or whether it's a matter of priority. "I haven't time to read" and "I'd rather watch television" are different statements, and only one of them is fixable. Saying the accurate one is the start.
+**How to use it.** Before saying you have not got time for something, check whether that is true or whether it is a question of priority. "I haven't time to read" and "I'd rather watch television" are different statements and only one of them can be fixed. Saying the accurate one is where it starts.
 
 ---
 
 > "Lost time is never found again." — Benjamin Franklin
 
-**What it means.** Unlike almost everything else you can spend, time has no recovery mechanism. Money returns, health often returns, relationships can sometimes be repaired. The Tuesday evening is simply gone and there is no version of the future in which you get it back.
+**What it means.** Unlike almost everything else you can spend, time has no recovery mechanism. Money comes back. Health often comes back. Relationships can sometimes be repaired. The Tuesday evening is gone, and there is no version of the future in which it is returned to you.
 
-**How to use it.** Apply this specifically to waiting. The months spent waiting for someone to make a decision, for a situation to resolve itself, for conditions to improve. Waiting feels free and costs exactly the same as doing something. If you're going to wait, do it while doing something else.
+**How to use it.** Apply it to waiting. The months spent waiting for somebody to decide, for a situation to resolve itself, for conditions to improve. Waiting feels free and costs exactly what doing costs. If you are going to wait, wait while doing something else.
 
 ---
 
 > "How we spend our days is, of course, how we spend our lives." — Annie Dillard
 
-**What it means.** There is no separate category called "my life" distinct from what you did on Tuesday. The sum of the ordinary days is the whole thing, which means a life is being decided by choices too small to feel like choices.
+**What it means.** There is no separate category called "my life" sitting apart from what you did on Tuesday. The sum of the ordinary days is the whole of it, which means the thing is being decided quietly, in the background, by choices so small that none of them felt like a choice while you were making it.
 
-**How to use it.** Describe a typical day of yours out loud, honestly, and consider that this is the answer to what your life is. If the description bothers you, the thing to change is a Tuesday, not a five-year plan. Nothing else is available to change.
+**How to use it.** Describe a typical day of yours out loud, honestly, and take that as the answer to what your life is. If the description bothers you, the thing to change is a Tuesday rather than a five-year plan. There is nothing else available to change.
 
 ---
 
 > "Teach us to number our days, that we may apply our hearts unto wisdom." — Psalm 90:12
 
-**What it means.** Counting is presented as the route to wisdom rather than to alarm. Vague awareness of mortality changes nothing; an actual number is what makes you reconsider how you're spending the days you have.
+**What it means.** Counting is offered as the route to wisdom rather than to alarm. Vague awareness of mortality changes nothing at all. An actual number is what makes you reconsider how you are spending the days you have left.
 
-**How to use it.** Do one uncomfortable sum. If your parents are seventy and you see them four times a year, work out how many visits that leaves. People find this figure genuinely shocking, and it reliably changes behaviour where general good intentions never did.
+**How to use it.** Do one uncomfortable sum. If your parents are seventy and you see them four times a year, work out how many visits that leaves. People find the figure shocking, and it changes behaviour where a decade of good intentions did not.
 
 ---
 
 > "Ordinary people think merely of spending time. Great people think of using it." — Arthur Schopenhauer
 
-**What it means.** Time can be passed or it can be directed, and the difference isn't intensity. Someone lying in a garden on purpose is using their afternoon. Someone who has been on their phone for two hours without deciding to be is spending it.
+**What it means.** Time can be passed or it can be directed, and the difference is not intensity. Somebody lying in a garden on purpose is using their afternoon. Somebody who has been on their phone for two hours without ever deciding to is spending it.
 
-**How to use it.** The test isn't what you're doing but whether you chose it. Watching three episodes because you wanted to is fine. Watching three because the next one started automatically is not the same act. Choose the evening out loud, even if you choose exactly what you'd have done anyway.
+**How to use it.** The test is not what you are doing but whether you chose it. Three episodes because you wanted three episodes is fine. Three because the next one started on its own is not the same act. Choose the evening out loud, even when you choose exactly what you would have done anyway.
 
 ---
 
 > "Time and tide wait for no man." — Geoffrey Chaucer
 
-**What it means.** The world does not pause for your readiness. Children grow, parents age, opportunities close and bodies change, and none of it is contingent on you having got round to it.
+**What it means.** The world does not pause for your readiness. Children grow, parents age, opportunities close and bodies change, and none of it is waiting on you to have got round to it.
 
-**How to use it.** Identify the thing whose window is closing: a parent's health, a child's age, a body that can still do the trip. Those get priority over everything that will still be there in five years, which is most things. Do the perishable ones first.
+**How to use it.** Identify the thing whose window is closing: a parent's health, a child's age, a body that can still do the trip. Those take priority over everything that will still be there in five years, which is most things. Do the perishable ones first.
 
 ---
 
 > "Nothing is ours except time." — Seneca
 
-**What it means.** Everything else can be taken: money, position, possessions, reputation. Time is the one holding that is unambiguously yours, and it's the one people give away most readily, often to whoever asks first.
+**What it means.** Everything else can be taken. Money, position, possessions, reputation. Time is the one holding that is unambiguously yours, and it is the one people give away most readily, generally to whoever asks first.
 
-**How to use it.** Notice how differently you treat requests for your money and requests for your time. Most people would refuse to lend a hundred pounds to someone they'd cheerfully give a Saturday to. Apply a fraction of the financial caution to the diary and see what happens.
+**How to use it.** Notice the difference between how you treat a request for your money and a request for your time. Most people would refuse, without much awkwardness, to lend a hundred pounds to somebody they would hand a whole Saturday to without being asked twice. Apply a fraction of the financial caution to the diary and watch what happens.
 
 ---
 
 > "Better three hours too soon than a minute too late." — William Shakespeare
 
-**What it means.** The costs of being early and being late are not symmetrical. Early costs you a wait, which is recoverable and mildly dull. Late can cost you the thing entirely, and it costs someone else their time as well.
+**What it means.** The costs of being early and being late are not symmetrical. Early costs you a wait, which is recoverable and mildly dull. Late can cost you the thing entirely, and it spends somebody else's time as well as your own.
 
-**How to use it.** Build in more slack than feels reasonable for anything that matters: the train, the interview, the deadline. And carry something to do with the spare twenty minutes, so that the buffer stops feeling like a waste and becomes reading time you wouldn't otherwise have had.
+**How to use it.** Build in more slack than seems reasonable for anything that matters: the train, the interview, the deadline. Then carry something to do with the spare twenty minutes, so the buffer stops feeling like waste and turns into reading time you would not otherwise have had.
 
 ---
 
 > "The two most powerful warriors are patience and time." — Leo Tolstoy
 
-**What it means.** Some problems cannot be solved and can be outlasted. Grief, a difficult colleague, a bad market, a phase a child is going through. Time does work that no amount of intervention can, provided you don't exhaust yourself intervening.
+**What it means.** Some problems cannot be solved and can be outlasted. Grief. A difficult colleague. A bad market. A phase a child is going through. Time does work that no amount of intervention can, provided you have not exhausted yourself intervening.
 
-**How to use it.** Ask whether the thing in front of you needs solving or waiting out. If it's a phase, a mood, a temporary arrangement, doing less is the strategy. Recognising which problems are on a clock saves an extraordinary amount of misdirected effort.
+**How to use it.** Ask whether the thing in front of you needs solving or waiting out. If it is a phase, a mood, a temporary arrangement, then doing less is the strategy. Recognising which problems are on a clock saves an extraordinary amount of misdirected effort.
 
 ---
 
 > "One cannot step twice into the same river." — Heraclitus
 
-**What it means.** The river has moved on and so have you. Situations you're deferring will not be waiting in their current form, and returning to something after a decade means returning to a different thing, with a different version of yourself.
+**What it means.** The river has moved on and so have you. Situations you are deferring will not be waiting in their present form, and returning to something after a decade means returning to a different thing, as a different person, for different reasons.
 
-**How to use it.** Be careful with the plan to come back to something later. The city, the friendship, the ambition. Sometimes later works. But if what you want is this specific thing as it exists now, later is a different offer, and it's worth being clear about which one you're accepting.
+**How to use it.** Be careful with the plan to come back to something later. The city, the friendship, the ambition. Sometimes later works. But if what you want is this specific thing as it exists now, later is a different offer, and it is worth being clear about which one you are accepting.
 
 ---
 
 > "Dost thou love life? Then do not squander time, for that is the stuff life is made of." — Benjamin Franklin
 
-**What it means.** Not a productivity slogan. Time is being identified as the material rather than the container: life is not lived in time, it is made of it, which means wasting the one is directly wasting the other.
+**What it means.** Not a productivity slogan. Time is identified here as the material rather than the container: a life is not lived in time, it is made out of it, which means wasting one is directly wasting the other.
 
-**How to use it.** Find the single largest leak in your week and measure it honestly for seven days, using whatever your phone reports rather than your estimate. Almost everyone finds one activity consuming several hours a week that they wouldn't defend if asked. Halving one leak is worth more than any system.
+**How to use it.** Find the single largest leak in your week and measure it honestly for seven days, using whatever your phone reports rather than your own estimate. Almost everybody finds one activity eating several hours a week that they would not defend out loud. Halving one leak beats any system.
 
 ---
 
 > "The trouble is, you think you have time." — Buddhist saying
 
-**What it means.** Every deferral rests on an assumption about the future that is never examined and is occasionally wrong. The plan to do it later requires a later, and none of us has been issued one.
+**What it means.** Every deferral rests on an assumption about the future that never gets examined and is occasionally wrong. The plan to do it later requires a later, and none of us has been issued one.
 
-**How to use it.** Take one thing you've been postponing indefinitely, the visit, the letter, the apology, the appointment, and do it this week. Not everything. One. The list of things people regret is remarkably consistent, and it's almost entirely composed of things they assumed there'd be time for.
+**How to use it.** Take one thing you have been postponing indefinitely, the visit, the letter, the apology, the appointment, and do it this week. Not all of them. One. The list of things people regret is remarkably consistent, and it consists almost entirely of things they assumed there would be time for.
 
 ---
 
 > "Time is the wisest counsellor of all." — Pericles
 
-**What it means.** Time supplies information that no amount of deliberation can produce in advance. Whether a decision was right, whether a person was trustworthy, whether the thing that felt like a disaster was one: these are answered by waiting, not by thinking harder.
+**What it means.** Time supplies information that no amount of deliberation can produce in advance. Whether a decision was right, whether a person was trustworthy, whether the thing that felt like a disaster actually was one: those get answered by waiting, not by thinking harder about them.
 
-**How to use it.** On genuinely balanced decisions, give it a fortnight rather than more analysis. You're not delaying; you're gathering. Very often the answer becomes obvious in that period without any additional effort, simply because something happens that you couldn't have predicted.
+**How to use it.** On a genuinely balanced decision, give it a fortnight rather than more analysis. You are not delaying. You are gathering. The answer often becomes obvious in that period with no further effort from you, because something happens that you could not have predicted.
 
 ---
 
 > "Life is what happens to you while you're busy making other plans." — attributed to John Lennon
 
-**What it means.** The plan gets your attention and the unplanned parts turn out to be the substance. What people describe as the best of their lives is rarely the thing they were aiming at; it's what was going on alongside it while they weren't looking.
+**What it means.** The plan gets your attention and the unplanned parts turn out to be the substance. What people describe as the best years of their lives is rarely the thing they were aiming at. It is whatever was going on alongside it while they were looking elsewhere.
 
-**How to use it.** When you're deep in a big project, deliberately notice what's happening around it. The children, the friendships, the ordinary Thursday. The project has a completion date. The other things are happening now, once, and they're not waiting for it to finish.
+**How to use it.** When you are deep in a big project, deliberately notice what is happening around the edges of it. The children. The friendships. An ordinary Thursday. The project has a completion date. The other things are happening now, once, and they are not waiting for it to finish.
 
 ---
 
 > "Time you enjoy wasting is not wasted time." — Marthe Troly-Curtin
 
-**What it means.** Not all value is productive value. An afternoon spent doing nothing of consequence with someone you like is not a deduction from a life well spent. It may be the thing the rest was for.
+**What it means.** Not all value is productive value. An afternoon spent doing nothing of consequence with somebody you like is not a deduction from a life well spent. It may well be the thing all the rest of it was for.
 
-**How to use it.** Here is the exit. If reading this chapter has made you feel you should be doing something more useful, put it down and go and waste an evening on purpose. The account you're keeping is only worth keeping if some of it is spent on things that don't have to justify themselves.
+**How to use it.** Here is the exit. If reading this chapter has left you feeling that you ought to be doing something more useful, put it down and go and waste an evening on purpose. The account is only worth keeping if some of it goes on things that never have to justify themselves.
 
 
 # Part Four — The Long View
 
 # Chapter 15 — Getting Older
 
-Ageing does not announce itself. There is no morning when you wake up old. What happens instead is a series of small notifications spread over decades: a knee that complains on stairs it used to ignore, a reference nobody in the room recognises, the discovery that you are now the oldest person on the team, a parent who has become someone you look after.
+Ageing does not announce itself. There is no morning on which you wake up old. What happens instead is a series of small notifications spread across decades: a knee that comments on stairs it once ignored, a reference that nobody in the room recognises, the discovery that you have become the oldest person on the team, a parent who has turned into somebody you look after.
 
-Most of us handle this by not thinking about it, which works until it doesn't. The trouble with not thinking about it is that the decisions get made anyway, by default. The trip you'd do when you were fitter. The reconciliation you'd get round to. The thing you'd say to your father. Deferred often enough and they stop being deferred and become permanent, and the transition happens without a date attached.
+Most of us manage this by not thinking about it, which works until it does not. The difficulty with not thinking about it is that the decisions get made anyway, by default. The trip you would do when you were fitter. The reconciliation you would get round to. The thing you were going to say to your father one day when the moment was right and the two of you were on your own. Deferred often enough, they stop being deferred and become permanent, and the transition happens with no date attached to it.
 
-There is also a lot of unhelpful material on this subject. On one side, denial dressed as positivity: sixty is the new forty, age is just a number. On the other, a resigned dreariness that treats every decade past fifty as decline management. Neither is much use if you're actually in it. What seems truer is that some things genuinely get worse and some things genuinely get better, and the second list is longer than young people imagine: judgement, perspective, the ability to sit with difficulty, a substantially reduced interest in what strangers think of you.
+There is a great deal of unhelpful material on this subject. On one side, denial dressed as positivity: sixty is the new forty, age is only a number. On the other, a resigned dreariness that treats every decade past fifty as an exercise in decline management. Neither is much use to somebody actually in it.
 
-The other subject this chapter can't avoid is death, which is what makes people skip these pages. Worth saying plainly: thinking about mortality does not make you morbid, and the people who've done it tend to be conspicuously better at deciding what to do with a free weekend.
+What seems closer to true is that some things get worse and some get better, and the second list is longer than young people imagine: judgement, perspective, the capacity to sit with difficulty, and a substantially reduced interest in what strangers make of you.
 
-Everything here works better read early. It's addressed to someone with time to change their arrangements.
+The other subject this chapter cannot avoid is death, which is why people skip these pages. Worth saying plainly: thinking about mortality does not make you morbid, and the people who have done it are better at deciding what to do with a free weekend.
+
+All of it works better read early. It is addressed to somebody with time to change their arrangements.
 
 ---
 
 > "Do not act as if you had ten thousand years to live." — Marcus Aurelius
 
-**What it means.** Not an instruction to panic. It's a correction to a specific error in how we plan: we behave as though the supply of years is effectively unlimited, and so we place the important things in a future that keeps receding.
+**What it means.** Not an instruction to panic. A correction to a specific error in how we plan, which is that we behave as though the supply of years were effectively unlimited and so place the important things in a future that keeps moving away from us.
 
-**How to use it.** Look at what's currently in the "one day" category. Then move exactly one thing out of it and into a month with a date. Not all of them; the list is long and this isn't a crisis. Just demonstrate to yourself that the category is optional.
+**How to use it.** Look at what is currently in the "one day" category. Move exactly one thing out of it into a month, with a date. Not all of them; the list is long and this is not a crisis. Just demonstrate to yourself that the category is optional.
 
 ---
 
 > "It is not length of life, but depth of life." — Ralph Waldo Emerson
 
-**What it means.** Duration is largely outside your control, and it's also not the variable that determines whether a life felt full. Density is: how much of it you were present for, and how much passed while you were thinking about something else.
+**What it means.** Duration is mostly outside your control and is not the variable that determines whether a life felt full. Density is: how much of it you were present for, and how much went past while you were thinking about something else.
 
-**How to use it.** Notice that time feels fastest when every week resembles the last. Novelty slows it down: a new route, an unfamiliar place, a skill you're bad at. If the years are blurring, the answer isn't more years, it's more variety in the ones you're having.
+**How to use it.** Notice that time runs fastest when every week resembles the last. Novelty slows it down: a new route, an unfamiliar town, a skill you are bad at. If the years are blurring, the answer is not more years. It is more variety in the ones you are having.
 
 ---
 
 > "Nobody grows old merely by living a number of years. We grow old by deserting our ideals." — Samuel Ullman
 
-**What it means.** Ullman is separating age from ageing. What people identify as old, in someone of any age, is usually the closure of curiosity: the point where a person stops revising their views and starts defending them.
+**What it means.** Ullman separates age from ageing. What people identify as old, in somebody of any age at all, is the closure of curiosity: the point at which a person stops revising their views and begins defending them.
 
-**How to use it.** Keep at least one thing going that you're currently bad at. An instrument, a language, a sport. Being a beginner in public is unpleasant at fifty in a way it isn't at fifteen, and it's the most reliable thing you can do to stay recognisably yourself.
+**How to use it.** Keep at least one thing going that you are currently bad at. An instrument, a language, a sport with people much younger than you. Being a beginner in public is unpleasant at fifty in a way it never was at fifteen, and it is the most reliable thing you can do to stay recognisable to yourself.
 
 ---
 
 > "Life is long enough if you know how to use it." — Seneca
 
-**What it means.** Seneca's line lands differently depending on where you are, and it's genuinely consoling rather than admonishing. A standard life is a great deal of time. The complaint that there isn't enough is usually a complaint about how it's been allocated.
+**What it means.** The line lands differently depending on where you are standing, and it is meant as consolation rather than reproach. A standard life is a great deal of time. The complaint that there is not enough of it is usually a complaint about the allocation.
 
-**How to use it.** If you're forty-five and feel it's too late for something, do the arithmetic properly. Forty-five leaves you perhaps thirty-five years of decent health. That is longer than everything that's happened to you since you left school, and you did quite a lot in that.
+**How to use it.** If you are forty-five and feel it is too late for something, do the arithmetic properly. Forty-five leaves perhaps thirty-five years of decent health. That is longer than everything that has happened to you since you left school, and you managed a considerable amount in that.
 
 ---
 
 > "Remember that you must die." — memento mori
 
-**What it means.** Two words, painted into pictures and carved into clocks for centuries, and not intended to depress anyone. Held lightly, mortality is a filter: it makes the trivial obviously trivial, quickly, without argument.
+**What it means.** Two words, painted into pictures and carved onto clocks for centuries, and never intended to depress anybody. Held lightly, mortality works as a filter. It makes the trivial obviously trivial, at speed, without any argument.
 
-**How to use it.** Stuck on a decision that's tying you in knots, ask whether it will have mattered at the end. Most things won't, which is liberating rather than bleak. It's also a good test for grudges, status worries and the thing you're embarrassed about.
+**How to use it.** Stuck on a decision that is tying you in knots, ask whether it will have mattered at the end. Most things will not, which is freeing rather than bleak. It also works well on grudges, on status worries, and on the thing you have been embarrassed about since March.
 
 ---
 
 > "The old believe everything; the middle-aged suspect everything; the young know everything." — Oscar Wilde
 
-**What it means.** A joke about how certainty moves across a life. Wilde's ordering is deliberately unflattering to everyone, and the useful part is the middle: suspicion of everything is its own trap, and it's where a lot of people get stuck for thirty years.
+**What it means.** A joke about how certainty travels across a life, and Wilde's ordering is unflattering to everybody. The useful part is the middle. Suspicion of everything is its own trap, and it is where a great many people get stuck for thirty years.
 
-**How to use it.** Watch for cynicism arriving disguised as experience. "I've seen this before" is sometimes wisdom and sometimes a refusal to look. If your first response to new things has become a reason they won't work, that's not judgement maturing, it's curiosity closing.
+**How to use it.** Watch for cynicism arriving disguised as experience. "I've seen this before" is sometimes wisdom and sometimes a refusal to look. If your first response to new things has become a reason they will not work, that is not judgement maturing. That is curiosity closing.
 
 ---
 
 > "The years teach much which the days never know." — Ralph Waldo Emerson
 
-**What it means.** Some understanding is only available at a distance. Patterns in your own behaviour, the real significance of things that happened, which people mattered: none of it is visible from inside the week, and all of it becomes obvious later.
+**What it means.** Some understanding is only available at a distance. Patterns in your own behaviour, the real significance of things that happened, which people mattered and which merely took up room: none of it visible from inside the week, all of it obvious later.
 
-**How to use it.** When you're too close to something to judge it, accept that you're too close and stop trying. Ask what someone would make of this in ten years. It's not a trick to gain perspective; it genuinely produces a different answer, and usually a calmer one.
+**How to use it.** When you are too close to something to judge it, accept that you are too close and stop trying to judge it. Ask what somebody would make of this in ten years. That is not a trick for gaining perspective. It produces a different answer, and generally a calmer one.
 
 ---
 
 > "As long as we are alive, death is not; when death comes, we are not." — Epicurus
 
-**What it means.** The argument is that death cannot be experienced, so there is no moment at which it happens to you. Whether this dissolves the fear varies enormously by person, and it's worth having as an option.
+**What it means.** The argument is that death cannot be experienced, so there is no moment at which it happens to you. Whether it dissolves the fear varies from person to person, and it is worth having in the drawer.
 
-**How to use it.** If you're kept awake by it, notice that what most people fear is not non-existence but the run-up: pain, dependence, leaving people unprovided for. Those are practical problems with practical responses. Separating them from the metaphysical part makes both more manageable.
+**How to use it.** If it keeps you awake, notice that what most people fear is not non-existence but the run-up: pain, dependence, leaving somebody unprovided for. Those are practical problems with practical responses, and separating them from the metaphysical part makes both easier to carry.
 
 ---
 
 > "Grow old along with me! The best is yet to be." — Robert Browning
 
-**What it means.** Written as a defence of later life against the assumption that everything good is at the front. It's optimistic rather than naive: Browning's claim is that the later part has its own advantages, and they're not consolation prizes.
+**What it means.** Written as a defence of later life against the assumption that all the good parts are at the front. It is optimistic rather than naive: Browning's claim is that the later section has advantages of its own, and that they are not consolation prizes.
 
-**How to use it.** List what's actually better now than at twenty-five. Most people can produce a substantial list: money, competence, better friendships, the end of caring what a room thinks. Read it whenever the culture tells you the good part is over. The evidence of your own life is more reliable.
+**How to use it.** List what is better now than it was at twenty-five. Most people produce a long list: money, competence, better friendships, the end of caring what a room thinks of them. Read it whenever the culture tells you the good part is over. Your own evidence is more reliable.
 
 ---
 
 > "The whole life of a philosopher is a preparation for death." — Cicero
 
-**What it means.** Preparation here isn't gloom, it's practical: getting your affairs in order, saying what needs saying, resolving what can be resolved. The people who do this are typically less anxious, not more.
+**What it means.** Preparation here is not gloom. It is practical: getting your affairs in order, saying what needs saying, resolving what can still be resolved. The people who do this turn out to be less anxious rather than more.
 
-**How to use it.** Do the administrative version this year. A will, an expression of wishes, a conversation about what you'd want. It takes an afternoon, removes a background hum you'd stopped noticing, and spares people you love a set of decisions they'd have to make while grieving.
+**How to use it.** Do the administrative version this year. A will, an expression of wishes, one conversation about what you would want. It takes an afternoon, removes a background hum you had stopped noticing, and spares the people you love a set of decisions they would otherwise have to make while grieving.
 
 ---
 
 > "Honour thy father and thy mother." — Exodus 20:12
 
-**What it means.** However you feel about the source, the instruction becomes concrete and urgent at a particular stage of life, and it arrives at a point where the relationship has usually become complicated and the time remaining is finite.
+**What it means.** However you feel about the source, the instruction becomes concrete and urgent at a particular stage of life, and it arrives at the point where the relationship has usually become complicated and the time remaining is finite.
 
-**How to use it.** Ask the questions while you can. Where the family came from, what their childhood was like, what they were frightened of at your age. People report this as among the few things they don't regret, and the window for it closes without notice.
+**How to use it.** Ask the questions while you can. Where the family came from, what their childhood was like, what frightened them at your age. People report this among the few things they do not regret, and the window closes without warning.
 
 ---
 
 > "Anyone who stops learning is old, whether at twenty or eighty. Anyone who keeps learning stays young." — attributed to Henry Ford
 
-**What it means.** The claim is about the direction you're facing rather than the birth date. Learning keeps you oriented forwards, which is what people are actually describing when they say someone seems young.
+**What it means.** The claim is about the direction you are facing rather than the date on your birth certificate. Learning keeps you oriented forwards, and that orientation is what people are describing when they say somebody seems young.
 
-**How to use it.** Pick one genuinely new thing a year, chosen because it interests you rather than because it's useful. Nothing has to come of it. The point is the ongoing experience of being a person who doesn't yet know something and is finding out.
+**How to use it.** Pick one genuinely new thing a year, chosen because it interests you rather than because it is useful. Nothing has to come of it. The point is the ongoing experience of being a person who does not yet know something and is going about finding out.
 
 ---
 
 > "Age is a matter of feeling, not of years." — George William Curtis
 
-**What it means.** Half true, and worth holding as half. Your own sense of yourself does more than the number to determine how you live. It also doesn't repeal biology, and the version of this idea that ignores the body is a trap.
+**What it means.** Half true, and worth holding as half. Your own sense of yourself does more than the number to determine how you live. It also does not repeal biology, and the version of this idea that ignores the body is a trap that closes slowly.
 
-**How to use it.** Take the feeling seriously and take the maintenance seriously too. Sleep, strength, the appointments you keep postponing. The people who stay active into their eighties are not the ones who ignored their bodies; they're the ones who attended to them early and unglamorously.
+**How to use it.** Take the feeling seriously and take the maintenance seriously too. Sleep, strength, the appointments you keep putting off. The people still active in their eighties are not the ones who ignored their bodies. They are the ones who attended to them early, and dully, for years.
 
 ---
 
 > "It is not death that a man should fear, but he should fear never beginning to live." — Marcus Aurelius
 
-**What it means.** The greater loss is described as an unlived life rather than a finished one. Most of what people regret at the end is omission: the things not attempted, not said, not risked, all deferred for reasons that seemed adequate at the time.
+**What it means.** The greater loss is named as an unlived life rather than a finished one. What people regret at the end is omission: things not attempted, not said, not risked, each one deferred for reasons that seemed adequate at the time and cannot be reconstructed afterwards.
 
-**How to use it.** Ask what you'd regret if it stopped soon. Not the abstract answer, the specific one. Then notice that you already knew, that you've known for a while, and that the only thing standing between you and it is a series of ordinary weeks like this one.
+**How to use it.** Ask what you would regret if it stopped soon. Not the abstract answer. The specific one. Then notice that you already knew, that you have known for a while, and that what stands between you and it is a series of ordinary weeks exactly like this one.
 
 ---
 
 > "Old age is a tyrant which forbids, upon pain of death, all the pleasures of youth." — François de La Rochefoucauld
 
-**What it means.** A blunt line and a corrective to everything above. Ageing takes real things away, and there's no reading of it that makes the losses good. Pretending otherwise is an insult to anyone actually experiencing them.
+**What it means.** A blunt line, and a corrective to everything above it. Ageing takes real things away and there is no reading of it that makes the losses good. Pretending otherwise insults anybody in the middle of them.
 
-**How to use it.** The chapter lets you go here. You are not obliged to be serene about this. Resenting the knees, the tiredness, the funerals of friends is a reasonable response to a genuine loss, and refusing to perform gratitude about it doesn't mean you've failed at ageing well.
+**How to use it.** The chapter lets you go here. You are not obliged to be serene about this. Resenting the knees, the tiredness and the funerals of friends is a reasonable response to genuine loss, and declining to perform gratitude about it does not mean you are ageing badly.
 
 # Chapter 16 — What Actually Matters
 
-The question in the title is unanswerable in general and quite answerable in particular, which is the only useful thing this chapter has to offer. Nobody can tell you what matters. What can be observed is that people's stated priorities and their actual ones tend to differ substantially, and that the gap is visible in a diary and a bank statement long before it's visible to the person living it.
+The question in the title cannot be answered in general and can be answered in particular, which is the only useful thing this chapter has to offer. Nobody can tell you what matters. What can be observed is that the priorities people state and the priorities they act on come apart, and that the gap between the two shows up in a diary and a bank statement years before it becomes visible to the person living inside it.
 
-There is a fairly consistent finding from those who work with the dying, and it has the advantage of being empirical rather than philosophical. People do not, in the last weeks, wish they had worked more, earned more or won more arguments. They talk about the people they loved and whether they said so, about not having lived as themselves, about time given to things they didn't care about because they felt obliged. It's a short list and it's remarkably stable across very different lives.
+There is a finding from people who work with the dying, and it has the advantage of being empirical rather than philosophical. In the last weeks, nobody wishes they had worked more, earned more, or won more arguments. They talk about the people they loved and whether they ever said so, about not having lived as themselves, about the time given to things they did not care about because they felt obliged.
 
-This is useful information, delivered slightly too late for the people supplying it. The whole value of hearing it early is the chance to act on it while it's still cheap: a phone call rather than a deathbed reconciliation, a change of direction at forty rather than a regret at eighty.
+It is a short list. It stays much the same across very different lives.
 
-What follows is the closing chapter, and it deliberately avoids telling you what to conclude. The quotations disagree with each other in places, which is honest. Some point towards service, some towards character, some towards the modest business of tending what's in front of you.
+Which is useful information, arriving slightly too late for the people supplying it. The whole value of hearing it early is the chance to act while it is still cheap: a phone call rather than a deathbed reconciliation, a change of direction at forty rather than a regret at eighty.
 
-The last entry lets you off. By that point you'll have read two hundred and forty pieces of advice, which is considerably more than anyone needs, and the useful next step is not to read another one.
+What follows is the closing chapter and it declines to tell you what to conclude. The quotations disagree with each other in places, which is honest. Some point towards service, some towards character, some towards the modest business of tending whatever is in front of you.
+
+The last entry lets you off. By then you will have read two hundred and forty pieces of advice, which is a great deal more than anybody needs, and the right next step is not to read another one.
 
 ---
 
 > "The unexamined life is not worth living." — Socrates
 
-**What it means.** Said at his trial, with his life at stake, so he meant it. The claim is that a life lived entirely on autopilot, absorbing its values from whatever was nearby, is missing the thing that makes it yours.
+**What it means.** Said at his trial with his life on the line, so he meant it. The claim is that a life lived on autopilot, absorbing its values from whatever happened to be nearby, is missing the thing that would make it yours.
 
-**How to use it.** Once a year, ask where your current priorities came from. Some you chose. Others arrived from your parents, your industry, or whoever you happened to be near at twenty-five. The ones you didn't choose are worth examining, and some of them won't survive it.
+**How to use it.** Once a year, ask where your current priorities came from. Some you chose. Others arrived from your parents, your industry, or whoever you happened to be standing near at twenty-five. The ones you did not choose are worth examining, and a few will not survive it.
 
 ---
 
 > "Waste no more time arguing about what a good man should be. Be one." — Marcus Aurelius
 
-**What it means.** An impatient line from someone with limited time for theory. Working out the correct position on how to live is infinitely extendable and produces nothing. The alternative is available immediately and doesn't require you to have finished thinking.
+**What it means.** An impatient line from somebody with limited time for theory. Working out the correct position on how to live is infinitely extendable and produces nothing. The alternative is available immediately and does not require you to have finished thinking.
 
-**How to use it.** Take whatever you already know you should do, and you do know, and do that this week rather than reading more about it. The gap in most lives is not knowledge. Nobody is failing to be kind because they haven't yet encountered the argument for kindness.
+**How to use it.** Take whatever you already know you should do, and you do know, and do that this week instead of reading more about it. The gap in most lives is not knowledge. Nobody is failing to be kind because they have not yet encountered the argument for kindness.
 
 ---
 
 > "No man is an island, entire of itself; every man is a piece of the continent." — John Donne
 
-**What it means.** Independence is largely a story we tell. Everything you have came through other people: the language, the work, the roads, the person who taught you to read. Isolation is possible and it's a subtraction, not an achievement.
+**What it means.** Independence is a story we tell ourselves. Everything you have came through other people: the language you are reading this in, the work, the roads, the person who sat with you at six while you learned which sound the letters made. Isolation is achievable, and it is a subtraction rather than an achievement.
 
-**How to use it.** Count how many people you spoke to properly this week. If the number is low and has been low for months, treat it as a problem on the level of a health problem, because it is one. Connection is not a luxury item to be added once things settle down.
+**How to use it.** Count how many people you spoke to properly this week. If the number is low and has been low for months, treat that as a problem on the level of a health problem, because it is one. Connection is not a luxury item to be added once things settle down.
 
 ---
 
 > "Vanity of vanities; all is vanity." — Ecclesiastes 1:2
 
-**What it means.** The most bracing line in the Bible, and the book it comes from is oddly cheerful about it. Everything is temporary, ambition included, and rather than despairing, the writer concludes that you should eat your bread, do your work and enjoy your life.
+**What it means.** The most bracing line in the Bible, and the book it comes from is oddly cheerful about it. Everything is temporary, ambition included, and rather than despairing the writer concludes that you should eat your bread, do your work, and enjoy your life.
 
-**How to use it.** Apply it to whatever you're currently anxious about achieving. In a hundred years nobody will know. That's not a reason to do nothing; it's a reason to stop treating it as a verdict on your worth, and to enjoy the doing rather than staking everything on the result.
+**How to use it.** Apply it to whatever you are anxious about achieving. In a hundred years nobody will know. That is not a reason to do nothing. It is a reason to stop treating it as a verdict on your worth, and to enjoy the doing rather than staking everything on the result.
 
 ---
 
 > "Three things in human life are important. The first is to be kind. The second is to be kind. The third is to be kind." — Henry James
 
-**What it means.** The repetition is the argument. James isn't ranking kindness first among several qualities; he's saying it occupies all three positions, and that most of what people substitute for it is a way of feeling good without the inconvenience.
+**What it means.** The repetition is the argument. James is not ranking kindness first among several qualities. He is saying it occupies all three positions, and that most of what people substitute for it is a way of feeling good without the inconvenience.
 
-**How to use it.** Test it against cost. Kindness that costs you nothing is politeness, which is fine and isn't this. The real version costs time, money, or the discomfort of getting involved. Once a week, do one that actually costs something and notice how much it changes the week.
+**How to use it.** Test it against cost. Kindness that costs you nothing is politeness, which is fine and is not this. The real version costs time, or money, or the discomfort of getting involved in something. Once a week, do one that actually costs, and notice what it does to the week.
 
 ---
 
 > "He who has a why to live can bear almost any how." — Friedrich Nietzsche
 
-**What it means.** Meaning functions as load-bearing structure. People endure extraordinary difficulty when it's in service of something they've chosen, and they're flattened by much less when it isn't attached to anything.
+**What it means.** Meaning works as load-bearing structure. People endure extraordinary difficulty when it serves something they chose, and they are flattened by much less when it is attached to nothing they can name.
 
-**How to use it.** If something has become unbearable, check whether the problem is the difficulty or the pointlessness. Hard work for a reason you believe in is tiring. Hard work for no reason you can name is corrosive, and the fix is different: you need a why, not a rest.
+**How to use it.** When something has become unbearable, check whether the problem is the difficulty or the pointlessness. Hard work for a reason you believe in is tiring. Hard work for no reason you can state is corrosive, and the remedy is different: you need a why, not a rest.
 
 ---
 
 > "Wherever there is a human being, there is an opportunity for kindness." — Seneca
 
-**What it means.** The opportunities are not rare, dramatic or in need of seeking out. They are continuous and mostly small, which is exactly why they're missed: we're waiting for something significant enough to count.
+**What it means.** The opportunities are not rare, dramatic, or in need of seeking out. They are continuous and small, which is why they get missed. We are waiting for something significant enough to count.
 
-**How to use it.** Use the next dull interaction. The person at the till, the call handler, the neighbour you nod at. Not a grand gesture, thirty seconds of treating them as a person. It's the cheapest available improvement to a day, and it works on yours as well as theirs.
+**How to use it.** Use the next dull interaction. The person at the till, the call handler, the neighbour you nod at. Not a grand gesture. Thirty seconds of treating them as a person. It is the cheapest improvement available to a day, and it works on yours as well as theirs.
 
 ---
 
 > "Character is what you are in the dark." — D.L. Moody
 
-**What it means.** The behaviour that counts is the unobserved kind: what you do when there's no consequence, no audience and no record. Everything else is at least partly performance, however sincere it feels.
+**What it means.** The behaviour that counts is the unobserved kind: what you do when there is no consequence, no audience and no record being kept anywhere. Everything else is part performance, however sincerely it is meant at the time.
 
-**How to use it.** Watch the moments with no witnesses. The extra change you were given. The form nobody will check. The anonymous person you could be rude to for free. Nothing hangs on any of them individually, and together they're a fair description of who you are.
+**How to use it.** Watch the moments with no witnesses. The extra change you were given. The form nobody will check. The anonymous person you could be rude to for free. Nothing hangs on any one of them, and together they are a fair description of who you are.
 
 ---
 
 > "How wonderful it is that nobody need wait a single moment before starting to improve the world." — Anne Frank
 
-**What it means.** Written by a teenager in hiding, which is the context that makes it credible rather than sentimental. There is no qualification to be obtained, no position to reach, no permission required before you can start doing something useful.
+**What it means.** Written by a teenager in hiding, which is the context that makes it credible rather than sentimental. There is no qualification to obtain, no position to reach and no permission required before you can start doing something useful.
 
-**How to use it.** Pick something small, local and real, and do it now rather than waiting until you have more capacity. An hour a month somewhere it's needed. The scale of the problem is not an argument against the contribution; it's the reason people never make one.
+**How to use it.** Pick something small, local and real, and do it now instead of waiting until you have more capacity. An hour a month somewhere it is needed. The scale of the problem is not an argument against the contribution. It is the reason most people never make one.
 
 ---
 
 > "A society grows great when old men plant trees whose shade they know they shall never sit in." — Greek proverb
 
-**What it means.** Some of the best things you can do have their payoff after you're gone. That is not a flaw in the arrangement; it's the mechanism by which anything lasting gets built, and every generation is sitting under someone else's tree.
+**What it means.** Some of the best things you can do pay off after you have gone. That is not a flaw in the arrangement. It is the mechanism by which anything lasting gets built, and every generation alive today is sitting in shade planted by people it never met, complaining about the weather.
 
-**How to use it.** Do one thing this year with a payoff you won't see: teach someone younger, mend something properly, plant something slow. The absence of a return is what makes it worth doing, and it's an unexpectedly good antidote to feeling that everything is transactional.
+**How to use it.** Do one thing this year with a payoff you will not see. Teach somebody younger. Mend something properly. Plant something slow. The absence of a return is what makes it worth doing, and it is an unexpectedly good antidote to the feeling that everything is a transaction.
 
 ---
 
 > "It is easier to build strong children than to repair broken men." — Frederick Douglass
 
-**What it means.** Intervening early is cheaper, kinder and more effective than fixing damage later. True of children and true of nearly everything else: the small correction now, the conversation before it becomes a rupture, the repair before it's a replacement.
+**What it means.** Intervening early is cheaper, kinder and more effective than repairing damage later. True of children and true of nearly everything else: the small correction now, the conversation before it becomes a rupture, the repair before it becomes a replacement.
 
-**How to use it.** Look for where you're waiting for something to become serious enough to address. The friendship that's cooling, the habit that's growing, the child who's gone quiet. The early version takes an hour. The late version takes years and doesn't always work.
+**How to use it.** Look for where you are waiting for something to become serious enough to address. The friendship going cold. The habit growing. The child who has gone quiet. The early version takes an hour. The late version takes years and does not always work.
 
 ---
 
 > "To be trusted is a greater compliment than to be loved." — George MacDonald
 
-**What it means.** Love can be given for reasons unconnected to your conduct. Trust has to be earned, in specific instances, over time, and it's the closest thing to an objective assessment of your character that you'll ever receive.
+**What it means.** Love can be given for reasons that have nothing to do with your conduct. Trust has to be earned, in specific instances, over time, and it is the closest thing to an objective assessment of your character that you will ever be handed.
 
-**How to use it.** Notice what people bring to you. If they bring you problems, secrets and hard questions, that's a verdict, and a good one. If they don't, ask what you've done with the things they've brought before. Trust is granted by evidence and withdrawn the same way.
+**How to use it.** Notice what people bring you. If they bring problems, secrets and hard questions, that is a verdict and a good one. If they do not, ask what you did with the things they brought before. Trust is granted on evidence and withdrawn the same way.
 
 ---
 
 > "What we have done for ourselves alone dies with us; what we have done for others and the world remains." — Albert Pike
 
-**What it means.** A rough test for durability. What you accumulate stops mattering fairly promptly. What you did for other people continues in them, gets passed on, and outlasts any record of where it came from.
+**What it means.** A rough test for durability. What you accumulate stops mattering fairly promptly. What you did for other people continues inside them, gets passed on, and outlasts any record of where it came from.
 
-**How to use it.** Think about who influenced you most, then ask whether they knew. Almost certainly not, and the thing they did was probably ordinary and unmemorable to them. You are currently doing this for someone. It's worth being deliberate about, given that you'll never find out.
+**How to use it.** Think about who influenced you most, then ask whether they ever knew. Almost certainly not, and the thing they did was ordinary to them, unmemorable, quite possibly a single sentence said in passing on a day they have entirely forgotten. You are doing this for somebody right now. Worth being deliberate about, given that you will never find out.
 
 ---
 
 > "Let us cultivate our garden." — Voltaire
 
-**What it means.** The last line of Candide, after every grand theory of how the world works has been tested and found wanting. The conclusion isn't despair. It's that useful work on the small patch in front of you is what's actually available, and it's enough.
+**What it means.** The last line of Candide, arrived at after every grand theory of how the world works has been tested and found wanting. The conclusion is not despair. It is that useful work on the small patch in front of you is what is actually available, and that it is enough.
 
-**How to use it.** Overwhelmed by things you can't affect, the news, the state of everything, turn to what's within arm's reach. Your family, your street, your work, the person in front of you. This isn't retreat from the big questions. It's the only place anyone has ever been able to answer them.
+**How to use it.** Overwhelmed by things you cannot affect, the news, the state of everything, turn to what is within arm's reach. Your family, your street, your work, the person in front of you. This is not a retreat from the big questions. It is the only place anybody has ever managed to answer them.
 
 ---
 
 > "The unlived life is not worth examining." — Adam Phillips
 
-**What it means.** Phillips is inverting Socrates, and the joke has a point. Examination is meant to serve living, and it's entirely possible to spend years thinking carefully about how to live as a substitute for doing it.
+**What it means.** Phillips is inverting Socrates, and the joke has a point inside it. Examination is meant to serve living, and it is entirely possible to spend years thinking carefully about how to live as a substitute for getting on with it.
 
-**How to use it.** This is the exit, from the chapter and from the book. You have now read a great deal of advice. The correct response to most of it is not further reflection. Close this, ring someone you've been meaning to ring, and let the rest of it come back to you when you need it.
+**How to use it.** This is the exit, from the chapter and from the book. You have read a great deal of advice. The correct response to most of it is not further reflection. Close this, ring somebody you have been meaning to ring, and let the rest come back to you when you need it.
 
 # A Note on Attribution
 
