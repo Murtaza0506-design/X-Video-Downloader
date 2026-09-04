@@ -50,6 +50,7 @@ p:last-child{margin-bottom:0}
 .camera{transform-style:preserve-3d;will-change:transform}
 .book{position:relative;width:0;height:0;transform-style:preserve-3d;will-change:transform}
 .book.is-settling{transition:transform .5s cubic-bezier(.3,.02,.2,1)}
+.book.is-shifting{transition:transform .34s cubic-bezier(.3,.02,.2,1)}
 
 .slab{position:absolute;transform-style:preserve-3d;backface-visibility:hidden}
 
@@ -184,6 +185,8 @@ p:last-child{margin-bottom:0}
   box-shadow:-2px -2px 7px rgba(0,0,0,.22);
 }
 .face--recto:hover .corner,.corner.is-hot{opacity:1}
+/* nothing hovers on a touch screen, so the corner has to declare itself */
+@media (hover:none){ .corner{opacity:.9} }
 
 /* ---------------- text inside a page ---------------- */
 .pg{font-size:17px;line-height:1.52;color:var(--ink)}
@@ -304,6 +307,13 @@ p:last-child{margin-bottom:0}
 }
 .edge-read.is-live{opacity:.85}
 @media (max-height:430px){ .edge--x,.edge-y{display:none} }
+/* a laid-down phone has no height to spare: the controls give some back */
+@media (max-height:480px){
+  .hud__title{display:none}
+  .hud{padding:.35rem .5rem;gap:.3rem}
+  .btn{font-size:.62rem;letter-spacing:.05em;padding:.28rem .4rem}
+  .btn--icon{padding:.28rem .44rem}
+}
 
 .sheet{
   position:fixed;inset:0;z-index:60;display:none;
@@ -339,9 +349,14 @@ mark{background:#E6D08A;color:#191C1B;padding:0 .1em;border-radius:1px}
 @media (max-width:640px){
   .hud__title{display:none}
   .hint{font-size:.55rem}
+  /* six controls on a phone: smaller, and allowed to wrap rather than run
+     off the edge */
+  .hud{flex-wrap:wrap;gap:.35rem;padding:.5rem .55rem}
+  .btn{font-size:.67rem;letter-spacing:.05em;padding:.34rem .45rem}
+  .btn--icon{padding:.34rem .5rem}
 }
 @media (prefers-reduced-motion:reduce){
-  .book.is-settling,.leaf.is-settling{transition-duration:.001ms}
+  .book.is-settling,.book.is-shifting,.leaf.is-settling{transition-duration:.001ms}
 }
 </style>
 
@@ -451,7 +466,7 @@ var FLOW_HTML = (function(){
 var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1,padX:0,padY:0};
 var STACK = 18;
 var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,panX:0,panY:0,
-         mark:null,ribbonDrag:false,turning:null};
+         mark:null,ribbonDrag:false,turning:null,focus:0};
 var faces = {};
 var starts = {};
 
@@ -474,10 +489,28 @@ function makeFace(cls){
 // book is drawn, never how the type is set.
 var PAGE = {w:430, h:628};
 
+/* A phone cannot show a whole spread at a size anyone would read. So on a
+   narrow screen the book is framed a page at a time and drawn twice as large.
+   The type is not re-set: page 41 holds the same words it holds on a laptop,
+   the camera simply sits closer and a swipe steps across the spread. */
 function fitView(){
   var vw = window.innerWidth, vh = window.innerHeight;
-  G.fit = Math.min(1, (vw*0.94)/(2*G.pw + G.T*2), (vh*0.9)/G.ph);
+  // the controls sit above the book and the page number below it, so the
+  // height the book may take is the window less those two strips
+  var room = Math.max(vh - 72, vh*0.55);
+  var spread = Math.min(1, (vw*0.94)/(2*G.pw + G.T*2), room/G.ph);
+  var one    = Math.min(1, (vw*0.94)/(G.pw + G.T), room/G.ph);
+  var was = G.single;
+  // only when framing one page actually buys size: in landscape the height
+  // is the constraint, and halving the view would gain nothing
+  G.single = spread < 0.62 && one > spread * 1.15;
+  G.fit = G.single ? one : spread;
   applyView();
+  var hint = document.getElementById("hint");
+  if(hint) hint.textContent = G.single
+    ? "Swipe to turn the page \u00b7 drag the desk to turn the book \u00b7 pinch to zoom"
+    : "Drag to turn the book \u00b7 drag a page corner to turn it \u00b7 scroll or pinch to zoom where you point";
+  if(was !== G.single && faces.verso) paint();
 }
 
 function layout(){
@@ -630,16 +663,19 @@ function paint(){
   faces.ribbon.querySelector(".ribbon__band").style.display = onMark ? "block" : "none";
 
   if(S.open){
-    var want = "#p" + (S.spread*2 + 1);
+    var want = "#p" + (S.spread*2 + 1 + (G.single ? S.focus : 0));
     if(location.hash !== want){
       try{ history.replaceState(null, "", want); }catch(e){}
     }
   }
-  document.getElementById("where").textContent = S.open
-    ? "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages
-    : "Closed \u00b7 drag the cover to open";
+  document.getElementById("where").textContent = !S.open
+    ? "Closed \u00b7 drag the cover to open"
+    : G.single
+      ? "Page " + Math.min(L+1+S.focus, S.pages) + " of " + S.pages
+      : "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages;
   applyView();
   store("lwk3:spread", String(S.spread));
+  store("lwk3:focus", String(S.focus));
 }
 
 function applyView(){
@@ -648,7 +684,9 @@ function applyView(){
   S.panY = clamp(S.panY, -lim, lim);
   camera.style.transform = "translate("+S.panX.toFixed(1)+"px,"+S.panY.toFixed(1)+
     "px) scale("+(G.fit*S.zoom).toFixed(3)+")";
-  var shift = S.open ? 0 : -G.pw/2;
+  var shift = !S.open ? -G.pw/2
+            : G.single ? (S.focus ? -G.pw/2 : G.pw/2)
+            : 0;
   book.style.transform = "translateX("+shift+"px) rotateX("+S.rx.toFixed(2)+
     "deg) rotateY("+S.ry.toFixed(2)+"deg)";
 }
@@ -759,7 +797,10 @@ function settleTurn(commit){
     faces.leafBack.style.display = "none";
     faces.leaf.style.display = "none";
     S.turning = null;
-    if(commit) S.spread += dir;
+    if(commit){
+      S.spread += dir;
+      if(G.single) S.focus = dir > 0 ? 0 : 1;
+    }
     paint();
   };
   (function step(now){
@@ -787,6 +828,26 @@ function turnBy(dir){
   if(S.turning) return;
   if(!beginTurn(dir)) return;
   settleTurn(true);
+}
+// Frame the other page of the spread. A swipe slides across; a turn has
+// already carried the eye, so that one lands without the slide.
+function setFocus(f, slide){
+  if(!G.single || S.focus === f) return;
+  S.focus = f;
+  if(slide){
+    book.classList.add("is-shifting");
+    setTimeout(function(){ book.classList.remove("is-shifting"); }, 360);
+  }
+  paint();
+}
+// One step forward or back: on a narrow screen that is one page, otherwise
+// one spread.
+function stepBy(dir){
+  if(!S.open) return;
+  if(!G.single){ turnBy(dir); return; }
+  if(dir > 0 && S.focus === 0){ setFocus(1, true); return; }
+  if(dir < 0 && S.focus === 1){ setFocus(0, true); return; }
+  turnBy(dir);
 }
 
 /* ---------- opening and closing the covers ---------- */
@@ -846,6 +907,24 @@ function zoomCentre(next){
 }
 
 /* ---------- pointer: orbit, corner drag, cover drag ---------- */
+/* How far a finger has to travel to carry a page all the way over. It follows
+   the spread as it appears on screen, but never asks for more than the screen
+   can give: zoomed in, the book is wider than the window, and a turn that
+   wanted half a spread of travel could not be finished at all. */
+function dragSpan(){
+  var onScreen = (2*G.pw*G.fit*S.zoom) || 600;
+  var reach = Math.max(220, window.innerWidth * 0.45);
+  return Math.max(90, Math.min(onScreen, reach));
+}
+/* Speed is measured over the last 90ms of the drag rather than the last
+   event: browsers deliver moves in bursts, and two of them can carry the
+   same timestamp. */
+function trailSpeed(tr){
+  var last = tr[tr.length-1], i = tr.length-1;
+  while(i > 0 && last[1] - tr[i-1][1] < 90) i--;
+  var dt = last[1] - tr[i][1];
+  return dt > 0 ? (last[0] - tr[i][0])/dt : 0;
+}
 var drag = null;
 stage.addEventListener("pointerdown", function(ev){
   if(ev.button && ev.button !== 1) return;
@@ -856,12 +935,15 @@ stage.addEventListener("pointerdown", function(ev){
   var onRibbon = ev.target.closest(".ribbon__band,.ribbon__tail");
   var onRecto = S.open && !onRibbon && ev.target.closest(".face--recto,.corner");
   var onVerso = S.open && ev.target.closest(".face--verso");
+  var onPage = G.single && (onRecto || onVerso);
   var wantsPan = ev.shiftKey || ev.button === 1;
   drag = {x0:ev.clientX, y0:ev.clientY, rx:S.rx, ry:S.ry,
+          trail:[[ev.clientX, performance.now()]], v:0,
           panX:S.panX, panY:S.panY,
           ribX: parseFloat(faces.ribbon.style.left) || 0,
           mode: wantsPan ? "pan" : onRibbon ? "ribbon"
-              : onFront ? "cover" : onRecto ? "fwd" : onVerso ? "back" : "orbit",
+              : onFront ? "cover" : onPage ? "page"
+              : onRecto ? "fwd" : onVerso ? "back" : "orbit",
           started:false};
   stage.classList.add("is-grabbing");
   document.getElementById("hint").style.opacity = "0";
@@ -871,7 +953,11 @@ stage.addEventListener("pointermove", function(ev){
   var dx = ev.clientX - drag.x0, dy = ev.clientY - drag.y0;
   if(!drag.started && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
   drag.started = true;
-  var span = (2*G.pw*G.fit*S.zoom) || 600;
+  // sideways speed at the moment of release, so a flick counts as a turn
+  drag.trail.push([ev.clientX, performance.now()]);
+  if(drag.trail.length > 12) drag.trail.shift();
+  drag.v = trailSpeed(drag.trail);
+  var span = dragSpan();
   if(drag.mode === "ribbon"){
     S.ribbonDrag = true;
     faces.ribbon.classList.add("is-dragging");
@@ -897,6 +983,18 @@ stage.addEventListener("pointermove", function(ev){
       faces.front.style.transform = coverTransform(a);
       S.turning.angle = a;
     }
+  }else if(drag.mode === "page"){
+    // one page at a time: a swipe either slides across the spread or, when
+    // there is nothing left to slide to, lifts the leaf
+    drag.dx = dx;
+    var want = dx < 0 ? 1 : -1;
+    var lifts = want > 0 ? S.focus === 1 : S.focus === 0;
+    if(lifts){
+      if(!S.turning && Math.abs(dx) > 4) beginTurn(want);
+      if(S.turning && !S.turning.cover && !S.turning.anim){
+        fold(want > 0 ? (-dx/span) : (dx/span));
+      }
+    }
   }else{
     var dir = drag.mode === "fwd" ? 1 : -1;
     if(!S.turning){ if((dir>0 && dx<-4)||(dir<0 && dx>4)) beginTurn(dir); }
@@ -910,9 +1008,10 @@ function releaseDrag(){
   stage.classList.remove("is-grabbing");
   if(S.turning && S.turning.cover){
     var a = S.turning.angle || 0;
+    var threw = drag.v < -0.35;
     S.turning = null;
     faces.front.style.transition = "transform .55s cubic-bezier(.32,.02,.2,1)";
-    if(Math.abs(a) > 55){
+    if(Math.abs(a) > 55 || (threw && Math.abs(a) > 12)){
       faces.front.style.transform = coverTransform(-178);
       setTimeout(function(){ S.open = true; S.coverAnim = false; paint(); faces.front.style.transition=""; }, 470);
       store("lwk3:open","1");
@@ -921,7 +1020,14 @@ function releaseDrag(){
       setTimeout(function(){ S.coverAnim = false; }, 560);
     }
   }else if(S.turning){
-    endTurn(S.turning.t > 0.45);
+    // a third of the way carries it, and so does a flick, however short
+    var d = S.turning.dir;
+    var flick = d > 0 ? drag.v < -0.35 : drag.v > 0.35;
+    endTurn(S.turning.t > 0.34 || (flick && S.turning.t > 0.05));
+  }else if(drag.mode === "page" && drag.started){
+    var moved = drag.dx || 0;
+    var quick = Math.abs(drag.v) > 0.35 && (drag.v < 0) === (moved < 0);
+    if(Math.abs(moved) > dragSpan()*0.16 || quick) setFocus(moved < 0 ? 1 : 0, true);
   }else if(drag.mode === "ribbon"){
     faces.ribbon.classList.remove("is-dragging");
     if(drag.started && S.open){
@@ -1048,6 +1154,7 @@ document.querySelectorAll("[data-close]").forEach(function(b){
 
 function goToPage(idx){
   S.spread = clamp(Math.floor(idx/2), 0, Math.max(0,Math.ceil(S.pages/2)-1));
+  S.focus = idx % 2;
   if(!S.open){ S.open = true; faces.front.style.transform = coverTransform(-178); }
   paint();
   sheet("sheet-contents",false); sheet("sheet-search",false);
@@ -1108,8 +1215,8 @@ document.getElementById("q").addEventListener("input", function(e){
 
 document.addEventListener("keydown", function(ev){
   if(ev.target.tagName === "INPUT") { if(ev.key==="Escape") ev.target.blur(); return; }
-  if(ev.key === "ArrowRight") turnBy(1);
-  else if(ev.key === "ArrowLeft") turnBy(-1);
+  if(ev.key === "ArrowRight") stepBy(1);
+  else if(ev.key === "ArrowLeft") stepBy(-1);
   else if(ev.key === "Escape"){ sheet("sheet-contents",false); sheet("sheet-search",false); }
   else if(ev.key === "+" || ev.key === "="){ zoomCentre(S.zoom*1.2); }
   else if(ev.key === "-"){ zoomCentre(S.zoom/1.2); }
@@ -1122,6 +1229,7 @@ window.addEventListener("resize", function(){
 
 S.zoom = clamp(parseFloat(recall("lwk3:zoom")||"1") || 1, 0.4, 4);
 S.spread = parseInt(recall("lwk3:spread")||"0",10) || 0;
+S.focus  = parseInt(recall("lwk3:focus")||"0",10) ? 1 : 0;
 var savedMark = recall("lwk3:mark");
 S.mark = (savedMark === null || savedMark === "null") ? null : (parseInt(savedMark,10) || 0);
 layout();
@@ -1131,6 +1239,7 @@ var deep = (location.hash.match(/^#p(\d+)$/) || [])[1];
 if(deep){
   S.open = true;
   S.spread = clamp(Math.floor((parseInt(deep,10)-1)/2), 0, Math.max(0,Math.ceil(S.pages/2)-1));
+  S.focus = (parseInt(deep,10)-1) % 2;
   faces.front.style.transform = coverTransform(-178);
   paint();
 }else if(recall("lwk3:open") === "1"){

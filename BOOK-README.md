@@ -3,10 +3,18 @@
 A commonplace book of 240 quotations. Every line comes with what it actually
 means, in plain English, and one specific place to put it.
 
-**Read it: https://murtaza0506-design.github.io/lines-worth-keeping**
+**Read it: https://murtaza0506-design.github.io/X-Video-Downloader/**
+(the workflow publishes to `gh-pages`; the address works once Pages is switched
+on for the repository, under Settings > Pages > Deploy from a branch >
+`gh-pages` / `(root)`)
 
 It opens as a book on a desk. Drag the background to turn it in space, drag the
 cover to open it, and fold a page over by its corner. Wheel or pinch to zoom.
+
+On a phone the screen is too narrow to hold a whole spread at a readable size,
+so the book is framed one page at a time and drawn twice as large. The type is
+not re-set for the screen: page 41 holds the same words everywhere, and a swipe
+steps across the spread and then turns the leaf.
 
 ## What is in it
 
