@@ -15,3 +15,6 @@ history.json
 node_modules/
 package.json
 package-lock.json
+
+# print build intermediates; the PDFs and the spec are committed, the HTML is not
+print/*.html
