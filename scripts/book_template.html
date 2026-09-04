@@ -281,8 +281,11 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 
 /* ---------- cover ---------- */
 .cover-wrap{display:flex;flex-direction:column;align-items:center;gap:1.6rem}
+.cover-wrap{perspective:2400px}
 .cover{
   position:relative;width:min(30rem,100%);aspect-ratio:2/3;
+  transform-origin:left center;backface-visibility:hidden;cursor:pointer;
+  touch-action:pan-y pinch-zoom;
   background:var(--surface);color:var(--ink);
   border-radius:1px 3px 3px 1px;overflow:hidden;
   box-shadow:
@@ -336,6 +339,13 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   position:relative;z-index:1;font-family:var(--mono);font-size:.6rem;
   letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
 }
+.cover.is-opening{transition:transform .78s cubic-bezier(.36,.03,.24,1)}
+.cover.is-open{transform:rotateY(-172deg)}
+.cover__open-hint{
+  position:absolute;right:1.9rem;bottom:clamp(2rem,5.5%,3rem);z-index:2;
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--madder);opacity:.85;
+}
 .cover-acts{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
 .act{
   font-family:var(--mono);font-size:.73rem;letter-spacing:.07em;
@@ -353,7 +363,7 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 /* ---------- paged reading ---------- */
 .paper{
   position:relative;margin-inline:auto;background:var(--surface);
-  perspective:3000px;touch-action:pan-y;user-select:text;
+  perspective:3000px;touch-action:pan-y pinch-zoom;user-select:text;
   box-shadow:0 1px 1px rgba(0,0,0,.08),0 14px 38px rgba(0,0,0,.13);
   border-radius:1px;
 }
@@ -390,9 +400,18 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 .leaf.is-animating .leaf__shade{transition:opacity .62s ease}
 
 .pager{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  display:flex;align-items:center;justify-content:space-between;gap:.6rem;
   max-width:100%;margin:1.15rem auto 0;
 }
+.pager__mid{display:flex;align-items:center;gap:.5rem}
+.zoom{
+  font-family:var(--mono);font-size:.72rem;color:var(--madder);
+  border:1px solid var(--madder-ghost);border-radius:2px;
+  width:1.9rem;height:1.7rem;line-height:1;
+}
+.zoom:hover{background:var(--surface)}
+.zoom[disabled]{opacity:.3;cursor:default}
+.zoom[disabled]:hover{background:none}
 .pager__btn{
   display:inline-flex;align-items:center;gap:.45rem;
   font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--madder);
@@ -414,10 +433,17 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 .flow .entry__head{break-inside:avoid}
 .flow .gloss{break-inside:avoid}
 .flow .ch-head{break-after:avoid}
-.flow .entry__quote{font-size:1.22rem}
-.flow .ch-open{font-size:1rem;margin-bottom:2rem}
-.flow .gloss p{font-size:.94rem}
-.flow .prose{font-size:1rem}
+.flow{font-size:18px;line-height:1.6}
+.flow .entry__quote{font-size:1.24em;line-height:1.3}
+.flow .entry__attr{font-size:.7em}
+.flow .entry__n{font-size:.66em}
+.flow .gloss__label{font-size:.6em}
+.flow .gloss p{font-size:.93em;line-height:1.58}
+.flow .ch-open{font-size:1em;margin-bottom:1.7em}
+.flow .ch-eyebrow{font-size:.64em}
+.flow .ch-head h2{font-size:1.9em;line-height:1.06}
+.flow .prose{font-size:1em;line-height:1.68}
+.flow .prose li{margin-bottom:.5em}
 
 .modeswitch{display:flex;gap:.35rem;margin-top:.9rem}
 .modeswitch button{
@@ -428,26 +454,34 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 .modeswitch button[aria-pressed="true"]{
   color:var(--madder);border-color:var(--madder-ghost);background:var(--paper);
 }
-@media (max-width:900px){
-  .blurb{margin-top:3rem}
-  .pager{gap:.6rem}
-}
 
 .railtoggle{display:none}
 
 @media (max-width:900px){
-  .shell{grid-template-columns:1fr}
+  /* auto/1fr, or align-content:stretch hands the rail a share of the spare
+     vertical space and its height changes as the page content changes */
+  .shell{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start}
+  .blurb{margin-top:3rem}
   .rail{
-    position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);
-    padding:1.1rem 1.25rem 1.4rem;
+    position:sticky;top:0;z-index:20;height:auto;overflow:visible;
+    border-right:0;border-bottom:1px solid var(--rule);
+    display:flex;align-items:center;flex-wrap:wrap;gap:.6rem;
+    padding:.5rem .9rem;
   }
-  .rail__nav{display:none}
+  .rail__brand{width:auto;font-size:1rem;line-height:1.15;margin:0}
+  .rail__brand br{display:none}
+  .rail__colophon{display:none}
+  .rail__nav{
+    order:9;flex:1 0 100%;display:none;
+    max-height:min(62vh,26rem);overflow-y:auto;padding-bottom:.6rem;
+  }
   .rail[data-open="true"] .rail__nav{display:block}
-  .rail__search{margin:1rem 0 0}
+  .rail__search{margin:.7rem 0 1rem}
   .railtoggle{
-    display:flex;align-items:center;gap:.5rem;margin-top:1rem;
+    display:inline-flex;align-items:center;gap:.5rem;margin:0 0 0 auto;
     font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;
     text-transform:uppercase;color:var(--madder);
+    border:1px solid var(--madder-ghost);border-radius:2px;padding:.3rem .55rem;
   }
   .main{padding:2rem 1.35rem 4rem}
   .page,.contents,.srcs{margin-inline:0}
@@ -457,6 +491,14 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   .srcs{columns:1}
   .ch-open p:first-child::first-letter{font-size:2.9em}
 }
+@media (max-height:560px){
+  .rail{padding:.35rem .8rem}
+  .rail__brand{font-size:.9rem}
+  .main{padding:.55rem .8rem .6rem}
+  .swipe-hint{display:none}
+  .pager{margin-top:.4rem}
+  .pager__where{display:none}
+}
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;transition-duration:.001ms!important}
 }
@@ -464,14 +506,14 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 
 <div class="shell">
   <nav class="rail" id="rail">
-    <button class="rail__brand" id="brand">Lines Worth<br>Keeping</button>
+    <button class="rail__brand" id="brand">Lines Worth <br>Keeping</button>
     <div class="rail__colophon" id="colophon"></div>
     <button class="railtoggle" id="railtoggle" aria-expanded="false">Contents</button>
-    <div class="rail__search">
-      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="M10.5 10.5 14 14"></path></svg>
-      <input id="search" type="search" placeholder="Search 240 entries" aria-label="Search the book">
-    </div>
     <div class="rail__nav" id="railnav">
+      <div class="rail__search">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="M10.5 10.5 14 14"></path></svg>
+        <input id="search" type="search" placeholder="Search 240 entries" aria-label="Search the book">
+      </div>
       <div id="toc"></div>
       <div class="rail__end">
         <button data-go="cover">Cover</button>
@@ -495,6 +537,7 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   var BOOK = JSON.parse(document.getElementById("book-data").textContent);
   var main = document.getElementById("main");
   var searchBox = document.getElementById("search");
+  var rail = document.getElementById("rail");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   var ALL = [];
@@ -567,12 +610,30 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
     if(!quiet) render();
   }
 
+  function zoom(){ return parseFloat(recall("lwk:zoom") || "1") || 1; }
+  var ZOOMS = [0.82, 0.9, 1, 1.12, 1.26, 1.42];
+
   function mountPaged(inner, head, key){
+    window.scrollTo(0, 0);
+    // Measure the space actually left below the rail rather than assuming it,
+    // so a phone held sideways gets a page that fits on the screen.
+    var short = window.innerHeight < 560;
+    var narrow = window.matchMedia("(max-width:900px)").matches;
+    // Measure against a known rail state. Reading main's offset instead was
+    // unstable: on the first mount the nav had not collapsed yet, so the page
+    // came out a third of its proper height.
+    if(narrow) rail.dataset.open = "false";
+    var cs = getComputedStyle(main);
+    var topPad = parseFloat(cs.paddingTop) || 0;
+    var botPad = parseFloat(cs.paddingBottom) || 0;
+    var above = (narrow ? rail.getBoundingClientRect().height : 0) + topPad;
+    var h = clamp(window.innerHeight - above - (short ? 52 : 88) - Math.min(botPad, 24), 190, 900);
     var avail = main.clientWidth;
-    var h  = clamp(window.innerHeight - 200, 420, 880);
-    var pw = clamp(Math.round(h * 0.66), 280, 460);
-    if(pw > avail) pw = avail;
-    var spread = avail >= pw * 2 + 24 ? 2 : 1;
+    // Two pages whenever the width genuinely holds two, which is what a phone
+    // held sideways gives you; otherwise one page filling the width.
+    var spread = (avail >= 624 && window.innerWidth >= 700) ? 2 : 1;
+    var pw = spread === 2 ? clamp(Math.floor(avail / 2), 300, 460)
+                          : clamp(avail, 240, 460);
     var m  = Math.round(pw * 0.105);
     var vm = Math.round(h * 0.075);
     var sheetH = h - vm * 2;
@@ -581,16 +642,21 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
       '<div class="paper" id="paper" style="width:' + (spread*pw) + 'px;height:' + h + 'px;padding:' + vm + 'px 0">' +
         '<div class="sheet" id="sheet" style="height:' + sheetH + 'px">' +
           '<div class="flow" id="flow" style="width:' + (spread*pw) + 'px;padding:0 ' + m + 'px;' +
-            'column-width:' + (pw - 2*m) + 'px;column-gap:' + (2*m) + 'px">' + inner + '</div>' +
+            'column-width:' + (pw - 2*m) + 'px;column-gap:' + (2*m) + 'px;' +
+            'font-size:' + (18 * zoom() * (h < 340 ? 0.86 : 1)).toFixed(2) + 'px">' + inner + '</div>' +
         '</div>' +
         '<div id="furniture"></div>' +
       '</div>' +
       '<div class="pager" id="pager" style="width:' + (spread*pw) + 'px">' +
-        '<button class="pager__btn" id="prev">‹ Back</button>' +
-        '<span class="pager__where" id="where"></span>' +
-        '<button class="pager__btn" id="next">Turn ›</button>' +
+        '<button class="pager__btn" id="prev" aria-label="Previous page">‹</button>' +
+        '<div class="pager__mid">' +
+          '<button class="zoom" id="zoomout" aria-label="Smaller text">A−</button>' +
+          '<span class="pager__where" id="where"></span>' +
+          '<button class="zoom" id="zoomin" aria-label="Larger text">A+</button>' +
+        '</div>' +
+        '<button class="pager__btn" id="next" aria-label="Next page">›</button>' +
       '</div>' +
-      '<div class="swipe-hint">Swipe, or use ← →</div>';
+      '<div class="swipe-hint">Swipe or tap the page to turn · pinch to zoom</div>';
 
     var flow = document.getElementById("flow");
     var pages = Math.max(1, Math.round(flow.scrollWidth / pw));
@@ -605,12 +671,30 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 
     document.getElementById("prev").addEventListener("click", function(){ turn(-1); });
     document.getElementById("next").addEventListener("click", function(){ turn(1); });
+    document.getElementById("zoomin").addEventListener("click", function(){ stepZoom(1); });
+    document.getElementById("zoomout").addEventListener("click", function(){ stepZoom(-1); });
+    syncZoom();
     bindSwipe(P.paper);
+  }
+
+  function stepZoom(dir){
+    var i = ZOOMS.indexOf(zoom());
+    if(i < 0) i = 2;
+    i = clamp(i + dir, 0, ZOOMS.length - 1);
+    store("lwk:zoom", String(ZOOMS[i]));
+    render();
+  }
+  function syncZoom(){
+    var i = ZOOMS.indexOf(zoom());
+    var zi = document.getElementById("zoomin"), zo = document.getElementById("zoomout");
+    if(zi) zi.disabled = i >= ZOOMS.length - 1;
+    if(zo) zo.disabled = i <= 0;
   }
 
   function goTo(i, silent){
     P.index = clamp(i, 0, Math.max(0, P.pages - 1));
     P.flow.style.transform = "translateX(" + (-P.index * P.pw) + "px)";
+    if(window.scrollY > 0) window.scrollTo(0, 0);
     furniture();
     store("lwk:at", P.key);
     store("lwk:page", String(P.index));
@@ -699,10 +783,10 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   }
 
   function bindSwipe(el){
-    var x0 = 0, y0 = 0, down = false;
+    var x0 = 0, y0 = 0, down = false, t0 = 0;
     el.addEventListener("pointerdown", function(ev){
       if(ev.button) return;
-      down = true; x0 = ev.clientX; y0 = ev.clientY;
+      down = true; x0 = ev.clientX; y0 = ev.clientY; t0 = Date.now();
     });
     el.addEventListener("pointerup", function(ev){
       if(!down) return;
@@ -710,7 +794,18 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
       var sel = window.getSelection();
       if(sel && String(sel).length > 2) return;
       var dx = ev.clientX - x0, dy = ev.clientY - y0;
-      if(Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy) * 1.4) turn(dx < 0 ? 1 : -1);
+      if(Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy) * 1.4){
+        turn(dx < 0 ? 1 : -1);
+        return;
+      }
+      // A tap: the outer thirds turn, the middle is left alone so text can
+      // still be selected and links still work.
+      if(Math.abs(dx) < 11 && Math.abs(dy) < 11 && Date.now() - t0 < 500){
+        var r = el.getBoundingClientRect();
+        var f = (ev.clientX - r.left) / r.width;
+        if(f > 0.62) turn(1);
+        else if(f < 0.32) turn(-1);
+      }
     });
     el.addEventListener("pointercancel", function(){ down = false; });
   }
@@ -739,6 +834,7 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
           '</div>' +
           '<div class="cover__foot">' + BOOK.chapters.length + ' chapters · ' +
             BOOK.index.length + ' sources · Aesop to Adam Phillips</div>' +
+          '<div class="cover__open-hint">Swipe to open →</div>' +
         '</div>' +
         '<div class="cover-acts">' +
           '<button class="act act--solid" data-go="chapter" data-n="1">Open the book</button>' +
@@ -764,6 +860,34 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
       pendingEntry = e.n;
       location.hash = "#/chapter/" + e.ch;
     });
+    bindCover(document.getElementById("cover"));
+  }
+
+  // The front board is hinged like any other leaf: swipe it left, or tap it,
+  // and it swings open on to the first chapter.
+  function bindCover(el){
+    if(!el) return;
+    var opening = false, x0 = 0, y0 = 0, down = false;
+    function open(){
+      if(opening) return;
+      opening = true;
+      if(reduce.matches){ location.hash = "#/chapter/1"; return; }
+      el.classList.add("is-opening");
+      requestAnimationFrame(function(){ el.classList.add("is-open"); });
+      setTimeout(function(){ location.hash = "#/chapter/1"; }, 560);
+    }
+    el.addEventListener("pointerdown", function(ev){
+      if(ev.button) return;
+      down = true; x0 = ev.clientX; y0 = ev.clientY;
+    });
+    el.addEventListener("pointerup", function(ev){
+      if(!down) return;
+      down = false;
+      var dx = ev.clientX - x0, dy = ev.clientY - y0;
+      if(dx < -42 && Math.abs(dx) > Math.abs(dy) * 1.4) open();
+      else if(Math.abs(dx) < 11 && Math.abs(dy) < 11) open();
+    });
+    el.addEventListener("pointercancel", function(){ down = false; });
   }
 
   function chapterInner(ch){
@@ -916,7 +1040,6 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   document.getElementById("mode-paged").addEventListener("click", function(){ setMode("paged"); });
   document.getElementById("mode-scroll").addEventListener("click", function(){ setMode("scroll"); });
 
-  var rail = document.getElementById("rail");
   var toggle = document.getElementById("railtoggle");
   function closeRail(){
     if(window.matchMedia("(max-width:900px)").matches){
@@ -952,14 +1075,19 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
     if(!P) return;
     if(ev.key === "ArrowRight" || ev.key === "PageDown" || ev.key === " "){ ev.preventDefault(); turn(1); }
     else if(ev.key === "ArrowLeft" || ev.key === "PageUp"){ ev.preventDefault(); turn(-1); }
+    else if(ev.key === "+" || ev.key === "="){ ev.preventDefault(); stepZoom(1); }
+    else if(ev.key === "-" || ev.key === "_"){ ev.preventDefault(); stepZoom(-1); }
   });
 
   var rt;
-  window.addEventListener("resize", function(){
+  function reflow(){
     if(!P) return;
     clearTimeout(rt);
     rt = setTimeout(render, 220);
-  });
+  }
+  window.addEventListener("resize", reflow);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ reflow(); }); }
+  window.addEventListener("orientationchange", function(){ setTimeout(reflow, 260); });
 
   setMode(mode(), true);
   window.addEventListener("hashchange", render);
