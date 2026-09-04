@@ -1,49 +1,31 @@
 <title>Lines Worth Keeping</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
 <style>
 :root{
-  --paper:#E3E5E0;
-  --desk:#CDD0CA;
-  --desk-2:#B9BDB6;
-  --surface:#EDEEEA;
-  --ink:#191C1B;
-  --ink-soft:#43474A;
-  --muted:#6E736D;
-  --rule:#C6C9C2;
-  --rule-soft:#D3D6CF;
+  --desk:#6E6A62;
+  --desk-2:#454239;
+  --paper:#F3EFE3;
+  --paper-2:#EAE4D4;
+  --ink:#22201C;
+  --ink-soft:#4A4740;
+  --muted:#8A8578;
+  --rule:#D8D2C0;
+  --rule-soft:#E4DFD0;
   --madder:#8E2E22;
-  --madder-deep:#6E211A;
-  --madder-ghost:#C9A49E;
-  --indigo:#2C4257;
+  --madder-ghost:#C4A79E;
+  --indigo:#33465C;
+  --hud:#EDE7D8;
   --board:#7C2A22;
-  --board-2:#5E1E17;
-  --edge:#DAD8CE;
-  --edge-2:#C2BFB2;
-  --serif:"Spectral",Georgia,"Times New Roman",serif;
-  --display:"Bodoni Moda","Didot","Times New Roman",serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --board-2:#54180F;
+  --edge:#EDE7D6;
+  --edge-2:#D3CBB4;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  --serif:"EB Garamond",Garamond,Georgia,"Times New Roman",serif;
+  --display:"Cormorant Garamond","EB Garamond",Garamond,Georgia,serif;
+  --label:"EB Garamond",Garamond,Georgia,serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#131619; --desk:#0E1113; --desk-2:#080A0B;
-    --surface:#1D2124; --ink:#E7E8E2; --ink-soft:#BBBFB9; --muted:#8B918A;
-    --rule:#2B3035; --rule-soft:#23282C;
-    --madder:#D06B59; --madder-deep:#8E3A2C; --madder-ghost:#6E3A32;
-    --indigo:#93B4D2; --board:#5A211A; --board-2:#3D1611;
-    --edge:#262A2D; --edge-2:#181B1E;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#131619; --desk:#0E1113; --desk-2:#080A0B;
-  --surface:#1D2124; --ink:#E7E8E2; --ink-soft:#BBBFB9; --muted:#8B918A;
-  --rule:#2B3035; --rule-soft:#23282C;
-  --madder:#D06B59; --madder-deep:#8E3A2C; --madder-ghost:#6E3A32;
-  --indigo:#93B4D2; --board:#5A211A; --board-2:#3D1611;
-  --edge:#262A2D; --edge-2:#181B1E;
-}
-
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -60,7 +42,7 @@ p:last-child{margin-bottom:0}
 /* ---------------- the scene ---------------- */
 .stage{
   position:fixed;inset:0;display:grid;place-items:center;
-  perspective:2400px;perspective-origin:50% 46%;
+  perspective:2400px;perspective-origin:50% 50%;
   touch-action:none;cursor:grab;
   user-select:none;-webkit-user-select:none;
 }
@@ -97,12 +79,12 @@ p:last-child{margin-bottom:0}
 .jacket__rule--in{left:8.4%;opacity:.55}
 .jacket__prick{position:absolute;top:9%;bottom:9%;right:5.5%;width:2px;
   background:repeating-linear-gradient(to bottom,rgba(242,237,227,.5) 0 2px,transparent 2px 26px)}
-.jacket__eyebrow{font-family:var(--mono);font-size:.58em;letter-spacing:.2em;text-transform:uppercase;opacity:.72}
+.jacket__eyebrow{font-family:var(--label);font-size:.58em;letter-spacing:.2em;text-transform:uppercase;opacity:.72}
 .jacket__body{margin-top:auto;margin-bottom:auto}
 .jacket__title{font-family:var(--display);font-weight:500;font-size:2.55em;line-height:.95;margin:0 0 .4em;letter-spacing:-.015em}
 .jacket__hr{border:0;border-top:1px solid rgba(242,237,227,.55);width:46%;margin:0 0 .5em}
 .jacket__sub{font-size:.82em;line-height:1.45;font-style:italic;opacity:.86;margin:0;max-width:15em}
-.jacket__foot{font-family:var(--mono);font-size:.55em;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.jacket__foot{font-family:var(--label);font-size:.55em;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
 
 /* spine */
 .spine{
@@ -129,8 +111,22 @@ p:last-child{margin-bottom:0}
 
 /* page faces */
 .face{
-  position:absolute;overflow:hidden;background:var(--surface);
-  backface-visibility:hidden;
+  position:absolute;overflow:hidden;backface-visibility:hidden;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,.5),rgba(0,0,0,0) 45%),
+    linear-gradient(180deg,var(--paper),var(--paper-2));
+}
+/* paper grain: fractal noise, multiplied over the sheet at low strength */
+.face::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:var(--grain);background-size:180px 180px;
+  mix-blend-mode:multiply;opacity:.16;
+}
+/* the faint laid lines of a wove sheet */
+.face::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:repeating-linear-gradient(90deg,rgba(120,105,70,.045) 0 1px,transparent 1px 3px);
+  opacity:.7;
 }
 .face__flow{position:absolute;top:0;left:0;column-fill:auto;column-rule:0}
 .face__gutter{position:absolute;top:0;bottom:0;width:34px;pointer-events:none}
@@ -138,14 +134,18 @@ p:last-child{margin-bottom:0}
 .face--recto .face__gutter{left:0;background:linear-gradient(270deg,transparent,rgba(0,0,0,.14))}
 .face__rule{position:absolute;width:1px;background:var(--madder-ghost);opacity:.8}
 .runhead,.folio{
-  position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:.12em;
+  position:absolute;font-family:var(--label);font-size:11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted);pointer-events:none;
 }
 .folio{letter-spacing:.08em;font-variant-numeric:tabular-nums}
 
-.leaf{position:absolute;transform-style:preserve-3d;transform-origin:left center;will-change:transform}
-.leaf.is-settling{transition:transform .45s cubic-bezier(.32,.02,.22,1)}
-.leaf__shade{position:absolute;inset:0;pointer-events:none;opacity:0}
+.leaf{position:absolute;transform-style:flat;will-change:transform;pointer-events:none}
+/* the reflection matrix is derived about the sheet's own corner, so the
+   transform must be applied from there and not from the element centre */
+.peel{position:absolute;transform-origin:0 0;will-change:clip-path,transform}
+.peel__shade{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0}
+.peel__flap{box-shadow:0 0 26px rgba(0,0,0,.34)}
+.leaf__shade{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:3}
 .leaf .face--front .leaf__shade{background:linear-gradient(90deg,rgba(0,0,0,.34),transparent 45%)}
 .leaf .face--back{transform:rotateY(180deg)}
 .leaf .face--back .leaf__shade{background:linear-gradient(270deg,rgba(0,0,0,.30),transparent 45%)}
@@ -164,7 +164,7 @@ p:last-child{margin-bottom:0}
 .face--recto:hover .corner,.corner.is-hot{opacity:1}
 
 /* ---------------- text inside a page ---------------- */
-.pg{font-size:15px;line-height:1.6;color:var(--ink)}
+.pg{font-size:17px;line-height:1.52;color:var(--ink)}
 .pg .ch-open{margin-bottom:1.4em}
 .pg .ch-open p:first-child::first-letter{
   font-family:var(--display);float:left;font-size:3.1em;line-height:.82;
@@ -172,30 +172,30 @@ p:last-child{margin-bottom:0}
 }
 .pg .ch-head{break-before:column;break-after:avoid;margin-bottom:1.3em}
 .pg .ch-head--first{break-before:auto}
-.pg .ch-eyebrow{font-family:var(--mono);font-size:.62em;letter-spacing:.13em;
+.pg .ch-eyebrow{font-family:var(--label);font-size:.76em;letter-spacing:.11em;
   text-transform:uppercase;color:var(--muted);margin-bottom:.5em}
 .pg .ch-eyebrow b{color:var(--madder);font-weight:500}
 .pg .ch-head h2{font-family:var(--display);font-weight:500;font-size:1.85em;
   line-height:1.04;margin:0;letter-spacing:-.01em;text-wrap:balance}
 .pg .entry{padding-bottom:1.5em;margin-bottom:1.5em;border-bottom:1px solid var(--rule-soft)}
 .pg .entry__head{break-inside:avoid}
-.pg .entry__n{font-family:var(--mono);font-size:.66em;color:var(--madder);
+.pg .entry__n{font-family:var(--label);font-size:.8em;color:var(--madder);
   letter-spacing:.03em;margin-bottom:.3em}
 .pg .entry__quote{font-family:var(--display);font-weight:400;font-size:1.22em;
   line-height:1.3;margin:0 0 .35em;text-wrap:pretty}
 .pg .entry__quote .mk{color:var(--madder-ghost)}
-.pg .entry__attr{font-family:var(--mono);font-size:.68em;letter-spacing:.03em;
+.pg .entry__attr{font-family:var(--label);font-style:italic;font-size:.9em;letter-spacing:.01em;
   color:var(--muted);margin-bottom:.9em}
 .pg .gloss{margin-bottom:.8em;break-inside:avoid}
 .pg .gloss:last-child{margin-bottom:0}
-.pg .gloss__label{font-family:var(--mono);font-size:.6em;letter-spacing:.13em;
+.pg .gloss__label{font-family:var(--label);font-weight:600;font-size:.72em;letter-spacing:.12em;
   text-transform:uppercase;margin-bottom:.22em}
 .pg .gloss--means .gloss__label{color:var(--madder)}
 .pg .gloss--use .gloss__label{color:var(--indigo)}
 .pg .gloss p{font-size:.93em;line-height:1.56;color:var(--ink-soft)}
 .pg .part-open{break-before:column;text-align:center;padding-top:34%}
 .pg .part-open .r{font-family:var(--display);font-size:3em;color:var(--madder);line-height:1}
-.pg .part-open .n{font-family:var(--mono);font-size:.68em;letter-spacing:.2em;
+.pg .part-open .n{font-family:var(--label);font-size:.68em;letter-spacing:.2em;
   text-transform:uppercase;color:var(--muted);margin-top:.9em}
 .pg .plain h2{font-family:var(--display);font-weight:500;font-size:1.7em;margin:0 0 .8em}
 .pg .plain ul{padding-left:1.05em;margin:0 0 1em}
@@ -206,7 +206,7 @@ p:last-child{margin-bottom:0}
 .pg .idx__src{margin-bottom:.6em;break-inside:avoid;font-size:.9em;line-height:1.45}
 .pg .idx__src b{display:block;font-weight:600}
 .pg .idx__i{display:block;color:var(--ink-soft);font-size:.94em}
-.pg .idx__i i{font-family:var(--mono);font-size:.85em;color:var(--madder);font-style:normal}
+.pg .idx__i i{font-family:var(--label);font-size:.85em;color:var(--madder);font-style:normal}
 
 /* ---------------- controls ---------------- */
 .hud{
@@ -216,12 +216,12 @@ p:last-child{margin-bottom:0}
 }
 .hud > *{pointer-events:auto}
 .hud__title{
-  font-family:var(--display);font-size:1rem;line-height:1;margin-right:auto;
-  color:var(--ink);opacity:.75;
+  font-family:var(--display);font-size:1.15rem;line-height:1;margin-right:auto;
+  color:var(--hud);opacity:.8;letter-spacing:.01em;
 }
 .btn{
-  font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--ink);background:color-mix(in srgb,var(--surface) 82%,transparent);
+  font-family:var(--label);font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink);background:rgba(243,239,227,.9);
   border:1px solid var(--rule);border-radius:3px;padding:.4rem .6rem;
   backdrop-filter:blur(6px);
 }
@@ -229,13 +229,13 @@ p:last-child{margin-bottom:0}
 .btn--icon{padding:.4rem .55rem}
 .hud__where{
   position:fixed;left:50%;bottom:.85rem;transform:translateX(-50%);z-index:40;
-  font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;color:var(--ink);
-  opacity:.6;pointer-events:none;text-align:center;
+  font-family:var(--label);font-size:.8rem;letter-spacing:.1em;color:var(--hud);
+  opacity:.7;pointer-events:none;text-align:center;
 }
 .hint{
   position:fixed;left:50%;bottom:2.3rem;transform:translateX(-50%);z-index:40;
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--ink);opacity:.42;pointer-events:none;white-space:nowrap;
+  font-family:var(--label);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--hud);opacity:.5;pointer-events:none;white-space:nowrap;
 }
 
 .sheet{
@@ -248,23 +248,23 @@ p:last-child{margin-bottom:0}
 .sheet__close{position:fixed;top:.7rem;right:.9rem;z-index:61}
 .sheet h3{font-family:var(--display);font-weight:500;font-size:1.6rem;margin:0 0 1.2rem}
 .sheet input{
-  width:100%;font-family:var(--mono);font-size:.9rem;color:var(--ink);
-  background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  width:100%;font-family:var(--label);font-size:.9rem;color:var(--ink);
+  background:var(--paper);border:1px solid var(--rule);border-radius:3px;
   padding:.6rem .7rem;margin-bottom:1.4rem;
 }
 .toc-part{margin-bottom:1.5rem}
-.toc-part h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;
+.toc-part h4{font-family:var(--label);font-size:.62rem;letter-spacing:.13em;
   text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 .5rem;
   padding-bottom:.35rem;border-bottom:1px solid var(--rule)}
 .toc-part h4 b{color:var(--madder);font-weight:500}
 .toc-row{display:flex;gap:.7rem;width:100%;text-align:left;padding:.32rem 0;align-items:baseline}
 .toc-row:hover .t{color:var(--madder)}
-.toc-row .n{font-family:var(--mono);font-size:.72rem;color:var(--madder);min-width:1.4rem}
+.toc-row .n{font-family:var(--label);font-size:.72rem;color:var(--madder);min-width:1.4rem}
 .toc-row .t{font-size:1rem;line-height:1.3}
-.toc-row .p{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.toc-row .p{margin-left:auto;font-family:var(--label);font-size:.68rem;color:var(--muted)}
 .res{display:block;width:100%;text-align:left;padding:.75rem 0;border-bottom:1px solid var(--rule-soft)}
 .res .q{font-family:var(--display);font-size:1.05rem;line-height:1.32;margin-bottom:.2rem}
-.res .m{font-family:var(--mono);font-size:.64rem;color:var(--muted)}
+.res .m{font-family:var(--label);font-size:.64rem;color:var(--muted)}
 .res:hover .q{color:var(--madder)}
 mark{background:#E6D08A;color:#191C1B;padding:0 .1em;border-radius:1px}
 .empty{color:var(--muted);font-style:italic}
@@ -440,13 +440,12 @@ function layout(){
   faces.recto = makeFace("face--recto"); faces.recto.style.left = "0px";
   faces.recto.insertAdjacentHTML("beforeend",'<div class="corner" id="corner"></div>');
 
-  var leaf = el("leaf",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:0;top:"+(-G.ph/2)+"px;display:none");
+  var leaf = el("leaf",null,"width:0;height:0;left:0;top:0;display:none");
   faces.leaf = leaf;
-  faces.leafFront = makeFace("face--front"); leaf.appendChild(faces.leafFront);
-  faces.leafBack  = makeFace("face--back");  leaf.appendChild(faces.leafBack);
-  faces.leafFront.style.left="0px"; faces.leafBack.style.left="0px";
-  faces.leafFront.insertAdjacentHTML("beforeend",'<div class="leaf__shade"></div>');
-  faces.leafBack.insertAdjacentHTML("beforeend",'<div class="leaf__shade"></div>');
+  faces.leafFront = makeFace("peel peel__base"); faces.leafFront.style.display = "none";
+  faces.leafBack  = makeFace("peel peel__flap"); faces.leafBack.style.display  = "none";
+  faces.leafFront.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
+  faces.leafBack.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
 
   var front = el("board board--front",null,"width:"+(G.pw+8)+"px;height:"+(G.ph+14)+"px;left:0;top:"+
      (-G.ph/2-7)+"px;transform:translateZ(6px)");
@@ -548,65 +547,117 @@ function applyView(){
     "deg) rotateY("+S.ry.toFixed(2)+"deg)";
 }
 
-/* ---------- turning ---------- */
+/* ---------- turning: a fold across the perpendicular bisector ---------- */
+/* Dragging the corner C to a point P folds the sheet along the line that is
+   equidistant from both. Everything past that line is the reflection of the
+   sheet in it, which is what paper actually does, and it mirrors the reverse
+   side's printing exactly as a real folded corner does. */
+function reflectAcross(M, n){
+  var a = 1 - 2*n[0]*n[0], b = -2*n[0]*n[1];
+  var c = b,               d = 1 - 2*n[1]*n[1];
+  var k = 2*(M[0]*n[0] + M[1]*n[1]);
+  return "matrix("+a.toFixed(5)+","+b.toFixed(5)+","+c.toFixed(5)+","+
+         d.toFixed(5)+","+(k*n[0]).toFixed(2)+","+(k*n[1]).toFixed(2)+")";
+}
+function halfPlane(W, H, M, n, side){
+  var pts = [[0,0],[W,0],[W,H],[0,H]], out = [];
+  function f(p){ return ((p[0]-M[0])*n[0] + (p[1]-M[1])*n[1]) * side; }
+  for(var i=0;i<4;i++){
+    var A = pts[i], B = pts[(i+1)%4], fa = f(A), fb = f(B);
+    if(fa >= 0) out.push(A);
+    if((fa >= 0) !== (fb >= 0)){
+      var u = fa/(fa-fb);
+      out.push([A[0]+(B[0]-A[0])*u, A[1]+(B[1]-A[1])*u]);
+    }
+  }
+  if(out.length < 3) return null;
+  return "polygon(" + out.map(function(q){
+    return q[0].toFixed(1)+"px "+q[1].toFixed(1)+"px"; }).join(",") + ")";
+}
+
 function beginTurn(dir){
   if(S.turning) return false;
   var L = S.spread*2;
   if(dir > 0 && (L+2) >= S.pages) return false;
   if(dir < 0 && S.spread === 0) return false;
-  var leaf = faces.leaf;
-  leaf.style.display = "block";
-  leaf.classList.remove("is-settling");
+
+  var base = faces.leafFront, flap = faces.leafBack;
+  var x = dir > 0 ? 0 : -G.pw;
+  [base, flap].forEach(function(f){
+    f.style.left = x + "px";
+    f.style.top = (-G.ph/2) + "px";
+    f.style.display = "block";
+    f.style.transform = "none";
+    f.style.clipPath = "none";
+  });
   if(dir > 0){
-    setFace(faces.leafFront, L+1);
-    setFace(faces.leafBack,  L+2);
-    setFace(faces.recto,     L+3);
-    leaf.style.transform = "rotateY(0deg)";
+    setFace(base, L+1); setFace(flap, L+2); setFace(faces.recto, L+3);
   }else{
-    setFace(faces.leafFront, L-1);
-    setFace(faces.leafBack,  L);
-    setFace(faces.verso,     L-2);
-    leaf.style.transform = "rotateY(-180deg)";
+    setFace(base, L);   setFace(flap, L-1); setFace(faces.verso, L-2);
   }
-  S.turning = {dir:dir, angle: dir>0 ? 0 : -180};
+  faces.leaf.style.display = "block";
+  // C is the free corner: the fore edge, at the foot of the page
+  S.turning = {dir:dir, C:[dir > 0 ? G.pw : 0, G.ph], p:[dir > 0 ? G.pw : 0, G.ph], t:0};
+  fold(0);
   return true;
 }
-function dragTurn(frac){
-  if(!S.turning) return;
-  var a = S.turning.dir > 0 ? -180*clamp(frac,0,1) : -180*(1-clamp(frac,0,1));
-  S.turning.angle = a;
-  faces.leaf.style.transform = "rotateY("+a+"deg)";
-  var p = Math.abs(a)/180;
-  faces.leafFront.querySelector(".leaf__shade").style.opacity = (p*0.5).toFixed(2);
-  faces.leafBack.querySelector(".leaf__shade").style.opacity = ((1-p)*0.4).toFixed(2);
+
+function fold(prog){
+  var T = S.turning; if(!T) return;
+  T.t = clamp(prog, 0, 1);
+  var W = G.pw, H = G.ph, dir = T.dir;
+  // the corner travels across the spread and a little upward, as a hand does
+  var cx = dir > 0 ? W - 2*W*T.t : 2*W*T.t;
+  var cy = H - Math.sin(Math.PI*T.t) * H*0.13;
+  T.p = [cx, cy];
+  var C = T.C;
+  var vx = cx - C[0], vy = cy - C[1], len = Math.hypot(vx, vy);
+  var base = faces.leafFront, flap = faces.leafBack;
+  var shB = base.querySelector(".peel__shade"), shF = flap.querySelector(".peel__shade");
+  if(len < 1){
+    base.style.clipPath = "none"; base.style.transform = "none";
+    flap.style.display = "none"; shB.style.opacity = "0";
+    return;
+  }
+  flap.style.display = "block";
+  var n = [vx/len, vy/len];
+  var M = [(C[0]+cx)/2, (C[1]+cy)/2];
+  var keep = halfPlane(W,H,M,n,1);
+  var take = halfPlane(W,H,M,n,-1);
+  base.style.clipPath = keep || "polygon(0 0,0 0,0 0)";
+  flap.style.clipPath = take || "polygon(0 0,0 0,0 0)";
+  flap.style.transform = reflectAcross(M, n);
+  // shading: dark along the fold on the sheet, a sheen on the folded part
+  var deg = (Math.atan2(-n[0], n[1]) * 180/Math.PI).toFixed(1);
+  shB.style.background = "linear-gradient("+deg+"deg,rgba(0,0,0,.30),rgba(0,0,0,0) 22%)";
+  shB.style.opacity = (0.55*Math.sin(Math.PI*Math.min(1,T.t*1.4))+0.12).toFixed(2);
+  shF.style.background = "linear-gradient("+deg+"deg,rgba(255,255,255,.5),rgba(0,0,0,.16) 60%)";
+  shF.style.opacity = "0.5";
 }
-function endTurn(commit){
-  if(!S.turning) return;
-  var dir = S.turning.dir;
-  var leaf = faces.leaf;
-  leaf.classList.add("is-settling");
-  leaf.style.transform = "rotateY("+(commit ? (dir>0?-180:0) : (dir>0?0:-180))+"deg)";
-  var fs = faces.leafFront.querySelector(".leaf__shade");
-  var bs = faces.leafBack.querySelector(".leaf__shade");
-  fs.style.opacity = "0"; bs.style.opacity = "0";
-  var done = false;
-  function finish(){
-    if(done) return; done = true;
-    leaf.style.display = "none";
-    leaf.classList.remove("is-settling");
+
+function settleTurn(commit){
+  var T = S.turning; if(!T || T.anim) return;
+  var dir = T.dir, from = T.t, to = commit ? 1 : 0;
+  var t0 = performance.now(), ms = reduce.matches ? 1 : 420;
+  T.anim = true;
+  (function step(now){
+    var u = clamp((now - t0)/ms, 0, 1);
+    var e = u < 0.5 ? 2*u*u : 1 - Math.pow(-2*u+2,2)/2;
+    fold(from + (to-from)*e);
+    if(u < 1){ requestAnimationFrame(step); return; }
+    faces.leafFront.style.display = "none";
+    faces.leafBack.style.display = "none";
+    faces.leaf.style.display = "none";
     S.turning = null;
     if(commit) S.spread += dir;
     paint();
-  }
-  leaf.addEventListener("transitionend", function h(ev){
-    if(ev.propertyName === "transform"){ leaf.removeEventListener("transitionend",h); finish(); }
-  });
-  setTimeout(finish, 620);
+  })(t0);
 }
+function endTurn(commit){ settleTurn(commit); }
 function turnBy(dir){
   if(!S.open || S.turning) return;
   if(!beginTurn(dir)) return;
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ endTurn(true); }); });
+  settleTurn(true);
 }
 
 /* ---------- opening and closing the covers ---------- */
@@ -676,8 +727,8 @@ stage.addEventListener("pointermove", function(ev){
   }else{
     var dir = drag.mode === "fwd" ? 1 : -1;
     if(!S.turning){ if((dir>0 && dx<-4)||(dir<0 && dx>4)) beginTurn(dir); }
-    if(S.turning && !S.turning.cover){
-      dragTurn(dir > 0 ? (-dx/span) : (dx/span));
+    if(S.turning && !S.turning.cover && !S.turning.anim){
+      fold(dir > 0 ? (-dx/span) : (dx/span));
     }
   }
 });
@@ -696,7 +747,7 @@ function releaseDrag(){
       faces.front.style.transform = coverTransform(0);
     }
   }else if(S.turning){
-    endTurn(Math.abs(S.turning.angle) > 90);
+    endTurn(S.turning.t > 0.45);
   }else if(!drag.started && drag.mode === "cover"){
     openBook();
   }
