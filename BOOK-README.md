@@ -1,0 +1,61 @@
+# Lines Worth Keeping
+
+A commonplace book of 240 quotations. Every line comes with what it actually
+means, in plain English, and one specific place to put it.
+
+**Read it: https://murtaza0506-design.github.io/lines-worth-keeping**
+
+It opens as a book on a desk. Drag the background to turn it in space, drag the
+cover to open it, and fold a page over by its corner. Wheel or pinch to zoom.
+
+## What is in it
+
+240 entries across 16 chapters, arranged by the problem you have rather than the
+century it came from: starting before you feel ready, when things go wrong,
+anger, worry, wanting less, listening, saying the hard thing, being wronged,
+persuading, being wrong in public, starting, keeping going, stopping, time,
+getting older, and what actually matters.
+
+130 distinct sources, weighted heavily toward material that is out of copyright:
+the Stoics, Aesop, Shakespeare, the Bible, Enlightenment writers, and proverbs.
+Quotations from authors still in copyright are capped at roughly two per chapter,
+kept to a sentence, and always attributed. Disputed or paraphrased lines are
+marked *attributed to* or *after*, and there is a note at the back on why so many
+famous quotations belong to nobody in particular.
+
+## How it is built
+
+The manuscript is the source of truth. `content/*.md` holds one file per chapter;
+everything else is generated from it, so the published book cannot drift from the
+text.
+
+```
+content/                one markdown file per chapter, plus front and back matter
+scripts/build_site.py   parses the manuscript, derives the source index, builds the book
+scripts/book_template.html   markup, styles and behaviour
+scripts/check_book.py   fails the build if the manuscript is not intact
+site/index.html         GENERATED - the published book
+book.html               GENERATED - the same book as an embeddable fragment
+manuscript.md           GENERATED - the whole text in reading order
+book-entries.csv        GENERATED - all 240 entries as a flat table
+STYLE.md                the prose rules, with the measurements behind them
+```
+
+Rebuild after editing any chapter:
+
+```
+python3 scripts/build_site.py
+python3 scripts/check_book.py
+```
+
+Every push to `main` rebuilds the book and republishes it, after the check
+confirms 16 chapters, 240 entries, no chapter repeating a source back to back,
+and no em dashes in the prose.
+
+## A note on the quotations
+
+Short attributed quotations are ordinary use, but this is a book whose substance
+is the quotations, which is a weaker position than one that quotes in passing.
+The material is weighted to pre-1929 sources for that reason. This is not legal
+advice, and anyone publishing it commercially should take an hour with a lawyer
+first.
