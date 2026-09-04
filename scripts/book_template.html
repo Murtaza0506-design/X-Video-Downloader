@@ -294,7 +294,7 @@ mark{background:#E6D08A;color:#191C1B;padding:0 .1em;border-radius:1px}
   <button class="btn" id="btn-close">Close book</button>
 </div>
 <div class="hud__where" id="where"></div>
-<div class="hint" id="hint">Drag the book to turn it · drag a page corner to turn the page</div>
+<div class="hint" id="hint">Drag to turn the book · drag a page corner to turn it · scroll or pinch to zoom where you point</div>
 
 <div class="sheet" id="sheet-contents">
   <button class="btn sheet__close" data-close>Close</button>
@@ -378,7 +378,7 @@ var FLOW_HTML = (function(){
 /* ---------- geometry ---------- */
 var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1,padX:0,padY:0};
 var STACK = 18;
-var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,turning:null};
+var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,panX:0,panY:0,turning:null};
 var faces = {};
 var starts = {};
 
@@ -531,7 +531,11 @@ function paint(){
 }
 
 function applyView(){
-  camera.style.transform = "scale("+(G.fit*S.zoom).toFixed(3)+")";
+  var lim = Math.max(window.innerWidth, window.innerHeight) * 0.9;
+  S.panX = clamp(S.panX, -lim, lim);
+  S.panY = clamp(S.panY, -lim, lim);
+  camera.style.transform = "translate("+S.panX.toFixed(1)+"px,"+S.panY.toFixed(1)+
+    "px) scale("+(G.fit*S.zoom).toFixed(3)+")";
   var shift = S.open ? 0 : -G.pw/2;
   book.style.transform = "translateX("+shift+"px) rotateX("+S.rx.toFixed(2)+
     "deg) rotateY("+S.ry.toFixed(2)+"deg)";
@@ -680,17 +684,46 @@ function closeBook(){
   store("lwk3:open","0");
 }
 
+
+/* Zoom towards a point rather than the middle of the screen. The camera sits
+   at the centre and is transformed translate(pan) scale(s), so a point p on
+   the book lands at centre + pan + s*p. Holding the point under the cursor
+   still means pan' = d - (s'/s)(d - pan), where d is the cursor's offset from
+   the centre. */
+function stageCentre(){
+  var r = stage.getBoundingClientRect();
+  return [r.left + r.width/2, r.top + r.height/2];
+}
+function zoomAt(next, clientX, clientY){
+  next = clamp(next, 0.4, 4);
+  var c = stageCentre();
+  var dx = clientX - c[0], dy = clientY - c[1];
+  var k = next / S.zoom;
+  S.panX = dx - k * (dx - S.panX);
+  S.panY = dy - k * (dy - S.panY);
+  S.zoom = next;
+  applyView();
+  store("lwk3:zoom", String(S.zoom));
+}
+function zoomCentre(next){
+  var c = stageCentre();
+  zoomAt(next, c[0] + S.panX, c[1] + S.panY);
+}
+
 /* ---------- pointer: orbit, corner drag, cover drag ---------- */
 var drag = null;
 stage.addEventListener("pointerdown", function(ev){
-  if(ev.button) return;
+  if(ev.button && ev.button !== 1) return;
   if(ev.target.closest(".hud,.sheet")) return;
   stage.setPointerCapture(ev.pointerId);
   var onFront = !S.open && ev.target.closest(".board--front");
   var onRecto = S.open && ev.target.closest(".face--recto,.corner");
   var onVerso = S.open && ev.target.closest(".face--verso");
+  var wantsPan = ev.shiftKey || ev.button === 1;
   drag = {x0:ev.clientX, y0:ev.clientY, rx:S.rx, ry:S.ry,
-          mode: onFront ? "cover" : onRecto ? "fwd" : onVerso ? "back" : "orbit",
+          panX:S.panX, panY:S.panY,
+          mode: wantsPan ? "pan"
+              : onFront ? "cover" : onRecto ? "fwd" : onVerso ? "back" : "orbit",
           started:false};
   stage.classList.add("is-grabbing");
   document.getElementById("hint").style.opacity = "0";
@@ -701,7 +734,11 @@ stage.addEventListener("pointermove", function(ev){
   if(!drag.started && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
   drag.started = true;
   var span = (2*G.pw*G.fit*S.zoom) || 600;
-  if(drag.mode === "orbit"){
+  if(drag.mode === "pan"){
+    S.panX = drag.panX + dx;
+    S.panY = drag.panY + dy;
+    applyView();
+  }else if(drag.mode === "orbit"){
     S.ry = clamp(drag.ry + dx*0.32, -78, 78);
     S.rx = clamp(drag.rx - dy*0.26, -62, 62);
     applyView();
@@ -751,35 +788,54 @@ stage.addEventListener("pointercancel", releaseDrag);
 
 stage.addEventListener("wheel", function(ev){
   ev.preventDefault();
-  S.zoom = clamp(S.zoom * (ev.deltaY > 0 ? 0.92 : 1.08), 0.45, 3);
-  applyView(); store("lwk3:zoom", String(S.zoom));
+  zoomAt(S.zoom * (ev.deltaY > 0 ? 0.9 : 1.1), ev.clientX, ev.clientY);
 }, {passive:false});
 
-// pinch
-var pts = {}, pinch0 = 0, zoom0 = 1;
-stage.addEventListener("pointerdown", function(ev){ pts[ev.pointerId] = ev; });
+// Pinch: scale about the midpoint of the two fingers, and let that midpoint
+// carry the book with it, so two fingers both zoom and pan.
+var pts = {}, pinch = null;
+function midOf(a, b){ return [(a[0]+b[0])/2, (a[1]+b[1])/2]; }
+stage.addEventListener("pointerdown", function(ev){
+  pts[ev.pointerId] = [ev.clientX, ev.clientY];
+});
 stage.addEventListener("pointermove", function(ev){
   if(!(ev.pointerId in pts)) return;
-  pts[ev.pointerId] = ev;
+  pts[ev.pointerId] = [ev.clientX, ev.clientY];
   var ids = Object.keys(pts);
-  if(ids.length === 2){
-    drag = null;
-    var a = pts[ids[0]], b = pts[ids[1]];
-    var d = Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
-    if(!pinch0){ pinch0 = d; zoom0 = S.zoom; }
-    else { S.zoom = clamp(zoom0 * (d/pinch0), 0.45, 3); applyView(); }
+  if(ids.length !== 2){ pinch = null; return; }
+  drag = null;
+  var a = pts[ids[0]], b = pts[ids[1]];
+  var dist = Math.hypot(a[0]-b[0], a[1]-b[1]);
+  var mid = midOf(a, b);
+  if(!pinch){
+    pinch = {dist:dist, zoom:S.zoom, mid:mid, pan:[S.panX, S.panY], c:stageCentre()};
+    return;
   }
+  var next = clamp(pinch.zoom * (dist / pinch.dist), 0.4, 4);
+  var k = next / pinch.zoom;
+  var d0x = pinch.mid[0] - pinch.c[0], d0y = pinch.mid[1] - pinch.c[1];
+  S.panX = (mid[0] - pinch.c[0]) - k * (d0x - pinch.pan[0]);
+  S.panY = (mid[1] - pinch.c[1]) - k * (d0y - pinch.pan[1]);
+  S.zoom = next;
+  applyView();
+  store("lwk3:zoom", String(S.zoom));
 });
-function dropPt(ev){ delete pts[ev.pointerId]; if(Object.keys(pts).length < 2) pinch0 = 0; }
+function dropPt(ev){
+  delete pts[ev.pointerId];
+  if(Object.keys(pts).length < 2) pinch = null;
+}
 stage.addEventListener("pointerup", dropPt);
 stage.addEventListener("pointercancel", dropPt);
 
 /* ---------- controls ---------- */
-document.getElementById("btn-in").onclick = function(){ S.zoom = clamp(S.zoom*1.18,0.45,3); applyView(); };
-document.getElementById("btn-out").onclick = function(){ S.zoom = clamp(S.zoom/1.18,0.45,3); applyView(); };
+document.getElementById("btn-in").onclick = function(){ zoomCentre(S.zoom*1.2); };
+document.getElementById("btn-out").onclick = function(){ zoomCentre(S.zoom/1.2); };
 document.getElementById("btn-reset").onclick = function(){
-  S.rx=-14; S.ry=0; S.zoom=1;
-  book.classList.add("is-settling"); applyView();
+  S.rx=-14; S.ry=0; S.zoom=1; S.panX=0; S.panY=0;
+  book.classList.add("is-settling");
+  camera.style.transition = "transform .5s cubic-bezier(.3,.02,.2,1)";
+  applyView();
+  setTimeout(function(){ camera.style.transition = ""; }, 520);
   setTimeout(function(){ book.classList.remove("is-settling"); }, 520);
 };
 document.getElementById("btn-close").onclick = closeBook;
@@ -858,8 +914,8 @@ document.addEventListener("keydown", function(ev){
   if(ev.key === "ArrowRight") turnBy(1);
   else if(ev.key === "ArrowLeft") turnBy(-1);
   else if(ev.key === "Escape"){ sheet("sheet-contents",false); sheet("sheet-search",false); }
-  else if(ev.key === "+" || ev.key === "="){ S.zoom=clamp(S.zoom*1.15,.45,3); applyView(); }
-  else if(ev.key === "-"){ S.zoom=clamp(S.zoom/1.15,.45,3); applyView(); }
+  else if(ev.key === "+" || ev.key === "="){ zoomCentre(S.zoom*1.2); }
+  else if(ev.key === "-"){ zoomCentre(S.zoom/1.2); }
 });
 
 var rt;
@@ -867,7 +923,7 @@ window.addEventListener("resize", function(){
   clearTimeout(rt); rt = setTimeout(function(){ layout(); }, 200);
 });
 
-S.zoom = parseFloat(recall("lwk3:zoom")||"1") || 1;
+S.zoom = clamp(parseFloat(recall("lwk3:zoom")||"1") || 1, 0.4, 4);
 S.spread = parseInt(recall("lwk3:spread")||"0",10) || 0;
 layout();
 if(recall("lwk3:open") === "1"){
