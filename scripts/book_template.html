@@ -278,6 +278,161 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   padding:.08rem .3rem;background:var(--surface);font-size:.9em;
 }
 
+
+/* ---------- cover ---------- */
+.cover-wrap{display:flex;flex-direction:column;align-items:center;gap:1.6rem}
+.cover{
+  position:relative;width:min(30rem,100%);aspect-ratio:2/3;
+  background:var(--surface);color:var(--ink);
+  border-radius:1px 3px 3px 1px;overflow:hidden;
+  box-shadow:
+    inset 5px 0 0 -3px var(--madder-ghost),
+    0 1px 1px rgba(0,0,0,.10),
+    0 18px 44px rgba(0,0,0,.16);
+  display:flex;flex-direction:column;
+  padding:clamp(2rem,5.5%,3rem) clamp(1.6rem,7%,2.9rem);
+}
+/* the ruling: faint horizontal lines, as on a pricked-and-ruled leaf */
+.cover::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,transparent 0 27px,var(--rule) 27px 28px);
+  opacity:.5;
+}
+/* pricking marks down the outer margin, which is how the ruling was laid out */
+.cover::after{
+  content:"";position:absolute;top:8%;bottom:8%;right:1.05rem;width:2px;
+  pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,var(--madder-ghost) 0 2px,transparent 2px 28px);
+  opacity:.75;
+}
+.cover__channel{
+  position:absolute;top:0;bottom:0;left:clamp(1.05rem,4.6%,1.9rem);width:1px;
+  background:var(--madder-ghost);
+}
+.cover__channel--in{left:clamp(1.35rem,5.9%,2.45rem)}
+.cover__folio{
+  position:absolute;left:clamp(1.5rem,5%,2.1rem);top:clamp(2rem,5.5%,3rem);
+  font-family:var(--mono);font-size:.6rem;color:var(--madder);
+  writing-mode:vertical-rl;letter-spacing:.22em;
+}
+.cover__body{position:relative;z-index:1;margin-top:auto;margin-bottom:auto}
+.cover__eyebrow{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;
+}
+.cover__title{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(2.4rem,9.5vw,3.5rem);line-height:.94;letter-spacing:-.015em;
+  margin:0 0 1.15rem;text-wrap:balance;
+}
+.cover__hr{border:0;border-top:1px solid var(--madder);opacity:.55;margin:0 0 1.15rem;width:44%}
+.cover__sub{
+  font-size:.98rem;line-height:1.45;font-style:italic;color:var(--ink-soft);
+  margin:0;max-width:19rem;
+}
+.cover__foot{
+  position:relative;z-index:1;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+.cover-acts{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.act{
+  font-family:var(--mono);font-size:.73rem;letter-spacing:.07em;
+  border:1px solid var(--madder-ghost);border-radius:2px;padding:.58rem .95rem;
+  color:var(--madder);transition:background .15s ease;
+}
+.act:hover{background:var(--surface)}
+.act--solid{background:var(--madder);border-color:var(--madder);color:var(--surface)}
+.act--solid:hover{filter:brightness(1.08);background:var(--madder)}
+
+.blurb{max-width:33rem;margin:4.5rem auto 0}
+.blurb p{font-size:1.04rem;line-height:1.7}
+.blurb p:first-child{font-size:1.13rem}
+
+/* ---------- paged reading ---------- */
+.paper{
+  position:relative;margin-inline:auto;background:var(--surface);
+  perspective:3000px;touch-action:pan-y;user-select:text;
+  box-shadow:0 1px 1px rgba(0,0,0,.08),0 14px 38px rgba(0,0,0,.13);
+  border-radius:1px;
+}
+.paper__spine{
+  position:absolute;top:0;bottom:0;width:1px;background:var(--rule);
+  opacity:.85;pointer-events:none;z-index:3;
+}
+.paper__rule{
+  position:absolute;width:1px;background:var(--madder-ghost);
+  opacity:.85;pointer-events:none;z-index:2;
+}
+.sheet{position:relative;overflow:hidden}
+.flow{height:100%;column-fill:auto;column-rule:0}
+.flow > *:first-child{margin-top:0}
+.runhead,.folio{
+  position:absolute;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  pointer-events:none;z-index:3;
+}
+.folio{font-variant-numeric:tabular-nums;letter-spacing:.1em}
+
+.leaf{position:absolute;z-index:6;transform-style:preserve-3d;transform-origin:left center}
+.leaf__face{position:absolute;inset:0;overflow:hidden;background:var(--surface);
+  backface-visibility:hidden;box-shadow:0 0 22px rgba(0,0,0,.20)}
+.leaf__face--front{border-right:1px solid var(--rule)}
+.leaf__face--back{transform:rotateY(180deg);background:var(--surface);border-left:1px solid var(--rule)}
+/* the reverse of a leaf catches the light along the spine */
+.leaf__face--back::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.055),transparent 30%)}
+.leaf__shade{position:absolute;inset:0;pointer-events:none;opacity:0}
+.leaf__face--front .leaf__shade{background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,0) 42%)}
+.leaf__face--back .leaf__shade{background:linear-gradient(90deg,rgba(0,0,0,0) 58%,rgba(0,0,0,.22))}
+.leaf.is-animating{transition:transform .62s cubic-bezier(.36,.03,.24,1)}
+.leaf.is-animating .leaf__shade{transition:opacity .62s ease}
+
+.pager{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  max-width:100%;margin:1.15rem auto 0;
+}
+.pager__btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--madder);
+  border:1px solid var(--madder-ghost);border-radius:2px;padding:.42rem .7rem;
+}
+.pager__btn:hover{background:var(--surface)}
+.pager__btn[disabled]{opacity:.32;cursor:default}
+.pager__btn[disabled]:hover{background:none}
+.pager__where{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;color:var(--muted)}
+.swipe-hint{
+  text-align:center;font-family:var(--mono);font-size:.62rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.75rem;
+}
+
+/* entries inside a paged column: the number sits above, and the ruling
+   belongs to the page furniture rather than the text block */
+.flow .entry{padding-bottom:1.9rem;margin-bottom:1.9rem}
+.flow .entry__n{position:static;display:block;width:auto;padding:0;margin-bottom:.35rem;background:none}
+.flow .entry__head{break-inside:avoid}
+.flow .gloss{break-inside:avoid}
+.flow .ch-head{break-after:avoid}
+.flow .entry__quote{font-size:1.22rem}
+.flow .ch-open{font-size:1rem;margin-bottom:2rem}
+.flow .gloss p{font-size:.94rem}
+.flow .prose{font-size:1rem}
+
+.modeswitch{display:flex;gap:.35rem;margin-top:.9rem}
+.modeswitch button{
+  flex:1;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.34rem .2rem;border:1px solid var(--rule);
+  border-radius:2px;color:var(--muted);
+}
+.modeswitch button[aria-pressed="true"]{
+  color:var(--madder);border-color:var(--madder-ghost);background:var(--paper);
+}
+@media (max-width:900px){
+  .blurb{margin-top:3rem}
+  .pager{gap:.6rem}
+}
+
 .railtoggle{display:none}
 
 @media (max-width:900px){
@@ -319,9 +474,14 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
     <div class="rail__nav" id="railnav">
       <div id="toc"></div>
       <div class="rail__end">
+        <button data-go="cover">Cover</button>
         <button data-go="intro">Introduction</button>
         <button data-go="note">A Note on Attribution</button>
         <button data-go="index">Index of Sources</button>
+        <div class="modeswitch" role="group" aria-label="Reading mode">
+          <button id="mode-paged" aria-pressed="true">Paged</button>
+          <button id="mode-scroll" aria-pressed="false">Scroll</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -335,6 +495,7 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   var BOOK = JSON.parse(document.getElementById("book-data").textContent);
   var main = document.getElementById("main");
   var searchBox = document.getElementById("search");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   var ALL = [];
   BOOK.chapters.forEach(function(ch){
@@ -347,41 +508,46 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
     });
   }
   function pad(n){ return n < 10 ? "00" + n : n < 100 ? "0" + n : "" + n; }
+  function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+  function store(k,v){ try{ localStorage.setItem(k, v); }catch(e){} }
+  function recall(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
 
   document.getElementById("colophon").textContent =
     ALL.length + " entries · " + BOOK.chapters.length + " chapters · " +
     BOOK.index.length + " sources";
 
-  /* ---------- table of contents ---------- */
-  (function(){
-    var byPart = [], seen = {};
+  function parts(){
+    var out = [], seen = {};
     BOOK.chapters.forEach(function(ch){
-      if(!seen[ch.part]){ seen[ch.part] = {roman:ch.partRoman, name:ch.partName, chs:[]}; byPart.push(seen[ch.part]); }
+      if(!seen[ch.part]){ seen[ch.part] = {roman:ch.partRoman, name:ch.partName, chs:[]}; out.push(seen[ch.part]); }
       seen[ch.part].chs.push(ch);
     });
-    document.getElementById("toc").innerHTML = byPart.map(function(p){
-      return '<div class="part"><div class="part__head"><span class="part__num">' + p.roman +
-        '</span><span>' + esc(p.name) + '</span></div><ul class="toc">' +
-        p.chs.map(function(c){
-          return '<li><button data-go="chapter" data-n="' + c.n + '">' +
-            '<span class="toc__n">' + c.n + '</span>' +
-            '<span class="toc__t">' + esc(c.title) + '</span></button></li>';
-        }).join("") + "</ul></div>";
-    }).join("");
-  })();
+    return out;
+  }
 
-  /* ---------- entry rendering ---------- */
+  document.getElementById("toc").innerHTML = parts().map(function(p){
+    return '<div class="part"><div class="part__head"><span class="part__num">' + p.roman +
+      '</span><span>' + esc(p.name) + '</span></div><ul class="toc">' +
+      p.chs.map(function(c){
+        return '<li><button data-go="chapter" data-n="' + c.n + '">' +
+          '<span class="toc__n">' + c.n + '</span>' +
+          '<span class="toc__t">' + esc(c.title) + '</span></button></li>';
+      }).join("") + "</ul></div>";
+  }).join("");
+
+  /* ---------- entries ---------- */
   function entryHTML(e){
     var q = e.bare
       ? '<em>' + esc(e.quote) + '</em>'
-      : '<span class="mk">\u201C</span>' + esc(e.quote) + '<span class="mk">\u201D</span>';
-    var means = esc(e.means), use = esc(e.use), attr = esc(e.attribution);
+      : '<span class="mk">“</span>' + esc(e.quote) + '<span class="mk">”</span>';
     return '<article class="entry" id="e' + e.n + '">' +
-      '<div class="entry__n">' + pad(e.n) + '</div>' +
-      '<blockquote class="entry__quote">' + q + '</blockquote>' +
-      '<div class="entry__attr">' + attr + '</div>' +
-      '<div class="gloss gloss--means"><div class="gloss__label">What it means</div><p>' + means + '</p></div>' +
-      '<div class="gloss gloss--use"><div class="gloss__label">How to use it</div><p>' + use + '</p></div>' +
+      '<div class="entry__head">' +
+        '<div class="entry__n">' + pad(e.n) + '</div>' +
+        '<blockquote class="entry__quote">' + q + '</blockquote>' +
+        '<div class="entry__attr">' + esc(e.attribution) + '</div>' +
+      '</div>' +
+      '<div class="gloss gloss--means"><div class="gloss__label">What it means</div><p>' + esc(e.means) + '</p></div>' +
+      '<div class="gloss gloss--use"><div class="gloss__label">How to use it</div><p>' + esc(e.use) + '</p></div>' +
       '</article>';
   }
   function hl(safeText, term){
@@ -390,7 +556,166 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
     return safeText.replace(re, "<mark>$1</mark>");
   }
 
-  /* ---------- views ---------- */
+  /* ================= paged reading ================= */
+  var P = null;   // live pagination state, null when the view is not paged
+
+  function mode(){ return recall("lwk:mode") === "scroll" ? "scroll" : "paged"; }
+  function setMode(m, quiet){
+    store("lwk:mode", m);
+    document.getElementById("mode-paged").setAttribute("aria-pressed", String(m === "paged"));
+    document.getElementById("mode-scroll").setAttribute("aria-pressed", String(m === "scroll"));
+    if(!quiet) render();
+  }
+
+  function mountPaged(inner, head, key){
+    var avail = main.clientWidth;
+    var h  = clamp(window.innerHeight - 200, 420, 880);
+    var pw = clamp(Math.round(h * 0.66), 280, 460);
+    if(pw > avail) pw = avail;
+    var spread = avail >= pw * 2 + 24 ? 2 : 1;
+    var m  = Math.round(pw * 0.105);
+    var vm = Math.round(h * 0.075);
+    var sheetH = h - vm * 2;
+
+    main.innerHTML =
+      '<div class="paper" id="paper" style="width:' + (spread*pw) + 'px;height:' + h + 'px;padding:' + vm + 'px 0">' +
+        '<div class="sheet" id="sheet" style="height:' + sheetH + 'px">' +
+          '<div class="flow" id="flow" style="width:' + (spread*pw) + 'px;padding:0 ' + m + 'px;' +
+            'column-width:' + (pw - 2*m) + 'px;column-gap:' + (2*m) + 'px">' + inner + '</div>' +
+        '</div>' +
+        '<div id="furniture"></div>' +
+      '</div>' +
+      '<div class="pager" id="pager" style="width:' + (spread*pw) + 'px">' +
+        '<button class="pager__btn" id="prev">‹ Back</button>' +
+        '<span class="pager__where" id="where"></span>' +
+        '<button class="pager__btn" id="next">Turn ›</button>' +
+      '</div>' +
+      '<div class="swipe-hint">Swipe, or use ← →</div>';
+
+    var flow = document.getElementById("flow");
+    var pages = Math.max(1, Math.round(flow.scrollWidth / pw));
+    var saved = 0;
+    if(recall("lwk:at") === key) saved = parseInt(recall("lwk:page") || "0", 10) || 0;
+
+    P = {key:key, head:head, pw:pw, spread:spread, m:m, vm:vm, h:h, sheetH:sheetH,
+         pages:pages, index:0, busy:false,
+         paper:document.getElementById("paper"), flow:flow,
+         furn:document.getElementById("furniture")};
+    goTo(clamp(saved - (saved % spread), 0, Math.max(0, pages - 1)), true);
+
+    document.getElementById("prev").addEventListener("click", function(){ turn(-1); });
+    document.getElementById("next").addEventListener("click", function(){ turn(1); });
+    bindSwipe(P.paper);
+  }
+
+  function goTo(i, silent){
+    P.index = clamp(i, 0, Math.max(0, P.pages - 1));
+    P.flow.style.transform = "translateX(" + (-P.index * P.pw) + "px)";
+    furniture();
+    store("lwk:at", P.key);
+    store("lwk:page", String(P.index));
+  }
+
+  function furniture(){
+    var html = "", i;
+    for(i = 0; i < P.spread; i++){
+      var pageNo = P.index + i;
+      if(pageNo >= P.pages) break;
+      var x = i * P.pw;
+      html += '<div class="paper__rule" style="left:' + (x + P.m - 14) + 'px;top:' + P.vm +
+              'px;height:' + P.sheetH + 'px"></div>';
+      html += '<div class="runhead" style="left:' + (x + P.m) + 'px;width:' + (P.pw - 2*P.m) +
+              'px;top:' + Math.round(P.vm/2 - 5) + 'px;text-align:' + (i ? "right" : "left") + '">' +
+              esc(P.head) + "</div>";
+      html += '<div class="folio" style="left:' + x + 'px;width:' + P.pw +
+              'px;bottom:' + Math.round(P.vm/2 - 5) + 'px;text-align:center">' + (pageNo + 1) + "</div>";
+    }
+    if(P.spread === 2 && P.index + 1 < P.pages){
+      html += '<div class="paper__spine" style="left:' + P.pw + 'px"></div>';
+    }
+    P.furn.innerHTML = html;
+    var prev = document.getElementById("prev"), next = document.getElementById("next"),
+        where = document.getElementById("where");
+    if(prev) prev.disabled = P.index <= 0;
+    if(next) next.disabled = P.index + P.spread >= P.pages;
+    if(where) where.textContent = "Page " + (P.index + 1) +
+      (P.spread === 2 && P.index + 1 < P.pages ? "–" + (P.index + 2) : "") + " of " + P.pages;
+  }
+
+  function turn(dir){
+    if(!P || P.busy) return;
+    var target = P.index + dir * P.spread;
+    if(target < 0 || target >= P.pages) return;
+    if(reduce.matches){ goTo(target); return; }
+
+    // The leaf is the right-hand page; it hinges on the spine (or, on a single
+    // page, on its own left edge), and its blank reverse shows past 90 degrees.
+    var face = dir > 0 ? P.index + P.spread - 1 : target + P.spread - 1;
+    if(face >= P.pages) face = P.pages - 1;
+    var x = (P.spread - 1) * P.pw;
+
+    var leaf = document.createElement("div");
+    leaf.className = "leaf";
+    leaf.style.cssText = "left:" + x + "px;top:" + P.vm + "px;width:" + P.pw +
+                         "px;height:" + P.sheetH + "px";
+    var clone = P.flow.cloneNode(true);
+    clone.removeAttribute("id");
+    clone.style.transform = "translateX(" + (-face * P.pw) + "px)";
+    var front = document.createElement("div");
+    front.className = "leaf__face leaf__face--front";
+    front.appendChild(clone);
+    var fs = document.createElement("div"); fs.className = "leaf__shade"; front.appendChild(fs);
+    var back = document.createElement("div");
+    back.className = "leaf__face leaf__face--back";
+    var bs = document.createElement("div"); bs.className = "leaf__shade"; back.appendChild(bs);
+    leaf.appendChild(front); leaf.appendChild(back);
+
+    leaf.style.transform = dir > 0 ? "rotateY(0deg)" : "rotateY(-180deg)";
+    if(dir < 0){ bs.style.opacity = ".22"; }
+    P.paper.appendChild(leaf);
+
+    P.busy = true;
+    goTo(target);
+
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        leaf.classList.add("is-animating");
+        leaf.style.transform = dir > 0 ? "rotateY(-180deg)" : "rotateY(0deg)";
+        fs.style.opacity = dir > 0 ? ".38" : "0";
+        bs.style.opacity = dir > 0 ? ".22" : "0";
+      });
+    });
+    var done = false;
+    function finish(){
+      if(done) return;
+      done = true;
+      if(leaf.parentNode) leaf.parentNode.removeChild(leaf);
+      P.busy = false;
+    }
+    leaf.addEventListener("transitionend", function(ev){
+      if(ev.propertyName === "transform") finish();
+    });
+    setTimeout(finish, 900);
+  }
+
+  function bindSwipe(el){
+    var x0 = 0, y0 = 0, down = false;
+    el.addEventListener("pointerdown", function(ev){
+      if(ev.button) return;
+      down = true; x0 = ev.clientX; y0 = ev.clientY;
+    });
+    el.addEventListener("pointerup", function(ev){
+      if(!down) return;
+      down = false;
+      var sel = window.getSelection();
+      if(sel && String(sel).length > 2) return;
+      var dx = ev.clientX - x0, dy = ev.clientY - y0;
+      if(Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy) * 1.4) turn(dx < 0 ? 1 : -1);
+    });
+    el.addEventListener("pointercancel", function(){ down = false; });
+  }
+
+  /* ================= views ================= */
   var lastRandom = -1;
   function randomEntry(){
     var i = Math.floor(Math.random() * ALL.length);
@@ -399,27 +724,31 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
     return ALL[i];
   }
 
-  function viewHome(){
-    var e = randomEntry();
-    var byPart = [], seen = {};
-    BOOK.chapters.forEach(function(ch){
-      if(!seen[ch.part]){ seen[ch.part] = {roman:ch.partRoman, name:ch.partName, chs:[]}; byPart.push(seen[ch.part]); }
-      seen[ch.part].chs.push(ch);
-    });
+  function viewCover(){
+    P = null;
     main.innerHTML =
-      '<div class="page">' +
-        '<header class="masthead"><h1>' + esc(BOOK.title) + '</h1>' +
-        '<p>' + esc(BOOK.subtitle) + '</p></header>' +
-        '<hr class="rule-red">' +
-        '<div class="opener__label">The page it fell open at</div>' +
-        '<div class="reading">' + entryHTML(e) + '</div>' +
-        '<button class="reshuffle" id="reshuffle">' +
-          '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5h7a4 4 0 0 1 0 8H5"></path><path d="M7 2 4 5l3 3"></path></svg>' +
-          'Open it again</button>' +
+      '<div class="cover-wrap">' +
+        '<div class="cover" id="cover">' +
+          '<div class="cover__channel"></div><div class="cover__channel cover__channel--in"></div>' +
+          '<div class="cover__folio">' + ALL.length + ' entries</div>' +
+          '<div class="cover__body">' +
+            '<div class="cover__eyebrow">A commonplace book</div>' +
+            '<h1 class="cover__title">' + esc(BOOK.title) + '</h1>' +
+            '<hr class="cover__hr">' +
+            '<p class="cover__sub">' + esc(BOOK.subtitle) + '</p>' +
+          '</div>' +
+          '<div class="cover__foot">' + BOOK.chapters.length + ' chapters · ' +
+            BOOK.index.length + ' sources · Aesop to Adam Phillips</div>' +
+        '</div>' +
+        '<div class="cover-acts">' +
+          '<button class="act act--solid" data-go="chapter" data-n="1">Open the book</button>' +
+          '<button class="act" id="anywhere">Open it anywhere</button>' +
+        '</div>' +
       '</div>' +
+      '<section class="blurb">' + BOOK.blurb.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</section>' +
       '<section class="contents"><div class="opener__label">Sixteen chapters, by the problem you have</div>' +
         '<div class="contents__grid">' +
-        byPart.map(function(p){
+        parts().map(function(p){
           return '<div class="part-block"><h3><span>Part ' + p.roman + '</span> · ' + esc(p.name) + '</h3>' +
             p.chs.map(function(c){
               return '<button class="chapter-link" data-go="chapter" data-n="' + c.n + '">' +
@@ -428,50 +757,72 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
             }).join("") + "</div>";
         }).join("") +
         '</div>' +
-        '<div class="kbd-hint">Press <kbd>R</kbd> to open it somewhere else · <kbd>/</kbd> to search</div>' +
+        '<div class="kbd-hint">Press <kbd>R</kbd> to open it anywhere · <kbd>/</kbd> to search</div>' +
       '</section>';
-    document.getElementById("reshuffle").addEventListener("click", function(){
-      var ne = randomEntry();
-      var box = main.querySelector(".reading");
-      box.innerHTML = entryHTML(ne);
+    document.getElementById("anywhere").addEventListener("click", function(){
+      var e = randomEntry();
+      pendingEntry = e.n;
+      location.hash = "#/chapter/" + e.ch;
     });
+  }
+
+  function chapterInner(ch){
+    return '<header class="ch-head">' +
+        '<div class="ch-eyebrow">Part ' + ch.partRoman + ' · ' + esc(ch.partName) +
+        ' · <b>Chapter ' + ch.n + '</b></div>' +
+        '<h2>' + esc(ch.title) + '</h2></header>' +
+      '<div class="ch-open">' + ch.opening + '</div>' +
+      ch.entries.map(function(e){ return entryHTML(e); }).join("");
   }
 
   function viewChapter(n){
     var ch = BOOK.chapters.filter(function(c){ return c.n === n; })[0];
-    if(!ch) return viewHome();
+    if(!ch) return viewCover();
+    if(mode() === "paged"){
+      mountPaged(chapterInner(ch), "Ch " + ch.n + " · " + ch.title, "chapter/" + n);
+      if(pendingEntry) jumpToEntryPage(pendingEntry);
+      return;
+    }
+    P = null;
     var prev = BOOK.chapters.filter(function(c){ return c.n === n - 1; })[0];
     var next = BOOK.chapters.filter(function(c){ return c.n === n + 1; })[0];
     main.innerHTML =
-      '<div class="page">' +
-        '<header class="ch-head">' +
-          '<div class="ch-eyebrow">Part ' + ch.partRoman + ' · ' + esc(ch.partName) +
-          ' · <b>Chapter ' + ch.n + '</b></div>' +
-          '<h2>' + esc(ch.title) + '</h2>' +
-        '</header>' +
-        '<div class="ch-open">' + ch.opening + '</div>' +
-        '<div class="reading">' + ch.entries.map(function(e){ return entryHTML(e); }).join("") + '</div>' +
+      '<div class="page">' + chapterInner(ch) +
         '<nav class="ch-foot">' +
           (prev ? '<button data-go="chapter" data-n="' + prev.n + '"><span class="ch-foot__lab">Previous</span>' +
                   '<span class="ch-foot__t">' + esc(prev.title) + '</span></button>' : '<span></span>') +
           (next ? '<button data-go="chapter" data-n="' + next.n + '"><span class="ch-foot__lab">Next</span>' +
                   '<span class="ch-foot__t">' + esc(next.title) + '</span></button>' : '<span></span>') +
-        '</nav>' +
-      '</div>';
+        '</nav></div>';
+    var wrap = main.querySelector(".page");
+    var entries = wrap.querySelectorAll(".entry");
+    var host = document.createElement("div");
+    host.className = "reading";
+    entries[0].parentNode.insertBefore(host, entries[0]);
+    Array.prototype.forEach.call(entries, function(el){ host.appendChild(el); });
+  }
+
+  function jumpToEntryPage(n){
+    var el = document.getElementById("e" + n);
+    pendingEntry = null;
+    if(!el || !P) return;
+    var page = Math.floor((el.offsetLeft + 1) / P.pw);
+    goTo(page - (page % P.spread));
   }
 
   function viewProse(which){
     var title = which === "intro" ? "Introduction" : "A Note on Attribution";
-    main.innerHTML =
-      '<div class="page">' +
-        '<header class="ch-head"><div class="ch-eyebrow">' +
-          (which === "intro" ? "Front matter" : "Back matter") + '</div>' +
-          '<h2>' + title + '</h2></header>' +
-        '<div class="prose">' + (which === "intro" ? BOOK.intro : BOOK.note) + '</div>' +
-      '</div>';
+    var inner = '<header class="ch-head"><div class="ch-eyebrow">' +
+      (which === "intro" ? "Front matter" : "Back matter") + '</div>' +
+      '<h2>' + title + '</h2></header>' +
+      '<div class="prose">' + (which === "intro" ? BOOK.intro : BOOK.note) + '</div>';
+    if(mode() === "paged"){ mountPaged(inner, title, which); return; }
+    P = null;
+    main.innerHTML = '<div class="page">' + inner + '</div>';
   }
 
   function viewIndex(){
+    P = null;
     var letter = null, html = "";
     BOOK.index.forEach(function(s){
       if(s.letter !== letter){
@@ -496,6 +847,7 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
   }
 
   function viewSearch(term){
+    P = null;
     var t = term.toLowerCase();
     var hits = ALL.filter(function(e){
       return (e.quote + " " + e.attribution + " " + e.means + " " + e.use + " " + e.chTitle)
@@ -515,46 +867,54 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
       "</div>";
   }
 
-  /* ---------- routing ---------- */
+  /* ================= routing ================= */
+  var pendingEntry = null;
+
   function markCurrent(n){
-    document.querySelectorAll('.toc button').forEach(function(b){
+    document.querySelectorAll(".toc button").forEach(function(b){
       b.setAttribute("aria-current", String(Number(b.dataset.n) === n));
     });
   }
   function render(){
     var h = location.hash.replace(/^#\/?/, "");
-    var parts = h.split("/");
-    if(parts[0] === "chapter"){ viewChapter(Number(parts[1])); markCurrent(Number(parts[1])); }
-    else if(parts[0] === "intro"){ viewProse("intro"); markCurrent(0); }
-    else if(parts[0] === "note"){ viewProse("note"); markCurrent(0); }
-    else if(parts[0] === "index"){ viewIndex(); markCurrent(0); }
-    else if(parts[0] === "search"){ viewSearch(decodeURIComponent(parts.slice(1).join("/"))); markCurrent(0); }
-    else { viewHome(); markCurrent(0); }
-    if(pendingEntry){
+    var seg = h.split("/");
+    if(seg[0] === "chapter"){ viewChapter(Number(seg[1])); markCurrent(Number(seg[1])); }
+    else if(seg[0] === "intro"){ viewProse("intro"); markCurrent(0); }
+    else if(seg[0] === "note"){ viewProse("note"); markCurrent(0); }
+    else if(seg[0] === "index"){ viewIndex(); markCurrent(0); }
+    else if(seg[0] === "search"){ viewSearch(decodeURIComponent(seg.slice(1).join("/"))); markCurrent(0); }
+    else { viewCover(); markCurrent(0); }
+    if(pendingEntry && !P){
       var el = document.getElementById("e" + pendingEntry);
       pendingEntry = null;
       if(el){ el.scrollIntoView(); window.scrollBy(0, -20); return; }
     }
     window.scrollTo(0, 0);
   }
-  var pendingEntry = null;
 
   document.addEventListener("click", function(ev){
     var go = ev.target.closest("[data-go]");
     if(go){
       var kind = go.dataset.go;
-      location.hash = kind === "chapter" ? "#/chapter/" + go.dataset.n : "#/" + kind;
+      var next = kind === "chapter" ? "#/chapter/" + go.dataset.n : kind === "cover" ? "#/" : "#/" + kind;
+      if(location.hash === next || (next === "#/" && !location.hash)) render();
+      else location.hash = next;
       closeRail();
       return;
     }
     var jump = ev.target.closest("[data-goto-entry]");
     if(jump){
-      pendingEntry = jump.dataset.gotoEntry;
-      location.hash = "#/chapter/" + jump.dataset.ch;
+      pendingEntry = Number(jump.dataset.gotoEntry);
+      var h = "#/chapter/" + jump.dataset.ch;
+      if(location.hash === h) render(); else location.hash = h;
       closeRail();
     }
   });
-  document.getElementById("brand").addEventListener("click", function(){ location.hash = "#/"; });
+  document.getElementById("brand").addEventListener("click", function(){
+    if(location.hash && location.hash !== "#/") location.hash = "#/"; else render();
+  });
+  document.getElementById("mode-paged").addEventListener("click", function(){ setMode("paged"); });
+  document.getElementById("mode-scroll").addEventListener("click", function(){ setMode("scroll"); });
 
   var rail = document.getElementById("rail");
   var toggle = document.getElementById("railtoggle");
@@ -581,15 +941,27 @@ mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
 
   document.addEventListener("keydown", function(ev){
     if(ev.target.tagName === "INPUT" || ev.metaKey || ev.ctrlKey || ev.altKey) return;
-    if(ev.key === "/"){ ev.preventDefault(); searchBox.focus(); }
-    else if(ev.key === "r" || ev.key === "R"){
-      if(location.hash.replace(/^#\/?/, "") === "") {
-        var b = document.getElementById("reshuffle");
-        if(b) b.click();
-      } else { location.hash = "#/"; }
+    if(ev.key === "/"){ ev.preventDefault(); searchBox.focus(); return; }
+    if(ev.key === "r" || ev.key === "R"){
+      var e = randomEntry();
+      pendingEntry = e.n;
+      var h = "#/chapter/" + e.ch;
+      if(location.hash === h) render(); else location.hash = h;
+      return;
     }
+    if(!P) return;
+    if(ev.key === "ArrowRight" || ev.key === "PageDown" || ev.key === " "){ ev.preventDefault(); turn(1); }
+    else if(ev.key === "ArrowLeft" || ev.key === "PageUp"){ ev.preventDefault(); turn(-1); }
   });
 
+  var rt;
+  window.addEventListener("resize", function(){
+    if(!P) return;
+    clearTimeout(rt);
+    rt = setTimeout(render, 220);
+  });
+
+  setMode(mode(), true);
   window.addEventListener("hashchange", render);
   render();
 })();

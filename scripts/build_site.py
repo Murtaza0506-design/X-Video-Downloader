@@ -171,6 +171,7 @@ def main():
                     "each with what it means and where to put it.",
         "chapters": chapters,
         "index": build_index(chapters),
+        "blurb": [ln.strip() for ln in open("content/blurb.txt").read().strip().split("\n") if ln.strip()],
         "intro": blocks_to_html(intro_body.split("\n", 1)[1]),
         "note": blocks_to_html(note_body.split("\n", 1)[1]),
     }
