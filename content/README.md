@@ -86,3 +86,42 @@ The website. No decisions have been made on stack, reading model, monetisation,
 search or favourites, and the handover asks that these be put to the owner rather
 than assumed. The content pipeline is ready for whatever gets chosen: markdown
 per chapter, front matter for chapter and part, generated index.
+
+## The reading edition
+
+`book.html` is the built book: a single self-contained page with all 240 entries,
+chapter navigation, full-text search and the source index. Published at
+https://claude.ai/code/artifact/871c2f90-08d2-4424-8a0e-e8ed94907c27
+
+```
+scripts/book_template.html   markup, styles and behaviour; __BOOK_DATA__ placeholder
+scripts/build_site.py        parses content/*.md, derives the index, writes book.html
+book.html                    GENERATED - do not edit by hand
+book-entries.csv             GENERATED - all 240 entries as a flat table
+```
+
+Rebuild after editing any chapter:
+
+```
+python3 scripts/build_site.py
+```
+
+### Reading model
+
+The handover left linear-versus-dip-in open. The book is written to be dipped
+into, so the page opens at a random entry ("the page it fell open at") with an
+"Open it again" control, and full linear reading is available through the chapter
+rail. Both models are served rather than one chosen.
+
+### Design
+
+The visual reference is the commonplace book: the blank volumes readers kept from
+the Renaissance onward, copying out passages worth keeping under topic headings
+with their own notes beside them. Locke published an indexing method for them in
+1706. The manuscript conventions carried over are the red vertical bounding line
+down the text block, entry numbers hanging in the margin, and rubricated headings.
+
+Bodoni Moda for quotations and numerals, Spectral for body text, IBM Plex Mono for
+labels and the index. Stone ground with madder red used only for rubrication.
+Light and dark are both defined at token level, including the un-stamped
+system-default state.

@@ -1,0 +1,596 @@
+<title>Lines Worth Keeping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --paper:#E3E5E0;
+  --surface:#EDEEEA;
+  --sunk:#D8DBD5;
+  --ink:#191C1B;
+  --ink-soft:#43474A;
+  --muted:#6E736D;
+  --rule:#C6C9C2;
+  --rule-soft:#D3D6CF;
+  --madder:#8E2E22;
+  --madder-ghost:#C9A49E;
+  --indigo:#2C4257;
+  --mark:#E6D08A;
+
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --measure:35rem;
+  --rail:16.5rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#131619;
+    --surface:#1A1E21;
+    --sunk:#0E1113;
+    --ink:#E7E8E2;
+    --ink-soft:#BBBFB9;
+    --muted:#8B918A;
+    --rule:#2B3035;
+    --rule-soft:#23282C;
+    --madder:#D06B59;
+    --madder-ghost:#6E3A32;
+    --indigo:#93B4D2;
+    --mark:#5C4A1E;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131619;
+  --surface:#1A1E21;
+  --sunk:#0E1113;
+  --ink:#E7E8E2;
+  --ink-soft:#BBBFB9;
+  --muted:#8B918A;
+  --rule:#2B3035;
+  --rule-soft:#23282C;
+  --madder:#D06B59;
+  --madder-ghost:#6E3A32;
+  --indigo:#93B4D2;
+  --mark:#5C4A1E;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:18px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--madder);outline-offset:3px;border-radius:2px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+p{margin:0 0 1.05em}
+p:last-child{margin-bottom:0}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);min-height:100vh}
+
+.rail{
+  border-right:1px solid var(--rule);background:var(--surface);
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+  padding:1.7rem 1.25rem 3rem;
+}
+.rail__brand{
+  display:block;width:100%;text-align:left;
+  font-family:var(--display);font-size:1.32rem;line-height:1.15;
+  letter-spacing:.005em;margin-bottom:.3rem;
+}
+.rail__colophon{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+  padding-bottom:1.2rem;border-bottom:1px solid var(--rule);
+}
+.rail__search{margin:1.15rem 0 1.4rem;position:relative}
+.rail__search input{
+  width:100%;font-family:var(--mono);font-size:.76rem;color:var(--ink);
+  background:var(--paper);border:1px solid var(--rule);border-radius:2px;
+  padding:.5rem .6rem .5rem 1.75rem;
+}
+.rail__search input::placeholder{color:var(--muted)}
+.rail__search svg{
+  position:absolute;left:.55rem;top:50%;transform:translateY(-50%);
+  width:.8rem;height:.8rem;stroke:var(--muted);fill:none;stroke-width:1.6;
+}
+.part{margin-bottom:1.4rem}
+.part__head{
+  display:flex;align-items:baseline;gap:.5rem;
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.45rem;
+}
+.part__num{color:var(--madder);font-weight:500}
+.toc{list-style:none;margin:0;padding:0}
+.toc button{
+  display:flex;gap:.6rem;width:100%;text-align:left;padding:.24rem 0;
+  font-size:.9rem;line-height:1.35;color:var(--ink-soft);
+}
+.toc button:hover{color:var(--madder)}
+.toc button[aria-current="true"]{color:var(--madder);font-weight:600}
+.toc__n{
+  font-family:var(--mono);font-size:.7rem;color:var(--muted);
+  min-width:1.1rem;padding-top:.16rem;font-variant-numeric:tabular-nums;
+}
+.toc button[aria-current="true"] .toc__n{color:var(--madder)}
+.rail__end{border-top:1px solid var(--rule);padding-top:.9rem;margin-top:.4rem}
+.rail__end button{
+  display:block;width:100%;text-align:left;padding:.24rem 0;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--ink-soft);
+}
+.rail__end button:hover{color:var(--madder)}
+
+/* ---------- main ---------- */
+.main{padding:3.4rem 3rem 6rem;min-width:0}
+.page{max-width:var(--measure);margin-inline:auto}
+
+.masthead{margin-bottom:3rem}
+.masthead h1{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(2.6rem,6vw,4.1rem);line-height:.98;margin:0 0 .5rem;
+  letter-spacing:-.01em;text-wrap:balance;
+}
+.masthead p{
+  font-size:1.06rem;line-height:1.5;color:var(--ink-soft);
+  font-style:italic;max-width:28rem;margin:0;
+}
+.rule-red{border:0;border-top:1px solid var(--madder);opacity:.5;margin:1.5rem 0}
+
+.opener__label{
+  display:flex;align-items:center;gap:.7rem;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;
+}
+.opener__label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.reading{
+  border-left:1px solid var(--madder-ghost);
+  padding-left:2.6rem;position:relative;
+}
+.entry{position:relative;padding-bottom:2.6rem;margin-bottom:2.6rem;border-bottom:1px solid var(--rule-soft)}
+.entry:last-child{border-bottom:0;margin-bottom:0;padding-bottom:.5rem}
+.entry__n{
+  position:absolute;left:-2.6rem;top:.42rem;width:2.6rem;
+  font-family:var(--mono);font-size:.68rem;color:var(--madder);
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  background:var(--paper);padding-right:.7rem;
+}
+.entry__quote{
+  font-family:var(--display);font-weight:400;
+  font-size:1.44rem;line-height:1.33;margin:0 0 .55rem;
+  letter-spacing:-.005em;text-wrap:pretty;
+}
+.entry__quote .mk{color:var(--madder-ghost)}
+.entry__attr{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;
+  color:var(--muted);margin-bottom:1.15rem;
+}
+.gloss{margin-bottom:.95rem}
+.gloss:last-child{margin-bottom:0}
+.gloss__label{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.13em;
+  text-transform:uppercase;margin-bottom:.28rem;
+}
+.gloss--means .gloss__label{color:var(--madder)}
+.gloss--use .gloss__label{color:var(--indigo)}
+.gloss p{font-size:.98rem;line-height:1.6;color:var(--ink-soft)}
+
+.reshuffle{
+  display:inline-flex;align-items:center;gap:.55rem;margin-top:1.8rem;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+  color:var(--madder);border:1px solid var(--madder-ghost);border-radius:2px;
+  padding:.5rem .85rem;transition:background .15s ease;
+}
+.reshuffle:hover{background:var(--surface)}
+.reshuffle svg{width:.85rem;height:.85rem;fill:none;stroke:currentColor;stroke-width:1.7}
+
+/* ---------- contents grid ---------- */
+.contents{max-width:52rem;margin:4.5rem auto 0}
+.contents__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3rem}
+.part-block{margin-bottom:2.2rem;break-inside:avoid}
+.part-block h3{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);font-weight:400;
+  margin:0 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule);
+}
+.part-block h3 span{color:var(--madder)}
+.chapter-link{display:flex;gap:.7rem;width:100%;text-align:left;padding:.34rem 0;align-items:baseline}
+.chapter-link:hover .chapter-link__t{color:var(--madder)}
+.chapter-link__n{
+  font-family:var(--mono);font-size:.72rem;color:var(--madder);
+  min-width:1.3rem;font-variant-numeric:tabular-nums;
+}
+.chapter-link__t{font-size:1rem;line-height:1.3;transition:color .12s ease}
+
+/* ---------- chapter view ---------- */
+.ch-head{margin-bottom:2.4rem}
+.ch-eyebrow{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;
+}
+.ch-eyebrow b{color:var(--madder);font-weight:500}
+.ch-head h2{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(2rem,4.4vw,2.9rem);line-height:1.05;margin:0;
+  letter-spacing:-.01em;text-wrap:balance;
+}
+.ch-open{font-size:1.06rem;line-height:1.7;margin-bottom:2.6rem}
+.ch-open p:first-child::first-letter{
+  font-family:var(--display);float:left;font-size:3.3em;line-height:.82;
+  padding:.06em .1em 0 0;color:var(--madder);
+}
+.ch-foot{
+  display:flex;justify-content:space-between;gap:1.5rem;
+  margin-top:3.5rem;padding-top:1.3rem;border-top:1px solid var(--rule);
+}
+.ch-foot button{max-width:15rem;text-align:left}
+.ch-foot button:last-child{text-align:right}
+.ch-foot__lab{
+  display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.25rem;
+}
+.ch-foot__t{font-size:.98rem;line-height:1.3}
+.ch-foot button:hover .ch-foot__t{color:var(--madder)}
+
+/* ---------- prose (intro / note) ---------- */
+.prose{font-size:1.04rem;line-height:1.72}
+.prose ul{margin:0 0 1.05em;padding-left:1.1rem}
+.prose li{margin-bottom:.55em}
+.prose a{color:var(--indigo);text-underline-offset:2px}
+
+/* ---------- search ---------- */
+.results{list-style:none;margin:0;padding:0}
+.result{padding:1.15rem 0;border-bottom:1px solid var(--rule-soft)}
+.result button{display:block;width:100%;text-align:left}
+.result__q{font-family:var(--display);font-size:1.12rem;line-height:1.35;margin-bottom:.35rem}
+.result__meta{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--muted);
+}
+.result:hover .result__q{color:var(--madder)}
+mark{background:var(--mark);color:var(--ink);padding:0 .1em;border-radius:1px}
+.empty{color:var(--muted);font-style:italic}
+
+/* ---------- source index ---------- */
+.srcs{max-width:50rem;margin-inline:auto;columns:2;column-gap:2.8rem}
+.src{break-inside:avoid;margin-bottom:1.05rem}
+.src__name{font-size:1rem;font-weight:600;margin-bottom:.18rem}
+.src__item{
+  display:block;width:100%;text-align:left;font-size:.88rem;line-height:1.45;
+  color:var(--ink-soft);padding:.08rem 0;
+}
+.src__item:hover{color:var(--madder)}
+.src__n{font-family:var(--mono);font-size:.68rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.src__q{font-family:var(--mono);font-size:.66rem;color:var(--madder);font-style:normal}
+.letter{
+  font-family:var(--display);font-size:1.5rem;color:var(--madder);
+  margin:1.6rem 0 .7rem;padding-bottom:.2rem;border-bottom:1px solid var(--rule);
+  break-inside:avoid;break-after:avoid;
+}
+.letter:first-child{margin-top:0}
+
+.kbd-hint{
+  margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--muted);
+}
+.kbd-hint kbd{
+  font-family:var(--mono);border:1px solid var(--rule);border-radius:2px;
+  padding:.08rem .3rem;background:var(--surface);font-size:.9em;
+}
+
+.railtoggle{display:none}
+
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .rail{
+    position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);
+    padding:1.1rem 1.25rem 1.4rem;
+  }
+  .rail__nav{display:none}
+  .rail[data-open="true"] .rail__nav{display:block}
+  .rail__search{margin:1rem 0 0}
+  .railtoggle{
+    display:flex;align-items:center;gap:.5rem;margin-top:1rem;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--madder);
+  }
+  .main{padding:2rem 1.35rem 4rem}
+  .page,.contents,.srcs{margin-inline:0}
+  .reading{padding-left:1.15rem}
+  .entry__n{position:static;display:block;width:auto;padding:0;margin-bottom:.4rem;background:none}
+  .entry__quote{font-size:1.28rem}
+  .srcs{columns:1}
+  .ch-open p:first-child::first-letter{font-size:2.9em}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+</style>
+
+<div class="shell">
+  <nav class="rail" id="rail">
+    <button class="rail__brand" id="brand">Lines Worth<br>Keeping</button>
+    <div class="rail__colophon" id="colophon"></div>
+    <button class="railtoggle" id="railtoggle" aria-expanded="false">Contents</button>
+    <div class="rail__search">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="M10.5 10.5 14 14"></path></svg>
+      <input id="search" type="search" placeholder="Search 240 entries" aria-label="Search the book">
+    </div>
+    <div class="rail__nav" id="railnav">
+      <div id="toc"></div>
+      <div class="rail__end">
+        <button data-go="intro">Introduction</button>
+        <button data-go="note">A Note on Attribution</button>
+        <button data-go="index">Index of Sources</button>
+      </div>
+    </div>
+  </nav>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+
+<script id="book-data" type="application/json">__BOOK_DATA__</script>
+<script>
+(function(){
+  "use strict";
+  var BOOK = JSON.parse(document.getElementById("book-data").textContent);
+  var main = document.getElementById("main");
+  var searchBox = document.getElementById("search");
+
+  var ALL = [];
+  BOOK.chapters.forEach(function(ch){
+    ch.entries.forEach(function(e){ ALL.push(Object.assign({chTitle:ch.title}, e)); });
+  });
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];
+    });
+  }
+  function pad(n){ return n < 10 ? "00" + n : n < 100 ? "0" + n : "" + n; }
+
+  document.getElementById("colophon").textContent =
+    ALL.length + " entries · " + BOOK.chapters.length + " chapters · " +
+    BOOK.index.length + " sources";
+
+  /* ---------- table of contents ---------- */
+  (function(){
+    var byPart = [], seen = {};
+    BOOK.chapters.forEach(function(ch){
+      if(!seen[ch.part]){ seen[ch.part] = {roman:ch.partRoman, name:ch.partName, chs:[]}; byPart.push(seen[ch.part]); }
+      seen[ch.part].chs.push(ch);
+    });
+    document.getElementById("toc").innerHTML = byPart.map(function(p){
+      return '<div class="part"><div class="part__head"><span class="part__num">' + p.roman +
+        '</span><span>' + esc(p.name) + '</span></div><ul class="toc">' +
+        p.chs.map(function(c){
+          return '<li><button data-go="chapter" data-n="' + c.n + '">' +
+            '<span class="toc__n">' + c.n + '</span>' +
+            '<span class="toc__t">' + esc(c.title) + '</span></button></li>';
+        }).join("") + "</ul></div>";
+    }).join("");
+  })();
+
+  /* ---------- entry rendering ---------- */
+  function entryHTML(e){
+    var q = e.bare
+      ? '<em>' + esc(e.quote) + '</em>'
+      : '<span class="mk">\u201C</span>' + esc(e.quote) + '<span class="mk">\u201D</span>';
+    var means = esc(e.means), use = esc(e.use), attr = esc(e.attribution);
+    return '<article class="entry" id="e' + e.n + '">' +
+      '<div class="entry__n">' + pad(e.n) + '</div>' +
+      '<blockquote class="entry__quote">' + q + '</blockquote>' +
+      '<div class="entry__attr">' + attr + '</div>' +
+      '<div class="gloss gloss--means"><div class="gloss__label">What it means</div><p>' + means + '</p></div>' +
+      '<div class="gloss gloss--use"><div class="gloss__label">How to use it</div><p>' + use + '</p></div>' +
+      '</article>';
+  }
+  function hl(safeText, term){
+    if(/[&<>"]/.test(term)) return safeText;
+    var re = new RegExp("(" + term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+    return safeText.replace(re, "<mark>$1</mark>");
+  }
+
+  /* ---------- views ---------- */
+  var lastRandom = -1;
+  function randomEntry(){
+    var i = Math.floor(Math.random() * ALL.length);
+    if(i === lastRandom) i = (i + 1) % ALL.length;
+    lastRandom = i;
+    return ALL[i];
+  }
+
+  function viewHome(){
+    var e = randomEntry();
+    var byPart = [], seen = {};
+    BOOK.chapters.forEach(function(ch){
+      if(!seen[ch.part]){ seen[ch.part] = {roman:ch.partRoman, name:ch.partName, chs:[]}; byPart.push(seen[ch.part]); }
+      seen[ch.part].chs.push(ch);
+    });
+    main.innerHTML =
+      '<div class="page">' +
+        '<header class="masthead"><h1>' + esc(BOOK.title) + '</h1>' +
+        '<p>' + esc(BOOK.subtitle) + '</p></header>' +
+        '<hr class="rule-red">' +
+        '<div class="opener__label">The page it fell open at</div>' +
+        '<div class="reading">' + entryHTML(e) + '</div>' +
+        '<button class="reshuffle" id="reshuffle">' +
+          '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5h7a4 4 0 0 1 0 8H5"></path><path d="M7 2 4 5l3 3"></path></svg>' +
+          'Open it again</button>' +
+      '</div>' +
+      '<section class="contents"><div class="opener__label">Sixteen chapters, by the problem you have</div>' +
+        '<div class="contents__grid">' +
+        byPart.map(function(p){
+          return '<div class="part-block"><h3><span>Part ' + p.roman + '</span> · ' + esc(p.name) + '</h3>' +
+            p.chs.map(function(c){
+              return '<button class="chapter-link" data-go="chapter" data-n="' + c.n + '">' +
+                '<span class="chapter-link__n">' + c.n + '</span>' +
+                '<span class="chapter-link__t">' + esc(c.title) + '</span></button>';
+            }).join("") + "</div>";
+        }).join("") +
+        '</div>' +
+        '<div class="kbd-hint">Press <kbd>R</kbd> to open it somewhere else · <kbd>/</kbd> to search</div>' +
+      '</section>';
+    document.getElementById("reshuffle").addEventListener("click", function(){
+      var ne = randomEntry();
+      var box = main.querySelector(".reading");
+      box.innerHTML = entryHTML(ne);
+    });
+  }
+
+  function viewChapter(n){
+    var ch = BOOK.chapters.filter(function(c){ return c.n === n; })[0];
+    if(!ch) return viewHome();
+    var prev = BOOK.chapters.filter(function(c){ return c.n === n - 1; })[0];
+    var next = BOOK.chapters.filter(function(c){ return c.n === n + 1; })[0];
+    main.innerHTML =
+      '<div class="page">' +
+        '<header class="ch-head">' +
+          '<div class="ch-eyebrow">Part ' + ch.partRoman + ' · ' + esc(ch.partName) +
+          ' · <b>Chapter ' + ch.n + '</b></div>' +
+          '<h2>' + esc(ch.title) + '</h2>' +
+        '</header>' +
+        '<div class="ch-open">' + ch.opening + '</div>' +
+        '<div class="reading">' + ch.entries.map(function(e){ return entryHTML(e); }).join("") + '</div>' +
+        '<nav class="ch-foot">' +
+          (prev ? '<button data-go="chapter" data-n="' + prev.n + '"><span class="ch-foot__lab">Previous</span>' +
+                  '<span class="ch-foot__t">' + esc(prev.title) + '</span></button>' : '<span></span>') +
+          (next ? '<button data-go="chapter" data-n="' + next.n + '"><span class="ch-foot__lab">Next</span>' +
+                  '<span class="ch-foot__t">' + esc(next.title) + '</span></button>' : '<span></span>') +
+        '</nav>' +
+      '</div>';
+  }
+
+  function viewProse(which){
+    var title = which === "intro" ? "Introduction" : "A Note on Attribution";
+    main.innerHTML =
+      '<div class="page">' +
+        '<header class="ch-head"><div class="ch-eyebrow">' +
+          (which === "intro" ? "Front matter" : "Back matter") + '</div>' +
+          '<h2>' + title + '</h2></header>' +
+        '<div class="prose">' + (which === "intro" ? BOOK.intro : BOOK.note) + '</div>' +
+      '</div>';
+  }
+
+  function viewIndex(){
+    var letter = null, html = "";
+    BOOK.index.forEach(function(s){
+      if(s.letter !== letter){
+        letter = s.letter;
+        html += '<div class="letter">' + (letter === "¶" ? "Proverbs &amp; anonymous" : letter) + "</div>";
+      }
+      html += '<div class="src"><div class="src__name">' + esc(s.name) + "</div>" +
+        s.items.map(function(i){
+          return '<button class="src__item" data-goto-entry="' + i.n + '" data-ch="' + i.ch + '">' +
+            '<span class="src__n">' + pad(i.n) + "</span> “" + esc(i.quote) + "”" +
+            (i.q ? ' <span class="src__q">' + esc(i.q) + "</span>" : "") + "</button>";
+        }).join("") + "</div>";
+    });
+    main.innerHTML =
+      '<div class="page"><header class="ch-head"><div class="ch-eyebrow">Back matter</div>' +
+        '<h2>Index of Sources</h2></header>' +
+        '<p style="color:var(--muted);font-size:.95rem;max-width:34rem;margin-bottom:2rem">' +
+        BOOK.index.length + ' sources across ' + ALL.length +
+        ' entries. Numbers are entry numbers. Where a line is disputed or paraphrased it is marked ' +
+        '<em>attributed to</em> or <em>after</em>, matching the text.</p></div>' +
+      '<div class="srcs">' + html + "</div>";
+  }
+
+  function viewSearch(term){
+    var t = term.toLowerCase();
+    var hits = ALL.filter(function(e){
+      return (e.quote + " " + e.attribution + " " + e.means + " " + e.use + " " + e.chTitle)
+        .toLowerCase().indexOf(t) !== -1;
+    });
+    main.innerHTML =
+      '<div class="page"><header class="ch-head"><div class="ch-eyebrow">Search</div>' +
+      '<h2>' + hits.length + (hits.length === 1 ? " entry" : " entries") + " for “" + esc(term) + "”</h2></header>" +
+      (hits.length
+        ? '<ul class="results">' + hits.map(function(e){
+            return '<li class="result"><button data-goto-entry="' + e.n + '" data-ch="' + e.ch + '">' +
+              '<div class="result__q">“' + hl(esc(e.quote), term) + '”</div>' +
+              '<div class="result__meta">' + pad(e.n) + " · " + esc(e.attribution) +
+              " · ch " + e.ch + ", " + esc(e.chTitle) + "</div></button></li>";
+          }).join("") + "</ul>"
+        : '<p class="empty">Nothing here. Try a plainer word: anger, money, sleep, apology.</p>') +
+      "</div>";
+  }
+
+  /* ---------- routing ---------- */
+  function markCurrent(n){
+    document.querySelectorAll('.toc button').forEach(function(b){
+      b.setAttribute("aria-current", String(Number(b.dataset.n) === n));
+    });
+  }
+  function render(){
+    var h = location.hash.replace(/^#\/?/, "");
+    var parts = h.split("/");
+    if(parts[0] === "chapter"){ viewChapter(Number(parts[1])); markCurrent(Number(parts[1])); }
+    else if(parts[0] === "intro"){ viewProse("intro"); markCurrent(0); }
+    else if(parts[0] === "note"){ viewProse("note"); markCurrent(0); }
+    else if(parts[0] === "index"){ viewIndex(); markCurrent(0); }
+    else if(parts[0] === "search"){ viewSearch(decodeURIComponent(parts.slice(1).join("/"))); markCurrent(0); }
+    else { viewHome(); markCurrent(0); }
+    if(pendingEntry){
+      var el = document.getElementById("e" + pendingEntry);
+      pendingEntry = null;
+      if(el){ el.scrollIntoView(); window.scrollBy(0, -20); return; }
+    }
+    window.scrollTo(0, 0);
+  }
+  var pendingEntry = null;
+
+  document.addEventListener("click", function(ev){
+    var go = ev.target.closest("[data-go]");
+    if(go){
+      var kind = go.dataset.go;
+      location.hash = kind === "chapter" ? "#/chapter/" + go.dataset.n : "#/" + kind;
+      closeRail();
+      return;
+    }
+    var jump = ev.target.closest("[data-goto-entry]");
+    if(jump){
+      pendingEntry = jump.dataset.gotoEntry;
+      location.hash = "#/chapter/" + jump.dataset.ch;
+      closeRail();
+    }
+  });
+  document.getElementById("brand").addEventListener("click", function(){ location.hash = "#/"; });
+
+  var rail = document.getElementById("rail");
+  var toggle = document.getElementById("railtoggle");
+  function closeRail(){
+    if(window.matchMedia("(max-width:900px)").matches){
+      rail.dataset.open = "false";
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  }
+  toggle.addEventListener("click", function(){
+    var open = rail.dataset.open !== "true";
+    rail.dataset.open = String(open);
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+
+  var timer;
+  searchBox.addEventListener("input", function(){
+    clearTimeout(timer);
+    var v = searchBox.value.trim();
+    timer = setTimeout(function(){
+      location.hash = v.length > 1 ? "#/search/" + encodeURIComponent(v) : "#/";
+    }, 180);
+  });
+
+  document.addEventListener("keydown", function(ev){
+    if(ev.target.tagName === "INPUT" || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if(ev.key === "/"){ ev.preventDefault(); searchBox.focus(); }
+    else if(ev.key === "r" || ev.key === "R"){
+      if(location.hash.replace(/^#\/?/, "") === "") {
+        var b = document.getElementById("reshuffle");
+        if(b) b.click();
+      } else { location.hash = "#/"; }
+    }
+  });
+
+  window.addEventListener("hashchange", render);
+  render();
+})();
+</script>
