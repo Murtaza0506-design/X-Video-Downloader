@@ -101,13 +101,10 @@ p:last-child{margin-bottom:0}
 .stack{position:absolute;transform-style:preserve-3d;pointer-events:none}
 .stack i{
   position:absolute;inset:0;display:block;border-radius:1px;
-  background:var(--edge);box-shadow:inset -1px 0 0 var(--edge-2);
+  background:linear-gradient(180deg,var(--edge),var(--edge-2));
+  box-shadow:inset 0 0 0 .5px rgba(120,105,70,.30);
 }
-.edge{
-  position:absolute;transform-style:preserve-3d;backface-visibility:hidden;
-  background:repeating-linear-gradient(to right,var(--edge) 0 1px,var(--edge-2) 1px 2px);
-}
-.edge--h{background:repeating-linear-gradient(to bottom,var(--edge) 0 1px,var(--edge-2) 1px 2px)}
+
 
 /* page faces */
 .face{
@@ -128,6 +125,8 @@ p:last-child{margin-bottom:0}
   background:repeating-linear-gradient(90deg,rgba(120,105,70,.045) 0 1px,transparent 1px 3px);
   opacity:.7;
 }
+.pgwrap{position:absolute;inset:0}
+.peel__flap .pgwrap{transform:scaleX(-1)}
 .face__flow{position:absolute;top:0;left:0;column-fill:auto;column-rule:0}
 .face__gutter{position:absolute;top:0;bottom:0;width:34px;pointer-events:none}
 .face--verso .face__gutter{right:0;background:linear-gradient(90deg,transparent,rgba(0,0,0,.14))}
@@ -139,7 +138,8 @@ p:last-child{margin-bottom:0}
 }
 .folio{letter-spacing:.08em;font-variant-numeric:tabular-nums}
 
-.leaf{position:absolute;transform-style:flat;will-change:transform;pointer-events:none}
+/* the turning sheet lives inside the covers, so the spread clips it */
+.leaf{position:absolute;overflow:hidden;pointer-events:none}
 /* the reflection matrix is derived about the sheet's own corner, so the
    transform must be applied from there and not from the element centre */
 .peel{position:absolute;transform-origin:0 0;will-change:clip-path,transform}
@@ -376,7 +376,8 @@ var FLOW_HTML = (function(){
 })();
 
 /* ---------- geometry ---------- */
-var G = {ph:0,pw:0,m:0,vm:0,T:26,fit:1};
+var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1};
+var STACK = 18;
 var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,turning:null};
 var faces = {};
 var starts = {};
@@ -388,9 +389,9 @@ function el(cls,parent,css){
 function makeFace(cls){
   var f = el("face "+cls, null,
     "width:"+G.pw+"px;height:"+G.ph+"px;top:"+(-G.ph/2)+"px;");
-  f.innerHTML = '<div class="face__flow pg" style="width:'+G.pw+'px;padding:'+G.vm+'px '+G.m+'px;'+
+  f.innerHTML = '<div class="pgwrap"><div class="face__flow pg" style="width:'+G.pw+'px;padding:'+G.vm+'px '+G.m+'px;'+
     'height:'+G.ph+'px;column-width:'+(G.pw-2*G.m)+'px;column-gap:'+(2*G.m)+'px">'+FLOW_HTML+'</div>'+
-    '<div class="face__rule"></div><div class="runhead"></div><div class="folio"></div>'+
+    '<div class="face__rule"></div><div class="runhead"></div><div class="folio"></div></div>'+
     '<div class="face__gutter"></div>';
   return f;
 }
@@ -415,23 +416,13 @@ function layout(){
   sp.innerHTML = "<span>Lines Worth Keeping</span>";
   faces.spine = sp;
 
-  // the visible edges of each half block
-  function edgeSet(side){
-    var x = side < 0 ? -G.pw : G.pw;
-    var fore = el("edge",null,"width:"+G.T+"px;height:"+G.ph+"px;left:"+(side<0?-G.pw:G.pw)+
-      "px;top:"+(-G.ph/2)+"px;transform-origin:left center;transform:rotateY(90deg)");
-    var top = el("edge edge--h",null,"width:"+G.pw+"px;height:"+G.T+"px;left:"+(side<0?-G.pw:0)+
-      "px;top:"+(-G.ph/2)+"px;transform-origin:center top;transform:rotateX(-90deg)");
-    var bot = el("edge edge--h",null,"width:"+G.pw+"px;height:"+G.T+"px;left:"+(side<0?-G.pw:0)+
-      "px;top:"+(G.ph/2-G.T)+"px;transform-origin:center bottom;transform:rotateX(90deg)");
-    return [fore, top, bot];
-  }
-  faces.edgeL = edgeSet(-1);
-  faces.edgeR = edgeSet(1);
-
-  faces.stackL = el("stack",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:"+(-G.pw)+"px;top:"+(-G.ph/2)+"px");
-  faces.stackR = el("stack",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:0;top:"+(-G.ph/2)+"px");
-  for(var i=0;i<9;i++){
+  // the page block: opaque leaves stacked through the depth, so the book reads
+  // as solid from any angle rather than hollow between the covers
+  faces.stackL = el("stack",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:"+(-G.pw)+
+    "px;top:"+(-G.ph/2)+"px");
+  faces.stackR = el("stack",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:0;top:"+
+    (-G.ph/2)+"px");
+  for(var si=0; si<STACK; si++){
     faces.stackL.appendChild(document.createElement("i"));
     faces.stackR.appendChild(document.createElement("i"));
   }
@@ -440,10 +431,15 @@ function layout(){
   faces.recto = makeFace("face--recto"); faces.recto.style.left = "0px";
   faces.recto.insertAdjacentHTML("beforeend",'<div class="corner" id="corner"></div>');
 
-  var leaf = el("leaf",null,"width:0;height:0;left:0;top:0;display:none");
+  var leaf = el("leaf",null,"width:"+(2*G.pw)+"px;height:"+G.ph+"px;left:"+(-G.pw)+
+    "px;top:"+(-G.ph/2)+"px;display:none");
   faces.leaf = leaf;
-  faces.leafFront = makeFace("peel peel__base"); faces.leafFront.style.display = "none";
-  faces.leafBack  = makeFace("peel peel__flap"); faces.leafBack.style.display  = "none";
+  faces.leafFront = makeFace("peel peel__base");
+  faces.leafBack  = makeFace("peel peel__flap");
+  leaf.appendChild(faces.leafFront);
+  leaf.appendChild(faces.leafBack);
+  faces.leafFront.style.display = "none";
+  faces.leafBack.style.display  = "none";
   faces.leafFront.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
   faces.leafBack.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
 
@@ -512,27 +508,16 @@ function paint(){
   setFace(faces.recto, R);
   var t = S.pages ? S.spread/Math.max(1,Math.ceil(S.pages/2)) : 0;
   [["stackL",t],["stackR",1-t]].forEach(function(pair){
-    var node = faces[pair[0]], frac = pair[1];
+    var node = faces[pair[0]], frac = Math.max(0.04, pair[1]);
+    var d = Math.max(2, G.T*frac);
     Array.prototype.forEach.call(node.children,function(sl,i){
-      var d = Math.max(1, Math.round(G.T*frac));
-      sl.style.transform = "translateZ("+(-(i+1)*(d/9))+"px)";
-      sl.style.opacity = frac > 0.02 ? "1" : "0";
+      sl.style.transform = "translateZ("+(-1 - (i+1)*(d/STACK)).toFixed(2)+"px)";
     });
   });
   faces.verso.style.display = S.open ? "block" : "none";
   faces.recto.style.display = S.open ? "block" : "none";
   faces.spine.style.display = S.open ? "none" : "block";
   faces.stackL.style.display = faces.stackR.style.display = S.open ? "block" : "none";
-  [faces.edgeL, faces.edgeR].forEach(function(set, i){
-    var frac = i === 0 ? t : 1 - t;
-    var depth = Math.max(1, Math.round(G.T * frac));
-    set.forEach(function(node, k){
-      node.style.display = (S.open && frac > 0.02) ? "block" : "none";
-      if(k === 0) node.style.width = depth + "px";
-      else node.style.height = depth + "px";
-      if(k === 2) node.style.top = (G.ph/2 - depth) + "px";
-    });
-  });
   document.getElementById("where").textContent = S.open
     ? "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages
     : "Closed \u00b7 drag the cover to open";
@@ -582,10 +567,10 @@ function beginTurn(dir){
   if(dir < 0 && S.spread === 0) return false;
 
   var base = faces.leafFront, flap = faces.leafBack;
-  var x = dir > 0 ? 0 : -G.pw;
+  var x = dir > 0 ? G.pw : 0;
   [base, flap].forEach(function(f){
     f.style.left = x + "px";
-    f.style.top = (-G.ph/2) + "px";
+    f.style.top = "0px";
     f.style.display = "block";
     f.style.transform = "none";
     f.style.clipPath = "none";
