@@ -267,6 +267,37 @@ p:last-child{margin-bottom:0}
   color:var(--hud);opacity:.5;pointer-events:none;white-space:nowrap;
 }
 
+.dials{
+  position:fixed;left:.9rem;bottom:.9rem;z-index:40;
+  display:flex;flex-direction:column;gap:.35rem;
+  background:rgba(243,239,227,.9);border:1px solid var(--rule);border-radius:4px;
+  padding:.5rem .6rem;backdrop-filter:blur(6px);
+}
+.dial{display:flex;align-items:center;gap:.5rem;font-family:var(--label)}
+.dial > span{
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--madder);width:.9rem;
+}
+.dial > b{
+  font-size:.7rem;font-weight:400;color:var(--muted);
+  width:2.6rem;text-align:right;font-variant-numeric:tabular-nums;
+}
+.dial input[type="range"]{
+  -webkit-appearance:none;appearance:none;width:8.5rem;height:2px;
+  background:var(--rule);border-radius:2px;outline:none;cursor:pointer;
+}
+.dial input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:14px;height:14px;border-radius:50%;
+  background:var(--madder);border:2px solid var(--paper);
+  box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:grab;
+}
+.dial input[type="range"]::-moz-range-thumb{
+  width:12px;height:12px;border-radius:50%;background:var(--madder);
+  border:2px solid var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:grab;
+}
+.dial input[type="range"]:focus-visible{outline:2px solid var(--madder);outline-offset:3px}
+@media (max-height:480px){ .dials{display:none} }
+
 .sheet{
   position:fixed;inset:0;z-index:60;display:none;
   background:color-mix(in srgb,var(--desk) 88%,transparent);
@@ -323,6 +354,14 @@ mark{background:#E6D08A;color:#191C1B;padding:0 .1em;border-radius:1px}
   <button class="btn btn--icon" id="btn-in" aria-label="Zoom in">+</button>
   <button class="btn" id="btn-reset">Reset view</button>
   <button class="btn" id="btn-close">Close book</button>
+</div>
+<div class="dials">
+  <label class="dial"><span>X</span>
+    <input type="range" id="dial-x" min="-62" max="62" step="1" value="-14" aria-label="Tilt the book on its X axis">
+    <b id="dial-xv">-14&deg;</b></label>
+  <label class="dial"><span>Y</span>
+    <input type="range" id="dial-y" min="-78" max="78" step="1" value="0" aria-label="Turn the book on its Y axis">
+    <b id="dial-yv">0&deg;</b></label>
 </div>
 <div class="hud__where" id="where"></div>
 <div class="hint" id="hint">Drag to turn the book · drag a page corner to turn it · scroll or pinch to zoom where you point</div>
@@ -769,7 +808,7 @@ function zoomCentre(next){
 var drag = null;
 stage.addEventListener("pointerdown", function(ev){
   if(ev.button && ev.button !== 1) return;
-  if(ev.target.closest(".hud,.sheet")) return;
+  if(ev.target.closest(".hud,.sheet,.dials")) return;
   stage.setPointerCapture(ev.pointerId);
   var onFront = !S.open && ev.target.closest(".board--front");
   var onRibbon = ev.target.closest(".ribbon__band,.ribbon__tail");
@@ -804,7 +843,7 @@ stage.addEventListener("pointermove", function(ev){
   }else if(drag.mode === "orbit"){
     S.ry = clamp(drag.ry + dx*0.32, -78, 78);
     S.rx = clamp(drag.rx - dy*0.26, -62, 62);
-    applyView();
+    applyView(); syncDials();
   }else if(drag.mode === "cover"){
     if(!S.turning && dx < -4){
       S.turning = {cover:true};
@@ -908,10 +947,26 @@ stage.addEventListener("pointerup", dropPt);
 stage.addEventListener("pointercancel", dropPt);
 
 /* ---------- controls ---------- */
+var dialX = document.getElementById("dial-x");
+var dialY = document.getElementById("dial-y");
+function syncDials(){
+  dialX.value = Math.round(S.rx);
+  dialY.value = Math.round(S.ry);
+  document.getElementById("dial-xv").textContent = Math.round(S.rx) + "\u00b0";
+  document.getElementById("dial-yv").textContent = Math.round(S.ry) + "\u00b0";
+}
+dialX.addEventListener("input", function(){
+  S.rx = parseFloat(dialX.value); applyView(); syncDials();
+});
+dialY.addEventListener("input", function(){
+  S.ry = parseFloat(dialY.value); applyView(); syncDials();
+});
+
 document.getElementById("btn-in").onclick = function(){ zoomCentre(S.zoom*1.2); };
 document.getElementById("btn-out").onclick = function(){ zoomCentre(S.zoom/1.2); };
 document.getElementById("btn-reset").onclick = function(){
   S.rx=-14; S.ry=0; S.zoom=1; S.panX=0; S.panY=0;
+  syncDials();
   book.classList.add("is-settling");
   camera.style.transition = "transform .5s cubic-bezier(.3,.02,.2,1)";
   applyView();
@@ -1008,6 +1063,7 @@ S.spread = parseInt(recall("lwk3:spread")||"0",10) || 0;
 var savedMark = recall("lwk3:mark");
 S.mark = (savedMark === null || savedMark === "null") ? null : (parseInt(savedMark,10) || 0);
 layout();
+syncDials();
 if(recall("lwk3:open") === "1"){
   S.open = true;
   faces.front.style.transform = coverTransform(-178);

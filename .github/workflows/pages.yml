@@ -5,20 +5,23 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Publishing by pushing the built site to gh-pages, rather than through the
+# Pages deployment API: creating a Pages site through the API needs a
+# permission the workflow token does not have here.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: publish-book
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -32,21 +35,22 @@ jobs:
       - name: Check the manuscript is intact
         run: python3 scripts/check_book.py
 
-      # turns Pages on for the repository the first time it runs
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish to gh-pages
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/out && mkdir -p /tmp/out
+          cp -r site/. /tmp/out/
+          touch /tmp/out/.nojekyll
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages --depth=1 || true
+          git checkout -B gh-pages
+          git rm -rqf . --ignore-unmatch
+          cp -r /tmp/out/. .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The published book is already up to date."
+          else
+            git commit -m "Publish the book from ${GITHUB_SHA::7}"
+            git push --force origin gh-pages
+          fi
