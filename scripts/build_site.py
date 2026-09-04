@@ -165,6 +165,12 @@ def main():
     chapters = parse_chapters()
     intro_meta, intro_body = front_matter(open("content/00-introduction.md").read())
     note_meta, note_body = front_matter(open("content/90-note-on-attribution.md").read())
+    def strip_heading(body):
+        lines = body.strip().split("\n")
+        if lines and lines[0].lstrip().startswith("#"):
+            lines = lines[1:]
+        return "\n".join(lines)
+
     data = {
         "title": "Lines Worth Keeping",
         "subtitle": "A commonplace book of 240 quotations, "
@@ -172,8 +178,8 @@ def main():
         "chapters": chapters,
         "index": build_index(chapters),
         "blurb": [ln.strip() for ln in open("content/blurb.txt").read().strip().split("\n") if ln.strip()],
-        "intro": blocks_to_html(intro_body.split("\n", 1)[1]),
-        "note": blocks_to_html(note_body.split("\n", 1)[1]),
+        "intro": blocks_to_html(strip_heading(intro_body)),
+        "note": blocks_to_html(strip_heading(note_body)),
     }
     total = sum(len(c["entries"]) for c in chapters)
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
