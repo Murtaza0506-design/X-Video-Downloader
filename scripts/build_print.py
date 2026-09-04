@@ -29,7 +29,10 @@ OUT = "print"
 # The three fields nobody but the publisher can supply. Fill them in and
 # rebuild; nothing else in the book needs touching.
 IMPRINT = {
-    "author":    "Murtaza Raza",   # the byline on the title page and the cover
+    "author":    "Murtaza Raza",   # the byline on the title page and in metadata
+    # The name belongs in the metadata whatever happens: Amazon and every
+    # library catalogue read it from there. This only governs the cover art.
+    "name_on_cover": False,
     "publisher": "",          # an imprint name, or "" for none
     "isbn":      "",          # 13 digits, or "" to leave the line out
     "year":      "2026",

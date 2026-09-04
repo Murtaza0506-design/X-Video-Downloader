@@ -139,7 +139,7 @@ def cover_jpeg(path):
     design as the printed board."""
     W, H = 10.0, 16.0          # inches, a 1 to 1.6 rectangle
     byline = ('<p class="by">%s</p>' % html.escape(IMPRINT["author"])
-              if IMPRINT["author"] else "")
+              if IMPRINT["author"] and IMPRINT.get("name_on_cover") else "")
     page = """<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:"EB Garamond";font-weight:400;
   src:url("../print/fonts/EBGaramond-Regular.ttf")format("truetype")}
@@ -164,10 +164,10 @@ html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
   letter-spacing:-.012em}
 .hr{border:0;border-top:1.5pt solid rgba(242,237,227,.62);width:3in;
   margin:0 0 .3in}
-.s{font-size:26pt;font-style:italic;line-height:1.42;margin:0 0 .75in;
+.s{font-size:26pt;font-style:italic;line-height:1.42;margin:0;
   max-width:6in;opacity:.9}
-.by{font-size:30pt;letter-spacing:.2em;text-transform:uppercase;margin:0;
-  opacity:.95}
+.by{font-size:30pt;letter-spacing:.2em;text-transform:uppercase;
+  margin:.75in 0 0;opacity:.95}
 .f{position:absolute;bottom:0;left:0;font-size:19pt;letter-spacing:.16em;
   text-transform:uppercase;opacity:.72;margin:0}
 </style></head><body><div class="b">

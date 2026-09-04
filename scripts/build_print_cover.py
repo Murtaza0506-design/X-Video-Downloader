@@ -64,7 +64,7 @@ def cover_html(spec, paper):
     back_x = BLEED
     spine_x = BLEED + tw
     front_x = BLEED + tw + spine
-    author = IMPRINT["author"]
+    author = IMPRINT["author"] if IMPRINT.get("name_on_cover") else ""
     BYLINE = '<p class="by">%s</p>' % author if author else ""
     SPINE_BY = "<i>%s</i>" % author if author else ""
 
@@ -105,10 +105,10 @@ html,body{{margin:0;padding:0;height:100%;
   letter-spacing:-.012em}}
 .hr{{border:0;border-top:.7pt solid rgba(242,237,227,.62);width:1.55in;
   margin:0 0 .16in}}
-.sub{{font-size:12pt;font-style:italic;line-height:1.42;margin:0 0 .32in;
+.sub{{font-size:12pt;font-style:italic;line-height:1.42;margin:0;
   max-width:2.9in;opacity:.9}}
-.by{{font-size:13pt;letter-spacing:.2em;text-transform:uppercase;margin:0;
-  opacity:.95}}
+.by{{font-size:13pt;letter-spacing:.2em;text-transform:uppercase;
+  margin:.32in 0 0;opacity:.95}}
 .foot{{font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;opacity:.72;
   margin:0}}
 .spec{{position:absolute;bottom:.34in;left:0;right:0;padding-top:.2in;
