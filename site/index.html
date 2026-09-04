@@ -267,36 +267,50 @@ p:last-child{margin-bottom:0}
   color:var(--hud);opacity:.5;pointer-events:none;white-space:nowrap;
 }
 
-.dials{
-  position:fixed;left:.9rem;bottom:.9rem;z-index:40;
-  display:flex;flex-direction:column;gap:.35rem;
-  background:rgba(243,239,227,.9);border:1px solid var(--rule);border-radius:4px;
-  padding:.5rem .6rem;backdrop-filter:blur(6px);
+/* Orientation sliders laid along the edges they act on: the X slider runs
+   across the bottom and turns the book, the Y slider runs down the right and
+   tilts it. Both are invisible until touched, so they stay out of the way. */
+.edge{
+  position:fixed;z-index:35;margin:0;
+  -webkit-appearance:none;appearance:none;background:transparent;
+  opacity:0;transition:opacity .22s ease;cursor:grab;
 }
-.dial{display:flex;align-items:center;gap:.5rem;font-family:var(--label)}
-.dial > span{
-  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--madder);width:.9rem;
+.edge:hover,.edge:focus-visible,.edge.is-live{opacity:1}
+.edge:focus-visible{outline:none}
+.edge:focus-visible::-webkit-slider-thumb{
+  box-shadow:0 0 0 3px rgba(142,46,34,.32),0 1px 4px rgba(0,0,0,.45);
 }
-.dial > b{
-  font-size:.7rem;font-weight:400;color:var(--muted);
-  width:2.6rem;text-align:right;font-variant-numeric:tabular-nums;
+.edge:focus-visible::-moz-range-thumb{
+  box-shadow:0 0 0 3px rgba(142,46,34,.32),0 1px 4px rgba(0,0,0,.45);
 }
-.dial input[type="range"]{
-  -webkit-appearance:none;appearance:none;width:8.5rem;height:2px;
-  background:var(--rule);border-radius:2px;outline:none;cursor:pointer;
+.edge::-webkit-slider-runnable-track{
+  height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(142,46,34,.55) 12%,
+    rgba(142,46,34,.55) 88%,transparent);
 }
-.dial input[type="range"]::-webkit-slider-thumb{
-  -webkit-appearance:none;appearance:none;width:14px;height:14px;border-radius:50%;
-  background:var(--madder);border:2px solid var(--paper);
-  box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:grab;
+.edge::-moz-range-track{height:2px;border-radius:2px;background:rgba(142,46,34,.5)}
+.edge::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;
+  margin-top:-7px;background:var(--madder);border:2px solid var(--paper);
+  box-shadow:0 1px 4px rgba(0,0,0,.45);cursor:grab;
 }
-.dial input[type="range"]::-moz-range-thumb{
-  width:12px;height:12px;border-radius:50%;background:var(--madder);
-  border:2px solid var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:grab;
+.edge::-moz-range-thumb{
+  width:13px;height:13px;border-radius:50%;background:var(--madder);
+  border:2px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.45);cursor:grab;
 }
-.dial input[type="range"]:focus-visible{outline:2px solid var(--madder);outline-offset:3px}
-@media (max-height:480px){ .dials{display:none} }
+.edge--x{left:5.5rem;right:5.5rem;bottom:.55rem;height:22px}
+.edge-y{
+  position:fixed;right:.15rem;top:5.5rem;bottom:5.5rem;width:22px;z-index:35;
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+}
+.edge-y .edge{transform:rotate(-90deg);height:22px;pointer-events:auto}
+.edge-read{
+  position:fixed;right:2.2rem;bottom:2.2rem;z-index:36;pointer-events:none;
+  font-family:var(--label);font-size:.8rem;letter-spacing:.1em;color:var(--hud);
+  opacity:0;transition:opacity .22s ease;font-variant-numeric:tabular-nums;
+}
+.edge-read.is-live{opacity:.85}
+@media (max-height:430px){ .edge--x,.edge-y{display:none} }
 
 .sheet{
   position:fixed;inset:0;z-index:60;display:none;
@@ -355,14 +369,11 @@ mark{background:#E6D08A;color:#191C1B;padding:0 .1em;border-radius:1px}
   <button class="btn" id="btn-reset">Reset view</button>
   <button class="btn" id="btn-close">Close book</button>
 </div>
-<div class="dials">
-  <label class="dial"><span>X</span>
-    <input type="range" id="dial-x" min="-62" max="62" step="1" value="-14" aria-label="Tilt the book on its X axis">
-    <b id="dial-xv">-14&deg;</b></label>
-  <label class="dial"><span>Y</span>
-    <input type="range" id="dial-y" min="-78" max="78" step="1" value="0" aria-label="Turn the book on its Y axis">
-    <b id="dial-yv">0&deg;</b></label>
-</div>
+<input class="edge edge--x" id="dial-x" type="range" min="-78" max="78" step="1" value="0"
+       aria-label="Turn the book left and right">
+<div class="edge-y"><input class="edge" id="dial-y" type="range" min="-62" max="62" step="1" value="14"
+       aria-label="Tilt the book up and down"></div>
+<div class="edge-read" id="edge-read"></div>
 <div class="hud__where" id="where"></div>
 <div class="hint" id="hint">Drag to turn the book · drag a page corner to turn it · scroll or pinch to zoom where you point</div>
 
@@ -808,7 +819,7 @@ function zoomCentre(next){
 var drag = null;
 stage.addEventListener("pointerdown", function(ev){
   if(ev.button && ev.button !== 1) return;
-  if(ev.target.closest(".hud,.sheet,.dials")) return;
+  if(ev.target.closest(".hud,.sheet,.edge,.edge-y")) return;
   stage.setPointerCapture(ev.pointerId);
   var onFront = !S.open && ev.target.closest(".board--front");
   var onRibbon = ev.target.closest(".ribbon__band,.ribbon__tail");
@@ -947,19 +958,39 @@ stage.addEventListener("pointerup", dropPt);
 stage.addEventListener("pointercancel", dropPt);
 
 /* ---------- controls ---------- */
-var dialX = document.getElementById("dial-x");
-var dialY = document.getElementById("dial-y");
+var dialX = document.getElementById("dial-x");   // bottom edge: turns the book
+var dialY = document.getElementById("dial-y");   // right edge: tilts the book
+var edgeRead = document.getElementById("edge-read");
+var readTimer;
+
+function sizeEdges(){
+  var wrap = document.querySelector(".edge-y");
+  if(wrap) dialY.style.width = wrap.clientHeight + "px";
+}
 function syncDials(){
-  dialX.value = Math.round(S.rx);
-  dialY.value = Math.round(S.ry);
-  document.getElementById("dial-xv").textContent = Math.round(S.rx) + "\u00b0";
-  document.getElementById("dial-yv").textContent = Math.round(S.ry) + "\u00b0";
+  dialX.value = Math.round(S.ry);
+  // the vertical slider reads upward, and looking from higher up is a more
+  // negative rotateX, so it carries the opposite sign
+  dialY.value = Math.round(-S.rx);
+}
+function flashRead(text){
+  edgeRead.textContent = text;
+  edgeRead.classList.add("is-live");
+  clearTimeout(readTimer);
+  readTimer = setTimeout(function(){ edgeRead.classList.remove("is-live"); }, 900);
+}
+function liveEdge(el){
+  el.classList.add("is-live");
+  clearTimeout(el.__t);
+  el.__t = setTimeout(function(){ el.classList.remove("is-live"); }, 900);
 }
 dialX.addEventListener("input", function(){
-  S.rx = parseFloat(dialX.value); applyView(); syncDials();
+  S.ry = clamp(parseFloat(dialX.value), -78, 78);
+  applyView(); liveEdge(dialX); flashRead("X " + Math.round(S.ry) + "\u00b0");
 });
 dialY.addEventListener("input", function(){
-  S.ry = parseFloat(dialY.value); applyView(); syncDials();
+  S.rx = clamp(-parseFloat(dialY.value), -62, 62);
+  applyView(); liveEdge(dialY); flashRead("Y " + Math.round(-S.rx) + "\u00b0");
 });
 
 document.getElementById("btn-in").onclick = function(){ zoomCentre(S.zoom*1.2); };
@@ -1055,7 +1086,7 @@ document.addEventListener("keydown", function(ev){
 
 var rt;
 window.addEventListener("resize", function(){
-  clearTimeout(rt); rt = setTimeout(function(){ layout(); }, 200);
+  clearTimeout(rt); rt = setTimeout(function(){ layout(); sizeEdges(); syncDials(); }, 200);
 });
 
 S.zoom = clamp(parseFloat(recall("lwk3:zoom")||"1") || 1, 0.4, 4);
@@ -1063,6 +1094,7 @@ S.spread = parseInt(recall("lwk3:spread")||"0",10) || 0;
 var savedMark = recall("lwk3:mark");
 S.mark = (savedMark === null || savedMark === "null") ? null : (parseInt(savedMark,10) || 0);
 layout();
+sizeEdges();
 syncDials();
 if(recall("lwk3:open") === "1"){
   S.open = true;
