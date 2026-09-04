@@ -11,6 +11,10 @@ export BOOK_TITLE="The Art of Being Right"
 export BOOK_SUBTITLE="One hundred and forty-four ways an argument is won unfairly, and what to say back."
 export BOOK_AUTHOR="Murtaza Raza"
 export BOOK_NOTE_TITLE="A Note on Sources"
+# The index files by move name, not by person, so it must not be inverted on
+# the last word. Both are read by the web build too, so they go before it.
+export BOOK_INDEX_PEOPLE=0
+export BOOK_INDEX_TITLE="Index of Moves"
 export BOOK_OUT_FRAGMENT="books/art-of-being-right/book.html"
 export BOOK_OUT_SITE="books/art-of-being-right/site/index.html"
 export BOOK_OUT_CSV="books/art-of-being-right/entries.csv"
@@ -20,7 +24,6 @@ python3 scripts/check_book.py
 # print and Kindle
 export BOOK_TITLE_LINES="The Art of|Being Right"
 export BOOK_SUBTITLE_LINES="One hundred and forty-four ways an argument|is won unfairly, and what to say back."
-export BOOK_INDEX_TITLE="Index of Moves"
 export BOOK_ANON_HEADING="Unnamed and traditional moves"
 export BOOK_COLOPHON="One hundred and forty-four moves across twelve chapters,<br>catalogued from Aristotle, Schopenhauer and ordinary rooms."
 export BOOK_SLUG="the-art-of-being-right"

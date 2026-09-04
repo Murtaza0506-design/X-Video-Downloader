@@ -1,4 +1,4 @@
-import re, glob, sys, statistics, collections
+import re, os, glob, sys, statistics, collections
 
 HEDGES = ["usually","often","generally","typically","roughly","quite","rather",
           "very","somewhat","genuinely","actually","simply","really","fairly",
@@ -7,19 +7,32 @@ HEDGES = ["usually","often","generally","typically","roughly","quite","rather",
           "essentially","basically","particularly","especially","certainly",
           "considerably","remarkably","entirely","completely","absolutely"]
 
+# A book may quote something verbatim inside a gloss: the letters in *What to
+# Say* are artefacts, not the author's prose, exactly as the quotations in a
+# commonplace book are. Measuring them would be measuring the wrong thing, so
+# a book can name the gloss label that holds quoted material and have it left
+# out. Everything else on the page is the writing under assessment.
+SKIP = os.environ.get("STYLE_SKIP_GLOSS", "")
+
 def prose(path):
     out = []
     for line in open(path):
         s = line.strip()
         if not s or s.startswith(("#","---","> ","|","part:","chapter:","title:")):
             continue
-        s = re.sub(r"\*\*(What it means|How to use it)\.\*\*\s*", "", s)
+        if SKIP and s.startswith("**%s.**" % SKIP):
+            continue
+        # Any bold label at the head of a line is furniture, not a sentence.
+        s = re.sub(r"^\*\*[^*]{1,44}\.\*\*\s*", "", s)
         s = s.replace("**","")
         out.append(s)
     return " ".join(out)
 
 def sentences(text):
     text = re.sub(r"\b([A-Z])\.", r"\1", text)
+    # A paragraph break inside a gloss is written ||, and it ends a sentence
+    # as surely as a full stop does.
+    text = text.replace("||", ". ")
     return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if len(s.strip()) > 1]
 
 rows = []

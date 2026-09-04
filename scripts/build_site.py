@@ -35,7 +35,8 @@ MONONYM = {
     "Voltaire", "Goethe", "Molière",
 }
 PREFIXES = ("attributed to ", "after ", "popular paraphrase of ")
-ROMAN = {"One": "I", "Two": "II", "Three": "III", "Four": "IV"}
+ROMAN = {"One": "I", "Two": "II", "Three": "III", "Four": "IV",
+         "Five": "V", "Six": "VI", "Seven": "VII", "Eight": "VIII"}
 
 # The two glosses under each quotation. Their labels are the unit's, so a
 # different book renames them here and everything downstream follows.
@@ -51,6 +52,7 @@ BOOK_SUBTITLE = os.environ.get(
     "and where to put it.")
 BOOK_AUTHOR = os.environ.get("BOOK_AUTHOR", "Murtaza Raza")
 NOTE_TITLE = os.environ.get("BOOK_NOTE_TITLE", "A Note on Attribution")
+INDEX_TITLE = os.environ.get("BOOK_INDEX_TITLE", "Index of Sources")
 # Each book writes to its own files, so building one never clobbers another.
 OUT_FRAGMENT = os.environ.get("BOOK_OUT_FRAGMENT", "book.html")
 OUT_SITE = os.environ.get("BOOK_OUT_SITE", "site/index.html")
@@ -156,10 +158,25 @@ def parse_chapters():
     return chapters
 
 
+# A commonplace book indexes people, so "Marcus Aurelius" is filed under A and
+# scripture is gathered under one heading. A book whose attribution line is a
+# label rather than a name ("The late apology", "The straw man") must not be
+# inverted on its last word: it files itself under the phrase as written.
+INDEX_PEOPLE = os.environ.get("BOOK_INDEX_PEOPLE", "1") != "0"
+
+
 def build_index(chapters):
     groups = collections.defaultdict(list)
     for ch in chapters:
         for e in ch["entries"]:
+            if not INDEX_PEOPLE:
+                head = e["attribution"]
+                # File under the first word that carries meaning, as a title
+                # index does, so half the book does not end up under T.
+                sort = re.sub(r"^(the|a|an) ", "", head.lower())
+                groups[(sort, head)].append(
+                    {"n": e["n"], "quote": e["quote"], "ch": e["ch"], "q": ""})
+                continue
             qualifier, base = "", e["attribution"]
             for pre in PREFIXES:
                 if base.lower().startswith(pre):
@@ -181,7 +198,7 @@ def build_index(chapters):
     for sort, head in sorted(groups):
         out.append({
             "name": head,
-            "letter": "¶" if sort.startswith("~") else head[0].upper(),
+            "letter": "¶" if sort.startswith("~") else sort[0].upper(),
             "items": sorted(groups[(sort, head)], key=lambda i: i["n"]),
         })
     return out
@@ -201,6 +218,7 @@ def main():
 
     data = {
         "title": BOOK_TITLE,
+        "gloss": list(GLOSS),
         "author": BOOK_AUTHOR,
         "subtitle": BOOK_SUBTITLE,
         "chapters": chapters,
@@ -208,6 +226,8 @@ def main():
         "blurb": [ln.strip() for ln in open(os.path.join(CONTENT, "blurb.txt")).read().strip().split("\n") if ln.strip()],
         "intro": blocks_to_html(strip_heading(intro_body)),
         "note": blocks_to_html(strip_heading(note_body)),
+        "noteTitle": NOTE_TITLE,
+        "indexTitle": INDEX_TITLE,
     }
     total = sum(len(c["entries"]) for c in chapters)
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))

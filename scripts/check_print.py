@@ -13,6 +13,7 @@ import os
 import sys
 
 OUT = os.environ.get("BOOK_PRINT_OUT", "print")
+CONTENT = os.environ.get("BOOK_CONTENT", "content")
 TOL = 0.5          # points; a rounding allowance on geometry
 INK_TOL = 2.0      # points a hairline may sit outside the text block
 
@@ -84,6 +85,14 @@ def check_interior(spec, msgs):
         fail(msgs, "interior: fonts not embedded: %s" % sorted(loose))
     if not embedded:
         fail(msgs, "interior: no embedded fonts found at all")
+    # A missing @font-face path does not fail the render: the browser engine
+    # quietly substitutes its own serif and the page still looks like a book.
+    # Naming the family is the only way to catch it.
+    want = os.environ.get("BOOK_FACE", "EB-Garamond")
+    wrong = sorted(n for n in embedded if want not in n)
+    if wrong:
+        fail(msgs, "interior: set in %s, not %s. A @font-face path did not "
+                   "resolve." % (", ".join(wrong), want))
     return {"embedded_fonts": sorted(embedded), "pages": len(doc)}
 
 
@@ -125,12 +134,43 @@ def check_cover(spec, msgs):
     return got
 
 
+def check_front_and_back(msgs):
+    """The introduction and the closing note come from this book's own
+    manuscript. They are read by path, so a second book built with the wrong
+    working directory would silently ship the first book's front matter: this
+    is the gate that catches it."""
+    import pypdfium2 as pdfium
+    doc = pdfium.PdfDocument(os.path.join(OUT, "interior.pdf"))
+    text = " ".join(doc[i].get_textpage().get_text_range()
+                    for i in range(len(doc)))
+    # Justified type hyphenates at the line end, so compare letters only.
+    def letters(t):
+        return "".join(c for c in t.lower() if c.isalpha())
+    squash = letters(text)
+    found = 0
+    for name in ("00-introduction.md", "90-note-on-attribution.md"):
+        body = open(os.path.join(CONTENT, name)).read()
+        para = [w for w in body.split("\n") if w.strip()
+                and not w.startswith(("#", "-", ">"))]
+        # From the middle of a middle paragraph: the first words of the first
+        # one are set as a drop capital and extract out of order.
+        probe = " ".join(para[len(para) // 2].split()[4:12])
+        if probe and letters(probe) in squash:
+            found += 1
+        else:
+            fail(msgs, "interior: %s is not in the PDF (looked for %r). The "
+                       "front matter may have come from another book."
+                       % (name, probe))
+    return found
+
+
 def main():
     spec = json.load(open(os.path.join(OUT, "SPECS.json")))
     msgs = []
     a = check_interior(spec, msgs)
     b = check_colour(msgs)
     c = check_cover(spec, msgs)
+    check_front_and_back(msgs)
     if msgs:
         print("PREFLIGHT FAILED")
         for m in msgs:
@@ -141,6 +181,7 @@ def main():
           % (a["pages"], spec["trim_name"]))
     print("  fonts    : %d embedded, none loose" % len(a["embedded_fonts"]))
     print("  ink      : inside the safe area on every page")
+    print("  matter   : introduction and closing note are this book's own")
     print("  colour   : neutral throughout (max channel spread %d/255)"
           % b["max_channel_spread"])
     for paper, g in c.items():

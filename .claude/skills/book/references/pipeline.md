@@ -51,9 +51,10 @@ numbers, no chapter repeating a source back to back, no em dash in prose, and
 the built site free of placeholders.
 
 `check_print.py` — page geometry on every page, an even page count, fonts
-embedded and none loose, no text outside the safe area, no colour anywhere in a
-mono interior (sampled by rendering and checking channel spread), and a spine
-matching the number of leaves.
+embedded, none loose and all of the intended family, no text outside the safe
+area, no colour anywhere in a mono interior (sampled by rendering and checking
+channel spread), a spine matching the number of leaves, and the introduction
+and closing note being this book's own rather than another book's.
 
 `check_epub.py` — mimetype stored and first, container resolves, manifest
 matches the archive exactly in both directions, spine ids resolve, metadata
@@ -129,3 +130,44 @@ looks at the first word. Match on the whole string with `startswith`.
 **Sort keys need surnames.** "Marcus Aurelius" is not "Aurelius, Marcus" by any
 generic rule, and mononyms ("Seneca", "Aesop") must not be inverted at all. Keep
 explicit sets for both, and add to them as sources accumulate.
+
+**Only invert when the attribution is a person.** A book whose attribution line
+is a label ("The late apology", "The straw man") must not be inverted on its
+last word, or the index reads "apology, The late". Gate it: `BOOK_INDEX_PEOPLE=0`
+files the phrase as written, sorted on the first word that carries meaning so
+half the book does not end up under T.
+
+## Traps a second book finds
+
+Everything below was written for one book and silently did the wrong thing for
+the next one. All four passed the existing gates, which is why three of the
+gates listed above were added.
+
+**Anything read by a hard-coded path follows the first book forever.** The
+introduction and the closing note were opened as `content/00-introduction.md`.
+Two later books shipped a PDF and an EPUB carrying the *first* book's front
+matter, correctly page-numbered and running-headed under their own titles.
+Read every manuscript file through the configured content directory, and gate
+it: `check_print.py` now pulls a phrase out of the middle of each file and
+looks for it in the rendered PDF.
+
+**A relative `@font-face` URL resolves against the render's base URL,** which is
+the output directory. Move the output and the fonts stop loading. Nothing
+fails: the engine substitutes its own serif, the page still looks like a book,
+and the preflight still reports four fonts embedded, because DejaVu is embedded
+too. Use an absolute path, and have the gate assert the family name, not just
+that something was embedded.
+
+**Every strings-only knob has to be exported before the build that reads it.**
+A build script that sets the index title after the web build and before the
+print build produces a book whose web edition and paperback disagree about what
+the back matter is called. Group the exports at the top.
+
+**Markdown inside a gloss is not rendered unless you render it.** `*like this*`
+had been escaped and printed with its asterisks showing in a shipped PDF for a
+whole book. Escape first, then convert emphasis, so nothing in the manuscript
+can open a tag of its own.
+
+**Do not wrap a helper that returns paragraphs in another `<p>`.** It works,
+because the parser closes the outer one, and then the CSS you wrote for that
+paragraph applies to nothing.

@@ -12,12 +12,12 @@
   "body_pt": 10.5,
   "leading_pt": 14.6,
   "front_pages": 6,
-  "body_pages": 230,
-  "pages": 236,
-  "chapters": 21,
-  "entries": 315,
-  "sources": 151,
-  "bytes": 742416,
+  "body_pages": 94,
+  "pages": 100,
+  "chapters": 12,
+  "entries": 60,
+  "sources": 60,
+  "bytes": 270244,
   "bleed_in": 0.125,
   "safe_margin_in": 0.25,
   "barcode_box_in": [
@@ -27,21 +27,21 @@
   "covers": {
     "white": {
       "caliper_in": 0.002252,
-      "spine_in": 0.5315,
-      "spine_mm": 13.5,
-      "wrap_w_in": 11.7815,
+      "spine_in": 0.2252,
+      "spine_mm": 5.72,
+      "wrap_w_in": 11.4752,
       "wrap_h_in": 8.75,
       "file": "cover-white.pdf",
-      "bytes": 31566
+      "bytes": 30296
     },
     "cream": {
       "caliper_in": 0.0025,
-      "spine_in": 0.59,
-      "spine_mm": 14.99,
-      "wrap_w_in": 11.84,
+      "spine_in": 0.25,
+      "spine_mm": 6.35,
+      "wrap_w_in": 11.5,
       "wrap_h_in": 8.75,
       "file": "cover-cream.pdf",
-      "bytes": 31541
+      "bytes": 30196
     }
   }
 }

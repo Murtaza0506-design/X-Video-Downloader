@@ -22,9 +22,10 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (parse_chapters, build_index, front_matter,
-                        blocks_to_html)
+                        blocks_to_html, CONTENT)
 
 OUT = os.environ.get("BOOK_PRINT_OUT", "print")
+FONT_DIR = os.path.abspath("fonts")
 
 # The three fields nobody but the publisher can supply. Fill them in and
 # rebuild; nothing else in the book needs touching.
@@ -120,6 +121,25 @@ def dropcap(html_prose):
             + html_prose[m.end():])
 
 
+def emph(s):
+    """*word* and **word** inside a gloss become italic and bold. Escaping runs
+    first, so nothing in the manuscript can open a tag of its own."""
+    out = esc(s)
+    out = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", out)
+    out = re.sub(r"(?<!\w)\*(?!\s)(.+?)(?<!\s)\*(?!\w)", r"<em>\1</em>", out)
+    return out
+
+
+def paras(text):
+    """A gloss may hold several paragraphs, separated by ||, so a letter can
+    be set as a letter and not as one block. More than one paragraph means the
+    gloss is quoted material, which is set ragged and spaced: justifying a
+    letter makes it look like an essay."""
+    ps = [p.strip() for p in text.split("||") if p.strip()]
+    cls = ' class="v"' if len(ps) > 1 else ""
+    return "".join("<p%s>%s</p>" % (cls, emph(p)) for p in ps)
+
+
 def quote_html(e):
     q = esc(e["quote"])
     if e["bare"]:
@@ -134,7 +154,10 @@ def css(cfg):
                  "__M_IN__": cfg["inn"], "__M_OUT__": cfg["out"],
                  "__BODY_PT__": cfg["body"], "__LEAD_PT__": cfg["lead"],
                  "__TRIM_NAME__": cfg["name"],
-                 "__BOOK_TITLE__": TITLE}.items():
+                 "__BOOK_TITLE__": TITLE,
+                 # An absolute path: every book renders from its own output
+                 # directory, and the type must not depend on which one.
+                 "__FONT_DIR__": FONT_DIR}.items():
         s = s.replace(k, str(v))
     return s
 
@@ -181,14 +204,13 @@ def body_html(chapters, index, intro, note, cfg):
                     '<div class="entry%s" id="e%d"><hr class="sep">'
                     '<div class="entry__head"><p class="entry__n">%03d</p>%s'
                     '<p class="entry__attr">%s</p></div>'
-                    '<div class="gloss"><p class="gloss__label">%s</p>'
-                    '<p>%s</p></div>'
-                    '<div class="gloss"><p class="gloss__label">%s</p>'
-                    '<p>%s</p></div></div>'
+                    '<div class="gloss"><p class="gloss__label">%s</p>%s</div>'
+                    '<div class="gloss"><p class="gloss__label">%s</p>%s</div>'
+                    '</div>'
                     % (" first" if i == 0 else "", en["n"], en["n"],
                        quote_html(en), esc(en["attribution"]),
-                       esc(GLOSS[0]), esc(en["means"]),
-                       esc(GLOSS[1]), esc(en["use"])))
+                       esc(GLOSS[0]), paras(en["means"]),
+                       esc(GLOSS[1]), paras(en["use"])))
             e.append('</section>')
             a("".join(e))
 
@@ -321,8 +343,10 @@ def main():
 
     chapters = parse_chapters()
     index = build_index(chapters)
-    _, intro_body = front_matter(open("content/00-introduction.md").read())
-    _, note_body = front_matter(open("content/90-note-on-attribution.md").read())
+    _, intro_body = front_matter(
+        open(os.path.join(CONTENT, "00-introduction.md")).read())
+    _, note_body = front_matter(
+        open(os.path.join(CONTENT, "90-note-on-attribution.md")).read())
 
     body = body_html(chapters, index, prose(intro_body), note_html(note_body), cfg)
     open(os.path.join(OUT, "body.html"), "w").write(body)

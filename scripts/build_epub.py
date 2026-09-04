@@ -17,9 +17,9 @@ import sys
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_site import parse_chapters, build_index, front_matter
-from build_print import (IMPRINT, TITLE, smart, esc, prose, note_html,
-                         quote_html, group_parts)
+from build_site import parse_chapters, build_index, front_matter, CONTENT
+from build_print import (IMPRINT, TITLE, NOTE_TITLE, INDEX_TITLE, FONT_DIR, smart, esc, prose, note_html,
+                         quote_html, group_parts, paras, GLOSS)
 
 OUT = os.environ.get("BOOK_EPUB_OUT", "ebook")
 LANG = "en-GB"
@@ -65,6 +65,7 @@ li { margin-bottom: 0.4em; text-align: left; }
          text-transform: uppercase; margin: 0 0 0.2em; text-indent: 0;
          page-break-after: avoid; }
 .gloss { margin: 0 0 1em; text-indent: 0; }
+.v { text-align: left; text-indent: 0; margin: 0 0 0.55em; }
 
 .part { text-align: center; margin-top: 25%; }
 .part .r { font-size: 2.6em; margin: 0 0 0.4em; text-indent: 0; }
@@ -127,10 +128,8 @@ def section(eyebrow, title, opening, entries, sid):
         h.append('<p class="entry-n">%03d</p>' % en["n"])
         h.append(quote_html(en).replace('entry__quote', 'quote'))
         h.append('<p class="attr">%s</p>' % esc(en["attribution"]))
-        h.append('<p class="label">What it means</p>'
-                 '<p class="gloss">%s</p>' % esc(en["means"]))
-        h.append('<p class="label">How to use it</p>'
-                 '<p class="gloss">%s</p>' % esc(en["use"]))
+        h.append('<p class="label">%s</p>%s' % (esc(GLOSS[0]), paras(en["means"])))
+        h.append('<p class="label">%s</p>%s' % (esc(GLOSS[1]), paras(en["use"])))
         h.append('</div>')
     h.append('</section>')
     return "\n".join(h)
@@ -144,11 +143,11 @@ def cover_jpeg(path):
               if IMPRINT["author"] and IMPRINT.get("name_on_cover") else "")
     page = """<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:"EB Garamond";font-weight:400;
-  src:url("../print/fonts/EBGaramond-Regular.ttf")format("truetype")}
+  src:url("%(FONT)s/EBGaramond-Regular.ttf")format("truetype")}
 @font-face{font-family:"EB Garamond";font-weight:500;
-  src:url("../print/fonts/EBGaramond-Medium.ttf")format("truetype")}
+  src:url("%(FONT)s/EBGaramond-Medium.ttf")format("truetype")}
 @font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;
-  src:url("../print/fonts/EBGaramond-Italic.ttf")format("truetype")}
+  src:url("%(FONT)s/EBGaramond-Italic.ttf")format("truetype")}
 @page{size:%(W)sin %(H)sin;margin:0}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
@@ -180,7 +179,7 @@ html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
     <p class="s">%(SUB)s</p>%(BY)s</div>
   <p class="f">%(FOOT)s</p>
 </div></div></body></html>""" % {
-        "W": W, "H": H, "BY": byline,
+        "W": W, "H": H, "BY": byline, "FONT": FONT_DIR,
         "SUB": html.escape(SUBTITLE),
         "TITLE": "<br>".join(html.escape(x) for x in os.environ.get(
             "BOOK_TITLE_LINES", "Lines Worth|Keeping").split("|")),
@@ -207,8 +206,10 @@ html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
 def build():
     chapters = parse_chapters()
     index = build_index(chapters)
-    _, intro_body = front_matter(open("content/00-introduction.md").read())
-    _, note_body = front_matter(open("content/90-note-on-attribution.md").read())
+    _, intro_body = front_matter(
+        open(os.path.join(CONTENT, "00-introduction.md")).read())
+    _, note_body = front_matter(
+        open(os.path.join(CONTENT, "90-note-on-attribution.md")).read())
     parts = group_parts(chapters)
 
     # which file each entry lives in, so the index can point at it
@@ -269,8 +270,8 @@ def build():
             toc.append('<li><a href="ch%02d.xhtml">%d. %s</a></li>'
                        % (ch["n"], ch["n"], esc(ch["title"])))
     toc.append('<li class="part-row">End matter</li>')
-    toc.append('<li><a href="note.xhtml">A Note on Attribution</a></li>')
-    toc.append('<li><a href="sources.xhtml">Index of Sources</a></li>')
+    toc.append('<li><a href="note.xhtml">%s</a></li>' % esc(NOTE_TITLE))
+    toc.append('<li><a href="sources.xhtml">%s</a></li>' % esc(INDEX_TITLE))
     toc.append('</ul>')
     add("text/contents.xhtml", "contents", "Contents", "\n".join(toc),
         nav="Contents")
@@ -293,13 +294,13 @@ def build():
                         "c%d" % ch["n"]),
                 nav="%d. %s" % (ch["n"], esc(ch["title"])), level=2)
 
-    add("text/note.xhtml", "note", "A Note on Attribution",
-        section("End matter", "A Note on Attribution",
+    add("text/note.xhtml", "note", NOTE_TITLE,
+        section("End matter", NOTE_TITLE,
                 first_noindent(note_html(note_body)), [], "note"),
-        nav="A Note on Attribution")
+        nav=NOTE_TITLE)
 
     idx = ['<section id="sources"><p class="eyebrow">End matter</p>',
-           '<h2 class="chapter">Index of Sources</h2><hr class="orn"/>',
+           '<h2 class="chapter">' + esc(INDEX_TITLE) + '</h2><hr class="orn"/>',
            '<p class="first">The numbers are entry numbers, not pages, and every '
            'one of them is a link.</p>']
     letter = None
@@ -315,8 +316,8 @@ def build():
         idx.append('<p class="index-src">%s&#160;&#160;%s</p>'
                    % (esc(src["name"]), links))
     idx.append('</section>')
-    add("text/sources.xhtml", "sources", "Index of Sources", "\n".join(idx),
-        nav="Index of Sources")
+    add("text/sources.xhtml", "sources", INDEX_TITLE, "\n".join(idx),
+        nav=INDEX_TITLE)
 
     entries = sum(len(c["entries"]) for c in chapters)
     add("text/colophon.xhtml", "colophon", "Colophon",

@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_print import IMPRINT
+from build_print import IMPRINT, FONT_DIR
 
 OUT = os.environ.get("BOOK_PRINT_OUT", "print")
 BLEED = 0.125          # trimmed off all four outer edges
@@ -86,13 +86,13 @@ def cover_html(spec, paper):
     return f"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8">
 <title>Lines Worth Keeping — cover</title><style>
 @font-face{{font-family:"EB Garamond";font-weight:400;font-style:normal;
-  src:url("fonts/EBGaramond-Regular.ttf")format("truetype")}}
+  src:url("{FONT_DIR}/EBGaramond-Regular.ttf")format("truetype")}}
 @font-face{{font-family:"EB Garamond";font-weight:500;font-style:normal;
-  src:url("fonts/EBGaramond-Medium.ttf")format("truetype")}}
+  src:url("{FONT_DIR}/EBGaramond-Medium.ttf")format("truetype")}}
 @font-face{{font-family:"EB Garamond";font-weight:600;font-style:normal;
-  src:url("fonts/EBGaramond-SemiBold.ttf")format("truetype")}}
+  src:url("{FONT_DIR}/EBGaramond-SemiBold.ttf")format("truetype")}}
 @font-face{{font-family:"EB Garamond";font-weight:400;font-style:italic;
-  src:url("fonts/EBGaramond-Italic.ttf")format("truetype")}}
+  src:url("{FONT_DIR}/EBGaramond-Italic.ttf")format("truetype")}}
 @page{{size:{W}in {H}in; margin:0}}
 *{{box-sizing:border-box}}
 html,body{{margin:0;padding:0;height:100%;

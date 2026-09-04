@@ -217,6 +217,8 @@ p:last-child{margin-bottom:0}
 .pg .gloss__label{font-family:var(--label);font-weight:600;font-size:.72em;letter-spacing:.12em;
   text-transform:uppercase;margin-bottom:.22em}
 .pg .gloss--means .gloss__label{color:var(--madder)}
+.pg .gloss p.v{text-align:left}
+.pg .gloss p.v + p.v{margin-top:.45em}
 .pg .gloss--use .gloss__label{color:var(--indigo)}
 .pg .gloss p{font-size:.93em;line-height:1.56;color:var(--ink-soft)}
 .pg .part-open{break-before:column;text-align:center;padding-top:34%}
@@ -406,6 +408,10 @@ var stage = document.getElementById("stage");
 var camera = document.getElementById("camera");
 var book = document.getElementById("book");
 
+function emph(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/(^|[^\w*])\*(?!\s)(.+?)(?<!\s)\*(?!\w)/g,'$1<em>$2</em>');}
+// Several paragraphs in one gloss means quoted material, a letter say, so
+// it is set ranged left and spaced instead of as a block of commentary.
+function paras(t){var ps=String(t).split('||').map(function(p){return p.trim();}).filter(Boolean);var c=ps.length>1?' class="v"':'';return ps.map(function(p){return '<p'+c+'>'+emph(p)+'</p>';}).join('');}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
 function pad(n){return n<10?"00"+n:n<100?"0"+n:""+n;}
@@ -425,8 +431,8 @@ function entryHTML(e){
     '<div class="entry__n">'+pad(e.n)+'</div>'+
     '<blockquote class="entry__quote">'+q+'</blockquote>'+
     '<div class="entry__attr">'+esc(e.attribution)+'</div></div>'+
-    '<div class="gloss gloss--means"><div class="gloss__label">What it means</div><p>'+esc(e.means)+'</p></div>'+
-    '<div class="gloss gloss--use"><div class="gloss__label">How to use it</div><p>'+esc(e.use)+'</p></div>'+
+    '<div class="gloss gloss--means"><div class="gloss__label">'+esc(BOOK.gloss[0])+'</div>'+paras(e.means)+'</div>'+
+    '<div class="gloss gloss--use"><div class="gloss__label">'+esc(BOOK.gloss[1])+'</div>'+paras(e.use)+'</div>'+
     '</article>';
 }
 var FLOW_HTML = (function(){
@@ -444,9 +450,9 @@ var FLOW_HTML = (function(){
          '<div class="ch-open">'+ch.opening+'</div>'+
          ch.entries.map(entryHTML).join("");
   });
-  h += '<div class="ch-head plain" id="c-note"><h2>A Note on Attribution</h2></div>'+
+  h += '<div class="ch-head plain" id="c-note"><h2>'+esc(BOOK.noteTitle)+'</h2></div>'+
        '<div class="plain">'+BOOK.note+'</div>';
-  h += '<div class="ch-head plain" id="c-index"><h2>Index of Sources</h2></div><div class="idx">';
+  h += '<div class="ch-head plain" id="c-index"><h2>'+esc(BOOK.indexTitle)+'</h2></div><div class="idx">';
   var letter = null;
   BOOK.index.forEach(function(s){
     if(s.letter !== letter){
@@ -630,7 +636,7 @@ function runningHead(idx){
     var s = starts["c"+c.n];
     if(s !== undefined && s <= idx) best = "Ch " + c.n + " · " + c.title;
   });
-  if(starts["c-note"] !== undefined && starts["c-note"] <= idx) best = "A Note on Attribution";
+  if(starts["c-note"] !== undefined && starts["c-note"] <= idx) best = BOOK.noteTitle;
   return best;
 }
 
@@ -1179,9 +1185,9 @@ function goToPage(idx){
         }).join("")+"</div>";
     }).join("") +
     '<button class="toc-row" data-page-id="c-note"><span class="n">·</span>'+
-    '<span class="t">A Note on Attribution</span></button>'+
+    '<span class="t">'+esc(BOOK.noteTitle)+'</span></button>'+
     '<button class="toc-row" data-page-id="c-index"><span class="n">·</span>'+
-    '<span class="t">Index of Sources</span></button>';
+    '<span class="t">'+esc(BOOK.indexTitle)+'</span></button>';
 })();
 
 document.addEventListener("click", function(ev){

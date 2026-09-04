@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Flag hedges and weak adverbs in a chapter, with context, for a manual cut."""
-import re, sys, glob
+import re, os, sys, glob
 
 HEDGES = ["usually","often","generally","typically","roughly","quite","rather",
           "very","somewhat","genuinely","actually","simply","really","fairly",
@@ -10,11 +10,17 @@ HEDGES = ["usually","often","generally","typically","roughly","quite","rather",
 KEEP_ADV = {"only","early","family","likely","ugly","reply","apply","supply",
             "properly","exactly","daily","weekly","monthly","yearly"}
 
+SKIP = os.environ.get("STYLE_SKIP_GLOSS", "")
+
 for path in sorted(sum((glob.glob(a) for a in sys.argv[1:]), [])):
     hits = []
     for i, line in enumerate(open(path), 1):
         s = line.strip()
         if not s or s.startswith(("#","---","> ","part:","chapter:","title:")):
+            continue
+        # Quoted material inside a gloss is not the author's prose. Same
+        # exclusion as measure_style.py, set by the same variable.
+        if SKIP and s.startswith("**%s.**" % SKIP):
             continue
         low = s.lower().replace("rather than","").replace("other than","")
         for h in HEDGES:
