@@ -1,0 +1,26 @@
+{
+  "slug": "art-of-being-right",
+  "title": "The Art of Being Right",
+  "subtitle": "One hundred and forty-four ways an argument is won unfairly, and what to say back.",
+  "author": "Murtaza Raza",
+  "name_on_cover": false,
+  "unit": {
+    "quote": "the line you would actually hear",
+    "attr": "the move's name",
+    "gloss1": "Why it works",
+    "gloss2": "What to say back"
+  },
+  "chapters": 12,
+  "per_chapter": 12,
+  "palette": {
+    "board": "#1F3A4C",
+    "board2": "#0E1F2B",
+    "ink": "#EFEAE0"
+  },
+  "parts": {
+    "One": "Moving the Ground",
+    "Two": "Going After the Person",
+    "Three": "Abusing the Evidence",
+    "Four": "Playing the Room"
+  }
+}

@@ -24,12 +24,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (parse_chapters, build_index, front_matter,
                         blocks_to_html)
 
-OUT = "print"
+OUT = os.environ.get("BOOK_PRINT_OUT", "print")
 
 # The three fields nobody but the publisher can supply. Fill them in and
 # rebuild; nothing else in the book needs touching.
 IMPRINT = {
-    "author":    "Murtaza Raza",   # the byline on the title page and in metadata
+    "author":    os.environ.get("BOOK_AUTHOR", "Murtaza Raza"),
     # The name belongs in the metadata whatever happens: Amazon and every
     # library catalogue read it from there. This only governs the cover art.
     "name_on_cover": False,
@@ -39,7 +39,21 @@ IMPRINT = {
     "edition":   "First edition",
 }
 
-TITLE = "Lines Worth Keeping"
+TITLE = os.environ.get("BOOK_TITLE", "Lines Worth Keeping")
+TITLE_LINES = os.environ.get("BOOK_TITLE_LINES", "Lines Worth|Keeping")
+SUBTITLE_LINES = os.environ.get(
+    "BOOK_SUBTITLE_LINES",
+    "A commonplace book of 315 quotations,|each with what it means and where to put it.")
+NOTE_TITLE = os.environ.get("BOOK_NOTE_TITLE", "A Note on Attribution")
+INDEX_TITLE = os.environ.get("BOOK_INDEX_TITLE", "Index of Sources")
+ANON_HEADING = os.environ.get("BOOK_ANON_HEADING",
+                              "Proverbs and traditional sayings")
+GLOSS = (os.environ.get("BOOK_GLOSS1", "What it means"),
+         os.environ.get("BOOK_GLOSS2", "How to use it"))
+COLOPHON = os.environ.get(
+    "BOOK_COLOPHON",
+    "Three hundred and fifteen entries across twenty-one chapters,|"
+    "drawn from a hundred and fifty-one sources.")
 
 TRIMS = {
     "5.5x8.5": dict(w=5.5, h=8.5, top=0.72, bot=0.71, inn=0.80, out=0.60,
@@ -167,24 +181,25 @@ def body_html(chapters, index, intro, note, cfg):
                     '<div class="entry%s" id="e%d"><hr class="sep">'
                     '<div class="entry__head"><p class="entry__n">%03d</p>%s'
                     '<p class="entry__attr">%s</p></div>'
-                    '<div class="gloss"><p class="gloss__label">What it means</p>'
+                    '<div class="gloss"><p class="gloss__label">%s</p>'
                     '<p>%s</p></div>'
-                    '<div class="gloss"><p class="gloss__label">How to use it</p>'
+                    '<div class="gloss"><p class="gloss__label">%s</p>'
                     '<p>%s</p></div></div>'
                     % (" first" if i == 0 else "", en["n"], en["n"],
                        quote_html(en), esc(en["attribution"]),
-                       esc(en["means"]), esc(en["use"])))
+                       esc(GLOSS[0]), esc(en["means"]),
+                       esc(GLOSS[1]), esc(en["use"])))
             e.append('</section>')
             a("".join(e))
 
     a('<section class="chapter note" id="note">'
       '<div class="chap-open"><p class="eyebrow">End matter</p>'
-      '<h2>A Note on Attribution</h2><hr class="hr"></div>'
-      '<div class="chap-prose">%s</div></section>' % note)
+      '<h2>%s</h2><hr class="hr"></div>'
+      '<div class="chap-prose">%s</div></section>' % (esc(NOTE_TITLE), note))
 
     idx = ['<section class="chapter index" id="index">'
            '<div class="chap-open"><p class="eyebrow">End matter</p>'
-           '<h2>Index of Sources</h2><hr class="hr"></div>',
+           '<h2>' + esc(INDEX_TITLE) + '</h2><hr class="hr"></div>',
            '<div class="index-body">']
     letter, first = None, True
     for src in index:
@@ -192,7 +207,7 @@ def body_html(chapters, index, intro, note, cfg):
             letter = src["letter"]
             idx.append('<p class="letter%s">%s</p>'
                        % (" first" if first else "",
-                          "Proverbs and traditional sayings"
+                          ANON_HEADING
                           if letter == "¶" else esc(letter)))
             first = False
         pages = "".join('<a class="pg" href="#e%d"></a>' % i["n"]
@@ -221,10 +236,11 @@ def front_html(chapters, folio, cfg):
 
     # the byline sits with the title; the foot of the page is the publisher's
     a('<section class="display titlepage">'
-      '<p class="tp-title">Lines Worth<br>Keeping</p><hr class="tp-rule">'
-      '<p class="tp-sub">A commonplace book of 315 quotations,<br>'
-      'each with what it means and where to put it.</p>%s%s</section>'
-      % ('<p class="tp-by">%s</p>' % esc(IMPRINT["author"])
+      '<p class="tp-title">%s</p><hr class="tp-rule">'
+      '<p class="tp-sub">%s</p>%s%s</section>'
+      % ("<br>".join(esc(x) for x in TITLE_LINES.split("|")),
+         "<br>".join(esc(x) for x in SUBTITLE_LINES.split("|")),
+         '<p class="tp-by">%s</p>' % esc(IMPRINT["author"])
          if IMPRINT["author"] else "",
          '<p class="tp-foot">%s</p>' % esc(IMPRINT["publisher"])
          if IMPRINT["publisher"] else ""))
@@ -274,8 +290,8 @@ def front_html(chapters, folio, cfg):
         for ch in p["chs"]:
             toc.append(row("c%d" % ch["n"], str(ch["n"]), ch["title"]))
     toc.append('<p class="toc-part">End matter</p>')
-    toc.append(row("note", "", "A Note on Attribution"))
-    toc.append(row("index", "", "Index of Sources"))
+    toc.append(row("note", "", NOTE_TITLE))
+    toc.append(row("index", "", INDEX_TITLE))
     a('<section class="contents">%s</section>' % "".join(toc))
     return page(TITLE, "".join(h), cfg)
 

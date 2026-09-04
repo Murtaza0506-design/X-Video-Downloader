@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-OUT = "print"
+OUT = os.environ.get("BOOK_PRINT_OUT", "print")
 TOL = 0.5          # points; a rounding allowance on geometry
 INK_TOL = 2.0      # points a hairline may sit outside the text block
 

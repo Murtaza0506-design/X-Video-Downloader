@@ -36,6 +36,25 @@ MONONYM = {
 }
 PREFIXES = ("attributed to ", "after ", "popular paraphrase of ")
 ROMAN = {"One": "I", "Two": "II", "Three": "III", "Four": "IV"}
+
+# The two glosses under each quotation. Their labels are the unit's, so a
+# different book renames them here and everything downstream follows.
+GLOSS = (os.environ.get("BOOK_GLOSS1", "What it means"),
+         os.environ.get("BOOK_GLOSS2", "How to use it"))
+# Where the manuscript lives, and what the book is called. A second book sets
+# these and the whole pipeline follows it.
+CONTENT = os.environ.get("BOOK_CONTENT", "content")
+BOOK_TITLE = os.environ.get("BOOK_TITLE", "Lines Worth Keeping")
+BOOK_SUBTITLE = os.environ.get(
+    "BOOK_SUBTITLE",
+    "A commonplace book of 315 quotations, each with what it means "
+    "and where to put it.")
+BOOK_AUTHOR = os.environ.get("BOOK_AUTHOR", "Murtaza Raza")
+NOTE_TITLE = os.environ.get("BOOK_NOTE_TITLE", "A Note on Attribution")
+# Each book writes to its own files, so building one never clobbers another.
+OUT_FRAGMENT = os.environ.get("BOOK_OUT_FRAGMENT", "book.html")
+OUT_SITE = os.environ.get("BOOK_OUT_SITE", "site/index.html")
+OUT_CSV = os.environ.get("BOOK_OUT_CSV", "book-entries.csv")
 ENTRIES = 315
 CHAPTERS = 21
 
@@ -94,8 +113,8 @@ def person_key(name):
 
 def parse_chapters():
     chapters, n = [], 0
-    files = sorted(f for f in glob.glob("content/*.md")
-                   if re.match(r"content/(0[1-9]|1[0-9]|2[01])-", f))
+    files = sorted(f for f in glob.glob(os.path.join(CONTENT, "*.md"))
+                   if re.match(r"(0[1-9]|1[0-9]|2[01])-", os.path.basename(f)))
     for path in files:
         meta, body = front_matter(open(path).read())
         sections = [s.strip() for s in body.split("\n---\n")]
@@ -112,8 +131,10 @@ def parse_chapters():
             quote, attribution = qline.rsplit("—", 1)
             quote = quote.strip()
             display = quote.strip('"') if quote.startswith('"') else quote.strip("*")
-            means = re.search(r"\*\*What it means\.\*\* (.+?)(?:\n|$)", sec, re.S).group(1).strip()
-            use = re.search(r"\*\*How to use it\.\*\* (.+?)(?:\n|$)", sec, re.S).group(1).strip()
+            means = re.search(r"\*\*%s\.\*\* (.+?)(?:\n|$)" % re.escape(GLOSS[0]),
+                              sec, re.S).group(1).strip()
+            use = re.search(r"\*\*%s\.\*\* (.+?)(?:\n|$)" % re.escape(GLOSS[1]),
+                            sec, re.S).group(1).strip()
             entries.append({
                 "n": n,
                 "quote": display,
@@ -168,8 +189,10 @@ def build_index(chapters):
 
 def main():
     chapters = parse_chapters()
-    intro_meta, intro_body = front_matter(open("content/00-introduction.md").read())
-    note_meta, note_body = front_matter(open("content/90-note-on-attribution.md").read())
+    intro_meta, intro_body = front_matter(
+        open(os.path.join(CONTENT, "00-introduction.md")).read())
+    note_meta, note_body = front_matter(
+        open(os.path.join(CONTENT, "90-note-on-attribution.md")).read())
     def strip_heading(body):
         lines = body.strip().split("\n")
         if lines and lines[0].lstrip().startswith("#"):
@@ -177,13 +200,12 @@ def main():
         return "\n".join(lines)
 
     data = {
-        "title": "Lines Worth Keeping",
-        "author": "Murtaza Raza",
-        "subtitle": "A commonplace book of 315 quotations, "
-                    "each with what it means and where to put it.",
+        "title": BOOK_TITLE,
+        "author": BOOK_AUTHOR,
+        "subtitle": BOOK_SUBTITLE,
         "chapters": chapters,
         "index": build_index(chapters),
-        "blurb": [ln.strip() for ln in open("content/blurb.txt").read().strip().split("\n") if ln.strip()],
+        "blurb": [ln.strip() for ln in open(os.path.join(CONTENT, "blurb.txt")).read().strip().split("\n") if ln.strip()],
         "intro": blocks_to_html(strip_heading(intro_body)),
         "note": blocks_to_html(strip_heading(note_body)),
     }
@@ -194,11 +216,11 @@ def main():
     # book.html is the Artifact fragment: the host supplies <html>, <head> and
     # the charset and viewport meta. A file served directly needs its own, or
     # phones fall back to a 980px layout viewport and the sizing breaks.
-    open("book.html", "w").write(page)
+    open(OUT_FRAGMENT, "w").write(page)
     split = page.index("</style>") + len("</style>")
     head, body = page[:split], page[split:]
-    os.makedirs("site", exist_ok=True)
-    with open("site/index.html", "w") as fh:
+    os.makedirs(os.path.dirname(OUT_SITE) or ".", exist_ok=True)
+    with open(OUT_SITE, "w") as fh:
         fh.write(
             "<!doctype html>\n<html lang=\"en-GB\">\n<head>\n"
             "<meta charset=\"utf-8\">\n"
@@ -208,7 +230,7 @@ def main():
             "<meta name=\"color-scheme\" content=\"light\">\n"
             + head + "\n</head>\n<body>" + body + "\n</body>\n</html>\n")
 
-    with open("book-entries.csv", "w", newline="") as fh:
+    with open(OUT_CSV, "w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["n", "chapter", "chapter_title", "part", "quote",
                     "attribution", "what_it_means", "how_to_use_it"])

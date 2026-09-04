@@ -16,7 +16,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_print import IMPRINT
 
-OUT = "print"
+OUT = os.environ.get("BOOK_PRINT_OUT", "print")
 BLEED = 0.125          # trimmed off all four outer edges
 SAFE = 0.25            # nothing that matters comes closer than this to a trim
 BARCODE_W, BARCODE_H = 2.0, 1.2   # the box the printer drops the barcode into
@@ -25,10 +25,14 @@ BARCODE_W, BARCODE_H = 2.0, 1.2   # the box the printer drops the barcode into
 # black-and-white interiors.
 PAPER = {"white": 0.002252, "cream": 0.0025}
 
-TITLE_1, TITLE_2 = "Lines Worth", "Keeping"
-SUB = "A commonplace book of 315 quotations, each with what it means and where to put it."
+TITLE_1, TITLE_2 = os.environ.get("BOOK_TITLE_LINES", "Lines Worth|Keeping").split("|")[:2]
+SUB = os.environ.get("BOOK_SUBTITLE",
+                     "A commonplace book of 315 quotations, each with what it "
+                     "means and where to put it.")
 
-BLURB = [
+_B = os.environ.get("BOOK_BLURB_FILE", "content/blurb.txt")
+BLURB = ([ln.strip() for ln in open(_B).read().strip().split("\n") if ln.strip()][:3]
+         if os.path.exists(_B) else [
     "Most quotation books hand you a beautiful sentence and walk away. You read "
     "forty in a sitting, feel briefly elevated, and by Thursday you could not "
     "name one of them.",
@@ -40,17 +44,21 @@ BLURB = [
     "than the century it came from. Marcus Aurelius on obstacles, Aesop on "
     "persuasion, an English proverb on knowing when to leave a thing alone. "
     "They contradict each other in places, which is what real advice does.",
-]
-PULL = ("Open it anywhere. Most chapters end by giving you permission to stop.")
+])
+PULL = os.environ.get(
+    "BOOK_PULL",
+    "Open it anywhere. Most chapters end by giving you permission to stop.")
 
 # One entry, printed on the back board exactly as it is printed inside, so a
 # reader can see the shape of the thing before buying it.
 SPECIMEN = {
-    "quote": "When angry, count to ten before you speak. If very angry, a hundred.",
-    "attr": "Thomas Jefferson",
-    "use": "Build the delay into the tools where you do the damage. Say out loud "
+    "quote": os.environ.get("BOOK_SPEC_Q",
+             "When angry, count to ten before you speak. If very angry, a hundred."),
+    "attr": os.environ.get("BOOK_SPEC_A", "Thomas Jefferson"),
+    "use": os.environ.get("BOOK_SPEC_U",
+           "Build the delay into the tools where you do the damage. Say out loud "
            "that you will answer tomorrow. Write the furious message in a blank "
-           "note instead of the reply box.",
+           "note instead of the reply box."),
 }
 
 
@@ -65,6 +73,13 @@ def cover_html(spec, paper):
     spine_x = BLEED + tw
     front_x = BLEED + tw + spine
     author = IMPRINT["author"] if IMPRINT.get("name_on_cover") else ""
+    SPEC_LABEL = os.environ.get("BOOK_GLOSS2", "How to use it")
+    TAG = os.environ.get("BOOK_TAG", "315 entries · 21 chapters · 151 sources")
+    FOOT = os.environ.get("BOOK_FOOT", "315 entries · 21 chapters")
+    EYEBROW = os.environ.get("BOOK_EYEBROW", "A commonplace book")
+    C1 = os.environ.get("BOOK_C1", "#7C2A22")
+    C2 = os.environ.get("BOOK_C2", "#6A2019")
+    C3 = os.environ.get("BOOK_C3", "#54180F")
     BYLINE = '<p class="by">%s</p>' % author if author else ""
     SPINE_BY = "<i>%s</i>" % author if author else ""
 
@@ -83,7 +98,7 @@ def cover_html(spec, paper):
 html,body{{margin:0;padding:0;height:100%;
   font-family:"EB Garamond",Garamond,Georgia,serif;color:#F2EDE3}}
 .wrap{{position:relative;width:{W}in;height:{H}in;
-  background:linear-gradient(135deg,#7C2A22 0%,#6A2019 46%,#54180F 100%)}}
+  background:linear-gradient(135deg,{C1} 0%,{C2} 46%,{C3} 100%)}}
 .panel{{position:absolute;top:0;height:{H}in}}
 .back{{left:0;width:{BLEED + tw}in}}
 .spine{{left:{spine_x}in;width:{spine}in}}
@@ -155,9 +170,9 @@ html,body{{margin:0;padding:0;height:100%;
       <div class="spec">
         <p class="q">&#8220;{SPECIMEN['quote']}&#8221;</p>
         <p class="a">{SPECIMEN['attr']}</p>
-        <p class="g"><b>How to use it&nbsp;&nbsp;</b>{SPECIMEN['use']}</p>
+        <p class="g"><b>{SPEC_LABEL}&nbsp;&nbsp;</b>{SPECIMEN['use']}</p>
       </div>
-      <p class="tag">315 entries · 21 chapters · 151 sources</p>
+      <p class="tag">{TAG}</p>
     </div>
     <div class="barcode"></div>
   </div>
@@ -169,14 +184,14 @@ html,body{{margin:0;padding:0;height:100%;
   <div class="panel front">
     <div class="rule-v"></div><div class="rule-v inner"></div><div class="prick"></div>
     <div class="pad">
-      <p class="eyebrow">A commonplace book</p>
+      <p class="eyebrow">{EYEBROW}</p>
       <div class="mid">
         <p class="title">{TITLE_1}<br>{TITLE_2}</p>
         <hr class="hr">
         <p class="sub">{SUB}</p>
         {BYLINE}
       </div>
-      <p class="foot">315 entries · 21 chapters</p>
+      <p class="foot">{FOOT}</p>
     </div>
   </div>
 </div>

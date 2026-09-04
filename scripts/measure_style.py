@@ -33,7 +33,18 @@ for f in sorted(glob.glob(sys.argv[1] if len(sys.argv)>1 else "content/[012]*.md
     low = t.lower()
     low = low.replace("rather than", "").replace("other than", "")
     hedge = sum(len(re.findall(r"\b"+h+r"\b", low)) for h in HEDGES)
-    adv = len([w for w in words if w.endswith("ly") and len(w) > 5])
+    # Words ending in -ly that are not adverbs. Without this the count is
+    # inflated by whatever the book happens to be about: a book about replies
+    # scores badly for the word "reply".
+    NOT_ADV = {"only", "reply", "replies", "family", "families", "supply",
+               "supplies", "apply", "applies", "imply", "implies", "rely",
+               "relies", "multiply", "assembly", "ally", "allies", "ugly",
+               "early", "likely", "unlikely", "lonely", "holy", "italy",
+               "july", "jelly", "belly", "silly", "daily", "weekly",
+               "monthly", "yearly", "friendly", "costly", "deadly", "lively",
+               "orderly", "elderly", "wholly", "solely", "namely", "supply"}
+    adv = len([w for w in words
+               if w.endswith("ly") and len(w) > 5 and w not in NOT_ADV])
     short = sum(1 for l in lens if l <= 8)
     long_ = sum(1 for l in lens if l >= 30)
     rows.append((f.split("/")[-1][:2], len(ss), statistics.mean(lens),

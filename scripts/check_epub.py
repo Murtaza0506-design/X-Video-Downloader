@@ -13,7 +13,8 @@ import sys
 import zipfile
 from xml.etree import ElementTree as ET
 
-EPUB = "ebook/lines-worth-keeping.epub"
+EPUB = os.path.join(os.environ.get("BOOK_EPUB_OUT", "ebook"),
+                    os.environ.get("BOOK_SLUG", "lines-worth-keeping") + ".epub")
 NS = {"opf": "http://www.idpf.org/2007/opf",
       "dc": "http://purl.org/dc/elements/1.1/",
       "x": "http://www.w3.org/1999/xhtml",

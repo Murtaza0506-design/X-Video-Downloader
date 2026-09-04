@@ -21,3 +21,5 @@ print/*.html
 ebook/cover.html
 ebook/kdp-upload/
 ebook/lines-worth-keeping-kdp.zip
+books/*/print/*.html
+books/*/ebook/cover.html

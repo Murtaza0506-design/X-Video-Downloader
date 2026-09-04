@@ -21,14 +21,16 @@ from build_site import parse_chapters, build_index, front_matter
 from build_print import (IMPRINT, TITLE, smart, esc, prose, note_html,
                          quote_html, group_parts)
 
-OUT = "ebook"
+OUT = os.environ.get("BOOK_EPUB_OUT", "ebook")
 LANG = "en-GB"
-SUBTITLE = ("A commonplace book of 315 quotations, each with what it means "
-            "and where to put it.")
+SUBTITLE = os.environ.get("BOOK_SUBTITLE",
+                          "A commonplace book of 315 quotations, each with "
+                          "what it means and where to put it.")
 
 # A stable identifier, so that a re-upload is recognised as the same book
 # rather than a new one. Replace it with your ISBN once you have one.
-BOOK_ID = "urn:uuid:8f4b1e0a-2d77-5a3c-9c61-7f0c2a5d9b41"
+BOOK_ID = os.environ.get("BOOK_ID",
+                         "urn:uuid:8f4b1e0a-2d77-5a3c-9c61-7f0c2a5d9b41")
 
 CSS = """/* Reflowable: no fixed sizes, no embedded fonts, no page geometry.
    The reader picks the typeface and the size; this sets relationships only. */
@@ -152,7 +154,7 @@ def cover_jpeg(path):
 html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
   color:#F2EDE3}
 .b{position:relative;width:%(W)sin;height:%(H)sin;
-  background:linear-gradient(135deg,#7C2A22 0%%,#6A2019 46%%,#54180F 100%%)}
+  background:linear-gradient(135deg,%(C1)s 0%%,%(C2)s 46%%,%(C3)s 100%%)}
 .r1,.r2{position:absolute;top:1in;bottom:1in;width:1pt;
   background:rgba(242,237,227,.42)}
 .r1{left:.72in}.r2{left:.96in;opacity:.55}
@@ -173,12 +175,20 @@ html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
 </style></head><body><div class="b">
 <div class="r1"></div><div class="r2"></div>
 <div class="pad">
-  <p class="eyebrow">A commonplace book</p>
-  <div class="mid"><p class="t">Lines Worth<br>Keeping</p><hr class="hr">
-    <p class="s">A commonplace book of 315 quotations, each with what it means
-    and where to put it.</p>%(BY)s</div>
-  <p class="f">315 entries &#183; 21 chapters</p>
-</div></div></body></html>""" % {"W": W, "H": H, "BY": byline}
+  <p class="eyebrow">%(EYEBROW)s</p>
+  <div class="mid"><p class="t">%(TITLE)s</p><hr class="hr">
+    <p class="s">%(SUB)s</p>%(BY)s</div>
+  <p class="f">%(FOOT)s</p>
+</div></div></body></html>""" % {
+        "W": W, "H": H, "BY": byline,
+        "SUB": html.escape(SUBTITLE),
+        "TITLE": "<br>".join(html.escape(x) for x in os.environ.get(
+            "BOOK_TITLE_LINES", "Lines Worth|Keeping").split("|")),
+        "EYEBROW": html.escape(os.environ.get("BOOK_EYEBROW", "A commonplace book")),
+        "FOOT": html.escape(os.environ.get("BOOK_FOOT", "315 entries \u00b7 21 chapters")),
+        "C1": os.environ.get("BOOK_C1", "#7C2A22"),
+        "C2": os.environ.get("BOOK_C2", "#6A2019"),
+        "C3": os.environ.get("BOOK_C3", "#54180F")}
     src = os.path.join(OUT, "cover.html")
     open(src, "w").write(page)
     from weasyprint import HTML
@@ -402,7 +412,8 @@ def main():
     size = cover_jpeg(jpg)
     docs, entries, nch, nsrc = build()
 
-    path = os.path.join(OUT, "lines-worth-keeping.epub")
+    path = os.path.join(OUT, os.environ.get("BOOK_SLUG",
+                                            "lines-worth-keeping") + ".epub")
     with zipfile.ZipFile(path, "w") as z:
         # the mimetype must be first and stored, not deflated
         z.writestr(zipfile.ZipInfo("mimetype"), "application/epub+zip",
@@ -423,7 +434,7 @@ def main():
             z.writestr("OEBPS/" + href, xhtml(title, body), zipfile.ZIP_DEFLATED)
 
     kb = os.path.getsize(path) / 1024
-    print("lines-worth-keeping.epub  %d documents  %.0f KB" % (len(docs), kb))
+    print("%s  %d documents  %.0f KB" % (os.path.basename(path), len(docs), kb))
     print("cover.jpg  %d x %d" % size)
     print("%d entries, %d chapters, %d sources" % (entries, nch, nsrc))
 
