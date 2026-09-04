@@ -469,15 +469,25 @@ function makeFace(cls){
   return f;
 }
 
-function layout(){
+// The page is a fixed object, like a printed one: the same words fall on page
+// seven whatever you are reading it on. The screen only changes how big the
+// book is drawn, never how the type is set.
+var PAGE = {w:430, h:628};
+
+function fitView(){
   var vw = window.innerWidth, vh = window.innerHeight;
-  G.ph = clamp(Math.round(vh*0.74),300,780);
-  G.pw = Math.round(G.ph/1.46);
+  G.fit = Math.min(1, (vw*0.94)/(2*G.pw + G.T*2), (vh*0.9)/G.ph);
+  applyView();
+}
+
+function layout(){
+  G.ph = PAGE.h;
+  G.pw = PAGE.w;
   G.m  = Math.round(G.pw*0.105);
   G.vm = Math.round(G.ph*0.075);
   G.padX = Math.round(G.pw*0.10);
   G.padY = Math.round(G.ph*0.22);
-  G.fit = Math.min(1,(vw*0.94)/(2*G.pw+G.T*2),(vh*0.9)/G.ph);
+  fitView();
 
   book.innerHTML = "";
   faces = {};
@@ -619,6 +629,12 @@ function paint(){
   }
   faces.ribbon.querySelector(".ribbon__band").style.display = onMark ? "block" : "none";
 
+  if(S.open){
+    var want = "#p" + (S.spread*2 + 1);
+    if(location.hash !== want){
+      try{ history.replaceState(null, "", want); }catch(e){}
+    }
+  }
   document.getElementById("where").textContent = S.open
     ? "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages
     : "Closed \u00b7 drag the cover to open";
@@ -649,19 +665,22 @@ function reflectAcross(M, n){
   return "matrix("+a.toFixed(5)+","+b.toFixed(5)+","+c.toFixed(5)+","+
          d.toFixed(5)+","+(k*n[0]).toFixed(2)+","+(k*n[1]).toFixed(2)+")";
 }
-function halfPlane(W, H, M, n, side){
-  var pts = [[0,0],[W,0],[W,H],[0,H]], out = [];
-  function f(p){ return ((p[0]-M[0])*n[0] + (p[1]-M[1])*n[1]) * side; }
-  for(var i=0;i<4;i++){
-    var A = pts[i], B = pts[(i+1)%4], fa = f(A), fb = f(B);
-    if(fa >= 0) out.push(A);
-    if((fa >= 0) !== (fb >= 0)){
-      var u = fa/(fa-fb);
-      out.push([A[0]+(B[0]-A[0])*u, A[1]+(B[1]-A[1])*u]);
-    }
+/* Paper does not crease along a straight line, it bows. Both halves are cut
+   with the SAME curve, so they still tile exactly and the reflection stays
+   true, but the seam reads as a bend rather than a fold. */
+function foldEdge(W, H, M, n, side, amp){
+  var d = [-n[1], n[0]];
+  var L = Math.hypot(W, H) * 1.7, BIG = L;
+  var pts = [], N = 22, span = L * 0.46;
+  for(var i = 0; i <= N; i++){
+    var s = -L + 2*L*(i/N);
+    var k = Math.max(0, 1 - (s/span)*(s/span));
+    var b = -amp * k * k;                 // bows toward the corner being lifted
+    pts.push([M[0] + s*d[0] + b*n[0], M[1] + s*d[1] + b*n[1]]);
   }
-  if(out.length < 3) return null;
-  return "polygon(" + out.map(function(q){
+  pts.push([M[0] + L*d[0] + side*BIG*n[0], M[1] + L*d[1] + side*BIG*n[1]]);
+  pts.push([M[0] - L*d[0] + side*BIG*n[0], M[1] - L*d[1] + side*BIG*n[1]]);
+  return "polygon(" + pts.map(function(q){
     return q[0].toFixed(1)+"px "+q[1].toFixed(1)+"px"; }).join(",") + ")";
 }
 
@@ -712,17 +731,20 @@ function fold(prog){
   flap.style.display = "block";
   var n = [vx/len, vy/len];
   var M = [(C[0]+cx)/2, (C[1]+cy)/2];
-  var keep = halfPlane(W,H,M,n,1);
-  var take = halfPlane(W,H,M,n,-1);
-  base.style.clipPath = keep || "polygon(0 0,0 0,0 0)";
-  flap.style.clipPath = take || "polygon(0 0,0 0,0 0)";
+  // the bow is deepest mid-turn and flattens out at either end
+  var amp = 30 * Math.sin(Math.PI * clamp(T.t, 0, 1));
+  base.style.clipPath = foldEdge(W,H,M,n,1,amp);
+  flap.style.clipPath = foldEdge(W,H,M,n,-1,amp);
   flap.style.transform = reflectAcross(M, n);
-  // shading: dark along the fold on the sheet, a sheen on the folded part
+  // shading reads as a cylinder: a soft core of shadow at the bend, falling
+  // away on both sides, rather than one hard edge
   var deg = (Math.atan2(-n[0], n[1]) * 180/Math.PI).toFixed(1);
-  shB.style.background = "linear-gradient("+deg+"deg,rgba(0,0,0,.30),rgba(0,0,0,0) 22%)";
+  shB.style.background = "linear-gradient("+deg+"deg,rgba(0,0,0,.34) 0%," +
+    "rgba(0,0,0,.16) 6%,rgba(0,0,0,0) 20%)";
   shB.style.opacity = (0.55*Math.sin(Math.PI*Math.min(1,T.t*1.4))+0.12).toFixed(2);
-  shF.style.background = "linear-gradient("+deg+"deg,rgba(255,255,255,.5),rgba(0,0,0,.16) 60%)";
-  shF.style.opacity = "0.5";
+  shF.style.background = "linear-gradient("+deg+"deg,rgba(255,255,255,.55) 0%," +
+    "rgba(255,255,255,.16) 9%,rgba(0,0,0,.10) 34%,rgba(0,0,0,.20) 100%)";
+  shF.style.opacity = "0.62";
 }
 
 function settleTurn(commit){
@@ -730,22 +752,39 @@ function settleTurn(commit){
   var dir = T.dir, from = T.t, to = commit ? 1 : 0;
   var t0 = performance.now(), ms = reduce.matches ? 1 : 420;
   T.anim = true;
-  (function step(now){
-    var u = clamp((now - t0)/ms, 0, 1);
-    var e = u < 0.5 ? 2*u*u : 1 - Math.pow(-2*u+2,2)/2;
-    fold(from + (to-from)*e);
-    if(u < 1){ requestAnimationFrame(step); return; }
+  T.done = function(){
+    if(S.turning !== T) return;
+    fold(to);
     faces.leafFront.style.display = "none";
     faces.leafBack.style.display = "none";
     faces.leaf.style.display = "none";
     S.turning = null;
     if(commit) S.spread += dir;
     paint();
+  };
+  (function step(now){
+    if(S.turning !== T) return;
+    var u = clamp((now - t0)/ms, 0, 1);
+    var e = u < 0.5 ? 2*u*u : 1 - Math.pow(-2*u+2,2)/2;
+    fold(from + (to-from)*e);
+    if(u < 1){ T.raf = requestAnimationFrame(step); return; }
+    T.done();
   })(t0);
+}
+// Let a settling turn be cut short, so pages can be taken quickly one after
+// another instead of each waiting on the last to finish.
+function finishTurnNow(){
+  var T = S.turning;
+  if(T && T.anim && T.done){
+    if(T.raf) cancelAnimationFrame(T.raf);
+    T.done();
+  }
 }
 function endTurn(commit){ settleTurn(commit); }
 function turnBy(dir){
-  if(!S.open || S.turning) return;
+  if(!S.open) return;
+  finishTurnNow();
+  if(S.turning) return;
   if(!beginTurn(dir)) return;
   settleTurn(true);
 }
@@ -813,6 +852,7 @@ stage.addEventListener("pointerdown", function(ev){
   if(ev.target.closest(".hud,.sheet,.edge,.edge-y")) return;
   stage.setPointerCapture(ev.pointerId);
   var onFront = !S.open && ev.target.closest(".board--front");
+  if(S.turning && S.turning.anim) finishTurnNow();
   var onRibbon = ev.target.closest(".ribbon__band,.ribbon__tail");
   var onRecto = S.open && !onRibbon && ev.target.closest(".face--recto,.corner");
   var onVerso = S.open && ev.target.closest(".face--verso");
@@ -1077,7 +1117,7 @@ document.addEventListener("keydown", function(ev){
 
 var rt;
 window.addEventListener("resize", function(){
-  clearTimeout(rt); rt = setTimeout(function(){ layout(); sizeEdges(); syncDials(); }, 200);
+  clearTimeout(rt); rt = setTimeout(function(){ fitView(); sizeEdges(); syncDials(); }, 120);
 });
 
 S.zoom = clamp(parseFloat(recall("lwk3:zoom")||"1") || 1, 0.4, 4);
@@ -1087,7 +1127,13 @@ S.mark = (savedMark === null || savedMark === "null") ? null : (parseInt(savedMa
 layout();
 sizeEdges();
 syncDials();
-if(recall("lwk3:open") === "1"){
+var deep = (location.hash.match(/^#p(\d+)$/) || [])[1];
+if(deep){
+  S.open = true;
+  S.spread = clamp(Math.floor((parseInt(deep,10)-1)/2), 0, Math.max(0,Math.ceil(S.pages/2)-1));
+  faces.front.style.transform = coverTransform(-178);
+  paint();
+}else if(recall("lwk3:open") === "1"){
   S.open = true;
   faces.front.style.transform = coverTransform(-178);
   paint();
