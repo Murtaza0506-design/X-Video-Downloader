@@ -10,10 +10,10 @@ import sys
 
 problems = []
 chapters = sorted(f for f in glob.glob("content/*.md")
-                  if re.match(r"content/(0[1-9]|1[0-6])-", f))
+                  if re.match(r"content/(0[1-9]|1[0-9]|2[01])-", f))
 
-if len(chapters) != 16:
-    problems.append(f"expected 16 chapters, found {len(chapters)}")
+if len(chapters) != 21:
+    problems.append(f"expected 21 chapters, found {len(chapters)}")
 
 total = 0
 for path in chapters:
@@ -34,8 +34,8 @@ for path in chapters:
         if s and not s.startswith(("#", "> ", "---", "part:", "chapter:", "title:")) and "—" in s:
             problems.append(f"{path}:{n}: em dash in prose")
 
-if total != 240:
-    problems.append(f"expected 240 entries, found {total}")
+if total != 315:
+    problems.append(f"expected 315 entries, found {total}")
 
 for required in ("site/index.html", "book.html"):
     if not os.path.exists(required):
@@ -54,4 +54,4 @@ if problems:
     for p in problems:
         print(" -", p)
     sys.exit(1)
-print(f"Manuscript intact: 16 chapters, {total} entries, site built.")
+print(f"Manuscript intact: {len(chapters)} chapters, {total} entries, site built.")

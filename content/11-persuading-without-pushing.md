@@ -1,10 +1,10 @@
 ---
 part: Two — Other People
-chapter: 9
+chapter: 11
 title: Persuading Without Pushing
 ---
 
-# Chapter 9 — Persuading Without Pushing
+# Chapter 11 — Persuading Without Pushing
 
 You have said it three times now. Slower each time. A little more evidence each time. And each time, the person across the table has become fractionally more certain they were right to begin with.
 

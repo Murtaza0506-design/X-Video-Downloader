@@ -25,7 +25,7 @@ BARCODE_W, BARCODE_H = 2.0, 1.2   # the box the printer drops the barcode into
 PAPER = {"white": 0.002252, "cream": 0.0025}
 
 TITLE_1, TITLE_2 = "Lines Worth", "Keeping"
-SUB = "A commonplace book of 240 quotations, each with what it means and where to put it."
+SUB = "A commonplace book of 315 quotations, each with what it means and where to put it."
 
 BLURB = [
     "Most quotation books hand you a beautiful sentence and walk away. You read "
@@ -35,7 +35,7 @@ BLURB = [
     "what it actually means, in plain English, and one specific place to put "
     "it. The row you are rehearsing in the car. The email you have not "
     "answered. The thing you keep not starting.",
-    "Two hundred and forty entries, arranged by the problem you have rather "
+    "Three hundred and fifteen entries, arranged by the problem you have rather "
     "than the century it came from. Marcus Aurelius on obstacles, Aesop on "
     "persuasion, an English proverb on knowing when to leave a thing alone. "
     "They contradict each other in places, which is what real advice does.",
@@ -149,7 +149,7 @@ html,body{{margin:0;padding:0;height:100%;
         <p class="a">{SPECIMEN['attr']}</p>
         <p class="g"><b>How to use it&nbsp;&nbsp;</b>{SPECIMEN['use']}</p>
       </div>
-      <p class="tag">240 entries · 16 chapters · 130 sources</p>
+      <p class="tag">315 entries · 21 chapters · 151 sources</p>
     </div>
     <div class="barcode"></div>
   </div>
@@ -167,7 +167,7 @@ html,body{{margin:0;padding:0;height:100%;
         <hr class="hr">
         <p class="sub">{SUB}</p>
       </div>
-      <p class="foot">240 entries · 16 chapters</p>
+      <p class="foot">315 entries · 21 chapters</p>
     </div>
   </div>
 </div>

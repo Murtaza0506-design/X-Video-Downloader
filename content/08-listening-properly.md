@@ -1,10 +1,10 @@
 ---
 part: Two — Other People
-chapter: 6
+chapter: 8
 title: Listening Properly
 ---
 
-# Chapter 6 — Listening Properly
+# Chapter 8 — Listening Properly
 
 Almost everyone believes they are a good listener. It sits alongside having a sense of humour in the small category of qualities nobody doubts about themselves. And yet every one of us can summon the exact feeling of not being listened to, which suggests the arithmetic does not work.
 

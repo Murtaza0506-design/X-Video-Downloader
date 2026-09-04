@@ -16,7 +16,8 @@ import collections
 
 ANON = ("proverb", "adage", "maxim", "saying", "rhyme", "traditional",
         "memento mori", "inscription", "hanlon's razor", "delphi", "zen")
-BIBLE = ("Proverbs", "Ecclesiastes", "Psalm", "Matthew", "Ephesians", "James", "Exodus")
+BIBLE = ("Proverbs", "Ecclesiastes", "Psalm", "Matthew", "Ephesians", "James",
+         "Exodus", "Genesis", "1 Timothy")
 SURNAME = {
     "Marcus Aurelius": "Aurelius, Marcus", "Lord Byron": "Byron, Lord",
     "Alfred, Lord Tennyson": "Tennyson, Alfred, Lord", "the Buddha": "Buddha, the",
@@ -35,6 +36,8 @@ MONONYM = {
 }
 PREFIXES = ("attributed to ", "after ", "popular paraphrase of ")
 ROMAN = {"One": "I", "Two": "II", "Three": "III", "Four": "IV"}
+ENTRIES = 315
+CHAPTERS = 21
 
 
 def inline(text):
@@ -92,7 +95,7 @@ def person_key(name):
 def parse_chapters():
     chapters, n = [], 0
     files = sorted(f for f in glob.glob("content/*.md")
-                   if re.match(r"content/(0[1-9]|1[0-6])-", f))
+                   if re.match(r"content/(0[1-9]|1[0-9]|2[01])-", f))
     for path in files:
         meta, body = front_matter(open(path).read())
         sections = [s.strip() for s in body.split("\n---\n")]
@@ -143,10 +146,11 @@ def build_index(chapters):
             if base.startswith("English proverb,"):
                 base = "English proverb"
             low = base.lower()
-            if any(a in low for a in ANON):
-                head, sort = base, "~1" + low
-            elif base.split()[0] in BIBLE:
+            # the book of Proverbs before the general word: check scripture first
+            if any(base.startswith(b) for b in BIBLE):
                 head, sort = "The Bible", "~0the bible"
+            elif any(a in low for a in ANON):
+                head, sort = base, "~1" + low
             else:
                 head = person_key(base)
                 sort = head.lower()
@@ -174,7 +178,7 @@ def main():
 
     data = {
         "title": "Lines Worth Keeping",
-        "subtitle": "A commonplace book of 240 quotations, "
+        "subtitle": "A commonplace book of 315 quotations, "
                     "each with what it means and where to put it.",
         "chapters": chapters,
         "index": build_index(chapters),

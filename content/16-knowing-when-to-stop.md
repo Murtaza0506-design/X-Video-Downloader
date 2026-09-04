@@ -1,10 +1,10 @@
 ---
 part: Three — The Work
-chapter: 13
+chapter: 16
 title: Knowing When to Stop
 ---
 
-# Chapter 13 — Knowing When to Stop
+# Chapter 16 — Knowing When to Stop
 
 We are taught from an early age not to give up. Persistence is a virtue, quitting is a failure of character, and every story we are told features somebody who kept going when others would not. Nobody writes books about the man who closed the shop in year two and got his weekends back, though he very likely made the better decision.
 

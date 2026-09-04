@@ -1,10 +1,10 @@
 ---
 part: Two — Other People
-chapter: 7
+chapter: 9
 title: Saying the Hard Thing
 ---
 
-# Chapter 7 — Saying the Hard Thing
+# Chapter 9 — Saying the Hard Thing
 
 There is a conversation you are not having. Most people have at least one going at any time, and they can name it inside a second: the friend whose drinking has stopped being funny, the colleague who presents your work as theirs, the relative whose remarks at Christmas you have swallowed for eleven years, the flatmate and the washing-up.
 

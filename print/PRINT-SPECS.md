@@ -7,9 +7,9 @@ Files to send a printer:
 
 | File | What it is | Size | Pages |
 |---|---|---|---|
-| `interior.pdf` | the book block | 5.5 × 8.5 in | 186 |
-| `cover-cream.pdf` | wrap cover for **cream** stock | 11.715 × 8.75 in | 1 |
-| `cover-white.pdf` | wrap cover for **white** stock | 11.6689 × 8.75 in | 1 |
+| `interior.pdf` | the book block | 5.5 × 8.5 in | 236 |
+| `cover-cream.pdf` | wrap cover for **cream** stock | 11.84 × 8.75 in | 1 |
+| `cover-white.pdf` | wrap cover for **white** stock | 11.7815 × 8.75 in | 1 |
 
 Send the interior and **one** cover: the one matching the paper you choose.
 The two covers differ only in spine width, because the two papers are
@@ -24,12 +24,12 @@ different thicknesses.
 | | |
 |---|---|
 | Trim size | **5.5 × 8.5 in** — 139.7 × 215.9 mm — 396 × 612 pt |
-| Page count | **186** (even, as a bound book must be) |
+| Page count | **236** (even, as a bound book must be) |
 | Bleed | **none**. Nothing runs to the edge, so the block is supplied at trim size with no bleed and no crop marks |
 | Orientation | portrait, single pages, **not** spreads, in reading order |
 | Colour | **black only**, verified neutral on every sampled page (max channel spread 0/255) |
 | PDF version | 1.7 |
-| File size | 568 KB |
+| File size | 725 KB |
 
 ### Margins
 
@@ -43,7 +43,7 @@ Mirrored: odd pages are right-hand pages and carry the wide margin at the spine.
 | Bottom | **0.71** | 18.0 |
 | Text block | **4.10 × 7.07** | 104.1 × 179.6 |
 
-The gutter is set for a 186-page perfect-bound book. Amazon KDP requires a
+The gutter is set for a 236-page perfect-bound book. Amazon KDP requires a
 minimum of 0.75 in inside for 301–500 pages and 0.5 in for 151–300; at 0.80 in
 this clears both with room to spare, so the same file is safe if the page count
 moves. Outside, top and bottom all clear the 0.25 in minimum by more than
@@ -68,7 +68,7 @@ double.
 
 ### Structure
 
-Front matter, six pages, numbered in lower-case roman, folios printed only
+Front matter, 6 pages, numbered in lower-case roman, folios printed only
 where a folio belongs:
 
 | Page | |
@@ -79,15 +79,15 @@ where a folio belongs:
 | iv | copyright and permissions |
 | v–vi | contents, with real page numbers |
 
-Body, 180 pages, numbered in arabic from 1:
+Body, 230 pages, numbered in arabic from 1:
 
 - How to Use This Book (introduction)
-- Part I · Yourself — chapters 1–5
-- Part II · Other People — chapters 6–10
-- Part III · The Work — chapters 11–14
-- Part IV · The Long View — chapters 15–16
+- Part I · Yourself — chapters 1–6
+- Part II · Other People — chapters 7–13
+- Part III · The Work — chapters 14–19
+- Part IV · The Long View — chapters 20–21
 - A Note on Attribution
-- Index of Sources — 130 sources, alphabetical, two columns, real page numbers
+- Index of Sources — 151 sources, alphabetical, two columns, real page numbers
 - Colophon
 
 Every part title and every chapter opens on a **right-hand page**. Blank versos
@@ -97,8 +97,8 @@ head.
 
 ### Content
 
-240 entries · 16 chapters · 130 sources. Each entry is a quotation, an
-attribution, what it means, and how to use it. Entry numbers run 001–240
+315 entries · 21 chapters · 151 sources. Each entry is a quotation, an
+attribution, what it means, and how to use it. Entry numbers run 001–315
 continuously and the index points at them by page.
 
 ---
@@ -115,12 +115,12 @@ Spine width is page count × paper caliper. That is why there are two files.
 | | cream | white |
 |---|---|---|
 | Caliper per leaf | 0.0025 in | 0.002252 in |
-| **Spine** | **0.4650 in** (11.81 mm) | **0.4189 in** (10.64 mm) |
-| **Full wrap** | **11.7150 × 8.7500 in** | **11.6689 × 8.7500 in** |
-| In points | 843.48 × 630 pt | 840.16 × 630 pt |
+| **Spine** | **0.5900 in** (14.99 mm) | **0.5315 in** (13.50 mm) |
+| **Full wrap** | **11.8400 × 8.7500 in** | **11.7815 × 8.7500 in** |
+| In points | 852.48 × 630 pt | 848.27 × 630 pt |
 
-The arithmetic, for cream: 5.5 + 0.465 + 5.5 = 11.465 in of printed cover, plus
-0.125 in bleed on the left and right = 11.715 in wide; 8.5 + 0.125 + 0.125 =
+The arithmetic, for cream: 5.5 + 0.5900 + 5.5 = 11.5900 in of printed cover, plus
+0.125 in bleed on the left and right = 11.8400 in wide; 8.5 + 0.125 + 0.125 =
 8.75 in tall.
 
 | | |
@@ -132,7 +132,7 @@ The arithmetic, for cream: 5.5 + 0.465 + 5.5 = 11.465 in of printed cover, plus
 | Colour space | RGB. POD printers convert; if your printer demands CMYK, convert with US Web Coated (SWOP) and the board reads slightly darker |
 | PDF version | 1.7 |
 
-Spine text is only permitted by KDP at 100 pages or more. At 186 it is fine.
+Spine text is only permitted by KDP at 100 pages or more. At 236 it is fine.
 
 ### Design
 
@@ -190,12 +190,12 @@ edition is built from. There is no separate print copy to keep in sync.
 
 ```
 Preflight passed.
-  interior : 186 pages at 5.5 x 8.5 in (139.7 x 215.9 mm), all geometry exact
+  interior : 236 pages at 5.5 x 8.5 in (139.7 x 215.9 mm), all geometry exact
   fonts    : 4 embedded, none loose
   ink      : inside the safe area on every page
   colour   : neutral throughout (max channel spread 0/255)
-  cover    : white 840.16 x 630.00 pt, spine matches 186 leaves
-  cover    : cream 843.48 x 630.00 pt, spine matches 186 leaves
+  cover    : white 848.27 x 630.00 pt, spine matches 236 leaves
+  cover    : cream 852.48 x 630.00 pt, spine matches 236 leaves
 ```
 
 ---

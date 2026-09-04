@@ -1,10 +1,10 @@
 ---
 part: Two — Other People
-chapter: 8
+chapter: 10
 title: When Someone Wrongs You
 ---
 
-# Chapter 8 — When Someone Wrongs You
+# Chapter 10 — When Someone Wrongs You
 
 Somebody has done something to you. Last month, or twenty years ago and you are still carrying it: the betrayal at work, the money that never came back, the friend who said the unforgivable thing at exactly the moment you were least able to hear it, the parent who was not what a parent is meant to be.
 

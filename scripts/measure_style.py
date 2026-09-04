@@ -24,7 +24,7 @@ def sentences(text):
 
 rows = []
 allsent, allwords = [], []
-for f in sorted(glob.glob(sys.argv[1] if len(sys.argv)>1 else "content/[01]*.md")):
+for f in sorted(glob.glob(sys.argv[1] if len(sys.argv)>1 else "content/[012]*.md")):
     t = prose(f)
     ss = sentences(t)
     lens = [len(s.split()) for s in ss]

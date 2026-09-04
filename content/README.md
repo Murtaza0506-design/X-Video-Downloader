@@ -12,11 +12,11 @@ heading. Change it in `scripts/build_book.py`.
 | | Target | Actual |
 |---|---|---|
 | Chapters | 16 | 16 |
-| Entries | 240 | 240 |
+| Entries | 315 | 315 |
 | Words | ~32,000 | ~35,300 |
-| Distinct sources | — | 130 |
+| Distinct sources | — | 151 |
 
-All sixteen chapters are drafted: a ~300 word opening plus fifteen entries each,
+All twenty-one chapters are drafted: a ~300 word opening plus fifteen entries each,
 in the format set by Chapter 9. Front and back matter are written. Nothing is
 outstanding on the writing side.
 
@@ -47,7 +47,7 @@ sentence rhythm, Zinsser on clutter and hedging, Orwell's six rules, Le Guin on
 hearing your own prose, and published work on what makes machine-written text
 identifiable. That last body of research is the reason the targets are numeric:
 the signature of generated prose is low variance held steady across a whole
-document, and a book of 240 near-identical units is the worst possible case for
+document, and a book of 315 near-identical units is the worst possible case for
 it. The format repeats by design, so the prose inside it has to move.
 
 `scripts/measure_style.py` reports the numbers; `scripts/lint_prose.py` flags
@@ -89,7 +89,7 @@ per chapter, front matter for chapter and part, generated index.
 
 ## The reading edition
 
-`book.html` is the built book: a single self-contained page with all 240 entries,
+`book.html` is the built book: a single self-contained page with all 315 entries,
 chapter navigation, full-text search and the source index. Published at
 https://claude.ai/code/artifact/871c2f90-08d2-4424-8a0e-e8ed94907c27
 
@@ -97,7 +97,7 @@ https://claude.ai/code/artifact/871c2f90-08d2-4424-8a0e-e8ed94907c27
 scripts/book_template.html   markup, styles and behaviour; __BOOK_DATA__ placeholder
 scripts/build_site.py        parses content/*.md, derives the index, writes book.html
 book.html                    GENERATED - do not edit by hand
-book-entries.csv             GENERATED - all 240 entries as a flat table
+book-entries.csv             GENERATED - all 315 entries as a flat table
 ```
 
 Rebuild after editing any chapter:

@@ -200,8 +200,8 @@ def body_html(chapters, index, intro, note, cfg):
     a("".join(idx))
 
     a('<section class="colophon"><p class="mark">❧</p><p>%s</p>'
-      '<p>Two hundred and forty entries across sixteen chapters,<br>'
-      'drawn from a hundred and thirty sources.</p>'
+      '<p>Three hundred and fifteen entries across twenty-one chapters,<br>'
+      'drawn from a hundred and fifty-one sources.</p>'
       '<p>Set in EB Garamond, cut by Octavio Pardo<br>'
       'after the types of Claude Garamont and Robert Granjon.</p>'
       '</section>' % esc(TITLE))
@@ -219,7 +219,7 @@ def front_html(chapters, folio, cfg):
     foot = IMPRINT["author"] or IMPRINT["publisher"]
     a('<section class="display titlepage">'
       '<p class="tp-title">Lines Worth<br>Keeping</p><hr class="tp-rule">'
-      '<p class="tp-sub">A commonplace book of 240 quotations,<br>'
+      '<p class="tp-sub">A commonplace book of 315 quotations,<br>'
       'each with what it means and where to put it.</p>%s</section>'
       % ('<p class="tp-foot">%s</p>' % esc(foot) if foot else ""))
 
@@ -331,7 +331,7 @@ def main():
         w.add_blank_page(width=cfg["w"] * 72, height=cfg["h"] * 72)
 
     w.add_metadata({"/Title": TITLE,
-                    "/Subject": "A commonplace book of 240 quotations",
+                    "/Subject": "A commonplace book of 315 quotations",
                     "/Creator": "WeasyPrint", "/Producer": "WeasyPrint"})
     pdf = os.path.join(OUT, "interior.pdf")
     with open(pdf, "wb") as fh:

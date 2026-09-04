@@ -1,10 +1,10 @@
 ---
 part: Two — Other People
-chapter: 10
+chapter: 12
 title: Being Wrong in Public
 ---
 
-# Chapter 10 — Being Wrong in Public
+# Chapter 12 — Being Wrong in Public
 
 You realise, halfway through defending your position, that you are wrong. Everyone is looking at you.
 

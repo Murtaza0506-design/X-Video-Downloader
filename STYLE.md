@@ -32,26 +32,32 @@ markers are repetitive hedging, repeated transitional phrases, structural
 predictability, generic terminology, shallow specificity, and a voice that does not
 change between sections.
 
-That last finding is the important one for a book of 240 near-identical units. The
+That last finding is the important one for a book of 315 near-identical units. The
 format repeats by design, so the prose inside it has to vary or the whole thing
 reads as machine output.
 
 ## Targets
 
-| Measure | Before | Target | After | |
-|---|---|---|---|---|
-| Hedges per 1,000 words | 13.9 | under 6 | **4.5** | met |
-| `-ly` adverbs per 1,000 | 19.8 | under 13 | **10.5** | met |
-| Sentence-length stdev | 7.9 | over 9.5 | **9.2** | close |
-| Sentences of 8 words or fewer | 26.3% | 28–38% | **33.0%** | met |
-| Sentences of 30 words or more | 4.5% | 6–12% | **6.3%** | met |
-| Spread of mean length across chapters | 2.9 | over 4 | **3.6** | close |
+| Measure | First draft | Target | 16 chapters | 21 chapters | |
+|---|---|---|---|---|---|
+| Hedges per 1,000 words | 13.9 | under 6 | 4.5 | **3.9** | met |
+| `-ly` adverbs per 1,000 | 19.8 | under 13 | 10.5 | **10.2** | met |
+| Sentence-length stdev | 7.9 | over 9.5 | 9.2 | **9.1** | close |
+| Sentences of 8 words or fewer | 26.3% | 28–38% | 33.0% | **32.9%** | met |
+| Sentences of 30 words or more | 4.5% | 6–12% | 6.3% | **6.3%** | met |
+| Spread of mean length across chapters | 2.9 | over 4 | 3.6 | **3.6** | close |
 
-Two targets are narrowly missed and have been left alone. Both could be hit by
-padding a few sentences out, which would serve the number and not the reader.
-Per chapter the range now runs from a stdev of 8.1 (ch 11) to 10.3 (ch 1 and 6),
-and mean sentence length from 12.1 (ch 5) to 15.6 (ch 15), so the voice does move
-between chapters even where the aggregate falls short.
+The fourth column is the original sixteen chapters; the fifth is the book as it
+now stands, with envy, friendship, being alone, rest and money added. The five
+new chapters were drafted, measured, and then revised against these numbers:
+the first pass came in at 5.1 hedges per thousand and the revision took the
+whole book to 3.9, below where it was before they were written.
+
+Two targets are still narrowly missed and have been left alone. Both could be
+hit by padding sentences out, which would serve the number and not the reader.
+Per chapter the stdev runs from 7.9 to 10.3, and mean sentence length from 12.1
+to 15.6, so the voice does move between chapters even where the aggregate falls
+short.
 
 ### Why the numbers matter here
 

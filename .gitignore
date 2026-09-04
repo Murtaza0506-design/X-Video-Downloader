@@ -18,3 +18,4 @@ package-lock.json
 
 # print build intermediates; the PDFs and the spec are committed, the HTML is not
 print/*.html
+ebook/cover.html

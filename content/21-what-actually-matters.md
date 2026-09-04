@@ -1,10 +1,10 @@
 ---
 part: Four — The Long View
-chapter: 16
+chapter: 21
 title: What Actually Matters
 ---
 
-# Chapter 16 — What Actually Matters
+# Chapter 21 — What Actually Matters
 
 The question in the title cannot be answered in general and can be answered in particular, which is the only useful thing this chapter has to offer. Nobody can tell you what matters. What can be observed is that the priorities people state and the priorities they act on come apart, and that the gap between the two shows up in a diary and a bank statement years before it becomes visible to the person living inside it.
 

@@ -1,10 +1,10 @@
 ---
 part: Three — The Work
-chapter: 12
+chapter: 15
 title: Keeping Going
 ---
 
-# Chapter 12 — Keeping Going
+# Chapter 15 — Keeping Going
 
 Every long undertaking has a middle, and the middle is where it gets decided. Not at the start, which is exciting. Not at the end, which is in sight. Somewhere around week five, or month eight, or year three, when the novelty has gone completely, the finish is nowhere visible, and nobody is watching.
 

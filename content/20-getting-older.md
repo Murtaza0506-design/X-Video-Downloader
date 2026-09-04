@@ -1,10 +1,10 @@
 ---
 part: Four — The Long View
-chapter: 15
+chapter: 20
 title: Getting Older
 ---
 
-# Chapter 15 — Getting Older
+# Chapter 20 — Getting Older
 
 Ageing does not announce itself. There is no morning on which you wake up old. What happens instead is a series of small notifications spread across decades: a knee that comments on stairs it once ignored, a reference that nobody in the room recognises, the discovery that you have become the oldest person on the team, a parent who has turned into somebody you look after.
 

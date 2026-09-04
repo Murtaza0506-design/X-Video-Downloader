@@ -6,13 +6,13 @@ title: Introduction
 
 # Introduction
 
-This is a book of two hundred and forty quotations, each with a short explanation and one concrete suggestion for using it. That's the whole design. It is not a collection of inspiring lines to be admired and then forgotten by Thursday.
+This is a book of three hundred and fifteen quotations, each with a short explanation and one concrete suggestion for using it. That's the whole design. It is not a collection of inspiring lines to be admired and then forgotten by Thursday.
 
 Quotation books fail in the same way every time. They present a beautiful sentence, attribute it to somebody impressive, and leave. You read forty in a sitting, feel briefly elevated, and retain nothing, because a sentence on its own has nowhere to attach itself. What makes an old line useful is not its elegance. It is knowing when to reach for it: which moment, which conversation, which three in the morning.
 
 So every entry here has two parts after the quotation. The first says what the idea is, in plain English, assuming you have no interest in the person who said it or the century they said it in. The second gives you somewhere to put it. Not "be more patient" but a situation you will recognise, probably from this week.
 
-**How to read it.** Not cover to cover. Sixteen chapters of advice taken in order produces the sensation of having been lectured at for four hours, and none of it sticks. The book is arranged by problem. Go to the chapter matching whatever is bothering you now and read three or four entries. Somebody has behaved appallingly towards you: chapter eight. You cannot make yourself start the thing: chapter eleven. You said something stupid in a meeting on Tuesday and have been replaying it ever since: chapter ten.
+**How to read it.** Not cover to cover. Twenty-one chapters of advice taken in order produces the sensation of having been lectured at for four hours, and none of it sticks. The book is arranged by problem. Go to the chapter matching whatever is bothering you now and read three or four entries. Somebody has behaved appallingly towards you: chapter ten. You cannot make yourself start the thing: chapter fourteen. You said something stupid in a meeting on Tuesday and have been replaying it ever since: chapter twelve. You cannot stop measuring yourself against somebody: chapter six.
 
 Dipping is not a lesser way to read this. It's the design.
 
