@@ -150,6 +150,28 @@ p:last-child{margin-bottom:0}
 .leaf .face--back{transform:rotateY(180deg)}
 .leaf .face--back .leaf__shade{background:linear-gradient(270deg,rgba(0,0,0,.30),transparent 45%)}
 
+/* a silk marker sewn into the head of the spine */
+.ribbon{
+  position:absolute;pointer-events:none;z-index:6;
+  transform-origin:50% 0;
+  transition:left .3s cubic-bezier(.3,.02,.2,1);
+}
+.ribbon.is-dragging{transition:none}
+.ribbon__band,.ribbon__tail{
+  position:absolute;left:0;right:0;pointer-events:auto;cursor:grab;
+  background:linear-gradient(90deg,#544012 0%,#8E7530 24%,#C0A55E 48%,#8A722C 72%,#4C3B10 100%);
+}
+.ribbon__band{top:0;box-shadow:1px 0 6px rgba(0,0,0,.26)}
+.ribbon__tail{
+  bottom:0;
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 66%,0 100%);
+  filter:drop-shadow(0 4px 5px rgba(0,0,0,.42));
+}
+.ribbon__tail::after{
+  content:"";position:absolute;inset:0 0 34% 0;
+  background:linear-gradient(180deg,rgba(0,0,0,.16),transparent 60%);
+}
+
 /* the corner you grab */
 .corner{
   position:absolute;width:74px;height:74px;right:0;bottom:0;cursor:grab;
@@ -378,7 +400,8 @@ var FLOW_HTML = (function(){
 /* ---------- geometry ---------- */
 var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1,padX:0,padY:0};
 var STACK = 18;
-var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,panX:0,panY:0,turning:null};
+var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,panX:0,panY:0,
+         mark:null,ribbonDrag:false,turning:null};
 var faces = {};
 var starts = {};
 
@@ -444,6 +467,18 @@ function layout(){
   faces.leafBack.style.display  = "none";
   faces.leafFront.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
   faces.leafBack.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
+
+  // the marker: a band that lies across the page it marks, and a tail that
+  // hangs below the book whether or not you are on that page
+  var rw = Math.max(9, Math.round(G.pw*0.034));
+  var tail = Math.round(G.ph*0.15);
+  G.rw = rw;
+  var rb = el("ribbon",null,"left:0;top:"+(-G.ph/2-5)+"px;width:"+rw+"px;height:"+
+    (G.ph+5+tail)+"px;transform:translateZ(2px) rotate(.5deg)");
+  rb.innerHTML = '<div class="ribbon__band" style="height:'+(G.ph+5)+'px"></div>'+
+                 '<div class="ribbon__tail" style="height:'+tail+'px"></div>';
+  rb.title = "Drag the marker on to a page to keep your place";
+  faces.ribbon = rb;
 
   var front = el("board board--front",null,"width:"+(G.pw+8)+"px;height:"+(G.ph+14)+"px;left:0;top:"+
      (-G.ph/2-7)+"px;transform:translateZ(6px)");
@@ -523,6 +558,17 @@ function paint(){
   if(!S.coverAnim && !(S.turning && S.turning.cover)){
     faces.front.style.transform = coverTransform(S.open ? -178 : 0);
   }
+  var marked = S.mark === null ? -1 : Math.floor(S.mark/2);
+  var onMark = S.open && marked === S.spread;
+  if(!S.ribbonDrag){
+    var x;
+    if(onMark) x = (S.mark % 2 === 1) ? Math.round(G.pw*0.17)
+                                      : -Math.round(G.pw*0.17) - G.rw;
+    else x = Math.round(G.pw*0.045);
+    faces.ribbon.style.left = x + "px";
+  }
+  faces.ribbon.querySelector(".ribbon__band").style.display = onMark ? "block" : "none";
+
   document.getElementById("where").textContent = S.open
     ? "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages
     : "Closed \u00b7 drag the cover to open";
@@ -717,12 +763,14 @@ stage.addEventListener("pointerdown", function(ev){
   if(ev.target.closest(".hud,.sheet")) return;
   stage.setPointerCapture(ev.pointerId);
   var onFront = !S.open && ev.target.closest(".board--front");
-  var onRecto = S.open && ev.target.closest(".face--recto,.corner");
+  var onRibbon = ev.target.closest(".ribbon__band,.ribbon__tail");
+  var onRecto = S.open && !onRibbon && ev.target.closest(".face--recto,.corner");
   var onVerso = S.open && ev.target.closest(".face--verso");
   var wantsPan = ev.shiftKey || ev.button === 1;
   drag = {x0:ev.clientX, y0:ev.clientY, rx:S.rx, ry:S.ry,
           panX:S.panX, panY:S.panY,
-          mode: wantsPan ? "pan"
+          ribX: parseFloat(faces.ribbon.style.left) || 0,
+          mode: wantsPan ? "pan" : onRibbon ? "ribbon"
               : onFront ? "cover" : onRecto ? "fwd" : onVerso ? "back" : "orbit",
           started:false};
   stage.classList.add("is-grabbing");
@@ -734,7 +782,13 @@ stage.addEventListener("pointermove", function(ev){
   if(!drag.started && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
   drag.started = true;
   var span = (2*G.pw*G.fit*S.zoom) || 600;
-  if(drag.mode === "pan"){
+  if(drag.mode === "ribbon"){
+    S.ribbonDrag = true;
+    faces.ribbon.classList.add("is-dragging");
+    var sc = (G.fit * S.zoom) || 1;
+    var nx = clamp(drag.ribX + dx/sc, -G.pw + 4, G.pw - G.rw - 4);
+    faces.ribbon.style.left = nx + "px";
+  }else if(drag.mode === "pan"){
     S.panX = drag.panX + dx;
     S.panY = drag.panY + dy;
     applyView();
@@ -778,6 +832,23 @@ function releaseDrag(){
     }
   }else if(S.turning){
     endTurn(S.turning.t > 0.45);
+  }else if(drag.mode === "ribbon"){
+    faces.ribbon.classList.remove("is-dragging");
+    if(drag.started && S.open){
+      // it stays on whichever page you let go over
+      var at = parseFloat(faces.ribbon.style.left) || 0;
+      var side = (at + G.rw/2) < 0 ? 0 : 1;
+      S.mark = S.spread*2 + side;
+      store("lwk3:mark", String(S.mark));
+    }else if(!drag.started){
+      if(S.mark !== null && Math.floor(S.mark/2) !== S.spread) goToPage(S.mark);
+      else if(S.mark === null && S.open){
+        S.mark = S.spread*2 + 1;
+        store("lwk3:mark", String(S.mark));
+      }
+    }
+    S.ribbonDrag = false;
+    paint();
   }else if(!drag.started && drag.mode === "cover"){
     openBook();
   }
@@ -925,6 +996,8 @@ window.addEventListener("resize", function(){
 
 S.zoom = clamp(parseFloat(recall("lwk3:zoom")||"1") || 1, 0.4, 4);
 S.spread = parseInt(recall("lwk3:spread")||"0",10) || 0;
+var savedMark = recall("lwk3:mark");
+S.mark = (savedMark === null || savedMark === "null") ? null : (parseInt(savedMark,10) || 0);
 layout();
 if(recall("lwk3:open") === "1"){
   S.open = true;
