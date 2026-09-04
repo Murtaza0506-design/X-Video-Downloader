@@ -143,14 +143,18 @@ the shape of the thing before buying it.
 
 ---
 
-## 3. What is still blank, and only you can fill it
+## 3. Attribution, and what is still blank
 
-Three fields are deliberately empty. They are all in one dictionary at the top
-of `scripts/build_print.py`:
+The author is **Murtaza Raza**. The name appears on the front board under the
+subtitle, on the spine after the title, on the title page, in the copyright
+line, and in the PDF's `/Author` metadata.
+
+Two fields are still empty, in one dictionary at the top of
+`scripts/build_print.py` shared with the Kindle edition:
 
 ```python
 IMPRINT = {
-    "author":    "",     # a byline for the title page, or "" for none
+    "author":    "Murtaza Raza",
     "publisher": "",     # an imprint name, or "" for none
     "isbn":      "",     # 13 digits, or "" to leave the line out
     "year":      "2026",
@@ -158,15 +162,13 @@ IMPRINT = {
 }
 ```
 
-- **Author or compiler name.** The title page and copyright line currently
-  carry none. The commentary is original work and should be credited.
 - **ISBN.** KDP will give you a free one; if you want to sell outside KDP, buy
-  your own. Print it on the copyright page and put its barcode in the reserved
-  rectangle.
-- **Imprint.** Optional, but a name on the copyright page looks like a book
+  your own. Setting it prints it on the copyright page, and its barcode goes in
+  the rectangle already reserved on the back cover.
+- **Imprint.** Optional. A name on the copyright page makes it look like a book
   rather than a document.
 
-Fill them in and rebuild. Nothing else needs touching.
+Fill either in and rebuild. Nothing else needs touching.
 
 ---
 

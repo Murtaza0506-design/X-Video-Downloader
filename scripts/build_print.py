@@ -29,7 +29,7 @@ OUT = "print"
 # The three fields nobody but the publisher can supply. Fill them in and
 # rebuild; nothing else in the book needs touching.
 IMPRINT = {
-    "author":    "",          # a byline for the title page, or "" for none
+    "author":    "Murtaza Raza",   # the byline on the title page and the cover
     "publisher": "",          # an imprint name, or "" for none
     "isbn":      "",          # 13 digits, or "" to leave the line out
     "year":      "2026",
@@ -216,12 +216,15 @@ def front_html(chapters, folio, cfg):
     a('<section class="display halftitle"><h1>%s</h1></section>' % esc(TITLE))
     a('<section class="blank verso"></section>')
 
-    foot = IMPRINT["author"] or IMPRINT["publisher"]
+    # the byline sits with the title; the foot of the page is the publisher's
     a('<section class="display titlepage">'
       '<p class="tp-title">Lines Worth<br>Keeping</p><hr class="tp-rule">'
       '<p class="tp-sub">A commonplace book of 315 quotations,<br>'
-      'each with what it means and where to put it.</p>%s</section>'
-      % ('<p class="tp-foot">%s</p>' % esc(foot) if foot else ""))
+      'each with what it means and where to put it.</p>%s%s</section>'
+      % ('<p class="tp-by">%s</p>' % esc(IMPRINT["author"])
+         if IMPRINT["author"] else "",
+         '<p class="tp-foot">%s</p>' % esc(IMPRINT["publisher"])
+         if IMPRINT["publisher"] else ""))
 
     cr = ["<p>%s</p>" % esc(TITLE)]
     cr.append("<p>Copyright © %s%s. All rights reserved.</p>"
@@ -330,9 +333,12 @@ def main():
     if pad_back:
         w.add_blank_page(width=cfg["w"] * 72, height=cfg["h"] * 72)
 
-    w.add_metadata({"/Title": TITLE,
-                    "/Subject": "A commonplace book of 315 quotations",
-                    "/Creator": "WeasyPrint", "/Producer": "WeasyPrint"})
+    meta = {"/Title": TITLE,
+            "/Subject": "A commonplace book of 315 quotations",
+            "/Creator": "WeasyPrint", "/Producer": "WeasyPrint"}
+    if IMPRINT["author"]:
+        meta["/Author"] = IMPRINT["author"]
+    w.add_metadata(meta)
     pdf = os.path.join(OUT, "interior.pdf")
     with open(pdf, "wb") as fh:
         w.write(fh)

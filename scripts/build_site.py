@@ -178,6 +178,7 @@ def main():
 
     data = {
         "title": "Lines Worth Keeping",
+        "author": "Murtaza Raza",
         "subtitle": "A commonplace book of 315 quotations, "
                     "each with what it means and where to put it.",
         "chapters": chapters,

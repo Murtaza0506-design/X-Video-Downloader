@@ -1,6 +1,6 @@
 # Lines Worth Keeping
 
-A commonplace book of 315 quotations. Every line comes with what it actually
+By Murtaza Raza. A commonplace book of 315 quotations. Every line comes with what it actually
 means, in plain English, and one specific place to put it.
 
 **Read it: https://murtaza0506-design.github.io/X-Video-Downloader/**

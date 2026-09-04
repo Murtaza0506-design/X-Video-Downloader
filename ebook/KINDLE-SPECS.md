@@ -7,7 +7,7 @@ Files to upload:
 
 | File | What it is | Size |
 |---|---|---|
-| `lines-worth-keeping.epub` | the book | 248 KB |
+| `lines-worth-keeping.epub` | the book | 260 KB |
 | `cover.jpg` | the cover Amazon shows in the store | 1600 × 2560, 1:1.6 |
 
 KDP takes the EPUB as the manuscript and the JPEG as the cover. The EPUB also
@@ -52,23 +52,29 @@ from the same list, with chapters nested under their parts.
 | Sources | **151** |
 | Words | about 39,000, of which the quotations are 3,800 |
 
-## 4. What is still blank
+## 4. Attribution, and what is still blank
 
-The same three fields as the paperback, in the same place, at the top of
-`scripts/build_print.py`, shared by both editions:
+The author is **Murtaza Raza**, and the name is now in all four places a
+Kindle book carries one: `dc:creator` in the package metadata, the byline on
+the title page, the copyright line, and the cover art. Amazon reads the first
+of those into the product page, so it will match the file rather than needing
+to be typed into the KDP form.
+
+Two fields are still empty, in one dictionary at the top of
+`scripts/build_print.py` shared by both editions:
 
 ```python
 IMPRINT = {
-    "author":    "",     # becomes dc:creator, and the byline on the title page
-    "publisher": "",     # becomes dc:publisher
-    "isbn":      "",     # printed on the copyright page
+    "author":    "Murtaza Raza",
+    "publisher": "",     # an imprint name, or "" for none
+    "isbn":      "",     # 13 digits, or "" to leave the line out
     ...
 }
 ```
 
-`author` matters more here than in print: Amazon requires an author name on
-the product page, and if `dc:creator` is empty you will have to type it into
-the KDP form instead, where it will not match the file.
+Neither is required to publish. A Kindle book does not need an ISBN at all:
+Amazon issues an ASIN. An imprint name is cosmetic, and it goes on the
+copyright page if you want one.
 
 ## 5. Rebuilding
 

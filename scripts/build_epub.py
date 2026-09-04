@@ -72,8 +72,11 @@ li { margin-bottom: 0.4em; text-align: left; }
 .title-block { text-align: center; margin-top: 18%; }
 .title-block .t { font-size: 2em; line-height: 1.1; margin: 0 0 0.6em;
                   text-indent: 0; }
-.title-block .s { font-style: italic; margin: 0 0 1.5em; text-indent: 0;
+.title-block .s { font-style: italic; margin: 0 0 2.2em; text-indent: 0;
                   text-align: center; }
+.title-block .by { letter-spacing: 0.22em; text-transform: uppercase;
+                   font-size: 0.85em; margin: 0; text-indent: 0;
+                   text-align: center; }
 .copyright p { font-size: 0.82em; margin: 0 0 1em; text-indent: 0;
                text-align: left; }
 
@@ -135,6 +138,8 @@ def cover_jpeg(path):
     """A 1600 by 2560 cover, the shape Amazon asks for, drawn from the same
     design as the printed board."""
     W, H = 10.0, 16.0          # inches, a 1 to 1.6 rectangle
+    byline = ('<p class="by">%s</p>' % html.escape(IMPRINT["author"])
+              if IMPRINT["author"] else "")
     page = """<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:"EB Garamond";font-weight:400;
   src:url("../print/fonts/EBGaramond-Regular.ttf")format("truetype")}
@@ -159,8 +164,10 @@ html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
   letter-spacing:-.012em}
 .hr{border:0;border-top:1.5pt solid rgba(242,237,227,.62);width:3in;
   margin:0 0 .3in}
-.s{font-size:26pt;font-style:italic;line-height:1.42;margin:0;max-width:6in;
-  opacity:.9}
+.s{font-size:26pt;font-style:italic;line-height:1.42;margin:0 0 .75in;
+  max-width:6in;opacity:.9}
+.by{font-size:30pt;letter-spacing:.2em;text-transform:uppercase;margin:0;
+  opacity:.95}
 .f{position:absolute;bottom:0;left:0;font-size:19pt;letter-spacing:.16em;
   text-transform:uppercase;opacity:.72;margin:0}
 </style></head><body><div class="b">
@@ -169,9 +176,9 @@ html,body{margin:0;height:100%%;font-family:"EB Garamond",Garamond,serif;
   <p class="eyebrow">A commonplace book</p>
   <div class="mid"><p class="t">Lines Worth<br>Keeping</p><hr class="hr">
     <p class="s">A commonplace book of 315 quotations, each with what it means
-    and where to put it.</p></div>
+    and where to put it.</p>%(BY)s</div>
   <p class="f">315 entries &#183; 21 chapters</p>
-</div></div></body></html>""" % {"W": W, "H": H}
+</div></div></body></html>""" % {"W": W, "H": H, "BY": byline}
     src = os.path.join(OUT, "cover.html")
     open(src, "w").write(page)
     from weasyprint import HTML
@@ -210,12 +217,14 @@ def build():
         '<img src="../images/cover.jpg" alt="%s" '
         'style="max-width:100%%;height:auto"/></div>' % html.escape(TITLE))
 
-    foot = IMPRINT["author"] or IMPRINT["publisher"]
     add("text/title.xhtml", "title-page", "Title page",
         '<div class="title-block"><p class="t">%s</p><hr class="orn"/>'
-        '<p class="s">%s</p>%s</div>'
+        '<p class="s">%s</p>%s%s</div>'
         % (esc(TITLE), esc(SUBTITLE),
-           '<p class="noindent">%s</p>' % esc(foot) if foot else ""),
+           '<p class="by">%s</p>' % esc(IMPRINT["author"])
+           if IMPRINT["author"] else "",
+           '<p class="noindent">%s</p>' % esc(IMPRINT["publisher"])
+           if IMPRINT["publisher"] else ""),
         nav="Title page")
 
     cr = ["<p>%s</p>" % esc(TITLE),
@@ -340,7 +349,9 @@ def opf(docs):
             '</metadata>\n<manifest>\n%s\n</manifest>\n'
             '<spine toc="ncx">\n%s\n</spine>\n</package>\n'
             % (LANG, BOOK_ID, esc(TITLE), LANG, creator, publisher,
-               esc(SUBTITLE), IMPRINT["year"],
+               esc(SUBTITLE),
+               IMPRINT["year"] + (" " + esc(IMPRINT["author"])
+                                  if IMPRINT["author"] else ""),
                "\n".join(items), "\n".join(spine)))
 
 

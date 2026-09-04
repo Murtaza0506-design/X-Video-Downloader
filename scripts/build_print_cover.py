@@ -14,6 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_print import IMPRINT
 
 OUT = "print"
 BLEED = 0.125          # trimmed off all four outer edges
@@ -63,6 +64,9 @@ def cover_html(spec, paper):
     back_x = BLEED
     spine_x = BLEED + tw
     front_x = BLEED + tw + spine
+    author = IMPRINT["author"]
+    BYLINE = '<p class="by">%s</p>' % author if author else ""
+    SPINE_BY = "<i>%s</i>" % author if author else ""
 
     return f"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8">
 <title>Lines Worth Keeping — cover</title><style>
@@ -101,8 +105,10 @@ html,body{{margin:0;padding:0;height:100%;
   letter-spacing:-.012em}}
 .hr{{border:0;border-top:.7pt solid rgba(242,237,227,.62);width:1.55in;
   margin:0 0 .16in}}
-.sub{{font-size:12pt;font-style:italic;line-height:1.42;margin:0;max-width:2.9in;
-  opacity:.9}}
+.sub{{font-size:12pt;font-style:italic;line-height:1.42;margin:0 0 .32in;
+  max-width:2.9in;opacity:.9}}
+.by{{font-size:13pt;letter-spacing:.2em;text-transform:uppercase;margin:0;
+  opacity:.95}}
 .foot{{font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;opacity:.72;
   margin:0}}
 .spec{{position:absolute;bottom:.34in;left:0;right:0;padding-top:.2in;
@@ -121,6 +127,8 @@ html,body{{margin:0;padding:0;height:100%;
   font-size:{min(10.5, max(7, spine * 21)):.1f}pt;letter-spacing:.04em;
   white-space:nowrap;line-height:{spine}in}}
 .spine .txt b{{font-weight:500}}
+.spine .txt i{{font-style:normal;opacity:.82;letter-spacing:.14em;
+  text-transform:uppercase;font-size:.72em;margin-left:.55in}}
 
 /* the back board */
 .back .pad{{position:absolute;top:{BLEED + SAFE + 0.15}in;
@@ -155,7 +163,7 @@ html,body{{margin:0;padding:0;height:100%;
   </div>
 
   <div class="panel spine">
-    <div class="txt"><b>{TITLE_1} {TITLE_2}</b></div>
+    <div class="txt"><b>{TITLE_1} {TITLE_2}</b>{SPINE_BY}</div>
   </div>
 
   <div class="panel front">
@@ -166,6 +174,7 @@ html,body{{margin:0;padding:0;height:100%;
         <p class="title">{TITLE_1}<br>{TITLE_2}</p>
         <hr class="hr">
         <p class="sub">{SUB}</p>
+        {BYLINE}
       </div>
       <p class="foot">315 entries · 21 chapters</p>
     </div>
