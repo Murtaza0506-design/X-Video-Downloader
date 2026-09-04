@@ -10,3 +10,8 @@ __pycache__/
 
 # Your personal download history — not for the public repo
 history.json
+
+# Node tooling used for local screenshot checks
+node_modules/
+package.json
+package-lock.json

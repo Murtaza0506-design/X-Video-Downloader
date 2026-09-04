@@ -376,7 +376,7 @@ var FLOW_HTML = (function(){
 })();
 
 /* ---------- geometry ---------- */
-var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1};
+var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1,padX:0,padY:0};
 var STACK = 18;
 var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,turning:null};
 var faces = {};
@@ -402,6 +402,8 @@ function layout(){
   G.pw = Math.round(G.ph/1.46);
   G.m  = Math.round(G.pw*0.105);
   G.vm = Math.round(G.ph*0.075);
+  G.padX = Math.round(G.pw*0.10);
+  G.padY = Math.round(G.ph*0.22);
   G.fit = Math.min(1,(vw*0.94)/(2*G.pw+G.T*2),(vh*0.9)/G.ph);
 
   book.innerHTML = "";
@@ -431,8 +433,8 @@ function layout(){
   faces.recto = makeFace("face--recto"); faces.recto.style.left = "0px";
   faces.recto.insertAdjacentHTML("beforeend",'<div class="corner" id="corner"></div>');
 
-  var leaf = el("leaf",null,"width:"+(2*G.pw)+"px;height:"+G.ph+"px;left:"+(-G.pw)+
-    "px;top:"+(-G.ph/2)+"px;display:none");
+  var leaf = el("leaf",null,"width:"+(2*G.pw+2*G.padX)+"px;height:"+(G.ph+2*G.padY)+
+    "px;left:"+(-G.pw-G.padX)+"px;top:"+(-G.ph/2-G.padY)+"px;display:none");
   faces.leaf = leaf;
   faces.leafFront = makeFace("peel peel__base");
   faces.leafBack  = makeFace("peel peel__flap");
@@ -507,9 +509,10 @@ function paint(){
   setFace(faces.verso, L);
   setFace(faces.recto, R);
   var t = S.pages ? S.spread/Math.max(1,Math.ceil(S.pages/2)) : 0;
-  [["stackL",t],["stackR",1-t]].forEach(function(pair){
-    var node = faces[pair[0]], frac = Math.max(0.04, pair[1]);
-    var d = Math.max(2, G.T*frac);
+  [["stackL", S.open ? t : 0], ["stackR", S.open ? 1-t : 1]].forEach(function(pair){
+    var node = faces[pair[0]], frac = pair[1];
+    node.style.display = frac > 0.02 ? "block" : "none";
+    var d = Math.max(2, G.T*Math.max(0.05, frac));
     Array.prototype.forEach.call(node.children,function(sl,i){
       sl.style.transform = "translateZ("+(-1 - (i+1)*(d/STACK)).toFixed(2)+"px)";
     });
@@ -517,7 +520,9 @@ function paint(){
   faces.verso.style.display = S.open ? "block" : "none";
   faces.recto.style.display = S.open ? "block" : "none";
   faces.spine.style.display = S.open ? "none" : "block";
-  faces.stackL.style.display = faces.stackR.style.display = S.open ? "block" : "none";
+  if(!S.coverAnim && !(S.turning && S.turning.cover)){
+    faces.front.style.transform = coverTransform(S.open ? -178 : 0);
+  }
   document.getElementById("where").textContent = S.open
     ? "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages
     : "Closed \u00b7 drag the cover to open";
@@ -567,10 +572,10 @@ function beginTurn(dir){
   if(dir < 0 && S.spread === 0) return false;
 
   var base = faces.leafFront, flap = faces.leafBack;
-  var x = dir > 0 ? G.pw : 0;
+  var x = G.padX + (dir > 0 ? G.pw : 0);
   [base, flap].forEach(function(f){
     f.style.left = x + "px";
-    f.style.top = "0px";
+    f.style.top = G.padY + "px";
     f.style.display = "block";
     f.style.transform = "none";
     f.style.clipPath = "none";
@@ -653,15 +658,16 @@ function coverTransform(angle){
 }
 function openBook(){
   if(S.open) return;
+  S.coverAnim = true;
   var f = faces.front;
   f.style.transition = "transform .8s cubic-bezier(.32,.02,.2,1)";
   f.style.transform = coverTransform(-178);
-  setTimeout(function(){ S.open = true; paint(); f.style.transition=""; }, 640);
+  setTimeout(function(){ S.open = true; S.coverAnim = false; paint(); f.style.transition=""; }, 640);
   store("lwk3:open","1");
 }
 function closeBook(){
   if(!S.open) return;
-  S.open = false; S.spread = 0;
+  S.open = false; S.spread = 0; S.coverAnim = true;
   var f = faces.front;
   f.style.transition = "none";
   f.style.transform = coverTransform(-178);
@@ -669,7 +675,7 @@ function closeBook(){
   requestAnimationFrame(function(){
     f.style.transition = "transform .8s cubic-bezier(.32,.02,.2,1)";
     f.style.transform = coverTransform(0);
-    setTimeout(function(){ f.style.transition=""; }, 820);
+    setTimeout(function(){ f.style.transition=""; S.coverAnim = false; }, 820);
   });
   store("lwk3:open","0");
 }
@@ -702,6 +708,7 @@ stage.addEventListener("pointermove", function(ev){
   }else if(drag.mode === "cover"){
     if(!S.turning && dx < -4){
       S.turning = {cover:true};
+      S.coverAnim = true;
       faces.front.style.transition = "none";
     }
     if(S.turning && S.turning.cover){
@@ -726,10 +733,11 @@ function releaseDrag(){
     faces.front.style.transition = "transform .55s cubic-bezier(.32,.02,.2,1)";
     if(Math.abs(a) > 55){
       faces.front.style.transform = coverTransform(-178);
-      setTimeout(function(){ S.open = true; paint(); faces.front.style.transition=""; }, 470);
+      setTimeout(function(){ S.open = true; S.coverAnim = false; paint(); faces.front.style.transition=""; }, 470);
       store("lwk3:open","1");
     }else{
       faces.front.style.transform = coverTransform(0);
+      setTimeout(function(){ S.coverAnim = false; }, 560);
     }
   }else if(S.turning){
     endTurn(S.turning.t > 0.45);

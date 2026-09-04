@@ -6,6 +6,7 @@ injects both into scripts/book_template.html. Run after editing any chapter:
 
     python3 scripts/build_site.py
 """
+import os
 import re
 import csv
 import glob
@@ -184,7 +185,23 @@ def main():
     total = sum(len(c["entries"]) for c in chapters)
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     tpl = open("scripts/book_template.html").read()
-    open("book.html", "w").write(tpl.replace("__BOOK_DATA__", payload))
+    page = tpl.replace("__BOOK_DATA__", payload)
+    # book.html is the Artifact fragment: the host supplies <html>, <head> and
+    # the charset and viewport meta. A file served directly needs its own, or
+    # phones fall back to a 980px layout viewport and the sizing breaks.
+    open("book.html", "w").write(page)
+    split = page.index("</style>") + len("</style>")
+    head, body = page[:split], page[split:]
+    os.makedirs("site", exist_ok=True)
+    with open("site/index.html", "w") as fh:
+        fh.write(
+            "<!doctype html>\n<html lang=\"en-GB\">\n<head>\n"
+            "<meta charset=\"utf-8\">\n"
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, "
+            "viewport-fit=cover\">\n"
+            "<meta name=\"description\" content=\"" + data["subtitle"] + "\">\n"
+            "<meta name=\"color-scheme\" content=\"light\">\n"
+            + head + "\n</head>\n<body>" + body + "\n</body>\n</html>\n")
 
     with open("book-entries.csv", "w", newline="") as fh:
         w = csv.writer(fh)
@@ -196,7 +213,8 @@ def main():
                             e["attribution"], e["means"], e["use"]])
 
     print(f"{len(chapters)} chapters, {total} entries, "
-          f"{len(data['index'])} sources -> book.html ({len(payload)//1024} KB data)")
+          f"{len(data['index'])} sources -> book.html + site/index.html "
+          f"({len(payload)//1024} KB data)")
 
 
 if __name__ == "__main__":
