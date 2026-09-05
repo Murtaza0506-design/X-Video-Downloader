@@ -18,7 +18,7 @@ import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import parse_chapters, build_index, front_matter, CONTENT
-from build_print import (IMPRINT, TITLE, NOTE_TITLE, INDEX_TITLE, FONT_DIR, smart, esc, prose, note_html,
+from build_print import (IMPRINT, TITLE, NOTE_TITLE, INDEX_TITLE, INTRO_TITLE, FONT_DIR, smart, esc, prose, note_html,
                          quote_html, group_parts, paras, GLOSS)
 
 OUT = os.environ.get("BOOK_EPUB_OUT", "ebook")
@@ -262,7 +262,7 @@ def build():
 
     # a contents page the reader can browse, separate from the device menu
     toc = ['<p class="eyebrow">Contents</p>', '<ul class="toc">',
-           '<li><a href="intro.xhtml">How to Use This Book</a></li>']
+           '<li><a href="intro.xhtml">%s</a></li>' % esc(INTRO_TITLE)]
     for p in parts:
         toc.append('<li class="part-row">Part %s &#183; %s</li>'
                    % (p["roman"], esc(p["name"])))
@@ -276,10 +276,10 @@ def build():
     add("text/contents.xhtml", "contents", "Contents", "\n".join(toc),
         nav="Contents")
 
-    add("text/intro.xhtml", "intro", "How to Use This Book",
-        section("Before you begin", "How to Use This Book",
+    add("text/intro.xhtml", "intro", INTRO_TITLE,
+        section("Before you begin", INTRO_TITLE,
                 first_noindent(prose(intro_body)), [], "intro"),
-        nav="How to Use This Book")
+        nav=INTRO_TITLE)
 
     for p in parts:
         pid = "part%s" % p["roman"]

@@ -53,6 +53,7 @@ BOOK_SUBTITLE = os.environ.get(
 BOOK_AUTHOR = os.environ.get("BOOK_AUTHOR", "Murtaza Raza")
 NOTE_TITLE = os.environ.get("BOOK_NOTE_TITLE", "A Note on Attribution")
 INDEX_TITLE = os.environ.get("BOOK_INDEX_TITLE", "Index of Sources")
+INTRO_TITLE = os.environ.get("BOOK_INTRO_TITLE", "How to Use This Book")
 # Each book writes to its own files, so building one never clobbers another.
 OUT_FRAGMENT = os.environ.get("BOOK_OUT_FRAGMENT", "book.html")
 OUT_SITE = os.environ.get("BOOK_OUT_SITE", "site/index.html")
@@ -245,6 +246,7 @@ def main():
         "blurb": [ln.strip() for ln in open(os.path.join(CONTENT, "blurb.txt")).read().strip().split("\n") if ln.strip()],
         "intro": blocks_to_html(strip_heading(intro_body)),
         "note": blocks_to_html(strip_heading(note_body)),
+        "introTitle": INTRO_TITLE,
         "noteTitle": NOTE_TITLE,
         "indexTitle": INDEX_TITLE,
     }

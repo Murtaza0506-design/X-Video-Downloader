@@ -17,7 +17,7 @@
   "chapters": 12,
   "entries": 60,
   "sources": 60,
-  "bytes": 270244,
+  "bytes": 270020,
   "bleed_in": 0.125,
   "safe_margin_in": 0.25,
   "barcode_box_in": [
@@ -32,7 +32,7 @@
       "wrap_w_in": 11.4752,
       "wrap_h_in": 8.75,
       "file": "cover-white.pdf",
-      "bytes": 30296
+      "bytes": 30097
     },
     "cream": {
       "caliper_in": 0.0025,
@@ -41,7 +41,7 @@
       "wrap_w_in": 11.5,
       "wrap_h_in": 8.75,
       "file": "cover-cream.pdf",
-      "bytes": 30196
+      "bytes": 30003
     }
   }
 }

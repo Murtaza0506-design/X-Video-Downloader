@@ -47,6 +47,7 @@ SUBTITLE_LINES = os.environ.get(
     "A commonplace book of 315 quotations,|each with what it means and where to put it.")
 NOTE_TITLE = os.environ.get("BOOK_NOTE_TITLE", "A Note on Attribution")
 INDEX_TITLE = os.environ.get("BOOK_INDEX_TITLE", "Index of Sources")
+INTRO_TITLE = os.environ.get("BOOK_INTRO_TITLE", "How to Use This Book")
 ANON_HEADING = os.environ.get("BOOK_ANON_HEADING",
                               "Proverbs and traditional sayings")
 GLOSS = (os.environ.get("BOOK_GLOSS1", "What it means"),
@@ -187,7 +188,7 @@ def body_html(chapters, index, intro, note, cfg):
 
     a('<section class="chapter" id="intro">'
       '<div class="chap-open"><p class="eyebrow">Before you begin</p>'
-      '<h2>How to Use This Book</h2><hr class="hr"></div>'
+      '<h2>' + esc(INTRO_TITLE) + '</h2><hr class="hr"></div>'
       '<div class="chap-prose">%s</div></section>' % dropcap(intro))
 
     for p in group_parts(chapters):
@@ -305,7 +306,7 @@ def front_html(chapters, folio, cfg):
     cut = min(cuts)[1] if cuts else -1
 
     toc = ['<h2 class="fm-head">Contents</h2>',
-           row("intro", "", "How to Use This Book")]
+           row("intro", "", INTRO_TITLE)]
     for i, p in enumerate(parts):
         toc.append('<p class="toc-part%s">Part %s · %s</p>'
                    % (" cut" if i == cut else "", p["roman"], esc(p["name"])))

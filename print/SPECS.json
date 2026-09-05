@@ -32,7 +32,7 @@
       "wrap_w_in": 11.7815,
       "wrap_h_in": 8.75,
       "file": "cover-white.pdf",
-      "bytes": 31566
+      "bytes": 31567
     },
     "cream": {
       "caliper_in": 0.0025,
@@ -41,7 +41,7 @@
       "wrap_w_in": 11.84,
       "wrap_h_in": 8.75,
       "file": "cover-cream.pdf",
-      "bytes": 31541
+      "bytes": 31544
     }
   }
 }

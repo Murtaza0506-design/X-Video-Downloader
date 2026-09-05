@@ -436,7 +436,7 @@ function entryHTML(e){
     '</article>';
 }
 var FLOW_HTML = (function(){
-  var h = '<div class="ch-head ch-head--first plain" id="c-intro"><h2>Introduction</h2></div>'+
+  var h = '<div class="ch-head ch-head--first plain" id="c-intro"><h2>'+esc(BOOK.introTitle)+'</h2></div>'+
           '<div class="plain">'+BOOK.intro+'</div>';
   var lastPart = null;
   BOOK.chapters.forEach(function(ch){
@@ -1176,7 +1176,7 @@ function goToPage(idx){
   });
   document.getElementById("toc").innerHTML =
     '<button class="toc-row" data-page-id="c-intro"><span class="n">·</span>'+
-    '<span class="t">Introduction</span></button>' +
+    '<span class="t">'+esc(BOOK.introTitle)+'</span></button>' +
     byPart.map(function(p){
       return '<div class="toc-part"><h4><b>Part '+p.roman+'</b> · '+esc(p.name)+'</h4>'+
         p.chs.map(function(c){

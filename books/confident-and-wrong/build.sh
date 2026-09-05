@@ -12,6 +12,7 @@ export BOOK_TITLE_LINES="Confident|and Wrong"
 export BOOK_SUBTITLE="A hundred and twenty predictions made by people who knew better, and what the mistake was made of."
 export BOOK_SUBTITLE_LINES="A hundred and twenty predictions made by people|who knew better, and what the mistake was made of."
 export BOOK_AUTHOR="Murtaza Raza"
+export BOOK_INTRO_TITLE="Introduction"
 export BOOK_NOTE_TITLE="A Note on Quotation"
 # The attribution carries a date, which must not become the sort key.
 export BOOK_INDEX_TITLE="Index of People"

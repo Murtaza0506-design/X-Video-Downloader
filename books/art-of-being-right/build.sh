@@ -10,6 +10,7 @@ export BOOK_PER_CHAPTER=12
 export BOOK_TITLE="The Art of Being Right"
 export BOOK_SUBTITLE="One hundred and forty-four ways an argument is won unfairly, and what to say back."
 export BOOK_AUTHOR="Murtaza Raza"
+export BOOK_INTRO_TITLE="Introduction"
 export BOOK_NOTE_TITLE="A Note on Sources"
 # The index files by move name, not by person, so it must not be inverted on
 # the last word. Both are read by the web build too, so they go before it.

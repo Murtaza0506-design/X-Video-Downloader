@@ -17,7 +17,7 @@
   "chapters": 12,
   "entries": 120,
   "sources": 118,
-  "bytes": 457149,
+  "bytes": 456902,
   "bleed_in": 0.125,
   "safe_margin_in": 0.25,
   "barcode_box_in": [
@@ -41,7 +41,7 @@
       "wrap_w_in": 11.595,
       "wrap_h_in": 8.75,
       "file": "cover-cream.pdf",
-      "bytes": 32084
+      "bytes": 32085
     }
   }
 }

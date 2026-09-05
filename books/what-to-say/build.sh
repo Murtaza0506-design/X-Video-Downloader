@@ -11,6 +11,7 @@ export BOOK_TITLE_LINES="What to|Say"
 export BOOK_SUBTITLE="Sixty letters for the moments nobody teaches you how to write."
 export BOOK_SUBTITLE_LINES="Sixty letters for the moments|nobody teaches you how to write."
 export BOOK_AUTHOR="Murtaza Raza"
+export BOOK_INTRO_TITLE="Introduction"
 export BOOK_NOTE_TITLE="A Note on Using These"
 export BOOK_INDEX_PEOPLE=0
 export BOOK_INDEX_TITLE="Index of Situations"
