@@ -123,12 +123,62 @@ search feels ready.
 An existing enhanced DBS shortens the tail of that cycle and is worth
 mentioning at offer stage.
 
-## The realistic path
+## The realistic path, and how to protect it
 
-Project support → project coordinator → junior PM or PM, typically
-somewhere between eighteen months and three years depending on the
-employer's size and how fast the delivery function is growing. Larger
-organisations with a real PMO promote through this ladder deliberately;
-small companies often have no next rung at all. Worth checking, at
-interview, whether anyone has actually made that step there — the answer
-is informative either way.
+Project support / PMO analyst -> project officer -> assistant or junior PM
+-> project manager. Typically eighteen months to three years to a PM title
+with the right employer. With the wrong one it is never, because the rung
+above does not exist. That difference is settled when the offer is
+accepted, not later.
+
+Larger organisations with a real PMO promote through this ladder
+deliberately; small companies often have no next rung at all. Screen for it
+at interview, because these are reasonable questions and the answers are
+informative either way:
+
+- *Has anyone moved from this role into a project manager role here, and
+  how long did it take?* The most useful question available. A specific
+  answer with a name is a green light; vagueness is also an answer.
+- *Would I own any workstreams of my own, or only support other people's?*
+- *Does the team fund professional qualifications?*
+- *How big is the PMO, and how many project managers does it support?*
+
+An employer that answers these well is worth taking less money to join.
+
+## Qualifications after the first one
+
+Foundation gets the first role. After six to twelve months in it, the next
+step is PRINCE2 Practitioner (method-specific, builds on Foundation) or APM
+PMQ, which is generally the more respected standalone PM qualification in
+the UK and the one to hold if the PM title is the goal. Most employers in
+this sector will fund it -- worth asking about the training budget at offer
+stage, and worth treating a refusal as information about whether the ladder
+is real.
+
+Keep the order of importance straight, though: PM roles hire on evidence of
+having delivered something, not on certificates. The qualification clears
+the filter; the delivery wins the job. Which means the first eighteen
+months in a support role matter more than the next exam -- volunteer to own
+one small thing end to end as early as possible, own the RAID log and the
+reporting because both are visible, and keep a running log of what was
+delivered with numbers attached to it, written down as it happens rather
+than reconstructed from memory years later.
+
+## Excel is the underrated lever
+
+PMO reporting is Excel: portfolio dashboards, RAG rollups, resource
+trackers, milestone reports. It is the hard skill these teams are
+perpetually short of, and genuine competence in it justifies applying a
+rung above entry level -- PMO analyst rather than project administrator.
+
+It is also the fastest route to being visible once in post. The person who
+builds the report the directors read is the person who gets asked to run
+something, which is how support officers become project managers far more
+often than by waiting for a vacancy to appear.
+
+Since "advanced Excel" appears on every CV and means nothing, it is worth
+building one artefact that can be shown and talked through: a project
+tracker with a RAID log, milestone tracking with RAG status, and a summary
+dashboard that rolls up automatically. An evening's work, and the value is
+in being able to explain your own structural choices when asked.
+
