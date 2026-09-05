@@ -100,6 +100,29 @@ Sources: [Glassdoor](https://www.glassdoor.co.uk/Salaries/project-support-office
 [Reed](https://www.reed.co.uk/average-salary/average-project-officer-salary) ·
 [NHS Jobs](https://www.jobs.nhs.uk/candidate/search/results?keyword=Project+Support+Officer&language=)
 
+## How long these roles take to hire
+
+Worth planning around, because it is slower than the private sector and the
+lead time is what catches people out.
+
+A typical public sector cycle: advert open 2-4 weeks, shortlisting 1-2
+weeks, interview, offer, then pre-employment checks (references, DBS,
+sometimes vetting) 2-6 weeks. **Eight to fourteen weeks from application to
+start date is normal.**
+
+The useful consequence: councils, housing associations, NHS trusts and
+police forces routinely wait one to three months for the right candidate,
+because their own staff serve those notice periods. A long notice period is
+not the obstacle it would be elsewhere, and "available in three months" is
+an ordinary thing to write on an application.
+
+The unforgiving consequence: applications sent late cannot be rushed. Work
+back from the date the income needs to start, not forward from the date the
+search feels ready.
+
+An existing enhanced DBS shortens the tail of that cycle and is worth
+mentioning at offer stage.
+
 ## The realistic path
 
 Project support → project coordinator → junior PM or PM, typically
