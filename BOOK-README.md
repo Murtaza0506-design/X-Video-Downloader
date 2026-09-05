@@ -60,6 +60,29 @@ Every push to `main` rebuilds the book and republishes it, after the check
 confirms 21 chapters, 315 entries, no chapter repeating a source back to back,
 and no em dashes in the prose.
 
+## Other books built from the same pipeline
+
+`scripts/` is shared. Each book in `books/` carries its own manuscript, its own
+`build.sh` with the strings and the unit's field names in it, and its own
+`PUBLISHING.md`. Building one never touches another, and every push checks all
+four manuscripts.
+
+| Book | The unit | Shape |
+|---|---|---|
+| `books/art-of-being-right` | the move · why it works · what to say back | 144 in 12 chapters |
+| `books/confident-and-wrong` | the prediction · what happened · what the error was made of | 120 in 12 chapters |
+| `books/what-to-say` | the situation · the letter · the two sentences doing the work | 60 in 12 chapters |
+| `books/zombie-apocalypse` | the rule · why it works · how it goes wrong | 99 in 9 chapters |
+
+Build any of them from the repository root:
+
+```
+sh books/zombie-apocalypse/build.sh
+```
+
+That runs the four builders and the three preflight gates: manuscript
+structure, print geometry and colour, then EPUB container and links.
+
 ## A note on the quotations
 
 Short attributed quotations are ordinary use, but this is a book whose substance

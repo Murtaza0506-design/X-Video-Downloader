@@ -1,0 +1,6 @@
+# Full name = how it files in the index. One per line.
+# Sources that are not people. The rule that inverts on the last word turns
+# a wall into "wall, the Beeston", so these are set by hand.
+the Beeston wall = Beeston wall, the
+the Skipton radio log = Skipton radio log, the
+the Long Room = Long Room, the

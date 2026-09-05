@@ -1,0 +1,25 @@
+{
+  "slug": "zombie-apocalypse",
+  "title": "99 Ways to Survive a Zombie Apocalypse",
+  "subtitle": "Ninety-nine rules collected from the people who wrote them down, what each one is worth, and the place where it fails.",
+  "author": "Murtaza Raza",
+  "name_on_cover": false,
+  "unit": {
+    "quote": "the rule, as it was written down",
+    "attr": "who kept it, and what day they were on",
+    "gloss1": "Why it works",
+    "gloss2": "How it goes wrong"
+  },
+  "chapters": 9,
+  "per_chapter": 11,
+  "palette": {
+    "board": "#2E3B24",
+    "board2": "#151D0F",
+    "ink": "#E8E4D6"
+  },
+  "parts": {
+    "One": "The First Week",
+    "Two": "The Body and the Building",
+    "Three": "Everyone Else"
+  }
+}

@@ -35,6 +35,20 @@ jobs:
       - name: Check the manuscript is intact
         run: python3 scripts/check_book.py
 
+      # The other books in books/ share these scripts and are built from their
+      # own build.sh. Only the env lines are needed to run the manuscript gate,
+      # which wants no third-party packages, so every book is checked on every
+      # push even though only this one is published.
+      - name: Check every other book's manuscript is intact
+        run: |
+          set -euo pipefail
+          for b in books/*/build.sh; do
+            echo "== $b"
+            ( set -a; eval "$(grep -h '^export ' "$b")"; set +a
+              python3 scripts/build_site.py >/dev/null
+              python3 scripts/check_book.py )
+          done
+
       - name: Publish to gh-pages
         run: |
           set -euo pipefail

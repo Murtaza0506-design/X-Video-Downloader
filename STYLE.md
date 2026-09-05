@@ -59,6 +59,41 @@ Per chapter the stdev runs from 7.9 to 10.3, and mean sentence length from 12.1
 to 15.6, so the voice does move between chapters even where the aggregate falls
 short.
 
+## The other books measured against the same targets
+
+The pipeline now carries four books and the same script measures all of them.
+The numbers are worth keeping together, because they show which targets are
+house rules and which were artefacts of the first book.
+
+| Measure | Target | Lines Worth Keeping | The Art of Being Right | Confident and Wrong | 99 Ways to Survive a Zombie Apocalypse |
+|---|---|---|---|---|---|
+| Hedges per 1,000 | under 6 | 3.9 | 4.8 | 3.3 | **1.5** |
+| `-ly` adverbs per 1,000 | under 13 | 10.2 | 13.5 | 10.4 | **3.6** |
+| Mean sentence length | around 15 | 14.0 | 15.4 | 15.4 | 15.5 |
+| Sentence-length stdev | over 9.5 | 9.1 | 9.0 | 8.7 | 8.8 |
+| Sentences of 8 words or fewer | 28-38% | 32.9% | 28.4% | 27.2% | 26.1% |
+| Sentences of 30 words or more | 6-12% | 6.3% | 7.7% | 5.3% | 7.9% |
+| Spread of mean length across chapters | over 4 | 3.6 | 3.1 | 3.7 | **6.4** |
+
+Two things come out of putting them side by side.
+
+The stdev target of 9.5 and the chapter-spread target of 4 have now been missed
+by every book, which means they were set from one draft and not from anything
+achievable. The spread target is the one worth keeping and chasing: the zombie
+book is the only one to clear it, and it clears it because chapter 1 was cut
+down on purpose to a mean of 11.6 to enact the line in its own opening about
+reading it fast, while chapter 5 sits at 18.1. That is voice moving between
+chapters, and it was a deliberate edit rather than a lucky one.
+
+The fourth book's first draft came in at a mean of 22.9 words with 32.5% of its
+sentences over thirty, which is far outside anything in this table and was the
+worst first draft of the four. Four passes of splitting long sentences brought
+it to 15.5 and 7.9%. The technique that fixed both numbers at once was to split
+towards a short punch rather than into two mediums: a fifty-word sentence
+becomes a thirty and a five, not two twenty-fives. Padding was never used, and
+the sub-eight-word share is still a point and a half under the band as a result,
+which is the right trade.
+
 ### Why the numbers matter here
 
 Hedges were the worst of it. The first draft used "rather" 78 times, "usually"
