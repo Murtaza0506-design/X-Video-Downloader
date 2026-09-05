@@ -39,7 +39,7 @@ relationship, introduce a new problem.
 | 16 | Malham Tarn | Revelation about the outbreak | mystery |
 | 17 | Feeley | Major character death | relationship |
 | 18 | What We Did to Wendy | Relationship at breaking point | psychological |
-| 19 | Ardwick | Sanctuary found (false victory) | relief |
+| 19 | Draycott | Sanctuary found (false victory) | relief |
 | 20 | The Register | Sanctuary is not what it seems | moral |
 | 21 | The Barn | Massive confrontation | physical |
 | 22 | Erin | The sacrifice | relationship |
@@ -81,3 +81,38 @@ two chapters.
 - **the Executive** — National Recovery Executive, seated at Harrogate.
 - **non-viable / nivs** — the official word, and the word people actually use.
 - **Adjustment** — Post-Event Adjustment Disorder. Universal, therefore a joke.
+
+## State of this draft
+
+Complete: all twenty-four chapters, every beat in the brief, one continuous
+arc from floor six of Waterloo House to floor six of Waterloo House.
+
+**32,900 words.** That is a complete short novel and it is roughly half the
+length of a full-length one. The structure is finished; what is thin is the
+middle of scenes. The places that would take the weight of another 25,000
+words, in the order I would do them:
+
+1. **Act II lived-in time.** Chapters 8 and 9 compress fourteen months at
+   Hillfoot into summary. That is where a reader falls in love with these
+   people, and it is currently the shortest act by scene count.
+2. **Bracewell as people.** Denny Hargreaves is good and Kath and the lad
+   with the chest are names. A chapter of trade and a chapter of a shared
+   funeral would make chapter 13 cost four times what it costs now.
+3. **Nadia.** She is eight for most of the book and is written mostly from
+   outside. Two chapters from closer in.
+4. **The road, chapter 15.** Eleven days in under a thousand words.
+5. **Draycott before the Register.** The fortnight of happiness is one
+   chapter and should be two, so that chapter 20 takes something real away.
+
+## Two deliberate departures from the brief
+
+**Erin does not die.** The brief asked for a sacrifice, and she makes one:
+she walks back into the place they have just escaped, knowing it will put her
+on the Register, to hold a gate open for a child. But she survives it, and
+Cowie does not find out for eleven months. Killing her would have been the
+easier and more familiar book, and it would have made her death a thing that
+happens to *him*. This way the cost is real and it is hers.
+
+**The confrontation in chapter 21 is a meeting, not a battle.** Cowie's
+weapon for the whole novel is a ledger. Giving him a gun at the climax would
+have been a different man's ending.

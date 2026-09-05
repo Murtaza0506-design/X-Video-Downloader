@@ -80,13 +80,13 @@ On the fourth day, before Cowie had said anything to anyone, the Bracewell peopl
 
 They came at four in the afternoon in daylight with their hands out from their sides, which Cowie understood at the time and has never stopped being grateful for. Six of them, Denny in front, no rifle showing.
 
-They had worked it out in January. Denny had known within about a day, because Denny Hargreaves counted his own cupboard weekly, and he had spent eleven weeks not being sure which of the eight of them had done it, and had come up the hill in the end because his lad's chest was bad again and he had done the arithmetic on what was left.
+They had worked it out in January. Denny had known within about a day, because Denny Hargreaves counted his own cupboard weekly, and he had spent eleven weeks not being sure which of the six of them had done it, and had come up the hill in the end because his lad's chest was bad again and he had done the arithmetic on what was left.
 
 Feeley did not let it get to a conversation. He came out of the woodshed with the bag already in his hand, forty-one boxes and the rest of the loose, and he walked down the yard and gave it to Denny Hargreaves and said, "It was me, on my own, they've none of them known till Tuesday," which was seventy per cent true and was the last generous thing he ever did.
 
 Denny looked in the bag. He counted it, there, in the yard, taking his time, and nobody moved.
 
-Then he handed the bag to the woman behind him and he looked up at the eight of them by the kitchen door, at Sandhu, at Nadia holding a hen, and he said:
+Then he handed the bag to the woman behind him and he looked up at the six of them by the kitchen door, at Sandhu, at Nadia holding a hen, and he said:
 
 "Right."
 

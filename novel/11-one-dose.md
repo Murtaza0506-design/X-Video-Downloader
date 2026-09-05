@@ -4,7 +4,7 @@
 
 Wendy Ashraf was bitten on the eighteenth of November, on the forearm, through a coat and a jumper, by one that came out from under a hedge on the Bracewell road.
 
-It was not a bad bite. That was the whole difficulty, and it is why the four days that followed were the worst four days any of them had, worse than the night Hillfoot went, worse in some ways than Ardwick. If it had been her throat there would have been nothing to discuss. It was two inches of broken skin on the meat of the left forearm, and it bled a normal amount, and she walked home.
+It was not a bad bite. That was the whole difficulty, and it is why the four days that followed were the worst four days any of them had, worse than the night Hillfoot went, worse in some ways than Draycott. If it had been her throat there would have been nothing to discuss. It was two inches of broken skin on the meat of the left forearm, and it bled a normal amount, and she walked home.
 
 She knew before anybody said anything. She got up into the yard and she put her bag down and she said, "Right. Nadia's not to come in the kitchen," and she said it in the voice of a woman who has thought about this exact afternoon for seven months.
 
@@ -56,7 +56,7 @@ He has been asked, since, why he did not refuse. He has been asked it once by Er
 
 The answer is that he did not know he was allowed to. He had been asked for the numbers in that kitchen fifty times over seven months, about flour and candles and firewood and the hungry gap, and every single time he had given them, and the giving of them was the thing that made him a person in that house rather than a man they had picked up on a road. Sandhu said numbers and Cowie's mouth opened.
 
-"We've got one course," he said. "There's eight of us, seven if. Winter's four months. On last winter's rate, and Tom's book, we'd expect between two and four wounds bad enough to want it, and that's not counting chests, and Nadia had a chest thing in September that Erin was worried about."
+"We've got one course," he said. "There's seven of us, six if. Winter's four months. On last winter's rate, and Tom's book, we'd expect between two and four wounds bad enough to want it, and that's not counting chests, and Nadia had a chest thing in September that Erin was worried about."
 
 "That's not a decision," said Erin. "That's a chart."
 

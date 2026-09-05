@@ -82,7 +82,7 @@ They did not go any further than that for another eleven days.
 
 When they did, it was in the same barn, and it was quiet, and hurried at first and then not, and afterwards she lay with her head on his arm and said, in a completely ordinary voice, "Right. Well. That's the first thing I've chosen since April."
 
-That is the sentence. Everything that happens to those two people afterwards, all of it, the argument on the moor and the thing on the stairs at Ardwick and the last morning, comes off that sentence, and Cowie did not understand it at the time and understood it entirely by the following spring.
+That is the sentence. Everything that happens to those two people afterwards, all of it, the argument on the moor and the thing on the stairs at Draycott and the last morning, comes off that sentence, and Cowie did not understand it at the time and understood it entirely by the following spring.
 
 ---
 
@@ -94,6 +94,6 @@ She said one thing about it, in the yard, holding a bucket, not stopping.
 
 Feeley knew within a fortnight and was delighted, and made it his business, and got a bottle of something appalling out of the top barn and made a toast at supper that went on for a minute and a half and had two genuinely funny lines in it, and Nadia asked what a toast was, and Wendy explained, and Erin went scarlet and Cowie sat there with his ears burning and the whole table laughing at him.
 
-He has gone back to that supper more than to any other night of his life. Eight people at a table in a farmhouse kitchen in the autumn, with candles, eating stew that was mostly potato, laughing at him.
+He has gone back to that supper more than to any other night of his life. Seven people at a table in a farmhouse kitchen in the autumn, with candles, eating stew that was mostly potato, laughing at him.
 
-Four of them were dead within eight months.
+Two of them were dead within seven months, and by the following August there were four.

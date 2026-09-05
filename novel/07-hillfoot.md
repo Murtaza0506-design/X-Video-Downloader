@@ -44,7 +44,7 @@ Feeley read it and laughed and said the old boy had been getting himself organis
 
 Nobody could agree which three. They argued about it for a year. Sandhu said two doors was obviously new. Erin said two doors was about a milking parlour, and that *don't shout* was the new one, because you do not need to tell yourself not to shout on a farm you have lived on for fifty years. Hutch thought all seven were new. Hutch thought Tom Shackleton had written them the night before he died, as a message, which was not true and which nobody argued him out of.
 
-They kept every one of them. That is the part Cowie thinks is worth putting down. Eight people who had never met the man, who had buried him in his own orchard with his own spade, ran their lives for fourteen months off a laminated sheet on a door, and it worked, and none of them ever seriously proposed taking it down.
+They kept every one of them. That is the part Cowie thinks is worth putting down. Seven people who had never met the man, who had buried him in his own orchard with his own spade, ran their lives for fourteen months off a laminated sheet on a door, and it worked, and none of them ever seriously proposed taking it down.
 
 ---
 
@@ -54,7 +54,7 @@ He is aware of how that sounds. He has said it out loud exactly twice and both t
 
 But the world had been taken away, and with it every single thing he had been quietly failing at: the shelf unit, the bike with the flat tyre, the Sunday lunches, the thirty-four years, the question of whether he was going to become the sort of man who has a wife. All of it, gone, in an afternoon, and what was left was a list of things that needed doing before dark, every one of which was concrete, and most of which he could do.
 
-He was good at it, too, and that was the surprise. Not brave; he had established that in a launderette in Horsforth and did not expect to be surprised on that score again. But it turned out that a farm running eight people on nothing is a supply chain problem, and Neil Cowie had spent nine years doing supply chain problems in a glass box named after a river.
+He was good at it, too, and that was the surprise. Not brave; he had established that in a launderette in Horsforth and did not expect to be surprised on that score again. But it turned out that a farm running seven people on nothing is a supply chain problem, and Neil Cowie had spent nine years doing supply chain problems in a glass box named after a river.
 
 He inventoried the house in a day and a half. He worked out that they had between them fifty-one days of calories at the rate they had been eating and a hundred and forty at a rate they would hate, and he built the rate they would hate, and Sandhu looked at the sheet of paper for a long time and then pinned it up next to Tom Shackleton's rules.
 

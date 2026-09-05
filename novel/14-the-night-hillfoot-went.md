@@ -4,7 +4,7 @@
 
 The gates were the cleverest thing anybody did in two years, and Cowie has never been able to work out whether Denny Hargreaves thought of it or whether it was the woman off the delivery bay roof.
 
-You do not need to attack a farm. A farm is stone and it is above you and there are eight of them and one of you. What you do is walk up the valley in the dark opening gates, every gate, in order, from the road to the tops, so that a thing which has come off the A65 at Gargrave and has spent nine months bumping along the same field boundaries has, for the first time since April, an unobstructed run of three miles uphill.
+You do not need to attack a farm. A farm is stone and it is above you and there are six of them and one of you. What you do is walk up the valley in the dark opening gates, every gate, in order, from the road to the tops, so that a thing which has come off the A65 at Gargrave and has spent nine months bumping along the same field boundaries has, for the first time since April, an unobstructed run of three miles uphill.
 
 They did not have to bring anything. They only had to stop stopping it.
 
@@ -16,7 +16,7 @@ By Friday teatime there were three hundred in the lane.
 
 Cowie's chart had a page for this. It was headed EVAC and it had been written in July in a good mood, and it was, he discovered at about six o'clock on the twentieth of March, a work of complete fiction.
 
-It assumed daylight. It assumed the lane. It assumed that eight people would each carry the load listed against their name, and the loads had been weighed, and the weighing had been done in a yard in the sun by people who were not at that moment listening to a noise.
+It assumed daylight. It assumed the lane. It assumed that seven people would each carry the load listed against their name, and the loads had been weighed, and the weighing had been done in a yard in the sun by people who were not at that moment listening to a noise.
 
 What actually happened was this.
 
