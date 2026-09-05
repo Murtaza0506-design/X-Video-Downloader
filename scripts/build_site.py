@@ -104,6 +104,19 @@ def front_matter(text):
     return meta, text[m.end():]
 
 
+def load_surnames():
+    """A book may carry its own inversions in content/surnames.txt, one per
+    line as "Full Name = Sorted, Name". Nobody can guess that Lord Kelvin
+    files under K by rule."""
+    path = os.path.join(CONTENT, "surnames.txt")
+    if not os.path.exists(path):
+        return
+    for line in open(path):
+        if "=" in line and not line.startswith("#"):
+            k, v = line.split("=", 1)
+            SURNAME[k.strip()] = v.strip()
+
+
 def person_key(name):
     if name in SURNAME:
         return SURNAME[name]
@@ -114,6 +127,7 @@ def person_key(name):
 
 
 def parse_chapters():
+    load_surnames()
     chapters, n = [], 0
     files = sorted(f for f in glob.glob(os.path.join(CONTENT, "*.md"))
                    if re.match(r"(0[1-9]|1[0-9]|2[01])-", os.path.basename(f)))
@@ -163,6 +177,7 @@ def parse_chapters():
 # label rather than a name ("The late apology", "The straw man") must not be
 # inverted on its last word: it files itself under the phrase as written.
 INDEX_PEOPLE = os.environ.get("BOOK_INDEX_PEOPLE", "1") != "0"
+INDEX_STRIP = os.environ.get("BOOK_INDEX_STRIP", "")
 
 
 def build_index(chapters):
@@ -178,6 +193,10 @@ def build_index(chapters):
                     {"n": e["n"], "quote": e["quote"], "ch": e["ch"], "q": ""})
                 continue
             qualifier, base = "", e["attribution"]
+            # An attribution that carries a date ("Ken Olsen, 1977") indexes
+            # under the person, not the year. The book says what to cut.
+            if INDEX_STRIP:
+                base = re.sub(INDEX_STRIP, "", base).strip()
             for pre in PREFIXES:
                 if base.lower().startswith(pre):
                     qualifier, base = pre.strip(), base[len(pre):]

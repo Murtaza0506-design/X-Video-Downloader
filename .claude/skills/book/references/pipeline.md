@@ -131,6 +131,16 @@ looks at the first word. Match on the whole string with `startswith`.
 generic rule, and mononyms ("Seneca", "Aesop") must not be inverted at all. Keep
 explicit sets for both, and add to them as sources accumulate.
 
+**Strip a date before you invert.** An attribution of the form "Ken Olsen, 1977"
+inverts on its last word into "1977, Ken Olsen". `BOOK_INDEX_STRIP` takes a
+regular expression removed from the attribution before the index decides how to
+file it.
+
+**Keep the inversion table with the book, not with the code.** "Lord Kelvin"
+files under K and "The New York Times" under N, and no rule produces either. A
+`surnames.txt` in the book's content directory, one `Full Name = Sorted, Name`
+per line, keeps a second book's oddities out of the first book's source.
+
 **Only invert when the attribution is a person.** A book whose attribution line
 is a label ("The late apology", "The straw man") must not be inverted on its
 last word, or the index reads "apology, The late". Gate it: `BOOK_INDEX_PEOPLE=0`
