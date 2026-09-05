@@ -145,9 +145,11 @@ the shape of the thing before buying it.
 
 ## 3. Attribution, and what is still blank
 
-The author is **Murtaza Raza**. The name appears on the front board under the
-subtitle, on the spine after the title, on the title page, in the copyright
-line, and in the PDF's `/Author` metadata.
+The author is **Murtaza Raza**. The name appears on the title page, in the
+copyright line, and in the PDF's `/Author` metadata. It is deliberately **not**
+on the cover: `name_on_cover` in `IMPRINT` is `False`, so the front board
+carries the title and subtitle only and the spine carries the title only. Set
+it to `True` and rebuild the covers if you change your mind.
 
 Two fields are still empty, in one dictionary at the top of
 `scripts/build_print.py` shared with the Kindle edition:
