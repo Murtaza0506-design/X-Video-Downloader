@@ -273,8 +273,12 @@ def main():
 
     with open(OUT_CSV, "w", newline="") as fh:
         w = csv.writer(fh)
+        # The last two columns are the unit's own fields, so a book whose
+        # glosses are "What it buys you" and "What ignoring it costs" does not
+        # hand out a table headed what_it_means.
+        slug = lambda g: re.sub(r"[^a-z0-9]+", "_", g.lower()).strip("_")
         w.writerow(["n", "chapter", "chapter_title", "part", "quote",
-                    "attribution", "what_it_means", "how_to_use_it"])
+                    "attribution", slug(GLOSS[0]), slug(GLOSS[1])])
         for ch in chapters:
             for e in ch["entries"]:
                 w.writerow([e["n"], ch["n"], ch["title"], ch["part"], e["quote"],

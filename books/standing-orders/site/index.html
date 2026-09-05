@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ninety-nine rules for staying alive after the outbreak, and what each one costs.">
+<meta name="color-scheme" content="light">
+<title>Lines Worth Keeping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+:root{
+  --desk:#6E6A62;
+  --desk-2:#454239;
+  --paper:#F3EFE3;
+  --paper-2:#EAE4D4;
+  --ink:#22201C;
+  --ink-soft:#4A4740;
+  --muted:#8A8578;
+  --rule:#D8D2C0;
+  --rule-soft:#E4DFD0;
+  --madder:#8E2E22;
+  --madder-ghost:#C4A79E;
+  --indigo:#33465C;
+  --hud:#EDE7D8;
+  --board:#7C2A22;
+  --board-2:#54180F;
+  --edge:#EDE7D6;
+  --edge-2:#D3CBB4;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  --serif:"EB Garamond",Garamond,Georgia,"Times New Roman",serif;
+  --display:"Cormorant Garamond","EB Garamond",Garamond,Georgia,serif;
+  --label:"EB Garamond",Garamond,Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 12%,var(--desk) 0%,var(--desk-2) 100%);
+  color:var(--ink);font-family:var(--serif);
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--madder);outline-offset:3px}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+
+/* ---------------- the scene ---------------- */
+.stage{
+  position:fixed;inset:0;display:grid;place-items:center;
+  perspective:2400px;perspective-origin:50% 50%;
+  touch-action:none;cursor:grab;
+  user-select:none;-webkit-user-select:none;
+}
+.stage.is-grabbing{cursor:grabbing}
+.camera{transform-style:preserve-3d;will-change:transform}
+.book{position:relative;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+.book.is-settling{transition:transform .5s cubic-bezier(.3,.02,.2,1)}
+.book.is-shifting{transition:transform .34s cubic-bezier(.3,.02,.2,1)}
+
+.slab{position:absolute;transform-style:preserve-3d;backface-visibility:hidden}
+
+/* boards */
+.board{
+  position:absolute;border-radius:2px 5px 5px 2px;
+  background:linear-gradient(135deg,var(--board),var(--board-2));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  backface-visibility:hidden;
+}
+.board--back{border-radius:5px 2px 2px 5px}
+.board--front{transform-origin:left center;transform-style:preserve-3d;cursor:grab}
+.board__face{position:absolute;inset:0;border-radius:inherit;backface-visibility:hidden;overflow:hidden}
+.board__face--in{
+  transform:rotateY(180deg);
+  background:linear-gradient(120deg,#efece4,#ded9cc);
+  box-shadow:inset 12px 0 22px -12px rgba(0,0,0,.4);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .board__face--in{background:linear-gradient(120deg,#2a2723,#201e1b)}
+}
+:root[data-theme="dark"] .board__face--in{background:linear-gradient(120deg,#2a2723,#201e1b)}
+
+/* the printed front board */
+.jacket{position:absolute;inset:0;padding:11% 9% 8%;display:flex;flex-direction:column;color:#F2EDE3}
+.jacket__rule{position:absolute;top:5.5%;bottom:5.5%;left:6.5%;width:1px;background:rgba(242,237,227,.42)}
+.jacket__rule--in{left:8.4%;opacity:.55}
+.jacket__prick{position:absolute;top:9%;bottom:9%;right:5.5%;width:2px;
+  background:repeating-linear-gradient(to bottom,rgba(242,237,227,.5) 0 2px,transparent 2px 26px)}
+.jacket__eyebrow{font-family:var(--label);font-size:.58em;letter-spacing:.2em;text-transform:uppercase;opacity:.72}
+.jacket__body{margin-top:auto;margin-bottom:auto}
+.jacket__title{font-family:var(--display);font-weight:500;font-size:2.55em;line-height:.95;margin:0 0 .4em;letter-spacing:-.015em}
+.jacket__hr{border:0;border-top:1px solid rgba(242,237,227,.55);width:46%;margin:0 0 .5em}
+.jacket__sub{font-size:.82em;line-height:1.45;font-style:italic;opacity:.86;margin:0 0 1.5em;max-width:15em}
+.jacket__by{font-family:var(--label);font-size:.62em;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin:0}
+.jacket__foot{font-family:var(--label);font-size:.55em;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+
+/* spine */
+.spine{
+  position:absolute;transform-style:preserve-3d;
+  background:linear-gradient(90deg,var(--board-2),var(--board) 40%,var(--board-2));
+  display:flex;align-items:center;justify-content:center;
+}
+.spine span{
+  font-family:var(--display);font-size:.7em;color:#F2EDE3;opacity:.9;
+  writing-mode:vertical-rl;letter-spacing:.06em;white-space:nowrap;
+}
+
+/* page block thickness, faked with stacked slabs */
+.stack{position:absolute;transform-style:preserve-3d;pointer-events:none}
+.stack i{
+  position:absolute;inset:0;display:block;border-radius:1px;
+  background:linear-gradient(180deg,var(--edge),var(--edge-2));
+  box-shadow:inset 0 0 0 .5px rgba(120,105,70,.30);
+}
+
+
+/* page faces */
+.face{
+  position:absolute;overflow:hidden;backface-visibility:hidden;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,.5),rgba(0,0,0,0) 45%),
+    linear-gradient(180deg,var(--paper),var(--paper-2));
+}
+/* paper grain: fractal noise, multiplied over the sheet at low strength */
+.face::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:var(--grain);background-size:180px 180px;
+  mix-blend-mode:multiply;opacity:.16;
+}
+/* the faint laid lines of a wove sheet */
+.face::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:repeating-linear-gradient(90deg,rgba(120,105,70,.045) 0 1px,transparent 1px 3px);
+  opacity:.7;
+}
+.pgwrap{position:absolute;inset:0}
+.peel__flap .pgwrap{transform:scaleX(-1)}
+.face__flow{position:absolute;top:0;left:0;column-fill:auto;column-rule:0}
+.face__gutter{position:absolute;top:0;bottom:0;width:34px;pointer-events:none}
+.face--verso .face__gutter{right:0;background:linear-gradient(90deg,transparent,rgba(0,0,0,.14))}
+.face--recto .face__gutter{left:0;background:linear-gradient(270deg,transparent,rgba(0,0,0,.14))}
+.face__rule{position:absolute;width:1px;background:var(--madder-ghost);opacity:.8}
+.runhead,.folio{
+  position:absolute;font-family:var(--label);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);pointer-events:none;
+}
+.folio{letter-spacing:.08em;font-variant-numeric:tabular-nums}
+
+/* the turning sheet lives inside the covers, so the spread clips it */
+.leaf{position:absolute;overflow:hidden;pointer-events:none}
+/* the reflection matrix is derived about the sheet's own corner, so the
+   transform must be applied from there and not from the element centre */
+.peel{position:absolute;transform-origin:0 0;will-change:clip-path,transform}
+.peel__shade{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0}
+.peel__flap{box-shadow:0 0 26px rgba(0,0,0,.34)}
+.leaf__shade{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:3}
+.leaf .face--front .leaf__shade{background:linear-gradient(90deg,rgba(0,0,0,.34),transparent 45%)}
+.leaf .face--back{transform:rotateY(180deg)}
+.leaf .face--back .leaf__shade{background:linear-gradient(270deg,rgba(0,0,0,.30),transparent 45%)}
+
+/* a silk marker sewn into the head of the spine */
+.ribbon{
+  position:absolute;pointer-events:none;z-index:6;
+  transform-origin:50% 0;
+  transition:left .3s cubic-bezier(.3,.02,.2,1);
+}
+.ribbon.is-dragging{transition:none}
+.ribbon__band,.ribbon__tail{
+  position:absolute;left:0;right:0;pointer-events:auto;cursor:grab;
+  background:linear-gradient(90deg,#544012 0%,#8E7530 24%,#C0A55E 48%,#8A722C 72%,#4C3B10 100%);
+}
+.ribbon__band{top:0;box-shadow:1px 0 6px rgba(0,0,0,.26)}
+.ribbon__tail{
+  bottom:0;
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 66%,0 100%);
+  filter:drop-shadow(0 4px 5px rgba(0,0,0,.42));
+}
+.ribbon__tail::after{
+  content:"";position:absolute;inset:0 0 34% 0;
+  background:linear-gradient(180deg,rgba(0,0,0,.16),transparent 60%);
+}
+
+/* the corner you grab */
+.corner{
+  position:absolute;width:74px;height:74px;right:0;bottom:0;cursor:grab;
+  background:linear-gradient(315deg,rgba(0,0,0,.16),rgba(0,0,0,0) 62%);
+  opacity:0;transition:opacity .2s ease;
+}
+.corner::after{
+  content:"";position:absolute;right:0;bottom:0;width:30px;height:30px;
+  background:linear-gradient(315deg,var(--paper) 50%,transparent 50%);
+  box-shadow:-2px -2px 7px rgba(0,0,0,.22);
+}
+.face--recto:hover .corner,.corner.is-hot{opacity:1}
+/* nothing hovers on a touch screen, so the corner has to declare itself */
+@media (hover:none){ .corner{opacity:.9} }
+
+/* ---------------- text inside a page ---------------- */
+.pg{font-size:17px;line-height:1.52;color:var(--ink)}
+.pg .ch-open{margin-bottom:1.4em}
+.pg .ch-open p:first-child::first-letter{
+  font-family:var(--display);float:left;font-size:3.1em;line-height:.82;
+  padding:.06em .1em 0 0;color:var(--madder);
+}
+.pg .ch-head{break-before:column;break-after:avoid;margin-bottom:1.3em}
+.pg .ch-head--first{break-before:auto}
+.pg .ch-eyebrow{font-family:var(--label);font-size:.76em;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.5em}
+.pg .ch-eyebrow b{color:var(--madder);font-weight:500}
+.pg .ch-head h2{font-family:var(--display);font-weight:500;font-size:1.85em;
+  line-height:1.04;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.pg .entry{padding-bottom:1.5em;margin-bottom:1.5em;border-bottom:1px solid var(--rule-soft)}
+.pg .entry__head{break-inside:avoid}
+.pg .entry__n{font-family:var(--label);font-size:.8em;color:var(--madder);
+  letter-spacing:.03em;margin-bottom:.3em}
+.pg .entry__quote{font-family:var(--display);font-weight:400;font-size:1.22em;
+  line-height:1.3;margin:0 0 .35em;text-wrap:pretty}
+.pg .entry__quote .mk{color:var(--madder-ghost)}
+.pg .entry__attr{font-family:var(--label);font-style:italic;font-size:.9em;letter-spacing:.01em;
+  color:var(--muted);margin-bottom:.9em}
+.pg .gloss{margin-bottom:.8em;break-inside:avoid}
+.pg .gloss:last-child{margin-bottom:0}
+.pg .gloss__label{font-family:var(--label);font-weight:600;font-size:.72em;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:.22em}
+.pg .gloss--means .gloss__label{color:var(--madder)}
+.pg .gloss p.v{text-align:left}
+.pg .gloss p.v + p.v{margin-top:.45em}
+.pg .gloss--use .gloss__label{color:var(--indigo)}
+.pg .gloss p{font-size:.93em;line-height:1.56;color:var(--ink-soft)}
+.pg .part-open{break-before:column;text-align:center;padding-top:34%}
+.pg .part-open .r{font-family:var(--display);font-size:3em;color:var(--madder);line-height:1}
+.pg .part-open .n{font-family:var(--label);font-size:.68em;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);margin-top:.9em}
+.pg .plain h2{font-family:var(--display);font-weight:500;font-size:1.7em;margin:0 0 .8em}
+.pg .plain ul{padding-left:1.05em;margin:0 0 1em}
+.pg .plain li{margin-bottom:.45em}
+.pg .plain a{color:var(--indigo)}
+.pg .idx__letter{font-family:var(--display);font-size:1.25em;color:var(--madder);
+  margin:1em 0 .45em;padding-bottom:.12em;border-bottom:1px solid var(--rule);break-after:avoid}
+.pg .idx__src{margin-bottom:.6em;break-inside:avoid;font-size:.9em;line-height:1.45}
+.pg .idx__src b{display:block;font-weight:600}
+.pg .idx__i{display:block;color:var(--ink-soft);font-size:.94em}
+.pg .idx__i i{font-family:var(--label);font-size:.85em;color:var(--madder);font-style:normal}
+
+/* ---------------- controls ---------------- */
+.hud{
+  position:fixed;top:0;left:0;right:0;z-index:40;
+  display:flex;align-items:center;gap:.55rem;padding:.7rem .9rem;
+  pointer-events:none;
+}
+.hud > *{pointer-events:auto}
+.hud__title{
+  font-family:var(--display);font-size:1.15rem;line-height:1;margin-right:auto;
+  color:var(--hud);opacity:.8;letter-spacing:.01em;
+}
+.btn{
+  font-family:var(--label);font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink);background:rgba(243,239,227,.9);
+  border:1px solid var(--rule);border-radius:3px;padding:.4rem .6rem;
+  backdrop-filter:blur(6px);
+}
+.btn:hover{border-color:var(--madder-ghost);color:var(--madder)}
+.btn--icon{padding:.4rem .55rem}
+.hud__where{
+  position:fixed;left:50%;bottom:.85rem;transform:translateX(-50%);z-index:40;
+  font-family:var(--label);font-size:.8rem;letter-spacing:.1em;color:var(--hud);
+  opacity:.7;pointer-events:none;text-align:center;
+}
+.hint{
+  position:fixed;left:50%;bottom:2.3rem;transform:translateX(-50%);z-index:40;
+  font-family:var(--label);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--hud);opacity:.5;pointer-events:none;white-space:nowrap;
+}
+
+/* Orientation sliders laid along the edges they act on: the X slider runs
+   across the bottom and turns the book, the Y slider runs down the right and
+   tilts it. Both are invisible until touched, so they stay out of the way. */
+.edge{
+  position:fixed;z-index:35;margin:0;
+  -webkit-appearance:none;appearance:none;background:transparent;
+  opacity:0;transition:opacity .22s ease;cursor:grab;
+}
+.edge:hover,.edge:focus-visible,.edge.is-live{opacity:1}
+.edge:focus-visible{outline:none}
+.edge:focus-visible::-webkit-slider-thumb{
+  box-shadow:0 0 0 3px rgba(142,46,34,.32),0 1px 4px rgba(0,0,0,.45);
+}
+.edge:focus-visible::-moz-range-thumb{
+  box-shadow:0 0 0 3px rgba(142,46,34,.32),0 1px 4px rgba(0,0,0,.45);
+}
+.edge::-webkit-slider-runnable-track{
+  height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(142,46,34,.55) 12%,
+    rgba(142,46,34,.55) 88%,transparent);
+}
+.edge::-moz-range-track{height:2px;border-radius:2px;background:rgba(142,46,34,.5)}
+.edge::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;
+  margin-top:-7px;background:var(--madder);border:2px solid var(--paper);
+  box-shadow:0 1px 4px rgba(0,0,0,.45);cursor:grab;
+}
+.edge::-moz-range-thumb{
+  width:13px;height:13px;border-radius:50%;background:var(--madder);
+  border:2px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.45);cursor:grab;
+}
+.edge--x{left:5.5rem;right:5.5rem;bottom:.55rem;height:22px}
+.edge-y{
+  position:fixed;right:.15rem;top:5.5rem;bottom:5.5rem;width:22px;z-index:35;
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+}
+.edge-y .edge{transform:rotate(-90deg);height:22px;pointer-events:auto}
+.edge-read{
+  position:fixed;right:2.2rem;bottom:2.2rem;z-index:36;pointer-events:none;
+  font-family:var(--label);font-size:.8rem;letter-spacing:.1em;color:var(--hud);
+  opacity:0;transition:opacity .22s ease;font-variant-numeric:tabular-nums;
+}
+.edge-read.is-live{opacity:.85}
+@media (max-height:430px){ .edge--x,.edge-y{display:none} }
+/* a laid-down phone has no height to spare: the controls give some back */
+@media (max-height:480px){
+  .hud__title{display:none}
+  .hud{padding:.35rem .5rem;gap:.3rem}
+  .btn{font-size:.62rem;letter-spacing:.05em;padding:.28rem .4rem}
+  .btn--icon{padding:.28rem .44rem}
+}
+
+.sheet{
+  position:fixed;inset:0;z-index:60;display:none;
+  background:color-mix(in srgb,var(--desk) 88%,transparent);
+  backdrop-filter:blur(9px);overflow-y:auto;padding:3.6rem 1.2rem 3rem;
+}
+.sheet[data-open="true"]{display:block}
+.sheet__inner{max-width:46rem;margin:0 auto}
+.sheet__close{position:fixed;top:.7rem;right:.9rem;z-index:61}
+.sheet h3{font-family:var(--display);font-weight:500;font-size:1.6rem;margin:0 0 1.2rem}
+.sheet input{
+  width:100%;font-family:var(--label);font-size:.9rem;color:var(--ink);
+  background:var(--paper);border:1px solid var(--rule);border-radius:3px;
+  padding:.6rem .7rem;margin-bottom:1.4rem;
+}
+.toc-part{margin-bottom:1.5rem}
+.toc-part h4{font-family:var(--label);font-size:.62rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 .5rem;
+  padding-bottom:.35rem;border-bottom:1px solid var(--rule)}
+.toc-part h4 b{color:var(--madder);font-weight:500}
+.toc-row{display:flex;gap:.7rem;width:100%;text-align:left;padding:.32rem 0;align-items:baseline}
+.toc-row:hover .t{color:var(--madder)}
+.toc-row .n{font-family:var(--label);font-size:.72rem;color:var(--madder);min-width:1.4rem}
+.toc-row .t{font-size:1rem;line-height:1.3}
+.toc-row .p{margin-left:auto;font-family:var(--label);font-size:.68rem;color:var(--muted)}
+.res{display:block;width:100%;text-align:left;padding:.75rem 0;border-bottom:1px solid var(--rule-soft)}
+.res .q{font-family:var(--display);font-size:1.05rem;line-height:1.32;margin-bottom:.2rem}
+.res .m{font-family:var(--label);font-size:.64rem;color:var(--muted)}
+.res:hover .q{color:var(--madder)}
+mark{background:#E6D08A;color:#191C1B;padding:0 .1em;border-radius:1px}
+.empty{color:var(--muted);font-style:italic}
+
+@media (max-width:640px){
+  .hud__title{display:none}
+  .hint{font-size:.55rem}
+  /* six controls on a phone: smaller, and allowed to wrap rather than run
+     off the edge */
+  .hud{flex-wrap:wrap;gap:.35rem;padding:.5rem .55rem}
+  .btn{font-size:.67rem;letter-spacing:.05em;padding:.34rem .45rem}
+  .btn--icon{padding:.34rem .5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .book.is-settling,.book.is-shifting,.leaf.is-settling{transition-duration:.001ms}
+}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <div class="camera" id="camera">
+    <div class="book" id="book"></div>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hud__title">Lines Worth Keeping</div>
+  <button class="btn" id="btn-contents">Contents</button>
+  <button class="btn" id="btn-search">Search</button>
+  <button class="btn btn--icon" id="btn-out" aria-label="Zoom out">−</button>
+  <button class="btn btn--icon" id="btn-in" aria-label="Zoom in">+</button>
+  <button class="btn" id="btn-reset">Reset view</button>
+  <button class="btn" id="btn-close">Close book</button>
+</div>
+<input class="edge edge--x" id="dial-x" type="range" min="-78" max="78" step="1" value="0"
+       aria-label="Turn the book left and right">
+<div class="edge-y"><input class="edge" id="dial-y" type="range" min="-62" max="62" step="1" value="14"
+       aria-label="Tilt the book up and down"></div>
+<div class="edge-read" id="edge-read"></div>
+<div class="hud__where" id="where"></div>
+<div class="hint" id="hint">Drag to turn the book · drag a page corner to turn it · scroll or pinch to zoom where you point</div>
+
+<div class="sheet" id="sheet-contents">
+  <button class="btn sheet__close" data-close>Close</button>
+  <div class="sheet__inner"><h3>Contents</h3><div id="toc"></div></div>
+</div>
+<div class="sheet" id="sheet-search">
+  <button class="btn sheet__close" data-close>Close</button>
+  <div class="sheet__inner"><h3>Search</h3>
+    <input id="q" type="search" placeholder="anger, money, sleep, apology…" aria-label="Search the book">
+    <div id="results"></div>
+  </div>
+</div>
+
+<script id="book-data" type="application/json">{"title":"Standing Orders","gloss":["What it buys you","What ignoring it costs"],"author":"Murtaza Raza","subtitle":"Ninety-nine rules for staying alive after the outbreak, and what each one costs.","chapters":[{"n":1,"title":"The First Hour","part":"One","partRoman":"I","partName":"The First Days","opening":"<p>Nobody in this chapter knew what was happening. That is the only thing worth understanding about the first day. It gets left out of every account I have heard since, because the people telling them have three years of hindsight and cannot put it down.</p><p>On the morning it reached the valley I drove to Skipton for a part for the baler. There was a queue outside the chemist and the traffic on the bypass was bad, and I remember being annoyed about the traffic. That is what the first hour is. It is an ordinary Tuesday with something wrong at the edge of it. Every rule in this chapter is the same rule wearing different clothes: act on the first day at the level of alarm you will not feel until the third.</p><p>The people who lived were not the brave ones. I want to be exact about this, because the story gets told the other way. They were the ones who overreacted on a Tuesday morning while it still felt embarrassing to do so. Ruth Cadogan filled two baths, a water butt and eleven saucepans at about eleven o&#x27;clock, when the news was still calling it a public health incident. Her neighbours watched her do it through the window. She had water for nine days. They had water for one, and by the second afternoon they were at her door, and she let them in, which is chapter eight.</p><p>The cost of overreacting on the first day is that you look ridiculous and lose an afternoon. The cost of underreacting is the rest of it. That asymmetry never appears again. Later on, caution has a real price and you will have to weigh it. On the first day it is free, and almost nobody spends it.</p><p>Read this chapter fast. If it is any use to you at all, you have less time than you think.</p>","entries":[{"n":1,"quote":"Believe it on the first day, not the third.","bare":true,"attribution":"the Hillfoot parlour door","means":"Two days. That is all, and it is everything. Those are the only two days when the roads are open, the shops have stock, the taps run and nobody has started deciding who to keep out. Every advantage in this book is downstream of acting while things still look normal. The people who came through the first month had all done the same unremarkable thing: they took an unconfirmed report seriously enough to change their afternoon.","use":"By the third day the decision is made for you and every option left is worse. The petrol stations are dry. The road out is a car park with people walking between the lanes. What you would have bought for money on Tuesday you now have to ask a stranger for, and he has learned things about strangers since Tuesday. There is no version of the third day that is better than the first. Not one.","ch":1},{"n":2,"quote":"Fill everything that holds water before the pressure goes.","bare":true,"attribution":"Samuel Oyelaran","means":"Nine days for a household, if you fill the baths as well as the pans. Mains pressure outlasts the news by roughly a day and a half, because the towers stay charged for a while after the pumps stop, and that day and a half is a gift nobody thinks to open. Water is the shortest clock you own. Everything else on your list can wait behind it.","use":"You will be walking to open water inside a week, in company, carrying containers, and every one of those words is a danger on its own. The walk is where people meet each other badly. Sam calculated it once on the back of a feed bill. An hour of filling on the first morning saves you about forty miles of walking in the first month, and the forty miles are the part that kills you.","ch":1},{"n":3,"quote":"Do not go to the hospital.","bare":true,"attribution":"Marta Ellison","means":"Your life, in the first week, and I have never heard this rule seriously argued against by anybody who was in one. A hospital in the first days is the whole population of a district funnelled through four doors, sorted by nobody, at close quarters, in a building nobody can lock. It is the worst room in the county and every instinct you have is pulling you towards it.","use":"Marta went in on the second morning because she was a nurse and it did not occur to her to be anywhere else. She came out on the fourth. Of the people she went in with, she could name two who came out at all. Whatever you have that needs a hospital, the honest arithmetic is that the building will not treat it and will give you something worse. Find a nurse. Do not find a ward.","ch":1},{"n":4,"quote":"Take the shoes, not the photographs.","bare":true,"attribution":"Deniz Aksoy","means":"Working feet in the second month, which is not a small thing when everything you do from then on is walking. Boots that fit, two pairs of thick socks, and something waterproof beat every sentimental object you own put together. The rule is about how to pack when you have nine minutes and a panic on you: hands first, feet first, then heat, then food, then water, then paper.","use":"Blisters, then a wound, then a fever, then chapter five. I have watched a man walk out of a burning village carrying a wedding album and no coat. By the end of the week the album was in a hedge. It was heavy and he had nothing to keep the rain off. Take the photographs on the second trip. There is often a second trip. There is never a second pair of feet.","ch":1},{"n":5,"quote":"Write down where you have gone and leave it where they will look.","bare":true,"attribution":"Joyce Attwell","means":"The chance that your family finds you, which in the first fortnight is better than most people think, because everybody is moving to the same handful of predictable places. A note on the kitchen table, the date on it, the road you took and the name of where you are heading. Joyce added one line to the school list that put families back together for two years: name the second place too, in case the first one is gone.","use":"People who did not leave notes spent the first winter walking. Not searching, walking, in circles, between the four places they thought the others might be, using up the only good months on a problem that a pencil solves. Two of them died on those roads. The note costs you a minute and it is the cheapest thing in this book by a distance.","ch":1},{"n":6,"quote":"Get off the main roads before dark on the first night.","bare":true,"attribution":"the Long Preston roadblock","means":"A night without other people. The A roads on the first evening are a slow river of cars with families in them. All of them are frightened. None of them have eaten. Every one of them is watching what is in the back of your vehicle. Nothing on that road is moving faster than a walk by nine o'clock. The lanes are empty and they go to the same places.","use":"You will spend the night stationary in a queue, in the dark, with your engine off to save fuel and your doors locked, which is where the first robberies happened and where the first fires started. The block at Long Preston held for eleven hours and then collapsed, and the people who died there died in cars, in a line, three miles from a lane they knew.","ch":1},{"n":7,"quote":"The radio is worth more than the car by the third day.","bare":true,"attribution":"the six o'clock radio","means":"Information you cannot get any other way, for about a fortnight, and after that the far more useful knowledge of who else is still broadcasting and from where. A wind-up set and a car battery with an inverter will outlive every phone in the house. In the first week the six o'clock bulletin was the only thing telling people which valleys were closed, and it was right more than it was wrong.","use":"You make your decisions from rumour brought by people who have an interest in what you do next. That is how three families ended up walking towards Preston in the second week. Somebody told them there was a centre there. There was no centre. There had been an announcement about a centre, four days earlier, and the announcement had been cancelled the same evening on the radio nobody had.","ch":1},{"n":8,"quote":"Lock the door behind you even when you are coming straight back.","bare":true,"attribution":"Tom Shackleton","means":"It costs four seconds and it removes an entire category of disaster, which is coming home to a house that has something in it. In the first week this feels absurd. You are carrying a box to the car. You will be ninety seconds. Tom locked the parlour door every single time for three years, including the times he was standing outside it, and he never once had to clear his own building.","use":"Clearing a house you already live in, with your family standing in the yard, in the dark, and no way of knowing whether the thing you can hear is upstairs or in the cellar. The four seconds are not about the door. They are about keeping the habit alive on the days when nothing is wrong, so that it is still there on the day something is.","ch":1},{"n":9,"quote":"You are allowed to decide it is nothing and go home.","bare":true,"attribution":"Nell Shackleton","means":"Permission to be wrong, which you will need, because most alarms are nothing and a person who cannot stand down will burn out inside a month. Nell was fifteen and said this to a yard full of adults who had been awake for two days on a rumour. Go to bed. It is a dog. It was a dog. The rules in this chapter are cheap insurance, not a way to live, and a household that treats every noise as the outbreak will be exhausted before the outbreak arrives.","use":"Nothing, on the day you stand down wrongly and lose an afternoon. Everything, on the day you are too tired to think because you have not slept properly in three weeks. The whole of chapter one is about spending caution while it is free. This last rule is the reminder that by the second month it is not free any more, and you will have to start choosing.","ch":1}]},{"n":2,"title":"Leaving","part":"One","partRoman":"I","partName":"The First Days","opening":"<p>The hardest decision in this book is the first one, and it is not a decision about danger. It is a decision about a house.</p><p>People do not stay too long because they are stupid or because they cannot see what is coming. They stay because leaving means admitting that the kitchen they painted is now a room in a country that no longer exists, and the mind will do a great deal of work to avoid admitting that. I watched a man wait four days past the point of sense so he could keep believing he might be back by the weekend. He was a careful man. He had thought about all of this in the abstract and had opinions about it. When it arrived he stood in his hallway and could not pick up the bag.</p><p>So the rules in this chapter are mostly not about routes and fuel. They are about deciding in advance, in writing, in cold blood, what fact will make you go, so that the going is a matter of following an instruction rather than making a choice while frightened. Ruth Cadogan wrote hers on the inside of a cupboard door in the first week: when the water stops, or when the second neighbour goes, whichever comes first. She left on a Thursday and did not have an argument with herself about it, because the argument had happened three weeks earlier with a pen.</p><p>The other half is weight. Everything you own will be carried, and the distance you will carry it is always further than the plan. Aiden Kerr was seventeen and made a habit of picking up other people&#x27;s abandoned bags on the Slaidburn road and going through them. His account of what people take is the most useful survey I have. Kettles. Toolboxes. A microwave, once. All of it left in a hedge within four miles, because the leaving was done at the speed of panic and the walking was done at the speed of a person.</p><p>And then, at the end, the rule that says none of the above. Some people should stay. The chapter ends there because it has to.</p>","entries":[{"n":10,"quote":"Decide your trigger before you need it, and write it down.","bare":true,"attribution":"Ruth Cadogan","means":"A decision made by the version of you that has slept. The trigger has to be a fact you can check and not a feeling: the mains go off, the second house on the row empties, you hear one in daylight. When the fact arrives you do not deliberate, you execute, and the whole terrible internal argument has already been settled weeks ago by somebody calmer wearing your clothes.","use":"You will make the biggest decision of your life while your hands are shaking, in a house full of things you love, with somebody asking you a question. Nobody does that well. The consistent pattern in the first month is not people leaving too early. It is people leaving four days late, on foot, having missed the window when the vehicle would still have got them there.","ch":2},{"n":11,"quote":"Leave in daylight or not at all.","bare":true,"attribution":"Deniz Aksoy","means":"Sight, which is the entire game. In daylight you can see a blocked road from four hundred yards, read a junction, spot the group at the bridge before it spots you, and turn around with room to do it. Deniz drove lorries for nineteen years and his whole philosophy came down to one line: the dark does not hide you from them, it only hides them from you.","use":"Night driving after the first week means arriving at every problem at the moment you are closest to it. The road out of Bracewell was cut by a fallen tree at head height across a bend. In daylight it is a nuisance and you reverse. Four families hit it in the dark over two nights. If your trigger fires at nine at night, you lock the door and you go at first light. Waiting eight hours is not the same as waiting four days.","ch":2},{"n":12,"quote":"Everything you carry has to go six miles uphill.","bare":true,"attribution":"Aiden Kerr","means":"An honest packing list. Load the bag, put it on, walk to the end of the lane and back with it, and it will tell you the truth in about ten minutes. What survives that test is water, food, a blade, cordage, a means of fire, a means of boiling, dry socks, a coat and a bag of medicine. Aiden had a rule for anybody hesitating over an object: if you would not carry it up the fell for somebody else, leave it.","use":"You will decide what to abandon while exhausted, on a road, in front of people who are watching you do it. That is how good equipment ends up in hedges and how people arrive somewhere with a full pack of the wrong things. The other cost is speed. A man carrying forty kilos walks at two miles an hour and cannot run at all, and there are afternoons when the ability to move quickly for ninety seconds is worth more than everything in the bag.","ch":2},{"n":13,"quote":"Take the map, not the phone.","bare":true,"attribution":"Joyce Attwell","means":"Every lane, ford, footpath, farm track and contour line in the district, in your hands, in the rain, for years, without power. A paper sheet lets you plan around the roads everybody else is on. The ability to move by tracks that do not appear on a road atlas is the largest tactical advantage available to a person on foot in this country.","use":"Roads. You will move on roads because roads are what you can remember, and roads are where everybody else is. By the second week roads have people on them who are waiting for people like you. Joyce took eleven Ordnance Survey sheets out of the school cupboard on the first Friday and they have routed more journeys than anything else we own. Nobody has ever asked me for a phone.","ch":2},{"n":14,"quote":"Siphon on the way out, not on the way back.","bare":true,"attribution":"Tom Shackleton","means":"Range while range still matters. In the first fortnight there is fuel in every driveway in the county and it is nobody's, and the tanks are full because people topped up in the panic and then never went anywhere. Take it as you pass. A jerry can filled on Tuesday is forty miles you can spend later on a decision you have not had to make yet.","use":"Petrol goes off. It is stale in six months and useless in a year, and the water in the bottom of an abandoned tank arrives at the same time. The people who thought of fuel as a thing they could come back for came back to varnish. There is a window of about three months when the whole county is a fuel depot, and it closes without any announcement.","ch":2},{"n":15,"quote":"A vehicle is a loud room with windows.","bare":true,"attribution":"Elin Pryce","means":"The right relationship with the thing that feels safest. A van gets you eighty miles. Then it is a metal box that announces you for half a mile in every direction, cannot leave the road, and cannot be defended by the people inside it. Use it hard and early for distance, and stop thinking of it as shelter the moment you arrive.","use":"People sleep in cars because a car has doors and doors feel like a house. Elin found a family who had done it in a lay-by above Wigglesworth, and they had done everything else right. The windows are the problem. You cannot see out at night and everything can see in, and a car park is a place other people also think of as safe. Sleep in a building with two exits, or in a hedge, and leave the vehicle where it can be reached without walking into the open.","ch":2},{"n":16,"quote":"Have a second destination, and tell nobody outside the house what it is.","bare":true,"attribution":"Colm Reidy","means":"Somewhere to go when the first place is burnt, occupied, or full. Half of all journeys in the first month failed on arrival, and the families who had a second name in their heads turned around inside an hour. The ones who did not stood in a yard arguing until dark, which is how people end up sleeping somewhere they have not chosen.","use":"Improvisation at the worst moment. The second half of the rule is harder and it is the half people break. A destination that four groups know about is a destination four groups will walk to when their own plan fails, and none of them will be arriving in a good mood. Tell your household. Tell whoever you would want to find you. Beyond that, say you are heading north.","ch":2},{"n":17,"quote":"Go back for the animals once.","bare":true,"attribution":"Elin Pryce","means":"A decision you can live with, and a limit on it. Elin was a large animal vet and she understood better than anybody what it costs a person to walk away from stock in a shed. So the rule is not do not go back. It is go back once, in daylight, with somebody watching the road, and open every gate you can reach before you leave. Opened gates are the difference between a slow death and a chance.","use":"The second trip is where people die, and the third is where they die having achieved nothing. The pull increases rather than fades. Elin went back four times to a practice in Settle for drugs that were already gone by the second visit. She said afterwards that she had not been going for the drugs since the first time. Know what the journey is actually for. Then go once.","ch":2},{"n":18,"quote":"Staying is a decision too, and for some people it is the right one.","bare":true,"attribution":"Tom Shackleton","means":"Ground you know in the dark. Tom never left Hillfoot and is the reason a good deal of this book exists. A farm with its own water, walls, stock and one approach is worth more than any journey. A man of seventy with bad hips will not survive a fortnight on the road. The road is not safety. It is a different set of risks that happen to be moving.","use":"Nothing, if you have chosen it. This rule exists to stop the rest of the chapter from becoming a command to run, because running is what people do when frightened and it is not always right. Weigh what you actually have: water, walls, exits, neighbours, and legs. If the answer is that your ground is better than the road, then say so out loud to the people in your house, and stop relitigating it every evening. Deciding to stay and then half staying is the worst of the three.","ch":2}]},{"n":3,"title":"Noise, Light and Smell","part":"One","partRoman":"I","partName":"The First Days","opening":"<p>Everything in this chapter follows from one observation that took the valley about six weeks to make, and it is this: they do not find you. They arrive at you, from wherever they were, along a line drawn by something you did.</p><p>That distinction sounds academic and it is not. If you believe you are being hunted, you behave as though the danger is intelligent, and you spend your energy on hiding from something that is looking. If you understand that you are being arrived at, you spend it instead on the four or five things that draw a line, and you can count those on one hand. Noise. Light after dark. Smoke. Smell. Movement in the open.</p><p>The Bracewell standing orders got there first and put it in nine lines of gloss paint on a grain store wall. The whole of that document is an audit of a farm&#x27;s emissions. Where does sound leave this place. Where does light. What can be smelled from the lane. Ruth Cadogan used to walk the perimeter at dusk once a week and listen to her own household from the outside. I have not seen the discipline bettered. Almost nobody keeps it up past the first winter.</p><p>The second thing to understand is that the standard is not silence. It is consistency. A valley makes noise. Water, wind, stock, rooks, a gate. What draws attention is the sound that does not belong to the landscape: the metallic, the rhythmic, the human voice raised. A generator running at nine at night is audible to anything within a mile and is the single most expensive noise anybody in this valley has ever made.</p><p>And the last rule in the chapter is about the cost of keeping all of the others. After a year that cost is considerable, and it is paid in a currency people do not notice they are spending.</p>","entries":[{"n":19,"quote":"Assume every sound you make travels twice as far as you think.","bare":true,"attribution":"Colm Reidy","means":"A working margin. Sound carries further at night, further in cold air, further along water and much further down a valley than daytime intuition allows for. Every person who has tested this has been shocked by the result. Send somebody half a mile down the lane at ten at night and have them tell you what they can hear of your house. The answer is the rule.","use":"You will draw things towards you while believing you are being careful, which is worse than being careless, because careless people stay alert. The families that were overrun in the first winter were not loud households. They were households that had decided they were quiet ones, on no evidence, and had stopped checking. Test it from outside. Everything else in this chapter is guesswork until you have.","ch":3},{"n":20,"quote":"Cook before dusk.","bare":true,"attribution":"Ruth Cadogan","means":"The smell and smoke of your kitchen are released into the one part of the day when the air is still moving and light hides nothing that dark would hide anyway. Cooking in daylight, eating at dusk and having a cold, dark, quiet house from nightfall onwards is the single largest change a household can make, and it costs nothing but habit.","use":"Cooking smells at night travel down a valley on the cold air with nothing to compete with them. They can be picked up at a distance that will not seem credible. Stand in a lane and smell somebody else's meal from a quarter of a mile away. Ruth's household ate at four in the afternoon for three years. The people who kept eating at seven kept being visited, and never worked out why.","ch":3},{"n":21,"quote":"One lamp, one room, and cover the window before you strike the match.","bare":true,"attribution":"the Whitewell list","means":"Light, which people give up too readily and then live worse for. You do not have to sit in the dark. You have to make a single room lightproof, do it properly with battens and blankets rather than a curtain, and check it from the yard once. Then that room can have a lamp in it every night of the winter and the house stays black from the lane.","use":"A candle behind an ordinary curtain is visible for a mile and a half across open country and it is the only light in the landscape. Nothing else advertises occupancy like it, and it advertises to people as much as to anything else. The order of the rule matters and is the part people get wrong: cover first, then light. Doing it the other way round means you have already broadcast for the ninety seconds it takes to hang the blanket.","ch":3},{"n":22,"quote":"A dog is a decision, not a companion.","bare":true,"attribution":"Elin Pryce","means":"Honesty about a trade that people make without noticing they have made it. A dog is the best early warning system available and is worth more than any watch rota. A dog is also a thing that barks at the wrong moment, needs feeding, and cannot be told to be silent when it matters. Elin's position was that a working dog that has been trained to stop on command is an asset and an untrained one is a liability with a face you love.","use":"Two households I know of were emptied because of a dog, and both of them had been told and had made the reasonable human choice. If you keep the dog, train it in the first month while you still have food to train with, and understand what you are keeping. If you cannot train it, you are choosing company over warning, and that is a real choice that people are allowed to make. Make it with your eyes open.","ch":3},{"n":23,"quote":"Never run where you can walk, and never walk where you can wait.","bare":true,"attribution":"Deniz Aksoy","means":"Running is the loudest thing a person does, and it turns one problem into three. A running human is visible at distance and is understood by everything that sees it. Walking is quiet, is thinking speed, and can be stopped. Waiting is free. Deniz reckoned that four out of every five situations he had been in would have resolved on their own if the person had stood still for a hundred seconds.","use":"A hundred yards of panic and you are somewhere you have not chosen, breathing hard, with no idea what is behind you. The rule is not about courage. It is about the fact that the first movement is almost always a reaction, and reactions in this world are expensive. Stop. Count to a hundred. Then move at a walk.","ch":3},{"n":24,"quote":"Metal on stone carries further than a voice.","bare":true,"attribution":"Aiden Kerr","means":"The specific knowledge of which noises are the dangerous ones, which is not intuitive. Human speech at conversational volume is absorbed by hedges and walls and is a poor traveller. A dropped pan, a bolt thrown on a gate, a spade struck on a flag, a car door: these are metallic, sharp, and belong to nothing in a landscape. Wrap what you carry. Tape the buckles. Aiden lined his pack with a jumper for two years.","use":"You will be careful about the wrong thing. Households whisper indoors and then hang a metal bucket on a gatepost. Walk your own yard and find every hard surface that can be struck by accident in the dark, and deal with all of them in an afternoon. It is the cheapest hour of work in this book.","ch":3},{"n":25,"quote":"Fix the hinge before it needs fixing.","bare":true,"attribution":"Tom Shackleton","means":"A place that does not announce its own use. Every gate you open twenty times a day, every door, every latch, every board on a stair. Tom greased everything at Hillfoot on a schedule and it sounded like nothing at all, and I did not understand why he bothered until I stayed somewhere that had not.","use":"You will start avoiding your own infrastructure. That is the real cost and it takes months to show. People stop using the near gate because it squeals, so they walk the long way round in the open. They stop going to the store after dark because of the door, so they carry a week of food at a time and lose the ability to move at night. A place that is noisy in small ways slowly bends everybody's behaviour into worse shapes, and nobody ever names the hinge.","ch":3},{"n":26,"quote":"Smoke is a letter with your address on it.","bare":true,"attribution":"Samuel Oyelaran","means":"Warmth, if you are clever about it, and the whole of the second winter for the households that were. Burn dry wood and only dry wood. Burn it hot and fast rather than smouldering it all day. Burn in the middle of the day, when the sky is white and there is weather about. Never on a still, clear, cold morning, when a column will stand up three hundred feet and be visible from the far side of the valley.","use":"The most reliable way to find people in this country is to stand somewhere high at seven in the morning and look. Sam did it for the Bracewell people as a survey and mapped eleven occupied houses in a single hour, none of which knew they were visible. Green wood and a banked fire produce a white smoke that hangs and does not disperse. That is the signature everybody looks for, and it is the one produced by a household trying to make its fuel last.","ch":3},{"n":27,"quote":"Keep something loud that you are allowed to do.","bare":true,"attribution":"Joyce Attwell","means":"A household that can bear its own discipline. Joyce ran a singing hour on Sunday afternoons in a stone cellar with two doors shut. She took a great deal of quiet mockery for it in the first year and none at all in the second. Every rule in this chapter is a small tax on being a person, and a year of paying it without relief produces households that are silent, careful, obedient and coming apart at the seams.","use":"Children who whisper. Adults who flinch at a dropped spoon. Arguments about nothing at ten at night, which is what unspent fear turns into. Two of the households that failed in the second winter did not fail to anything outside their walls. Pick your hour, pick your room, do it properly with the doors shut and somebody on the lane, and then be as loud as you like inside it. The point of surviving is not to become something that cannot sing.","ch":3}]},{"n":4,"title":"Water and Waste","part":"Two","partRoman":"II","partName":"Keeping the Body","opening":"<p>More people in this valley have died of their own drinking water than of anything else. Not close. Not arguable.</p><p>I want that sentence to sit on its own. The shape of this whole thing in most people&#x27;s heads is wrong, and it stays wrong until they have nursed somebody through four days of it. You picture the danger as a thing coming up a lane. The danger is a jug on a table. It is quiet, it arrived by a route nobody watched, and it takes out a household from the inside while every rule in chapter three is being kept.</p><p>The mechanism is dull, which is why nobody guards against it. A latrine gets sited in the wrong place in the first week by people who are thinking about other things. Water is drawn from a beck below it. Somebody skips the boil once because the fire is out and they are tired and it looked clean, and clean is a judgement the eye is not qualified to make. Then a child is ill. Then the person nursing the child is ill. By the fourth day the household cannot fetch its own water. That is the point at which this stops being a stomach complaint and becomes a way of dying.</p><p>Samuel Oyelaran worked on water for a living before, and he said the thing that changed how I think about all of it. Sanitation is not a health measure. It is a defensive structure, no different from a wall, and it fails the same way: not dramatically, but at the one point where somebody stopped maintaining it.</p><p>Nine rules. Most of them are boring. The boring ones are the ones that work.</p>","entries":[{"n":28,"quote":"Boil it.","bare":true,"attribution":"the Hillfoot parlour door","means":"Nearly everything. A rolling boil kills what is in the water in this country. It needs no filter, no chemical, no fuel you do not have, and no judgement you are not qualified to make. It was the first of the seven rules on the parlour door, and it is two words long. The man who wrote it understood that a rule you have to remember correctly under pressure has already failed.","use":"Four days on a floor, and the household around you cutting its own throat trying to nurse you with the same water. The lie the eye tells is the whole problem: it looked clean, it was moving, it came off the fell. All true, and none of it relevant. Boil the water that came off the fell. Boil the water from the tap that still runs. Boil it when you are tired. That is the rule.","ch":4},{"n":29,"quote":"Two containers, and they never touch.","bare":true,"attribution":"Marta Ellison","means":"A system that cannot be broken by tiredness. One vessel for raw water, one for boiled, marked differently, kept in different places, never swapped and never nested inside each other for storage. Marta painted the raw ones red with fence paint. A household that has done this can be exhausted, ill and working in the dark and still not poison itself, because the correct action is the only available action.","use":"You will do everything right for eleven weeks and then pour boiled water into the can that carried the dirty, at night, and undo all of it. This is the most common single failure I know of and it is never committed by careless people. It is committed by tired ones, at the end of a long day, in a kitchen with one clean surface. Design for the tired version of yourself. She is the one who will be doing this.","ch":4},{"n":30,"quote":"Site the latrine downhill of the water and twice as far away as feels necessary.","bare":true,"attribution":"Samuel Oyelaran","means":"Permanence. Thirty metres from any well, spring, beck or standing water, downhill, downwind, and dug deep with the spoil kept beside it to cover each use. Do it in the first week while it is a matter of choosing, and you have solved it for years. Sam's figure was thirty metres and he was scathing about people who negotiated with him about the last ten of them in the rain.","use":"A hillside is not a diagram. Water moves under it, along the rock, in directions you cannot see from the surface, and it will arrive in your spring six weeks after you made a decision you have since forgotten making. That gap is why nobody ever connects the two. Two households on the Slaidburn road spent a winter ill and blamed the flour. It was not the flour.","ch":4},{"n":31,"quote":"Wash your hands before you eat, every time, with no exceptions and no soap.","bare":true,"attribution":"Marta Ellison","means":"The largest single reduction in illness available to a household, for the cost of a jug and thirty seconds. Soap helps and its absence is not an excuse: running water over hands with vigorous rubbing removes most of what matters, and the mechanical part is doing most of the work. Ash and water is a serviceable soap and you have ash.","use":"The whole route from latrine to hand to bread to family, which is the route that empties houses. Marta's argument at Whitewell was that no other intervention gives so much for so little. She pushed for a jug at the door of every eating room, not a rule people had to remember. Make it a fixture and not a virtue. Virtue is not there on the bad days.","ch":4},{"n":32,"quote":"Rain is the cheapest water you will ever have.","bare":true,"attribution":"Colm Reidy","means":"Volume, off any roof, from any weather, without a journey. A shed roof and two butts will keep a household in washing and stock water through most of the year in this country, which means your drinking water and your carrying trips are for drinking alone. Boil what you drink anyway. Birds use the roof too.","use":"Every litre you did not catch is a litre somebody walks for, and walking for water is the most dangerous routine activity in this book. It is predictable. It happens at the same time each day. It goes to a place other people also need, and it is done by somebody carrying weight with both hands full. Cut the number of trips and you cut the exposure, and the roof does it while you sleep.","ch":4},{"n":33,"quote":"Never drink from still water, whatever it looks like.","bare":true,"attribution":"Elin Pryce","means":"A simple rule for choosing a source when you have no way of testing one. Moving water in the hills, above habitation, above stock, taken from the middle rather than the edge, is the best you will find. Elin's veterinary eye was on the ground above the source: what grazes there, what is dead in it, what drains into it after rain.","use":"Still water concentrates everything that has entered it and adds its own. A tarn, a trough, a flooded ditch, the pool below a ford where cattle stand. All of them look calmer and cleaner than a peaty beck, and the peaty beck is the safer drink by a distance that is not close. Colour is not contamination. Stillness is.","ch":4},{"n":34,"quote":"Put the water on a rota and never let one person own it.","bare":true,"attribution":"Ruth Cadogan","means":"A household that keeps working when somebody is ill. That is precisely when the water job matters most, and when the person who has always done it is on the floor. Everybody fetches, everybody boils, everybody knows where the site is and how the containers are marked. Ruth ran hers on a fortnightly rotation with a written list.","use":"Water goes unfetched on the exact day it is most needed, and somebody improvises, and the improvisation is what kills. There is a second cost that is slower and worse. A household where one person carries every load builds a quiet resentment. It comes out in the second winter as something else, and it will look like an argument about cooking.","ch":4},{"n":35,"quote":"Filter for grit, boil for life, and do not confuse the two.","bare":true,"attribution":"Samuel Oyelaran","means":"Clarity about what your equipment does. Cloth, sand and charcoal take out silt, leaf and much of the taste, and they make water pleasant to drink and easier to boil. They do not make it safe. Sam built beautiful slow sand filters at Bracewell and put a sign on every one of them saying this water is not yet drinkable.","use":"People trust apparatus. Give a household a filter that produces clear water out of brown, and within a month somebody will be drinking straight from the tap on it. It looks like a machine, and machines feel like a warranty. That sign is the whole reason nobody at Bracewell ever did. Filter first if you like. Then boil, every time, without an argument.","ch":4},{"n":36,"quote":"A dirty person who is drinking beats a clean one who is not.","bare":true,"attribution":"Bibi Farooq","means":"Priorities, on the day the whole system fails. If you have one pan of water and a choice between washing and drinking, drink. If you have a source you distrust and no fire, drink it and be ill later. The person who refuses to drink for two days in August will be past making decisions by the evening of the second. Bibi was a pharmacist and she had watched people become fastidious about exactly the wrong thing.","use":"This chapter, taken as scripture, has killed people. There was a man on the Ribble who would not drink from a beck he could not boil. He walked eleven miles in July looking for a better one. He was found four fields from a spring. The rules above are for the ordinary weeks, which is almost all of them. On the day that is not ordinary, drink the water.","ch":4}]},{"n":5,"title":"Wounds and Fever","part":"Two","partRoman":"II","partName":"Keeping the Body","opening":"<p>A cut on a hand. That is how most of them start.</p><p>Not the dramatic injuries. Those are rarer than you would think and they tend to resolve one way or the other within a day. What fills the ground behind the chapel at Whitewell is small wounds that were cleaned badly on a Tuesday and were hot by Friday, in people who were otherwise strong, in households that were otherwise careful. Marta Ellison used to say that the whole of modern medicine, stripped down to what a person in a farmhouse can actually do, comes to about four actions, and that the difference between doing them and not doing them is the difference between a scratch and a grave.</p><p>The four are these. Get it clean, with a lot of clean water and some force behind it. Cover it. Look at it twice a day and mark what you see so you are comparing against a record rather than a memory. And keep the whole person fed, watered and warm, because a body that is fighting something needs fuel and a body that is cold and hungry will lose an argument it would otherwise have won.</p><p>Everything else in this chapter is detail hung on those four, apart from one entry that is not about medicine at all. The sixth rule concerns what a household does with somebody who has been bitten, and it is here because more people have been killed by the answer to that question than by the question itself. I have put it in the middle of the chapter on purpose. It belongs with the other injuries.</p><p>Bibi Farooq is the second voice here. She kept the only drug stock in the valley, rationed it for two years, and she is the reason we still have anything at all.</p>","entries":[{"n":37,"quote":"Every wound is dirty. Treat it as dirty.","bare":true,"attribution":"Marta Ellison","means":"The right starting assumption, which does more than any technique. Clean water, a lot of it, poured with height and force rather than dabbed. Get out the grit, the wool, the thread, the fragment of gate. Marta's line was that irrigation is ninety per cent of wound care and that everybody wants to skip to the interesting part, which is the dressing, because the dressing feels like treatment and washing feels like tidying.","use":"A closed wound with dirt under it, which is a warm dark container for the thing that will kill the person. It will look fine for two days. That is the cruel part and the reason the rule has to be an assumption rather than a judgement, because on the day you decide a wound looks clean enough you will be wrong at a rate of about one in twenty, and one in twenty over three years is everybody you know.","ch":5},{"n":38,"quote":"Clean water and pressure beat every ointment in the house.","bare":true,"attribution":"Bibi Farooq","means":"A correct order of operations when your instinct is reaching for a bottle. Bleeding stops with firm direct pressure held for ten minutes by a clock and not by feel, and almost nobody holds it long enough. After that, water. The tube of antiseptic cream in the drawer is close to irrelevant, and Bibi was blunt about honey, spirits, iodine and every other favourite: they are arguments about the last five per cent.","use":"Time spent on the wrong thing at the only moment when the right thing works. She watched a man lose a hand over a fortnight that started with a farm injury and a cupboard full of remedies applied one after another to a wound nobody had washed. Hold pressure. Then wash it properly, with more water than seems reasonable. Then dress it and leave it alone.","ch":5},{"n":39,"quote":"Draw a line round the redness and write the time on the skin.","bare":true,"attribution":"Marta Ellison","means":"Evidence instead of impression. A pen line at the edge of the red, with the hour beside it, turns a vague worry into a measurement, and it means the person who looks at four in the afternoon is comparing against a fact rather than against what they remember from breakfast. Spreading beyond the line, red tracking up the limb, heat, swelling, or a fever coming on: those are the signals, and the line is what makes them visible.","use":"Two days. Infection is a race and every treatment available to us works better early, so the entire value of watching is in noticing sooner. Households without the line always report the same thing afterwards, which is that it seemed to happen overnight. It never happens overnight. It happens over four days in front of people who have no way to compare Tuesday with Thursday.","ch":5},{"n":40,"quote":"Antibiotics are a course or they are nothing.","bare":true,"attribution":"Bibi Farooq","means":"A stock that still works in a year. Whatever you have, use it when it is needed and then use all of it, at the intervals, to the end, even after the person feels better on day three. Bibi kept hers behind a locked door and made every request go through a conversation, and she refused far more often than she agreed.","use":"Half a course clears the easy part of an infection and educates the rest, and the person is ill again in a fortnight with something that no longer answers to the only drug in the valley. That is not a private decision. It spends a resource that belongs to everybody, and there is no more of it coming. The other cost is hoarding: tablets kept in a damp drawer for the day they are needed are usually past use by the time somebody is dying in front of you.","ch":5},{"n":41,"quote":"Teeth will take more of you than anything with teeth.","bare":true,"attribution":"Elin Pryce","means":"Attention to the thing that is coming for everybody and is entirely preventable. Brush with a stick and ash or salt if there is no paste, and keep doing it every day of the winter when nobody can see you and it feels absurd. A tooth abscess is a serious infection nine inches from the brain, in a place where nobody can treat it, and it arrives on a schedule dictated by two years of neglect.","use":"Elin had pulled teeth from cattle and ended up pulling them from people, without anaesthetic, on a kitchen table, four times in the second year. She described it as the worst thing she has done and said that every one of the four was avoidable eighteen months earlier by a person spending ninety seconds a day on something they could not see the point of. Sugar and neglect. That is the whole mechanism.","ch":5},{"n":42,"quote":"A bite is not a diagnosis, and it is never yours to pass sentence on.","bare":true,"attribution":"the Whitewell list","means":"A household that does not turn on itself in its worst hour. The rule as written has three parts: the bitten person is nursed and not restrained; they are asked what they want while they are still able to say it; and no decision about them is made by one person alone. The Whitewell list is the only document in this book that was written by a committee, and it took them nine hours.","use":"I could fill the chapter. Two brothers on the Bolton road, one of whom was bitten by a dog. A woman locked in an outbuilding for six days over an injury nobody could identify who died of dehydration in there while the household argued about her. Fear does the sentencing, and fear is always in a hurry, and it is always certain. Whatever you believe about what a bite means, the household that decides in an hour, without the person's voice in it, will get it wrong more often than the household that waits and watches. And getting it wrong here is not a mistake you can put down afterwards.","ch":5},{"n":43,"quote":"Fever is a clock. Start it at the first shiver.","bare":true,"attribution":"Bibi Farooq","means":"A record, and a threshold you have agreed on in advance. Write the time of the first rigour, then the state every four hours on paper: hot or cold, drinking or not, talking sense or not, passing water or not. That last one is the most useful sign available without equipment, and it is the one everybody forgets to ask about.","use":"Decisions made from panic at three in the morning about a person who has actually been improving since midnight, or the reverse, which is worse. Bibi would not release anything from the store without the paper, and she was thought hard for it. The paper meant that the household asking her had already looked properly, and it meant she could tell the difference between a fever that was going somewhere and one that was not.","ch":5},{"n":44,"quote":"Whoever is nursing eats and sleeps first.","bare":true,"attribution":"Ruth Cadogan","means":"A second week of care. Nursing is a job of days and it is done at night, and the person doing it stops eating without noticing because there is always something else to do. Ruth ran it as a rota with hard reliefs and sent people to bed when their shift ended whether or not they wanted to go. It sounds cold. It is the reason the sick at Bracewell were still being turned at the end of a fortnight.","use":"The nurse goes down, and now you have two patients and nobody who knows the history. The households that lost the most people in the second winter were not the ones with the most illness. They were the ones where one person, almost always the same person, tried to hold all of it alone and was on the floor by the ninth day.","ch":5},{"n":45,"quote":"You are allowed to stop treating and start comforting.","bare":true,"attribution":"Hanna Volk","means":"A better death, which is a real thing to be able to give somebody and which most of us have forgotten is a choice at all. Warmth, water, clean bedding, light, company, and somebody holding a hand: those are all available to us. Hanna sat with eleven people and said afterwards that she had never once regretted stopping and had regretted continuing three times.","use":"Days of pain spent on interventions that were not going to work, and a family that spends its last hours with somebody arguing about a treatment instead of talking to them. There is a moment when the honest answer is that this person is dying, and everything after it is about how. Recognising the moment is not giving up and it is not something to be ashamed of. This is the exit from this chapter, and it is the one I have needed most.","ch":5}]},{"n":6,"title":"Food and the Long Hunger","part":"Two","partRoman":"II","partName":"Keeping the Body","opening":"<p>Nobody starved in the first year. Almost everybody was hungry in the second, and the difference between those two sentences is a single decision made in about the fourth month by people who were not thinking about food at all.</p><p>The first year is easy, and its easiness is the trap. There is an enormous quantity of food in an ordinary district: shops, houses, sheds, stores, freezers that stay cold for a week, and stock in the fields that nobody is milking. A household with legs and a bag eats well for months and comes to believe it has solved the problem, when what it has actually done is spend a stock that does not renew. The tins in this valley were finished by the end of the second summer. All of them. There is no more of that anywhere within reach, and the people who understood that in month four are the ones who put seed in the ground in March, and the people who understood it in month fourteen were too late by a full growing season.</p><p>That is the thing to take from this chapter if you take one thing. Food is not a supply problem, it is a calendar problem, and the calendar is unforgiving in a way that nothing else in this book is. You cannot make up for a missed sowing with courage or work or luck. There is no version of August that fixes April.</p><p>The Gisburn stock book is the source I lean on most here. It is a ledger from a farm supplier, and somebody, and I have never found out who, kept using it after: sowings, yields, weights, what went wrong. Four years of somebody else&#x27;s careful arithmetic. It is the most valuable object I own.</p><p>The last rule in the chapter is Nell&#x27;s and it is not about calories.</p>","entries":[{"n":46,"quote":"Eat the perishable first, in order, and write the order on the wall.","bare":true,"attribution":"Ruth Cadogan","means":"Weeks of food that would otherwise rot in front of you. Freezer, then fridge, then fresh, then root and dry store, then tins, in that sequence, with the list written up where everybody can see it so that nobody is deciding at the cupboard door. Ruth's board had three columns and a date beside each item and it fed nine people through a summer.","use":"Households eat what they fancy, which means they eat the tins because tins feel like the emergency ration, and the fresh food spoils while they are protecting the food that would have kept for four years. This is the most common error of the first fortnight and it is committed out of prudence. Eat in the order that things go bad. Save what does not.","ch":6},{"n":47,"quote":"Salt is worth more than ammunition.","bare":true,"attribution":"the Gisburn stock book","means":"Preservation, which is the entire difference between a good autumn and a hungry March. Meat, fish, beans, cabbage, hide. Salt is heavy, cheap while there is any, and impossible to make in this country in any quantity, and there is a note in the stock book from the first winter that reads simply: get salt, all of it, now, in a hand that is noticeably less steady than the rest.","use":"A glut you cannot hold. The second autumn was extraordinary. There was more meat in this valley in October than we could eat, and by December there was very little, because it had been eaten fresh or lost, and the households with salt went into the spring with a barrel and the others went into it with nothing. Trade for salt. Take it from every kitchen you pass. It does not spoil and it never gets cheaper.","ch":6},{"n":48,"quote":"Never eat the seed.","bare":true,"attribution":"Tom Shackleton","means":"Next year, and the year after. Seed potatoes, grain, beans held back for sowing, and the two ewes you do not kill. Tom kept his separate, in a locked stone store, labelled, and treated the store as though it were not food at all, which is the only way anybody manages it. It is a small quantity that stands between a household and permanent dependence.","use":"In February the seed store is the best food in the house and there is a hungry child in it, and I am not going to pretend that this is a straightforward rule to keep. But a household that eats its seed has converted a farm into three good meals, and there is nothing after that except asking somebody else for seed on their terms, and their terms in March are not the terms they would have offered in October. Tom's answer was to make the decision structural. Lock it. Give the key to somebody who will not be in the kitchen at midnight.","ch":6},{"n":49,"quote":"Hunger makes bad plans look reasonable. Eat before you decide.","bare":true,"attribution":"Deniz Aksoy","means":"Judgement at the moment it is worth most. A hungry group will talk itself into a raid, a river crossing, a trade with people it does not trust, or a walk to a rumour, and will experience all of that as clear thinking. Deniz would not hold a planning conversation before a meal, and the rule at his table was that anybody who suggested something ambitious got a bowl before an answer.","use":"The worst decisions of the second winter were all made at the end of the day, by people who had eaten once, about food. Three of them killed somebody. Hunger does not feel like impairment from inside; it feels like urgency and clarity. That is what makes it more dangerous than tiredness, which at least announces itself.","ch":6},{"n":50,"quote":"Learn three wild foods properly instead of thirty badly.","bare":true,"attribution":"Elin Pryce","means":"Real calories from things you cannot misidentify. Nettle, which is everywhere and is unmistakable and holds up boiled. Hawthorn leaf in spring. Fish, if you have water. Elin's whole argument was about confidence under pressure: three plants you know absolutely, in quantity, in all their stages, are worth more than a book of thirty you half know, because you will be foraging tired and in poor light.","use":"The foraging books make it look like a larder and it is not. Wild food in this country is a supplement, not a diet, and the calories per hour of searching are terrible compared with a garden or a snare. The households that leaned on it went into the winter light. And there is the other cost, which is rarer and absolute: two deaths in the valley from something eaten by somebody who was fairly sure.","ch":6},{"n":51,"quote":"Cache in three places and never all of it anywhere.","bare":true,"attribution":"Aiden Kerr","means":"Survival of a disaster rather than an inconvenience. Split the store: some in the house, some buried or walled up at a distance, some at a third site nobody discusses. Fire, theft, rot and flood are all single-location events, and a household that loses one third of its food in November is having a bad month, while a household that loses all of it is finished.","use":"Everything, at once, on somebody else's schedule. Aiden had watched three households cleared out in an afternoon in the second summer and every one of them had kept a good store in one dry room, which is exactly what a careful person would do. Keep the third cache genuinely secret and check it twice a year, because the failure mode of a buried cache is that it is wet and nobody looked.","ch":6},{"n":52,"quote":"Fat is the thing you run out of.","bare":true,"attribution":"Bibi Farooq","means":"The winter. A diet of potatoes, roots and greens looks adequate on the plate and leaves people cold, slow and always hungry, and the thing missing is fat. Render everything. Keep the drippings, the marrow, the skin, the tallow. Butter, lard, oil and suet are the highest-value foods you will handle and they are the first things people stop noticing when they disappear.","use":"A household that is eating what looks like enough and is thin by March. Bibi identified it before anybody else because she was watching people rather than stores, and the pattern was always the same: plenty of bulk, no fat, and a slow decline that everybody blamed on the cold. Cold is worse when you have not eaten fat. So is thinking.","ch":6},{"n":53,"quote":"A garden sown in March feeds you in August, and not one day sooner.","bare":true,"attribution":"the Gisburn stock book","means":"An accurate calendar, which is the only thing that lets you plan a hungry period rather than discover one. Potatoes go in when the soil warms and come out in late summer. Brassicas sown in June carry you through the winter and have to be started while you are still busy with everything else. The stock book has it all laid out by week, in somebody's handwriting, with what went wrong each year in the margin.","use":"The gap. Between the end of the stored food and the first harvest there is a period of about eight weeks that nobody plans for because it happens in early summer when the countryside looks generous, and it is the hungriest part of the year in every account I have. Count backwards from your harvest. Then look at what you have and decide now, in comfort, how thin June is going to be.","ch":6},{"n":54,"quote":"Keep one thing back that is only for pleasure.","bare":true,"attribution":"Nell Shackleton","means":"People who are still willing to do the work. A jar of something sweet, a bottle, a tin of peaches, tea. Nell kept a box under her bed and produced it four times a year without warning, on bad days, and the effect on a farmhouse in February is out of all proportion to the calories. Nobody has ever worked hard for a life of pure sufficiency.","use":"A household that is provisioned correctly, following every rule in this chapter, and slowly stops caring. That sounds soft next to the rest of the chapter and it is not. The failures I have seen in the third winter were not failures of supply. They were people who could not find a reason to go out in the rain and check the snares, and there is no store in the world that survives a household in that state.","ch":6}]},{"n":7,"title":"Ground You Can Hold","part":"Three","partRoman":"III","partName":"Ground and Other People","opening":"<p>Everybody&#x27;s first instinct about a building is wrong, and it is wrong in the same direction, which is at least useful.</p><p>Asked to pick somewhere to live now, almost anybody chooses the strongest thing they can see. Thick walls, small windows, a heavy door, high up. They are picking a castle, because that is the shape the mind reaches for, and every one of those features answers a question nobody is asking. Nothing outside your walls is going to besiege you. What will happen instead, over three years, is this. You will carry water eight hundred times. You will get in and out at night. You will see somebody coming while they are still four fields away. And you will leave in a hurry once.</p><p>So the good ground in this valley is not the fortified ground. It is Hillfoot. A farm halfway up a slope, with a spring above it. One lane in, visible for half a mile. A back field that goes to open fell. Stone walls five feet high, because that is how walls are built here. A set of buildings arranged round a yard by people who were thinking about cattle. It has been holding for three years and it has never once been defended.</p><p>Deniz Aksoy&#x27;s contribution is the phrase I keep coming back to, and he was talking about lorries and depots when he first said it. You are not building a fort. You are building a place that is boring to approach, easy to see out of, and quick to leave.</p><p>The last two rules in this chapter argue with each other on purpose. That is not sloppiness. It is the actual state of the question.</p>","entries":[{"n":55,"quote":"Two doors, always.","bare":true,"attribution":"the Hillfoot parlour door","means":"The difference between a problem and an ending. Two ways out of every building you sleep in, two ways off every piece of ground, and both of them checked, in the dark, by everybody who lives there. Not a window you could theoretically get through. A route you have walked at night, in boots, carrying something.","use":"One door means one bad afternoon finishes you. This is the rule that appears in every survivor's account I have ever collected, and the one that costs least to keep. A back door unbolted. A ladder left up. A gap in a wall kept clear. Whatever else you do to a building, do not reduce it to a single exit in the name of making it safe. Every improvement that seals a place is also sealing you inside it.","ch":7},{"n":56,"quote":"Choose ground for its water first and its walls second.","bare":true,"attribution":"Samuel Oyelaran","means":"A place that works for years rather than a place that survives a night. A spring or a beck above the buildings, so it comes to you and does not have to be carried up. Sam's ranking was water, then approach, then exits, then shelter, then walls, and he would not move on the first one. A perfect house that is four hundred yards from water is a house where somebody makes eight hundred trips a year in the open with both hands full.","use":"The slow bleed. Every trip is exposure, every trip is time, and the household adapts by fetching less, which means washing less and drinking less, and you are back in chapter four. Two families in the second year abandoned good stone buildings for worse ones with better water. Both said the same thing afterwards: they should have done it in the first month instead of the fourteenth.","ch":7},{"n":57,"quote":"A wall you cannot watch is a wall you do not have.","bare":true,"attribution":"Deniz Aksoy","means":"An honest picture of your own perimeter. Walk it at three in the morning and ask, from the kitchen window, what you can see and what you would hear. A hundred yards of good stone wall behind a barn where nobody ever looks is not protecting you; it is telling you a story about being protected while somebody stands behind it.","use":"Effort spent in the wrong place. People build. It is satisfying, visible work that feels like progress, and households will spend a fortnight raising a barrier they cannot observe rather than an afternoon cutting the hedge that blinds them. Deniz's version was blunter than mine: you do not need a wall, you need to know. Watch first. Build only where watching has told you to.","ch":7},{"n":58,"quote":"Cut the sightlines before you build anything.","bare":true,"attribution":"the Bracewell standing orders","means":"Distance, which is the only resource that matters when somebody arrives. Take out the hedge that hides the bend, the shed that blocks the view of the lane, the elder in the corner of the yard. Four hundred yards of warning is enough for a household to be inside, quiet and counting. Forty yards is enough to be surprised at.","use":"Every problem arrives at arm's length. There is a caution attached, and Bracewell learned it the hard way. Land you have cleared is also land you are visible on, and a farm stripped of every hedge announces itself as a farm somebody is holding. Cut what blinds you on your own approaches. Leave the screen that hides your roof from the ridge. It is a trade, not a principle, and the orders are wrong to state it as flatly as they do.","ch":7},{"n":59,"quote":"Upstairs is a trap with a view.","bare":true,"attribution":"Aiden Kerr","means":"A correct use for the first floor, which is watching, and a correct place to sleep, which is not up there. Height is the best observation you have and the worst position you can be caught in. Aiden scavenged houses for two years and had a rule about never going above ground level in a building he had not first walked the outside of.","use":"A staircase is a corridor with one end. Everybody who has been trapped in a building in this valley was trapped upstairs, and in three of those cases the ground floor was clear and stayed clear the whole time. Use the height in the day. Sleep near a door. If you must sleep upstairs, put a rope on the window sill and leave it there, and check the knot in daylight now and again.","ch":7},{"n":60,"quote":"Make every route in noisy on purpose.","bare":true,"attribution":"Tom Shackleton","means":"Warning that works while you are asleep, for the price of an afternoon. Gravel on the two paths people would actually use. A gate that is wired so it rattles. Tins on a line across the gap in the wall. Tom did it in the second month, and he did the thing most people miss. He left one silent route for his own household, so they were not setting off their own alarms four times a night.","use":"A watch rota that has to be kept by human beings, all night, in winter, for years. That is the alternative and it is not sustainable; watches degrade, people doze, and the third winter is when it happens. Passive warning does not get tired. It is also the only thing that protects you on the night everybody is ill.","ch":7},{"n":61,"quote":"Fire ends places. Plan for it before it is on you.","bare":true,"attribution":"the Settle school log","means":"The one disaster that can finish a well-run household in twenty minutes. Water in the yard where it can be reached without going through the building. A break between the store and the house. Nothing burning left unattended, ever, and the stove out at night. The school log has eleven pages about a chimney and then stops.","use":"Everything you have built and everybody asleep in it. We are all burning wood indoors in buildings wired for a different century, with candles and lamps and no water above the ground floor, and we are doing it while exhausted. Fire is more likely to kill you now than it was before, by a long way. It receives the least attention in every household I have visited, including my own until the school burned.","ch":7},{"n":62,"quote":"Do not fortify what you cannot leave.","bare":true,"attribution":"Deniz Aksoy","means":"A clear head about a thing people become sentimental about. Three years of work makes a place into an argument you cannot lose. Deniz tested every improvement against one question. Does this make it harder for us to walk out of here in ten minutes. Barred windows fail that test. A dug well passes it. Stored food in one cellar fails it, which is chapter six's third cache.","use":"You will stay when you should go, and you will not experience it as a mistake. You will experience it as loyalty to the place. Everybody who died at the mill died because the mill was worth defending, and it was, and they were right about that, and it did not matter.","ch":7},{"n":63,"quote":"The place is worth less than the people in it, and you will not believe that when it matters.","bare":true,"attribution":"Ruth Cadogan","means":"Permission, decided in advance, on a calm day, in front of witnesses. Ruth made her household say it out loud once a year: this is a building, we are not going to die in it, and if we go the seed and the medicine and the children go first and the rest stays. Say it while nothing is happening. It will not be sayable later.","use":"This rule contradicts the one before it and the whole of chapter two, and I have left all three of them standing. Some ground is worth holding and Tom was right to hold it. But every household that lost people to a place lost them the same way, which is by making a decision to leave four hours after the decision was available. The building will still be there in a month. You can come back. Nobody has ever come back to a person.","ch":7}]},{"n":8,"title":"Strangers","part":"Three","partRoman":"III","partName":"Ground and Other People","opening":"<p>I have been on both sides of a gate and I am going to say the uncomfortable thing first, because every book of this kind gets it wrong in the same direction.</p><p>The people at the gate are almost never the danger. In three years I can count the genuinely predatory groups in this district on one hand, and four of the five were formed out of households that had been turned away from somewhere in the first winter. Nearly everybody who has ever stood at the end of our lane was what they appeared to be: a family, walking, with the wrong shoes on, asking whether we knew anything about the road east. The arithmetic is not close, and the reason it feels close is that the one bad group is the only one anybody tells stories about.</p><p>But the caution in this chapter is real, and it is not about the arithmetic. It is about the fact that being wrong once is different in kind from being wrong ninety times. The households that were destroyed by other people were not destroyed by strangers arriving. They were destroyed by strangers arriving in a way that gave the household no time and no room, at the gate, in the dark, with everything visible behind them.</p><p>So the rules here are almost all about geometry and sequence rather than judgement. Where you stand. How far away. Who speaks. What can be seen from where they are. What happens before a decision has to be made. Get the geometry right and you can afford to be generous, which is the actual aim, and the only households in this valley that are still worth living in are the generous ones.</p><p>The last rule is the reason for the chapter and it is Marta&#x27;s.</p>","entries":[{"n":64,"quote":"Talk first, from a distance, with something solid between you.","bare":true,"attribution":"Deniz Aksoy","means":"Time, and the ability to change your mind. Sixty yards, a wall, a raised voice, and a conversation that begins before anybody is committed. Almost every situation that goes wrong between two groups goes wrong inside fifteen feet, in the first ninety seconds, because both sides were surprised and both were frightened and somebody moved a hand.","use":"You will make a decision about eight people in the time it takes them to cross a yard. Deniz's whole method was to slow the encounter down: talk across a distance for five minutes about nothing, the weather, the road, where they have come from, and let both sides get bored. Boredom is the thing you are trying to manufacture. Nobody has ever been killed by a group they had already been bored with.","ch":8},{"n":65,"quote":"Never meet anybody at your own gate.","bare":true,"attribution":"the Bracewell standing orders","means":"A meeting place of your choosing, which is worth more than any weapon. Bracewell used a bend in the lane three hundred yards out with a wall on one side, and every conversation with an outsider happened there. It shows nothing, commits nothing, and gives you a walk home during which you can talk it over.","use":"Everything you own becomes part of the negotiation. At your own gate they can see the roof, the stock, the store, the children, the number of you, and whether the men are older than they look, and all of that is now in the head of somebody you may never see again, or may see in four months with company. Meet away from the place. Always. Even for people you like.","ch":8},{"n":66,"quote":"Feed them outside the wall.","bare":true,"attribution":"Ruth Cadogan","means":"The ability to be decent without being opened. Bread, hot water, a bag of potatoes, and directions, handed over at the meeting place, is a real kindness and costs you almost nothing, and it is what the great majority of people at your gate actually need. Ruth did it more than a hundred times and never once regretted it.","use":"The two failure modes are opposite and both are expensive. A household that gives nothing accumulates people who have nothing and know where you are, which is exactly how the group at the mill formed. A household that brings everybody in has lost the only thing that lets it keep giving. Between them there is a wide, workable middle, and Ruth lived in it for three years.","ch":8},{"n":67,"quote":"Believe the children.","bare":true,"attribution":"Joyce Attwell","means":"The most reliable information available at a meeting. Adults arrive with a prepared account because they have learned they must. Children answer what you ask. How many nights have you been walking. Was there a house. Did the men come with you from there. Joyce would talk to the children while somebody else talked to the parents, and she said she had never had a false picture from doing it.","use":"You will take an adult's story at face value and it will be a story built to get them in, which is what a frightened parent should be doing and not a sign of bad faith. The rule has a limit that Joyce insisted on: this is for building a picture, not for cross-examining a nine year old about their family in front of them. Ask two gentle questions. That is usually the whole of it.","ch":8},{"n":68,"quote":"A group that will not give you a name will not give you anything else.","bare":true,"attribution":"Aiden Kerr","means":"The single most useful signal at a distance. Names, where you have come from, where you are going, who is hurt. The great majority of people answer these, and answer them at once, because they have nothing to hide and a great deal to gain from being known. Aiden's line was that honest people over-explain and frightened people over-explain more.","use":"You will miss the small number of encounters that are actually dangerous, and they announce themselves early if you are listening for it: no names, questions in both directions but no answers, a count of you being taken, a story that adjusts to what you seem to want. That is a different thing from what a nervous family does, and once you have met it you will not confuse the two.","ch":8},{"n":69,"quote":"Trade at distance, in the open, in daylight, or not at all.","bare":true,"attribution":"the Whitewell list","means":"Trade, which is worth having, and which almost stopped in the second winter because nobody had a safe shape for it. Neutral ground both parties can see across. Goods set down and stepped back from. Two people, not eight. And an agreement made the meeting before about what is coming, so that nobody is improvising.","use":"The trade that goes wrong is almost always the one arranged quickly, at dusk, at somebody's buildings, with more people present than were expected. Whitewell lost salt and a man in one afternoon by breaking three of the four conditions at once, and the list was written the following week by people who were arguing about whose fault it had been.","ch":8},{"n":70,"quote":"Nobody tells the same story twice unless they have rehearsed it.","bare":true,"attribution":"Hanna Volk","means":"A quiet check that costs nothing. Ask about the route again an hour later, in a different order, and a true account will come back with different details and the same shape, because that is how memory works. A prepared one comes back word for word, or comes back different in the shape and the same in the words.","use":"Hanna was careful about this and I want to repeat her warning rather than her method. People lie for good reasons. A family that has been turned away from four places will have learned a story that works, and the fact that it is polished does not make them dangerous, it makes them experienced. The signal is worth having and it is not a verdict. Use it to ask a better question, not to close the gate.","ch":8},{"n":71,"quote":"Never let anybody see the whole of what you have.","bare":true,"attribution":"Tom Shackleton","means":"A margin that survives your own generosity. Whatever is visible from the meeting place is what you are known to have, so the store is out of sight, the stock is in the back field on the days you are expecting anybody, and the third cache is a thing nobody outside the household has ever heard mentioned. Tom went further and kept a small obvious store that could be given away.","use":"You become a number in other people's plans. This is the rule that sounds least generous and is actually what makes generosity survivable, because a household that is known to be thin can afford to give a stranger bread, while a household that has been seen to be rich will be visited by the fifth group in a way the first four did not consider.","ch":8},{"n":72,"quote":"Take somebody in, or admit what you are becoming.","bare":true,"attribution":"Marta Ellison","means":"A household you would want to survive into. Everyone in this valley who is still here is here because at some point somebody who owed them nothing opened a gate. Marta's position, and she argued it hard at Whitewell against people with better reasons than hers, was that a household which has decided in principle never to take anybody in has already made its decision about the rest of it too, and will keep making that decision until there is nothing left inside the wall worth the walls.","use":"She was not naive and she was not talking about taking in everybody, which is not possible and gets people killed. She was talking about the third winter, and about what a household becomes after a hundred consecutive refusals: quiet, efficient, sealed, and unable to remember why it is doing any of this. We took in four people that Marta argued for. Two of them are the reason Hillfoot came through the second winter. One of them wrote a third of the chapter you have just read.","ch":8}]},{"n":9,"title":"Living in a Group","part":"Three","partRoman":"III","partName":"Ground and Other People","opening":"<p>Not one household in this valley has failed because of what was outside it. I have thought about that sentence for a long time and I cannot find an exception.</p><p>They failed over the rota. They failed because two people wanted the same thing and there was no way of settling it that both of them had agreed to in advance. They failed because a man was counting the stores alone and everybody knew it, and nobody said anything for four months, and then somebody said it badly at the wrong moment in front of the children. Bracewell held sixteen people for three years and it did that on the strength of nine lines of gloss paint, and the lines are not about the dead at all. They are about who decides, who counts, who cooks and what happens when somebody is impossible to live with.</p><p>That is the real work and nobody prepares for it. Everybody has thought about the fence. Nobody has thought about what to do with a competent, hard-working, frightened man who is quietly certain that he should be running the place, and there is one of him in every group of more than six people, and if you do not have a way of handling him then the way you handle him will be a shouting match in February.</p><p>Ruth Cadogan ran Bracewell without ever holding a title. Her view was that a group needs three things written down: who has the final word in an emergency, how food is decided, and how somebody leaves. She reckoned that groups which had settled all three could survive nearly anything and groups that had settled none of them would come apart in the first hard winter without any help from outside at all.</p><p>She was right. I have watched it seven times.</p>","entries":[{"n":73,"quote":"Write the rules down before you need them, and put them where they can be read.","bare":true,"attribution":"the Bracewell standing orders","means":"Arguments about a document instead of arguments about a person. Once it is on a wall, disagreement is directed at nine lines of paint rather than at whoever is standing in the kitchen, and the thing can be amended in daylight by people who have eaten. It also means that everybody who joins the group learns the rules in the first hour rather than in their first row.","use":"Every dispute becomes personal and every precedent has to be argued from scratch. Unwritten rules always exist, they are just held differently by each person, and the discovery that they differ happens in the middle of a crisis. The nine lines took Bracewell an evening. Nothing else they did bought so much for so little.","ch":9},{"n":74,"quote":"Somebody has the final word in an emergency, and everybody agrees who before there is one.","bare":true,"attribution":"Deniz Aksoy","means":"Ninety seconds, which is the whole of an emergency. It does not need to be the same person for everything, and Bracewell had three: one for anything outside the wall, one for anything medical, one for fire. Named, agreed, written up, and holding only until the thing is over.","use":"A committee in a yard at night with something coming up the lane. Deniz had seen it and described it as the worst thing he had ever watched: eleven capable adults, all of them right, none of them able to move, losing four minutes. The rule is not about hierarchy and it collapses if it becomes hierarchy. It is about a temporary, bounded authority that ends when the noise stops, and about everyone knowing which voice to obey without checking whose it is.","ch":9},{"n":75,"quote":"The person who holds the food does not also hold the rota.","bare":true,"attribution":"Ruth Cadogan","means":"Trust that does not depend on anybody's character. Split the jobs that carry power: stores, work allocation, the medicine, the decision to trade. Different people, rotated on a known cycle, each of them counted in front of somebody else. Ruth's design assumed that everybody was decent and that being decent would not be enough.","use":"Suspicion, which is slower and more destructive than theft and does not need any theft to happen. A single person who decides who works and who eats will be believed to be favouring somebody within about two months, and they may well be, because they are a human being deciding those things about people they like unevenly. Do not ask anybody to be that good. Split it.","ch":9},{"n":76,"quote":"Everybody works, including the ones who cannot.","bare":true,"attribution":"Joyce Attwell","means":"People who are still part of the group. The old, the injured, the ill and the very young all have work available to them: watching, sorting, mending, teaching, minding, peeling, keeping the log. Joyce had a woman of eighty-one who could not walk to the gate and who ran the entire seed inventory and taught four children to read.","use":"Two things at once. The group loses hours it needs. And the person loses their place in it, which happens fast, and after a fortnight of being carried they will start apologising for eating, and then they will start refusing food, and I have seen where that goes twice. Give everybody a job that genuinely matters and let them do it badly if that is how it gets done.","ch":9},{"n":77,"quote":"Say the bad news at breakfast.","bare":true,"attribution":"Hanna Volk","means":"A group that can absorb it. Bad news delivered in the morning, to everybody at once, in plain words, gets a day of daylight and work to be metabolised in. The same news at nine at night sits in the dark with people and comes out as something else entirely by morning.","use":"Rumour, which is always worse than the fact and always arrives anyway. Hanna's rule came out of the second winter when a decision about the stores was taken quietly by three people who were trying to avoid frightening anybody, and it was known in an inaccurate form within a day and a half, and the version that circulated was so much worse than the truth that two families left. Tell them at breakfast. Tell them the actual number.","ch":9},{"n":78,"quote":"A grievance kept for a fortnight is no longer about the thing.","bare":true,"attribution":"the Settle school log","means":"Small problems that stay small. There is an entry in the log, in a teacher's handwriting, listing three arguments and the number of days each had been running before it was raised, and the conclusion at the bottom is that nothing raised in the first two days had ever needed more than a conversation. Have a way of raising things that does not require courage: a weekly hour, a person whose job it is, anything.","use":"In a group of nine people who cannot leave, a fortnight is long enough for an irritation about washing up to become a settled belief about somebody's character, and once it is about character it cannot be resolved by fixing the washing up. Everything I have watched come apart came apart at that stage and not before.","ch":9},{"n":79,"quote":"Count the stores in front of two people, on a fixed day.","bare":true,"attribution":"Samuel Oyelaran","means":"A number everybody believes, which is the foundation of every hard decision you are going to have to make together. First Sunday of the month, two people, written in the book, read out at breakfast. Sam argued for it not because he expected theft but because he expected disbelief, and disbelief is the thing that actually breaks a group.","use":"A household where everybody is privately estimating, and where the estimates diverge, and where the people who think there is less are hoarding and the people who think there is more are resentful of the rationing. Bracewell's count took twenty minutes a month. Sam's phrase for it was that the count is not an audit, it is a conversation everybody is allowed to be in.","ch":9},{"n":80,"quote":"Nobody watches alone for more than two hours.","bare":true,"attribution":"Tom Shackleton","means":"A watch that is actually being kept. Attention collapses after about two hours in the cold and dark, and the person on watch does not notice it collapsing, which is the whole difficulty. Short shifts, a proper handover with something said out loud, and a warm place to go afterwards.","use":"Four hours of theatre. A household that runs long watches has people sitting in the dark achieving nothing, sleeping worse, working worse the next day, and providing a sense of security that is not connected to anything. Tom would rather have had passive warning on the approaches and everybody asleep than a man out for six hours, and after the second winter that is what he did.","ch":9},{"n":81,"quote":"You are allowed to leave.","bare":true,"attribution":"Aiden Kerr","means":"The thing that makes all of the above voluntary. A group people cannot leave is a different kind of place, and it becomes that kind of place by degrees without anybody choosing it. Bracewell wrote down what a person takes with them when they go, which was their own gear, a fortnight of food and a share of the seed, and agreed it in a good month so that nobody had to negotiate it in a bad one.","use":"People stay in groups that are going wrong, and they stay for the reason that leaving means starving, and a group that knows its members cannot leave stops having to be worth staying in. Aiden left two places in his first year and both of them tried to keep him and one of them took his boots. Write down the terms of leaving. Then hope nobody uses them.","ch":9}]},{"n":10,"title":"Winter","part":"Four","partRoman":"IV","partName":"The Long Middle","opening":"<p>The first winter took four people out of this valley. The second took nineteen. There was no attack in the second winter, the harvest had been better, and the weather was milder by any measure you like.</p><p>That is the fact that organises this chapter, and it took me most of a year to understand it. Winter does not kill people in December. It kills them in February, and it does it to households that came through the autumn in good order, and the mechanism is not cold. It is accumulation. Everybody is a little wetter than they should be, has been for eleven weeks. Everybody is sleeping badly in a cold room. Nobody has eaten fat since November. The wood is green because it was cut in October by people who were busy. Small jobs get postponed because it is raining, and then it is always raining. By the second week of February a household has fifty postponed jobs and no capacity. One ordinary problem arrives and there is nothing left to meet it with.</p><p>The people who died in the second winter did not die of the winter. They died of the accumulated cost of getting through it badly, and every one of those costs was set in September by somebody with time on their hands.</p><p>So this chapter is mostly about autumn. That is the trick of it. Almost nothing in here can be done in January, and almost all of it is easy in October, when the danger feels remote and the days are still long enough to work in. Read it in September. If you are reading it in January, read the last two and let the rest go until spring.</p>","entries":[{"n":82,"quote":"Wet kills. Cold only helps it.","bare":true,"attribution":"Deniz Aksoy","means":"The correct enemy. A dry person in bad clothes at freezing will be uncomfortable for a long time and will live. A wet person in good clothes at eight degrees is on a clock, and eight degrees and raining is the ordinary weather here for five months. Everything about a winter routine should be built around getting dry and staying dry: a drying place, a spare set, and a hard rule about changing.","use":"People will work all day in the wet because they are not cold while they are working, and the bill arrives when they stop. Deniz put the drying rack in the kitchen at Bracewell and made it the most valuable square yard in the building. He made changing out of wet clothes a rule and not a choice. The person who most needs to change is always the one who says they are fine.","ch":10},{"n":83,"quote":"Heat the person, then the bed, then the room. Never the house.","bare":true,"attribution":"Samuel Oyelaran","means":"A winter's fuel that lasts a winter. Warm clothes and a hat indoors, a hot stone or a bottle in the bed an hour before it is used, one room with the door shut, and everything else left to the weather. Sam reckoned the difference between heating a room and heating a farmhouse was a factor of six in wood, which is the difference between cutting in October and cutting in January.","use":"You burn the whole store by the middle of February trying to make a stone building comfortable, which it will not become. Then you are cold in the worst month with nothing left and a green woodpile. The households that were warm in the second winter were not the ones with the most wood. They were the ones living in one room and wearing coats in it.","ch":10},{"n":84,"quote":"Cut your wood a year before you burn it.","bare":true,"attribution":"Tom Shackleton","means":"Twice the heat and a quarter of the smoke, which is chapter three's problem solved as a side effect. Green wood has half its weight in water and burns cold, dirty and slow, and it lines a chimney with the thing that later burns the house down. A year under cover, split, off the ground. Tom worked two winters ahead and always had.","use":"A cold February with a full woodpile, which is the most demoralising thing I have watched a household go through. They did the work. They cut, hauled, split and stacked four tons, and it will not burn properly, and there is no fixing it now. This is the purest example in the book of a rule about time rather than effort. You cannot work harder in January to undo not having cut in the previous January.","ch":10},{"n":85,"quote":"Two pairs of dry socks are a survival stock.","bare":true,"attribution":"Aiden Kerr","means":"Feet you can still walk on in March. Wool, changed daily, dried by the fire overnight, with the wet pair going inside your coat during the day if there is no fire. Aiden had four pairs and treated them the way other people treated the medicine box, and he walked more miles than anybody in this valley and never had a foot problem.","use":"Trench foot, which nobody expects and which took three people out of action for weeks in the second winter, and one of them permanently. It comes from days of damp rather than from cold, and it arrives without pain until it is well established. Feet, hands and head. Everything else about winter clothing is negotiable and those three are not.","ch":10},{"n":86,"quote":"Sleep small and sleep together.","bare":true,"attribution":"Ruth Cadogan","means":"The eight hours a day when you are producing no heat and losing it fastest. A small room, a low ceiling or a canopy over the bed, bodies together, straw or bracken under the mattress rather than a cold floor beneath it. Ruth put nine people in two rooms at Bracewell and there was some grumbling about it in the first November and none at all by January.","use":"A household that is cold all night for five months does not recover during the day. It shows up as illness, accidents, short tempers and a general slowness that everybody blames on the diet. This is also the cheapest of all the winter rules. It costs nothing at all except the idea that adults are entitled to their own rooms, which is a thing worth having and not worth a winter.","ch":10},{"n":87,"quote":"Do the outside jobs in November.","bare":true,"attribution":"the Gisburn stock book","means":"A January you can survive on the inside. Roof, gutters, drains, gate, wall gaps, the path to the store, the woodshed door, and the state of the boots, all done while there is still light and the ground is workable. The stock book has a November list four pages long and a January list with six items on it, and the discipline is in the difference.","use":"Every one of those jobs done in the wet, in the dark, badly, by somebody who is already cold, at the exact moment when the failure of any of them is most expensive. A blocked drain in November is a morning's work. In February it is a flooded store, a fortnight of damp and a household eating wet flour.","ch":10},{"n":88,"quote":"Nobody travels alone between December and March.","bare":true,"attribution":"Elin Pryce","means":"Somebody to fetch help. Winter travel here is not dangerous because of what is on the road. It is dangerous because a turned ankle four miles out at three in the afternoon is a night outside. A night outside in January is not survivable in the clothes people actually wear. Elin lost a colleague that way in the first year on a journey of five miles that she had made forty times.","use":"The whole margin. A pair can carry an injured person, keep them warm, or leave one and go, and any of the three is a survivable afternoon. Alone, all of it is the same afternoon. The rule has one exception and it is not the one people reach for: a short familiar journey in daylight with somebody at both ends who knows your timing and will come looking. Being expected is the actual protection.","ch":10},{"n":89,"quote":"Watch for whoever has gone quiet.","bare":true,"attribution":"Hanna Volk","means":"The person you are about to lose to something that is not cold. February in a dark house with the same eleven people is when the grief that everybody has parked since the first spring comes back for its answer. Hanna's method was simple and I have never seen it fail: notice who has stopped talking, and go and sit next to them and do a job together without asking them anything.","use":"Two of the nineteen we lost in the second winter were not lost to the winter. Both had been quiet for a fortnight in a full house. Everyone said afterwards that they had noticed and had not wanted to intrude, which is the most understandable sentence in this book and the most expensive.","ch":10},{"n":90,"quote":"You are allowed to spend the winter doing nothing.","bare":true,"attribution":"Joyce Attwell","means":"Spring, with people left in it. There is no useful outside work for a great deal of January and February in this country. A household that treats the whole winter as a productivity problem will grind through it and arrive at March exhausted, in the month when the year's actual work begins. Joyce's winter timetable had three hours of jobs in it and the rest was reading, teaching, sleeping, cards and talking.","use":"Everything that matters and nothing you can point at. Rest is not idleness and it is not a reward for having earned it. It is the thing that puts a household on its feet in the spring. The seasons in this country have been arranged so that there is a stretch in the middle where the only sensible thing to do is very little. Take it. The list will still be there.","ch":10}]},{"n":11,"title":"When to Break a Rule","part":"Four","partRoman":"IV","partName":"The Long Middle","opening":"<p>Colm Reidy wrote three of the rules in this book. He was right about all three. He was right in a way that saved people who are still alive. He has been dead for fourteen months.</p><p>He died four miles from here keeping two rules that are printed in this book, in a barn, in October, with a fire he would not light because of chapter three. There was a house with people in it eight hundred yards away and he knew that. His leg had been broken since the afternoon. He had spent two years being right about things, in front of people. By the end he could not be the man who arrived somewhere at night, cold, needing help, having broken his own instruction. I do not think he decided to die. I think he could not find the version of himself that was allowed to.</p><p>So this chapter exists, and it is the shortest one, and I have thought about it more than the other ten put together.</p><p>A rule is a bet that the ground has not changed. Every line in this book was written by somebody standing in a particular field in a particular year with particular people, and it is right there. Carried far enough from where it was made, any of them turns into a way of dying with your principles intact. But the reverse is worse, and it is much more common. A person who breaks rules whenever the situation feels exceptional has no rules at all, and every situation feels exceptional at the time. That is what makes this hard. Both failures are real, and there is no formula.</p><p>What follows is the nearest thing I have to one. It is a set of conditions for breaking a rule rather than a list of the ones to break, and the last of them is the last thing in the book.</p>","entries":[{"n":91,"quote":"Know which rule you are breaking, and say it out loud first.","bare":true,"attribution":"Ruth Cadogan","means":"The difference between a decision and a drift. Naming it, aloud, to another person, in the moment, takes four seconds and converts an impulse into a choice somebody else has heard. We are lighting a fire in the open. We are going out after dark. Ruth's household did it dozens of times and the saying of it was the whole discipline.","use":"Rules do not get broken. They get eroded, one reasonable exception at a time, until the household is doing something it would never have agreed to do and cannot remember deciding. Nobody at the mill ever voted to stop keeping watch.","ch":11},{"n":92,"quote":"Break a rule for a person. Never for a thing.","bare":true,"attribution":"Marta Ellison","means":"A test you can apply in twenty seconds under pressure, and the only one in this chapter that has never let me down. Going out at night for somebody who is hurt is a rule worth breaking. Going out at night for a store of flour is not, and it will feel identical while you are pulling your boots on.","use":"Almost everybody who has died breaking a rule in this valley died going back for an object. Fuel, tools, a generator, a box of tins. Every one of those journeys was justified at the time by arithmetic that was correct. The flour is still there. So is the man who went for it.","ch":11},{"n":93,"quote":"A rule you learned in the first winter is about the first winter.","bare":true,"attribution":"the Gisburn stock book","means":"Rules that keep up with the world. The valley of the first year had cars in it, open shops, a functioning road east and eleven times as many people. Half the instructions that were correct then are now costing somebody a morning's work for nothing. The stock book has whole pages crossed out with a date and a note beside them.","use":"Effort spent defending against a year that has finished. Review the list once a year, in the quiet part of the winter. Ask of each rule what it is protecting you from, and whether that thing is still out there.","ch":11},{"n":94,"quote":"Two of you have to agree. One of you can always keep it.","bare":true,"attribution":"Deniz Aksoy","means":"A brake that does not depend on being the calmest person in the room. Any rule in this book can be broken by a household that agrees to break it, and any single member can refuse and the thing does not happen. It sounds slow. It takes about a minute and it has stopped more bad journeys here than any other arrangement.","use":"The person who is most frightened, most tired or most certain makes the decision, and those three are usually the same person, and they are always the one moving first. Deniz's addition was that the one who refuses does not have to explain, because the requirement to give reasons is how a refusal gets talked out of.","ch":11},{"n":95,"quote":"Distrust anybody who has never been wrong.","bare":true,"attribution":"the Bracewell standing orders","means":"Protection from the most dangerous person in a group, who is not the reckless one. It is the competent one with a good record, whose judgement everybody has learned to defer to, and who has therefore stopped receiving any correction at all. Colm was that man. He earned it honestly.","use":"A group with one voice in it, which is a group with one point of failure. It is also unkind to the person, who ends up unable to be uncertain in front of anybody and then unable to arrive at a door at night asking for help. If you are the one being deferred to, be wrong out loud about something small, on purpose, in front of everybody, twice a year.","ch":11},{"n":96,"quote":"When the rule and the room disagree, believe the room.","bare":true,"attribution":"Aiden Kerr","means":"Your own eyes back. The rules in this book are averages taken across three years and a whole district. You are standing in one place, looking at one particular thing that none of us has seen. Where the ground in front of you plainly contradicts the page, the ground is the better evidence. It knows about today.","use":"Aiden broke chapter eight's rules to bring two children in through the back field at dusk without meeting anybody at the meeting place first, and by every line of that chapter he was wrong. They are both still here. He also, in the same month, trusted a room over a rule and lost a coat, a bag and a fortnight of food. The room is better evidence. It is not good evidence.","ch":11},{"n":97,"quote":"Write down what you broke and what happened.","bare":true,"attribution":"Joyce Attwell","means":"A book that improves. Every rule in here came from somebody keeping a record, and the exceptions are more informative than the rules. A rule that gets broken four times a year with no consequence is not a rule. It is a habit with a uniform on. Joyce kept the log at Whitewell in a school exercise book.","use":"The same argument every year and nothing learned from any of it. Half the entries in this book are in the shape they are because somebody broke them and wrote down why. Three were removed when the log made it clear they had never once been right.","ch":11},{"n":98,"quote":"Four of these are not for breaking.","bare":true,"attribution":"the Hillfoot parlour door","means":"A floor. Everything in this book is negotiable except four things, and I have chosen them by looking at the ground behind the chapel and not by reasoning about it. Boil the water. Keep the second door. Talk from a distance before anybody moves. And no decision about a human being gets made by one person in a hurry.","use":"These are the four where the cost of being wrong lands on somebody who did not make the decision, and that is the whole basis for the list. Break any of the other ninety-five when the room tells you to. Break these when you have run out of ways of being a person, and not before.","ch":11},{"n":99,"quote":"Put this down and go and live.","bare":true,"attribution":"Nell Shackleton","means":"The point of the exercise. Nell is nineteen now. She has read this list more carefully than anybody and she is scathing about it, and her objection is the correct one. It is a book about not dying, and there is nothing in it about anything else. She has a garden that is not a food garden. She is teaching two children to swim in a river that four of these rules would keep them out of.","use":"Ninety-eight rules will get a household through a winter. They will not give anybody a reason to want the spring. I have watched people learn all of this and keep every line of it, and become careful, and quiet, and unbeatable. By the third year there was nothing left inside the wall except the arrangements for staying alive. That is not survival. It is a slower version of the other thing. Learn the ninety-eight. Then close the book, because it is a list of ways not to die and you were not put here to spend your life reading one.","ch":11}]}],"index":[{"name":"Aiden Kerr","letter":"A","items":[{"n":12,"quote":"Everything you carry has to go six miles uphill.","ch":2,"q":""},{"n":24,"quote":"Metal on stone carries further than a voice.","ch":3,"q":""},{"n":51,"quote":"Cache in three places and never all of it anywhere.","ch":6,"q":""},{"n":59,"quote":"Upstairs is a trap with a view.","ch":7,"q":""},{"n":68,"quote":"A group that will not give you a name will not give you anything else.","ch":8,"q":""},{"n":81,"quote":"You are allowed to leave.","ch":9,"q":""},{"n":85,"quote":"Two pairs of dry socks are a survival stock.","ch":10,"q":""},{"n":96,"quote":"When the rule and the room disagree, believe the room.","ch":11,"q":""}]},{"name":"Bibi Farooq","letter":"B","items":[{"n":36,"quote":"A dirty person who is drinking beats a clean one who is not.","ch":4,"q":""},{"n":38,"quote":"Clean water and pressure beat every ointment in the house.","ch":5,"q":""},{"n":40,"quote":"Antibiotics are a course or they are nothing.","ch":5,"q":""},{"n":43,"quote":"Fever is a clock. Start it at the first shiver.","ch":5,"q":""},{"n":52,"quote":"Fat is the thing you run out of.","ch":6,"q":""}]},{"name":"the Bracewell standing orders","letter":"B","items":[{"n":58,"quote":"Cut the sightlines before you build anything.","ch":7,"q":""},{"n":65,"quote":"Never meet anybody at your own gate.","ch":8,"q":""},{"n":73,"quote":"Write the rules down before you need them, and put them where they can be read.","ch":9,"q":""},{"n":95,"quote":"Distrust anybody who has never been wrong.","ch":11,"q":""}]},{"name":"Colm Reidy","letter":"C","items":[{"n":16,"quote":"Have a second destination, and tell nobody outside the house what it is.","ch":2,"q":""},{"n":19,"quote":"Assume every sound you make travels twice as far as you think.","ch":3,"q":""},{"n":32,"quote":"Rain is the cheapest water you will ever have.","ch":4,"q":""}]},{"name":"Deniz Aksoy","letter":"D","items":[{"n":4,"quote":"Take the shoes, not the photographs.","ch":1,"q":""},{"n":11,"quote":"Leave in daylight or not at all.","ch":2,"q":""},{"n":23,"quote":"Never run where you can walk, and never walk where you can wait.","ch":3,"q":""},{"n":49,"quote":"Hunger makes bad plans look reasonable. Eat before you decide.","ch":6,"q":""},{"n":57,"quote":"A wall you cannot watch is a wall you do not have.","ch":7,"q":""},{"n":62,"quote":"Do not fortify what you cannot leave.","ch":7,"q":""},{"n":64,"quote":"Talk first, from a distance, with something solid between you.","ch":8,"q":""},{"n":74,"quote":"Somebody has the final word in an emergency, and everybody agrees who before there is one.","ch":9,"q":""},{"n":82,"quote":"Wet kills. Cold only helps it.","ch":10,"q":""},{"n":94,"quote":"Two of you have to agree. One of you can always keep it.","ch":11,"q":""}]},{"name":"Elin Pryce","letter":"E","items":[{"n":15,"quote":"A vehicle is a loud room with windows.","ch":2,"q":""},{"n":17,"quote":"Go back for the animals once.","ch":2,"q":""},{"n":22,"quote":"A dog is a decision, not a companion.","ch":3,"q":""},{"n":33,"quote":"Never drink from still water, whatever it looks like.","ch":4,"q":""},{"n":41,"quote":"Teeth will take more of you than anything with teeth.","ch":5,"q":""},{"n":50,"quote":"Learn three wild foods properly instead of thirty badly.","ch":6,"q":""},{"n":88,"quote":"Nobody travels alone between December and March.","ch":10,"q":""}]},{"name":"the Gisburn stock book","letter":"G","items":[{"n":47,"quote":"Salt is worth more than ammunition.","ch":6,"q":""},{"n":53,"quote":"A garden sown in March feeds you in August, and not one day sooner.","ch":6,"q":""},{"n":87,"quote":"Do the outside jobs in November.","ch":10,"q":""},{"n":93,"quote":"A rule you learned in the first winter is about the first winter.","ch":11,"q":""}]},{"name":"Hanna Volk","letter":"H","items":[{"n":45,"quote":"You are allowed to stop treating and start comforting.","ch":5,"q":""},{"n":70,"quote":"Nobody tells the same story twice unless they have rehearsed it.","ch":8,"q":""},{"n":77,"quote":"Say the bad news at breakfast.","ch":9,"q":""},{"n":89,"quote":"Watch for whoever has gone quiet.","ch":10,"q":""}]},{"name":"the Hillfoot parlour door","letter":"H","items":[{"n":1,"quote":"Believe it on the first day, not the third.","ch":1,"q":""},{"n":28,"quote":"Boil it.","ch":4,"q":""},{"n":55,"quote":"Two doors, always.","ch":7,"q":""},{"n":98,"quote":"Four of these are not for breaking.","ch":11,"q":""}]},{"name":"Joyce Attwell","letter":"J","items":[{"n":5,"quote":"Write down where you have gone and leave it where they will look.","ch":1,"q":""},{"n":13,"quote":"Take the map, not the phone.","ch":2,"q":""},{"n":27,"quote":"Keep something loud that you are allowed to do.","ch":3,"q":""},{"n":67,"quote":"Believe the children.","ch":8,"q":""},{"n":76,"quote":"Everybody works, including the ones who cannot.","ch":9,"q":""},{"n":90,"quote":"You are allowed to spend the winter doing nothing.","ch":10,"q":""},{"n":97,"quote":"Write down what you broke and what happened.","ch":11,"q":""}]},{"name":"the Long Preston roadblock","letter":"L","items":[{"n":6,"quote":"Get off the main roads before dark on the first night.","ch":1,"q":""}]},{"name":"Marta Ellison","letter":"M","items":[{"n":3,"quote":"Do not go to the hospital.","ch":1,"q":""},{"n":29,"quote":"Two containers, and they never touch.","ch":4,"q":""},{"n":31,"quote":"Wash your hands before you eat, every time, with no exceptions and no soap.","ch":4,"q":""},{"n":37,"quote":"Every wound is dirty. Treat it as dirty.","ch":5,"q":""},{"n":39,"quote":"Draw a line round the redness and write the time on the skin.","ch":5,"q":""},{"n":72,"quote":"Take somebody in, or admit what you are becoming.","ch":8,"q":""},{"n":92,"quote":"Break a rule for a person. Never for a thing.","ch":11,"q":""}]},{"name":"Nell Shackleton","letter":"N","items":[{"n":9,"quote":"You are allowed to decide it is nothing and go home.","ch":1,"q":""},{"n":54,"quote":"Keep one thing back that is only for pleasure.","ch":6,"q":""},{"n":99,"quote":"Put this down and go and live.","ch":11,"q":""}]},{"name":"Ruth Cadogan","letter":"R","items":[{"n":10,"quote":"Decide your trigger before you need it, and write it down.","ch":2,"q":""},{"n":20,"quote":"Cook before dusk.","ch":3,"q":""},{"n":34,"quote":"Put the water on a rota and never let one person own it.","ch":4,"q":""},{"n":44,"quote":"Whoever is nursing eats and sleeps first.","ch":5,"q":""},{"n":46,"quote":"Eat the perishable first, in order, and write the order on the wall.","ch":6,"q":""},{"n":63,"quote":"The place is worth less than the people in it, and you will not believe that when it matters.","ch":7,"q":""},{"n":66,"quote":"Feed them outside the wall.","ch":8,"q":""},{"n":75,"quote":"The person who holds the food does not also hold the rota.","ch":9,"q":""},{"n":86,"quote":"Sleep small and sleep together.","ch":10,"q":""},{"n":91,"quote":"Know which rule you are breaking, and say it out loud first.","ch":11,"q":""}]},{"name":"Samuel Oyelaran","letter":"S","items":[{"n":2,"quote":"Fill everything that holds water before the pressure goes.","ch":1,"q":""},{"n":26,"quote":"Smoke is a letter with your address on it.","ch":3,"q":""},{"n":30,"quote":"Site the latrine downhill of the water and twice as far away as feels necessary.","ch":4,"q":""},{"n":35,"quote":"Filter for grit, boil for life, and do not confuse the two.","ch":4,"q":""},{"n":56,"quote":"Choose ground for its water first and its walls second.","ch":7,"q":""},{"n":79,"quote":"Count the stores in front of two people, on a fixed day.","ch":9,"q":""},{"n":83,"quote":"Heat the person, then the bed, then the room. Never the house.","ch":10,"q":""}]},{"name":"the Settle school log","letter":"S","items":[{"n":61,"quote":"Fire ends places. Plan for it before it is on you.","ch":7,"q":""},{"n":78,"quote":"A grievance kept for a fortnight is no longer about the thing.","ch":9,"q":""}]},{"name":"the six o'clock radio","letter":"S","items":[{"n":7,"quote":"The radio is worth more than the car by the third day.","ch":1,"q":""}]},{"name":"Tom Shackleton","letter":"T","items":[{"n":8,"quote":"Lock the door behind you even when you are coming straight back.","ch":1,"q":""},{"n":14,"quote":"Siphon on the way out, not on the way back.","ch":2,"q":""},{"n":18,"quote":"Staying is a decision too, and for some people it is the right one.","ch":2,"q":""},{"n":25,"quote":"Fix the hinge before it needs fixing.","ch":3,"q":""},{"n":48,"quote":"Never eat the seed.","ch":6,"q":""},{"n":60,"quote":"Make every route in noisy on purpose.","ch":7,"q":""},{"n":71,"quote":"Never let anybody see the whole of what you have.","ch":8,"q":""},{"n":80,"quote":"Nobody watches alone for more than two hours.","ch":9,"q":""},{"n":84,"quote":"Cut your wood a year before you burn it.","ch":10,"q":""}]},{"name":"the Whitewell list","letter":"W","items":[{"n":21,"quote":"One lamp, one room, and cover the window before you strike the match.","ch":3,"q":""},{"n":42,"quote":"A bite is not a diagnosis, and it is never yours to pass sentence on.","ch":5,"q":""},{"n":69,"quote":"Trade at distance, in the open, in daylight, or not at all.","ch":8,"q":""}]}],"blurb":["Seven rules were nailed to the door of a milking parlour in the first spring. Boil it. Don't shout. Two doors. By the third winter there were ninety-nine, and the man keeping the list had stopped writing down anything he had not watched cost somebody something.","Ninety-nine rules for staying alive after the outbreak. Each one carries the name of whoever paid for it, what keeping it buys you, and, in the paragraph that matters, what ignoring it costs.","The rules contradict each other, and the book says so. One tells you to keep moving and never sleep twice in the same building. Another tells you to choose ground and hold it until the frost. One says take the stranger in. Another says never open the gate after dark, whatever you can hear on the other side of it. Both halves of every pair were written by people who were right where they stood.","The last chapter is about when to break them. It is the shortest chapter in the book and the reason for the other ten."],"intro":"<p>This is a list of ninety-nine rules. I invented none of them. Every one was paid for by somebody, and where I know who paid, I have put the name underneath.</p><p>It began as a sheet of paper nailed to the door of the milking parlour at Hillfoot, in the first spring, with seven rules on it in a hand that was not mine. Boil it. Don&#x27;t shout. Two doors. I do not know who wrote them and I have never met anybody who did. The sheet is gone now, along with the parlour and most of the people who walked past it every morning without reading it, but the seven are all still in here, three of them word for word, and not one of them has needed correcting in three years.</p><p>Each entry is built the same way. The rule, in as few words as it can be carried in. Underneath it, whoever it came from. Then two paragraphs: what keeping it buys you, and what ignoring it costs.</p><p>The second paragraph is the reason for the book. A rule with only the first half is a slogan, and slogans get you through about a fortnight. Anybody can tell you to boil your water. What makes a person actually do it, at two in the morning, in the rain, when the stove is outside and they are already ill, is knowing precisely what the alternative looks like on the fourth day, in a room with no plumbing, in front of their children. I have written those paragraphs plainly and without softening them. Skip them if you like. They are what the rest of the book is standing on.</p><p>You will find that the rules contradict each other. Rule eighteen tells you that staying is a decision, and that a man of seventy with bad hips should never take the road. Rule sixty-three tells you that the place is worth less than the people in it, and that you must be ready to walk out of three years of work in ten minutes. Both are true. They were written by different people, in different country, in different years of this, and each of them was right about the ground they were standing on. Where two rules disagree I have left them disagreeing and said so underneath. A list that never argues with itself has been tidied until it is useless, and I would rather hand you the argument than the tidy version.</p><p>The names are real to me and will mean nothing to you. Marta Ellison was a district nurse out of Settle who taught half the valley to clean a wound properly and then died of something a hospital would have shrugged off. The Bracewell standing orders were nine lines of gloss paint on the side of a grain store, and whoever painted them understood people better than they understood the dead. The Whitewell list came off a school noticeboard with the drawing pins still in it. Some of the sources in the index are camps, some are documents, and two of them are single sentences shouted across a river by somebody I never saw again. The index at the back tells you which is which.</p><p>There is nothing in here about how it started. I do not know how it started, and neither does anybody I have met whose word I would take on the weather.</p><p>The chapters are arranged by the trouble you are in, not by the order things happened. Nobody comes to a book like this at leisure. They come to it because there is a noise downstairs, or a wound that has gone hot, or a stranger at the gate with a child, and they need the nine pages that bear on that and none of the others. Chapter one is the first hour. Chapter eleven is three winters in. If you are somewhere in the middle, start at the chapter that names your problem and read the rest later, if there is a later.</p><p>One warning, and then I will get out of the way. A list like this turns dangerous at the point where people stop reading it as advice and start reciting it as law. I have watched that happen. It ends with somebody quoting rule forty at a woman who is asking for the last of the tablets for her husband, and the terrible thing is that the rule was correct and the room was still wrong. Chapter eleven is about when to break these, and it is the reason for the other ten.</p><p>Nine of these rules will not apply to your ground. I cannot tell you which nine. Learn the other ninety and you will work it out.</p>","note":"<p>This book is fiction, and it is worth stepping out from behind the narrator to say so plainly.</p><p>There was no outbreak. Hillfoot, Bracewell and Whitewell are invented, along with everybody named in the index and every rule they are credited with. The valley is put together out of real country in the north of England and then bent wherever the story needed it bent. Nobody in these pages ever lived.</p><p>That matters more here than it would in an ordinary novel, because the book is shaped like a manual, and a manual invites you to use it. So: do not. The rules in here were written to be true inside their own world and to be repeated by people under pressure. They were not checked against medicine, hydrology, structural engineering or cold-weather physiology, and in several places I have kept a rule that is wrong in our world because it is the kind of thing survivors would believe, and believing it is part of the story. A reader who cannot tell which ones those are should assume it is all of them.</p><p>If you want the real version, it exists and it is better than this. A first aid course from any recognised provider will teach you more about a wound in one afternoon than the whole of chapter five. Your national flood, fire and civil emergency guidance is written by people who have studied actual disasters, and it is free. Water treatment, hypothermia and food storage are all well documented by public health bodies whose interest is in you not dying. None of them will entertain you. All of them are correct, which this is not trying to be.</p><p>On the shape of the thing. The entries argue with each other on purpose. Advice that never contradicts itself has been simplified into decoration, because real situations differ and the honest form of guidance is a rule plus the conditions it holds under. Every chapter ends with a rule that lets you off: permission to stay put, to keep the grief, to leave the wound alone, to break the list. That was the hardest part to write and the part readers of the drafts kept naming as the reason they believed the rest.</p><p>On the sources. Attributing invented rules to invented people is a device, and it does one job: it keeps the book from sounding like an authority. Every rule in here is somebody&#x27;s opinion, formed in bad light, on incomplete information, by a person who was frightened. The index of sources is at the back so you can see how thin the evidence is. Three of the most confident rules in the book come from the same man, and chapter eleven tells you what happened to him.</p>","introTitle":"Introduction","noteTitle":"A Note on This Book","indexTitle":"Index of Sources"}</script>
+<script>
+(function(){
+"use strict";
+var BOOK = JSON.parse(document.getElementById("book-data").textContent);
+var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+var stage = document.getElementById("stage");
+var camera = document.getElementById("camera");
+var book = document.getElementById("book");
+
+function emph(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/(^|[^\w*])\*(?!\s)(.+?)(?<!\s)\*(?!\w)/g,'$1<em>$2</em>');}
+// Several paragraphs in one gloss means quoted material, a letter say, so
+// it is set ranged left and spaced instead of as a block of commentary.
+function paras(t){var ps=String(t).split('||').map(function(p){return p.trim();}).filter(Boolean);var c=ps.length>1?' class="v"':'';return ps.map(function(p){return '<p'+c+'>'+emph(p)+'</p>';}).join('');}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+function pad(n){return n<10?"00"+n:n<100?"0"+n:""+n;}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+function store(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function recall(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+
+var ALL=[];
+BOOK.chapters.forEach(function(ch){ch.entries.forEach(function(e){
+  ALL.push(Object.assign({chTitle:ch.title},e));});});
+
+/* ---------- the whole book as one flowed document ---------- */
+function entryHTML(e){
+  var q = e.bare ? "<em>"+esc(e.quote)+"</em>"
+    : '<span class="mk">\u201C</span>'+esc(e.quote)+'<span class="mk">\u201D</span>';
+  return '<article class="entry" id="e'+e.n+'"><div class="entry__head">'+
+    '<div class="entry__n">'+pad(e.n)+'</div>'+
+    '<blockquote class="entry__quote">'+q+'</blockquote>'+
+    '<div class="entry__attr">'+esc(e.attribution)+'</div></div>'+
+    '<div class="gloss gloss--means"><div class="gloss__label">'+esc(BOOK.gloss[0])+'</div>'+paras(e.means)+'</div>'+
+    '<div class="gloss gloss--use"><div class="gloss__label">'+esc(BOOK.gloss[1])+'</div>'+paras(e.use)+'</div>'+
+    '</article>';
+}
+var FLOW_HTML = (function(){
+  var h = '<div class="ch-head ch-head--first plain" id="c-intro"><h2>'+esc(BOOK.introTitle)+'</h2></div>'+
+          '<div class="plain">'+BOOK.intro+'</div>';
+  var lastPart = null;
+  BOOK.chapters.forEach(function(ch){
+    if(ch.part !== lastPart){
+      lastPart = ch.part;
+      h += '<div class="part-open" id="p-'+ch.partRoman+'"><div class="r">'+ch.partRoman+'</div>'+
+           '<div class="n">Part '+ch.partRoman+' · '+esc(ch.partName)+'</div></div>';
+    }
+    h += '<div class="ch-head" id="c'+ch.n+'"><div class="ch-eyebrow">Part '+ch.partRoman+
+         ' · '+esc(ch.partName)+' · <b>Chapter '+ch.n+'</b></div><h2>'+esc(ch.title)+'</h2></div>'+
+         '<div class="ch-open">'+ch.opening+'</div>'+
+         ch.entries.map(entryHTML).join("");
+  });
+  h += '<div class="ch-head plain" id="c-note"><h2>'+esc(BOOK.noteTitle)+'</h2></div>'+
+       '<div class="plain">'+BOOK.note+'</div>';
+  h += '<div class="ch-head plain" id="c-index"><h2>'+esc(BOOK.indexTitle)+'</h2></div><div class="idx">';
+  var letter = null;
+  BOOK.index.forEach(function(s){
+    if(s.letter !== letter){
+      letter = s.letter;
+      h += '<div class="idx__letter">'+(letter === "\u00b6" ? "Proverbs &amp; anonymous" : letter)+'</div>';
+    }
+    h += '<div class="idx__src"><b>'+esc(s.name)+'</b>'+
+      s.items.map(function(i){
+        return '<span class="idx__i">'+pad(i.n)+' \u201C'+esc(i.quote)+'\u201D'+
+          (i.q ? ' <i>('+esc(i.q)+')</i>' : '')+'</span>';
+      }).join("")+'</div>';
+  });
+  h += '</div>';
+  return h;
+})();
+
+/* ---------- geometry ---------- */
+var G = {ph:0,pw:0,m:0,vm:0,T:30,fit:1,padX:0,padY:0};
+var STACK = 18;
+var S = {spread:0,pages:1,open:false,rx:-14,ry:0,zoom:1,panX:0,panY:0,
+         mark:null,ribbonDrag:false,turning:null,focus:0};
+var faces = {};
+var starts = {};
+
+function el(cls,parent,css){
+  var d=document.createElement("div"); d.className=cls||"";
+  if(css) d.style.cssText=css; (parent||book).appendChild(d); return d;
+}
+function makeFace(cls){
+  var f = el("face "+cls, null,
+    "width:"+G.pw+"px;height:"+G.ph+"px;top:"+(-G.ph/2)+"px;");
+  f.innerHTML = '<div class="pgwrap"><div class="face__flow pg" style="width:'+G.pw+'px;padding:'+G.vm+'px '+G.m+'px;'+
+    'height:'+G.ph+'px;column-width:'+(G.pw-2*G.m)+'px;column-gap:'+(2*G.m)+'px">'+FLOW_HTML+'</div>'+
+    '<div class="face__rule"></div><div class="runhead"></div><div class="folio"></div></div>'+
+    '<div class="face__gutter"></div>';
+  return f;
+}
+
+// The page is a fixed object, like a printed one: the same words fall on page
+// seven whatever you are reading it on. The screen only changes how big the
+// book is drawn, never how the type is set.
+var PAGE = {w:430, h:628};
+
+/* A phone cannot show a whole spread at a size anyone would read. So on a
+   narrow screen the book is framed a page at a time and drawn twice as large.
+   The type is not re-set: page 41 holds the same words it holds on a laptop,
+   the camera simply sits closer and a swipe steps across the spread. */
+function fitView(){
+  var vw = window.innerWidth, vh = window.innerHeight;
+  // the controls sit above the book and the page number below it, so the
+  // height the book may take is the window less those two strips
+  var room = Math.max(vh - 72, vh*0.55);
+  var spread = Math.min(1, (vw*0.94)/(2*G.pw + G.T*2), room/G.ph);
+  var one    = Math.min(1, (vw*0.94)/(G.pw + G.T), room/G.ph);
+  var was = G.single;
+  // only when framing one page actually buys size: in landscape the height
+  // is the constraint, and halving the view would gain nothing
+  G.single = spread < 0.62 && one > spread * 1.15;
+  G.fit = G.single ? one : spread;
+  applyView();
+  var hint = document.getElementById("hint");
+  if(hint) hint.textContent = G.single
+    ? "Swipe to turn the page \u00b7 drag the desk to turn the book \u00b7 pinch to zoom"
+    : "Drag to turn the book \u00b7 drag a page corner to turn it \u00b7 scroll or pinch to zoom where you point";
+  if(was !== G.single && faces.verso) paint();
+}
+
+function layout(){
+  G.ph = PAGE.h;
+  G.pw = PAGE.w;
+  G.m  = Math.round(G.pw*0.105);
+  G.vm = Math.round(G.ph*0.075);
+  G.padX = Math.round(G.pw*0.10);
+  G.padY = Math.round(G.ph*0.22);
+  fitView();
+
+  book.innerHTML = "";
+  faces = {};
+
+  // back board and the two half blocks of pages
+  el("board board--back",null,"width:"+(G.pw+8)+"px;height:"+(G.ph+14)+"px;left:-4px;top:"+
+     (-G.ph/2-7)+"px;transform:translateZ("+(-G.T-10)+"px)");
+  var sp = el("spine",null,"width:"+(G.T+12)+"px;height:"+(G.ph+14)+"px;left:0;top:"+
+     (-G.ph/2-7)+"px;transform-origin:left center;transform:translateZ("+(-G.T-6)+
+     "px) rotateY(-90deg)");
+  sp.innerHTML = "<span>Lines Worth Keeping</span>";
+  faces.spine = sp;
+
+  // the page block: opaque leaves stacked through the depth, so the book reads
+  // as solid from any angle rather than hollow between the covers
+  faces.stackL = el("stack",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:"+(-G.pw)+
+    "px;top:"+(-G.ph/2)+"px");
+  faces.stackR = el("stack",null,"width:"+G.pw+"px;height:"+G.ph+"px;left:0;top:"+
+    (-G.ph/2)+"px");
+  for(var si=0; si<STACK; si++){
+    faces.stackL.appendChild(document.createElement("i"));
+    faces.stackR.appendChild(document.createElement("i"));
+  }
+
+  faces.verso = makeFace("face--verso"); faces.verso.style.left = (-G.pw)+"px";
+  faces.recto = makeFace("face--recto"); faces.recto.style.left = "0px";
+  faces.recto.insertAdjacentHTML("beforeend",'<div class="corner" id="corner"></div>');
+
+  var leaf = el("leaf",null,"width:"+(2*G.pw+2*G.padX)+"px;height:"+(G.ph+2*G.padY)+
+    "px;left:"+(-G.pw-G.padX)+"px;top:"+(-G.ph/2-G.padY)+"px;display:none");
+  faces.leaf = leaf;
+  faces.leafFront = makeFace("peel peel__base");
+  faces.leafBack  = makeFace("peel peel__flap");
+  leaf.appendChild(faces.leafFront);
+  leaf.appendChild(faces.leafBack);
+  faces.leafFront.style.display = "none";
+  faces.leafBack.style.display  = "none";
+  faces.leafFront.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
+  faces.leafBack.insertAdjacentHTML("beforeend",'<div class="peel__shade"></div>');
+
+  // the marker: a band that lies across the page it marks, and a tail that
+  // hangs below the book whether or not you are on that page
+  var rw = Math.max(9, Math.round(G.pw*0.034));
+  var tail = Math.round(G.ph*0.15);
+  G.rw = rw;
+  var rb = el("ribbon",null,"left:0;top:"+(-G.ph/2-5)+"px;width:"+rw+"px;height:"+
+    (G.ph+5+tail)+"px;transform:translateZ(2px) rotate(.5deg)");
+  rb.innerHTML = '<div class="ribbon__band" style="height:'+(G.ph+5)+'px"></div>'+
+                 '<div class="ribbon__tail" style="height:'+tail+'px"></div>';
+  rb.title = "Drag the marker on to a page to keep your place";
+  faces.ribbon = rb;
+
+  var front = el("board board--front",null,"width:"+(G.pw+8)+"px;height:"+(G.ph+14)+"px;left:0;top:"+
+     (-G.ph/2-7)+"px;transform:translateZ(6px)");
+  front.id = "front";
+  front.innerHTML =
+    '<div class="board__face" style="font-size:'+Math.round(G.pw*0.052)+'px">'+
+      '<div class="jacket">'+
+        '<div class="jacket__rule"></div><div class="jacket__rule jacket__rule--in"></div>'+
+        '<div class="jacket__prick"></div>'+
+        '<div class="jacket__eyebrow">A commonplace book</div>'+
+        '<div class="jacket__body"><div class="jacket__title">Lines Worth<br>Keeping</div>'+
+        '<hr class="jacket__hr"><p class="jacket__sub">'+esc(BOOK.subtitle)+'</p>'+
+        (BOOK.author ? '<p class="jacket__by">'+esc(BOOK.author)+'</p>' : '')+'</div>'+
+        '<div class="jacket__foot">315 entries · 21 chapters</div>'+
+      '</div></div>'+
+    '<div class="board__face board__face--in"></div>';
+  faces.front = front;
+
+  // page count, measured from one of the flows
+  var probe = faces.recto.querySelector(".face__flow");
+  S.pages = Math.max(2, Math.round(probe.scrollWidth / G.pw));
+  starts = {};
+  ["c-intro","c-note","c-index"].concat(BOOK.chapters.map(function(c){return "c"+c.n;}))
+    .forEach(function(id){
+      var n = probe.querySelector("#"+CSS.escape(id));
+      if(n) starts[id] = Math.floor((n.offsetLeft+1)/G.pw);
+    });
+  paint();
+}
+
+function pageOf(node){ return Math.floor((node.offsetLeft+1)/G.pw); }
+
+function setFace(f, idx){
+  var flow = f.querySelector(".face__flow");
+  flow.style.transform = "translateX("+(-idx*G.pw)+"px)";
+  var blank = idx < 0 || idx >= S.pages;
+  flow.style.visibility = blank ? "hidden" : "visible";
+  var rule = f.querySelector(".face__rule");
+  var rh = f.querySelector(".runhead"), fo = f.querySelector(".folio");
+  var verso = f.classList.contains("face--verso") || f.classList.contains("face--back");
+  rule.style.cssText = "top:"+G.vm+"px;height:"+(G.ph-2*G.vm)+"px;"+
+    (verso ? "right:"+(G.m-13)+"px" : "left:"+(G.m-13)+"px")+
+    ";display:"+(blank?"none":"block");
+  rh.style.cssText = "top:"+Math.round(G.vm/2-5)+"px;left:"+G.m+"px;width:"+(G.pw-2*G.m)+
+    "px;text-align:"+(verso?"left":"right")+";display:"+(blank?"none":"block");
+  fo.style.cssText = "bottom:"+Math.round(G.vm/2-5)+"px;left:0;width:"+G.pw+
+    "px;text-align:center;display:"+(blank?"none":"block");
+  rh.textContent = blank ? "" : runningHead(idx);
+  fo.textContent = blank ? "" : String(idx+1);
+}
+
+function runningHead(idx){
+  var best = "Lines Worth Keeping";
+  BOOK.chapters.forEach(function(c){
+    var s = starts["c"+c.n];
+    if(s !== undefined && s <= idx) best = "Ch " + c.n + " · " + c.title;
+  });
+  if(starts["c-note"] !== undefined && starts["c-note"] <= idx) best = BOOK.noteTitle;
+  return best;
+}
+
+function paint(){
+  var L = S.spread*2, R = L+1;
+  setFace(faces.verso, L);
+  setFace(faces.recto, R);
+  var t = S.pages ? S.spread/Math.max(1,Math.ceil(S.pages/2)) : 0;
+  [["stackL", S.open ? t : 0], ["stackR", S.open ? 1-t : 1]].forEach(function(pair){
+    var node = faces[pair[0]], frac = pair[1];
+    node.style.display = frac > 0.02 ? "block" : "none";
+    var d = Math.max(2, G.T*Math.max(0.05, frac));
+    Array.prototype.forEach.call(node.children,function(sl,i){
+      sl.style.transform = "translateZ("+(-1 - (i+1)*(d/STACK)).toFixed(2)+"px)";
+    });
+  });
+  faces.verso.style.display = S.open ? "block" : "none";
+  faces.recto.style.display = S.open ? "block" : "none";
+  faces.spine.style.display = S.open ? "none" : "block";
+  if(!S.coverAnim && !(S.turning && S.turning.cover)){
+    faces.front.style.transform = coverTransform(S.open ? -178 : 0);
+  }
+  var marked = S.mark === null ? -1 : Math.floor(S.mark/2);
+  var onMark = S.open && marked === S.spread;
+  if(!S.ribbonDrag){
+    var x;
+    if(onMark) x = (S.mark % 2 === 1) ? Math.round(G.pw*0.17)
+                                      : -Math.round(G.pw*0.17) - G.rw;
+    else x = Math.round(G.pw*0.045);
+    faces.ribbon.style.left = x + "px";
+  }
+  faces.ribbon.querySelector(".ribbon__band").style.display = onMark ? "block" : "none";
+
+  if(S.open){
+    var want = "#p" + (S.spread*2 + 1 + (G.single ? S.focus : 0));
+    if(location.hash !== want){
+      try{ history.replaceState(null, "", want); }catch(e){}
+    }
+  }
+  document.getElementById("where").textContent = !S.open
+    ? "Closed \u00b7 drag the cover to open"
+    : G.single
+      ? "Page " + Math.min(L+1+S.focus, S.pages) + " of " + S.pages
+      : "Pages " + (L+1) + "\u2013" + Math.min(R+1,S.pages) + " of " + S.pages;
+  applyView();
+  store("lwk3:spread", String(S.spread));
+  store("lwk3:focus", String(S.focus));
+}
+
+function applyView(){
+  var lim = Math.max(window.innerWidth, window.innerHeight) * 0.9;
+  S.panX = clamp(S.panX, -lim, lim);
+  S.panY = clamp(S.panY, -lim, lim);
+  camera.style.transform = "translate("+S.panX.toFixed(1)+"px,"+S.panY.toFixed(1)+
+    "px) scale("+(G.fit*S.zoom).toFixed(3)+")";
+  var shift = !S.open ? -G.pw/2
+            : G.single ? (S.focus ? -G.pw/2 : G.pw/2)
+            : 0;
+  book.style.transform = "translateX("+shift+"px) rotateX("+S.rx.toFixed(2)+
+    "deg) rotateY("+S.ry.toFixed(2)+"deg)";
+}
+
+/* ---------- turning: a fold across the perpendicular bisector ---------- */
+/* Dragging the corner C to a point P folds the sheet along the line that is
+   equidistant from both. Everything past that line is the reflection of the
+   sheet in it, which is what paper actually does, and it mirrors the reverse
+   side's printing exactly as a real folded corner does. */
+function reflectAcross(M, n){
+  var a = 1 - 2*n[0]*n[0], b = -2*n[0]*n[1];
+  var c = b,               d = 1 - 2*n[1]*n[1];
+  var k = 2*(M[0]*n[0] + M[1]*n[1]);
+  return "matrix("+a.toFixed(5)+","+b.toFixed(5)+","+c.toFixed(5)+","+
+         d.toFixed(5)+","+(k*n[0]).toFixed(2)+","+(k*n[1]).toFixed(2)+")";
+}
+/* Paper does not crease along a straight line, it bows. Both halves are cut
+   with the SAME curve, so they still tile exactly and the reflection stays
+   true, but the seam reads as a bend rather than a fold. */
+function foldEdge(W, H, M, n, side, amp){
+  var d = [-n[1], n[0]];
+  var L = Math.hypot(W, H) * 1.7, BIG = L;
+  var pts = [], N = 22, span = L * 0.46;
+  for(var i = 0; i <= N; i++){
+    var s = -L + 2*L*(i/N);
+    var k = Math.max(0, 1 - (s/span)*(s/span));
+    var b = -amp * k * k;                 // bows toward the corner being lifted
+    pts.push([M[0] + s*d[0] + b*n[0], M[1] + s*d[1] + b*n[1]]);
+  }
+  pts.push([M[0] + L*d[0] + side*BIG*n[0], M[1] + L*d[1] + side*BIG*n[1]]);
+  pts.push([M[0] - L*d[0] + side*BIG*n[0], M[1] - L*d[1] + side*BIG*n[1]]);
+  return "polygon(" + pts.map(function(q){
+    return q[0].toFixed(1)+"px "+q[1].toFixed(1)+"px"; }).join(",") + ")";
+}
+
+function beginTurn(dir){
+  if(S.turning) return false;
+  var L = S.spread*2;
+  if(dir > 0 && (L+2) >= S.pages) return false;
+  if(dir < 0 && S.spread === 0) return false;
+
+  var base = faces.leafFront, flap = faces.leafBack;
+  var x = G.padX + (dir > 0 ? G.pw : 0);
+  [base, flap].forEach(function(f){
+    f.style.left = x + "px";
+    f.style.top = G.padY + "px";
+    f.style.display = "block";
+    f.style.transform = "none";
+    f.style.clipPath = "none";
+  });
+  if(dir > 0){
+    setFace(base, L+1); setFace(flap, L+2); setFace(faces.recto, L+3);
+  }else{
+    setFace(base, L);   setFace(flap, L-1); setFace(faces.verso, L-2);
+  }
+  faces.leaf.style.display = "block";
+  // C is the free corner: the fore edge, at the foot of the page
+  S.turning = {dir:dir, C:[dir > 0 ? G.pw : 0, G.ph], p:[dir > 0 ? G.pw : 0, G.ph], t:0};
+  fold(0);
+  return true;
+}
+
+function fold(prog){
+  var T = S.turning; if(!T) return;
+  T.t = clamp(prog, 0, 1);
+  var W = G.pw, H = G.ph, dir = T.dir;
+  // the corner travels across the spread and a little upward, as a hand does
+  var cx = dir > 0 ? W - 2*W*T.t : 2*W*T.t;
+  var cy = H - Math.sin(Math.PI*T.t) * H*0.13;
+  T.p = [cx, cy];
+  var C = T.C;
+  var vx = cx - C[0], vy = cy - C[1], len = Math.hypot(vx, vy);
+  var base = faces.leafFront, flap = faces.leafBack;
+  var shB = base.querySelector(".peel__shade"), shF = flap.querySelector(".peel__shade");
+  if(len < 1){
+    base.style.clipPath = "none"; base.style.transform = "none";
+    flap.style.display = "none"; shB.style.opacity = "0";
+    return;
+  }
+  flap.style.display = "block";
+  var n = [vx/len, vy/len];
+  var M = [(C[0]+cx)/2, (C[1]+cy)/2];
+  // the bow is deepest mid-turn and flattens out at either end
+  var amp = 30 * Math.sin(Math.PI * clamp(T.t, 0, 1));
+  base.style.clipPath = foldEdge(W,H,M,n,1,amp);
+  flap.style.clipPath = foldEdge(W,H,M,n,-1,amp);
+  flap.style.transform = reflectAcross(M, n);
+  // shading reads as a cylinder: a soft core of shadow at the bend, falling
+  // away on both sides, rather than one hard edge
+  var deg = (Math.atan2(-n[0], n[1]) * 180/Math.PI).toFixed(1);
+  shB.style.background = "linear-gradient("+deg+"deg,rgba(0,0,0,.34) 0%," +
+    "rgba(0,0,0,.16) 6%,rgba(0,0,0,0) 20%)";
+  shB.style.opacity = (0.55*Math.sin(Math.PI*Math.min(1,T.t*1.4))+0.12).toFixed(2);
+  shF.style.background = "linear-gradient("+deg+"deg,rgba(255,255,255,.55) 0%," +
+    "rgba(255,255,255,.16) 9%,rgba(0,0,0,.10) 34%,rgba(0,0,0,.20) 100%)";
+  shF.style.opacity = "0.62";
+}
+
+function settleTurn(commit){
+  var T = S.turning; if(!T || T.anim) return;
+  var dir = T.dir, from = T.t, to = commit ? 1 : 0;
+  var t0 = performance.now(), ms = reduce.matches ? 1 : 420;
+  T.anim = true;
+  T.done = function(){
+    if(S.turning !== T) return;
+    fold(to);
+    faces.leafFront.style.display = "none";
+    faces.leafBack.style.display = "none";
+    faces.leaf.style.display = "none";
+    S.turning = null;
+    if(commit){
+      S.spread += dir;
+      if(G.single) S.focus = dir > 0 ? 0 : 1;
+    }
+    paint();
+  };
+  (function step(now){
+    if(S.turning !== T) return;
+    var u = clamp((now - t0)/ms, 0, 1);
+    var e = u < 0.5 ? 2*u*u : 1 - Math.pow(-2*u+2,2)/2;
+    fold(from + (to-from)*e);
+    if(u < 1){ T.raf = requestAnimationFrame(step); return; }
+    T.done();
+  })(t0);
+}
+// Let a settling turn be cut short, so pages can be taken quickly one after
+// another instead of each waiting on the last to finish.
+function finishTurnNow(){
+  var T = S.turning;
+  if(T && T.anim && T.done){
+    if(T.raf) cancelAnimationFrame(T.raf);
+    T.done();
+  }
+}
+function endTurn(commit){ settleTurn(commit); }
+function turnBy(dir){
+  if(!S.open) return;
+  finishTurnNow();
+  if(S.turning) return;
+  if(!beginTurn(dir)) return;
+  settleTurn(true);
+}
+// Frame the other page of the spread. A swipe slides across; a turn has
+// already carried the eye, so that one lands without the slide.
+function setFocus(f, slide){
+  if(!G.single || S.focus === f) return;
+  S.focus = f;
+  if(slide){
+    book.classList.add("is-shifting");
+    setTimeout(function(){ book.classList.remove("is-shifting"); }, 360);
+  }
+  paint();
+}
+// One step forward or back: on a narrow screen that is one page, otherwise
+// one spread.
+function stepBy(dir){
+  if(!S.open) return;
+  if(!G.single){ turnBy(dir); return; }
+  if(dir > 0 && S.focus === 0){ setFocus(1, true); return; }
+  if(dir < 0 && S.focus === 1){ setFocus(0, true); return; }
+  turnBy(dir);
+}
+
+/* ---------- opening and closing the covers ---------- */
+function coverTransform(angle){
+  var f = clamp(Math.abs(angle)/178, 0, 1);
+  var z = 6 - f * (G.T + 12);
+  return "translateZ(" + z.toFixed(1) + "px) rotateY(" + angle.toFixed(1) + "deg)";
+}
+function openBook(){
+  if(S.open) return;
+  S.coverAnim = true;
+  var f = faces.front;
+  f.style.transition = "transform .8s cubic-bezier(.32,.02,.2,1)";
+  f.style.transform = coverTransform(-178);
+  setTimeout(function(){ S.open = true; S.coverAnim = false; paint(); f.style.transition=""; }, 640);
+  store("lwk3:open","1");
+}
+function closeBook(){
+  if(!S.open) return;
+  S.open = false; S.spread = 0; S.coverAnim = true;
+  var f = faces.front;
+  f.style.transition = "none";
+  f.style.transform = coverTransform(-178);
+  paint();
+  requestAnimationFrame(function(){
+    f.style.transition = "transform .8s cubic-bezier(.32,.02,.2,1)";
+    f.style.transform = coverTransform(0);
+    setTimeout(function(){ f.style.transition=""; S.coverAnim = false; }, 820);
+  });
+  store("lwk3:open","0");
+}
+
+
+/* Zoom towards a point rather than the middle of the screen. The camera sits
+   at the centre and is transformed translate(pan) scale(s), so a point p on
+   the book lands at centre + pan + s*p. Holding the point under the cursor
+   still means pan' = d - (s'/s)(d - pan), where d is the cursor's offset from
+   the centre. */
+function stageCentre(){
+  var r = stage.getBoundingClientRect();
+  return [r.left + r.width/2, r.top + r.height/2];
+}
+function zoomAt(next, clientX, clientY){
+  next = clamp(next, 0.4, 4);
+  var c = stageCentre();
+  var dx = clientX - c[0], dy = clientY - c[1];
+  var k = next / S.zoom;
+  S.panX = dx - k * (dx - S.panX);
+  S.panY = dy - k * (dy - S.panY);
+  S.zoom = next;
+  applyView();
+  store("lwk3:zoom", String(S.zoom));
+}
+function zoomCentre(next){
+  var c = stageCentre();
+  zoomAt(next, c[0] + S.panX, c[1] + S.panY);
+}
+
+/* ---------- pointer: orbit, corner drag, cover drag ---------- */
+/* How far a finger has to travel to carry a page all the way over. It follows
+   the spread as it appears on screen, but never asks for more than the screen
+   can give: zoomed in, the book is wider than the window, and a turn that
+   wanted half a spread of travel could not be finished at all. */
+function dragSpan(){
+  var onScreen = (2*G.pw*G.fit*S.zoom) || 600;
+  var reach = Math.max(220, window.innerWidth * 0.45);
+  return Math.max(90, Math.min(onScreen, reach));
+}
+/* Speed is measured over the last 90ms of the drag rather than the last
+   event: browsers deliver moves in bursts, and two of them can carry the
+   same timestamp. */
+function trailSpeed(tr){
+  var last = tr[tr.length-1], i = tr.length-1;
+  while(i > 0 && last[1] - tr[i-1][1] < 90) i--;
+  var dt = last[1] - tr[i][1];
+  return dt > 0 ? (last[0] - tr[i][0])/dt : 0;
+}
+var drag = null;
+stage.addEventListener("pointerdown", function(ev){
+  if(ev.button && ev.button !== 1) return;
+  if(ev.target.closest(".hud,.sheet,.edge,.edge-y")) return;
+  stage.setPointerCapture(ev.pointerId);
+  var onFront = !S.open && ev.target.closest(".board--front");
+  if(S.turning && S.turning.anim) finishTurnNow();
+  var onRibbon = ev.target.closest(".ribbon__band,.ribbon__tail");
+  var onRecto = S.open && !onRibbon && ev.target.closest(".face--recto,.corner");
+  var onVerso = S.open && ev.target.closest(".face--verso");
+  var onPage = G.single && (onRecto || onVerso);
+  var wantsPan = ev.shiftKey || ev.button === 1;
+  drag = {x0:ev.clientX, y0:ev.clientY, rx:S.rx, ry:S.ry,
+          trail:[[ev.clientX, performance.now()]], v:0,
+          panX:S.panX, panY:S.panY,
+          ribX: parseFloat(faces.ribbon.style.left) || 0,
+          mode: wantsPan ? "pan" : onRibbon ? "ribbon"
+              : onFront ? "cover" : onPage ? "page"
+              : onRecto ? "fwd" : onVerso ? "back" : "orbit",
+          started:false};
+  stage.classList.add("is-grabbing");
+  document.getElementById("hint").style.opacity = "0";
+});
+stage.addEventListener("pointermove", function(ev){
+  if(!drag) return;
+  var dx = ev.clientX - drag.x0, dy = ev.clientY - drag.y0;
+  if(!drag.started && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+  drag.started = true;
+  // sideways speed at the moment of release, so a flick counts as a turn
+  drag.trail.push([ev.clientX, performance.now()]);
+  if(drag.trail.length > 12) drag.trail.shift();
+  drag.v = trailSpeed(drag.trail);
+  var span = dragSpan();
+  if(drag.mode === "ribbon"){
+    S.ribbonDrag = true;
+    faces.ribbon.classList.add("is-dragging");
+    var sc = (G.fit * S.zoom) || 1;
+    var nx = clamp(drag.ribX + dx/sc, -G.pw + 4, G.pw - G.rw - 4);
+    faces.ribbon.style.left = nx + "px";
+  }else if(drag.mode === "pan"){
+    S.panX = drag.panX + dx;
+    S.panY = drag.panY + dy;
+    applyView();
+  }else if(drag.mode === "orbit"){
+    S.ry = clamp(drag.ry + dx*0.32, -78, 78);
+    S.rx = clamp(drag.rx - dy*0.26, -62, 62);
+    applyView(); syncDials();
+  }else if(drag.mode === "cover"){
+    if(!S.turning && dx < -4){
+      S.turning = {cover:true};
+      S.coverAnim = true;
+      faces.front.style.transition = "none";
+    }
+    if(S.turning && S.turning.cover){
+      var a = -178*clamp(-dx/span,0,1);
+      faces.front.style.transform = coverTransform(a);
+      S.turning.angle = a;
+    }
+  }else if(drag.mode === "page"){
+    // one page at a time: a swipe either slides across the spread or, when
+    // there is nothing left to slide to, lifts the leaf
+    drag.dx = dx;
+    var want = dx < 0 ? 1 : -1;
+    var lifts = want > 0 ? S.focus === 1 : S.focus === 0;
+    if(lifts){
+      if(!S.turning && Math.abs(dx) > 4) beginTurn(want);
+      if(S.turning && !S.turning.cover && !S.turning.anim){
+        fold(want > 0 ? (-dx/span) : (dx/span));
+      }
+    }
+  }else{
+    var dir = drag.mode === "fwd" ? 1 : -1;
+    if(!S.turning){ if((dir>0 && dx<-4)||(dir<0 && dx>4)) beginTurn(dir); }
+    if(S.turning && !S.turning.cover && !S.turning.anim){
+      fold(dir > 0 ? (-dx/span) : (dx/span));
+    }
+  }
+});
+function releaseDrag(){
+  if(!drag) return;
+  stage.classList.remove("is-grabbing");
+  if(S.turning && S.turning.cover){
+    var a = S.turning.angle || 0;
+    var threw = drag.v < -0.35;
+    S.turning = null;
+    faces.front.style.transition = "transform .55s cubic-bezier(.32,.02,.2,1)";
+    if(Math.abs(a) > 55 || (threw && Math.abs(a) > 12)){
+      faces.front.style.transform = coverTransform(-178);
+      setTimeout(function(){ S.open = true; S.coverAnim = false; paint(); faces.front.style.transition=""; }, 470);
+      store("lwk3:open","1");
+    }else{
+      faces.front.style.transform = coverTransform(0);
+      setTimeout(function(){ S.coverAnim = false; }, 560);
+    }
+  }else if(S.turning){
+    // a third of the way carries it, and so does a flick, however short
+    var d = S.turning.dir;
+    var flick = d > 0 ? drag.v < -0.35 : drag.v > 0.35;
+    endTurn(S.turning.t > 0.34 || (flick && S.turning.t > 0.05));
+  }else if(drag.mode === "page" && drag.started){
+    var moved = drag.dx || 0;
+    var quick = Math.abs(drag.v) > 0.35 && (drag.v < 0) === (moved < 0);
+    if(Math.abs(moved) > dragSpan()*0.16 || quick) setFocus(moved < 0 ? 1 : 0, true);
+  }else if(drag.mode === "ribbon"){
+    faces.ribbon.classList.remove("is-dragging");
+    if(drag.started && S.open){
+      // it stays on whichever page you let go over
+      var at = parseFloat(faces.ribbon.style.left) || 0;
+      var side = (at + G.rw/2) < 0 ? 0 : 1;
+      S.mark = S.spread*2 + side;
+      store("lwk3:mark", String(S.mark));
+    }else if(!drag.started){
+      if(S.mark !== null && Math.floor(S.mark/2) !== S.spread) goToPage(S.mark);
+      else if(S.mark === null && S.open){
+        S.mark = S.spread*2 + 1;
+        store("lwk3:mark", String(S.mark));
+      }
+    }
+    S.ribbonDrag = false;
+    paint();
+  }else if(!drag.started && drag.mode === "cover"){
+    openBook();
+  }
+  drag = null;
+}
+stage.addEventListener("pointerup", releaseDrag);
+stage.addEventListener("pointercancel", releaseDrag);
+
+stage.addEventListener("wheel", function(ev){
+  ev.preventDefault();
+  zoomAt(S.zoom * (ev.deltaY > 0 ? 0.9 : 1.1), ev.clientX, ev.clientY);
+}, {passive:false});
+
+// Pinch: scale about the midpoint of the two fingers, and let that midpoint
+// carry the book with it, so two fingers both zoom and pan.
+var pts = {}, pinch = null;
+function midOf(a, b){ return [(a[0]+b[0])/2, (a[1]+b[1])/2]; }
+stage.addEventListener("pointerdown", function(ev){
+  pts[ev.pointerId] = [ev.clientX, ev.clientY];
+});
+stage.addEventListener("pointermove", function(ev){
+  if(!(ev.pointerId in pts)) return;
+  pts[ev.pointerId] = [ev.clientX, ev.clientY];
+  var ids = Object.keys(pts);
+  if(ids.length !== 2){ pinch = null; return; }
+  drag = null;
+  var a = pts[ids[0]], b = pts[ids[1]];
+  var dist = Math.hypot(a[0]-b[0], a[1]-b[1]);
+  var mid = midOf(a, b);
+  if(!pinch){
+    pinch = {dist:dist, zoom:S.zoom, mid:mid, pan:[S.panX, S.panY], c:stageCentre()};
+    return;
+  }
+  var next = clamp(pinch.zoom * (dist / pinch.dist), 0.4, 4);
+  var k = next / pinch.zoom;
+  var d0x = pinch.mid[0] - pinch.c[0], d0y = pinch.mid[1] - pinch.c[1];
+  S.panX = (mid[0] - pinch.c[0]) - k * (d0x - pinch.pan[0]);
+  S.panY = (mid[1] - pinch.c[1]) - k * (d0y - pinch.pan[1]);
+  S.zoom = next;
+  applyView();
+  store("lwk3:zoom", String(S.zoom));
+});
+function dropPt(ev){
+  delete pts[ev.pointerId];
+  if(Object.keys(pts).length < 2) pinch = null;
+}
+stage.addEventListener("pointerup", dropPt);
+stage.addEventListener("pointercancel", dropPt);
+
+/* ---------- controls ---------- */
+var dialX = document.getElementById("dial-x");   // bottom edge: turns the book
+var dialY = document.getElementById("dial-y");   // right edge: tilts the book
+var edgeRead = document.getElementById("edge-read");
+var readTimer;
+
+function sizeEdges(){
+  var wrap = document.querySelector(".edge-y");
+  if(wrap) dialY.style.width = wrap.clientHeight + "px";
+}
+function syncDials(){
+  dialX.value = Math.round(S.ry);
+  // the vertical slider reads upward, and looking from higher up is a more
+  // negative rotateX, so it carries the opposite sign
+  dialY.value = Math.round(-S.rx);
+}
+function flashRead(text){
+  edgeRead.textContent = text;
+  edgeRead.classList.add("is-live");
+  clearTimeout(readTimer);
+  readTimer = setTimeout(function(){ edgeRead.classList.remove("is-live"); }, 900);
+}
+function liveEdge(el){
+  el.classList.add("is-live");
+  clearTimeout(el.__t);
+  el.__t = setTimeout(function(){ el.classList.remove("is-live"); }, 900);
+}
+dialX.addEventListener("input", function(){
+  S.ry = clamp(parseFloat(dialX.value), -78, 78);
+  applyView(); liveEdge(dialX); flashRead("X " + Math.round(S.ry) + "\u00b0");
+});
+dialY.addEventListener("input", function(){
+  S.rx = clamp(-parseFloat(dialY.value), -62, 62);
+  applyView(); liveEdge(dialY); flashRead("Y " + Math.round(-S.rx) + "\u00b0");
+});
+
+document.getElementById("btn-in").onclick = function(){ zoomCentre(S.zoom*1.2); };
+document.getElementById("btn-out").onclick = function(){ zoomCentre(S.zoom/1.2); };
+document.getElementById("btn-reset").onclick = function(){
+  S.rx=-14; S.ry=0; S.zoom=1; S.panX=0; S.panY=0;
+  syncDials();
+  book.classList.add("is-settling");
+  camera.style.transition = "transform .5s cubic-bezier(.3,.02,.2,1)";
+  applyView();
+  setTimeout(function(){ camera.style.transition = ""; }, 520);
+  setTimeout(function(){ book.classList.remove("is-settling"); }, 520);
+};
+document.getElementById("btn-close").onclick = closeBook;
+
+function sheet(id,on){ document.getElementById(id).dataset.open = on ? "true" : "false"; }
+document.getElementById("btn-contents").onclick = function(){ sheet("sheet-contents",true); };
+document.getElementById("btn-search").onclick = function(){
+  sheet("sheet-search",true); setTimeout(function(){ document.getElementById("q").focus(); },60);
+};
+document.querySelectorAll("[data-close]").forEach(function(b){
+  b.onclick = function(){ sheet("sheet-contents",false); sheet("sheet-search",false); };
+});
+
+function goToPage(idx){
+  S.spread = clamp(Math.floor(idx/2), 0, Math.max(0,Math.ceil(S.pages/2)-1));
+  S.focus = idx % 2;
+  if(!S.open){ S.open = true; faces.front.style.transform = coverTransform(-178); }
+  paint();
+  sheet("sheet-contents",false); sheet("sheet-search",false);
+}
+
+(function buildToc(){
+  var byPart=[], seen={};
+  BOOK.chapters.forEach(function(ch){
+    if(!seen[ch.part]){ seen[ch.part]={roman:ch.partRoman,name:ch.partName,chs:[]}; byPart.push(seen[ch.part]); }
+    seen[ch.part].chs.push(ch);
+  });
+  document.getElementById("toc").innerHTML =
+    '<button class="toc-row" data-page-id="c-intro"><span class="n">·</span>'+
+    '<span class="t">'+esc(BOOK.introTitle)+'</span></button>' +
+    byPart.map(function(p){
+      return '<div class="toc-part"><h4><b>Part '+p.roman+'</b> · '+esc(p.name)+'</h4>'+
+        p.chs.map(function(c){
+          return '<button class="toc-row" data-page-id="c'+c.n+'"><span class="n">'+c.n+
+            '</span><span class="t">'+esc(c.title)+'</span><span class="p" data-p="c'+c.n+'"></span></button>';
+        }).join("")+"</div>";
+    }).join("") +
+    '<button class="toc-row" data-page-id="c-note"><span class="n">·</span>'+
+    '<span class="t">'+esc(BOOK.noteTitle)+'</span></button>'+
+    '<button class="toc-row" data-page-id="c-index"><span class="n">·</span>'+
+    '<span class="t">'+esc(BOOK.indexTitle)+'</span></button>';
+})();
+
+document.addEventListener("click", function(ev){
+  var row = ev.target.closest("[data-page-id]");
+  if(row && starts[row.dataset.pageId] !== undefined) goToPage(starts[row.dataset.pageId]);
+  var hit = ev.target.closest("[data-entry]");
+  if(hit){
+    var probe = faces.recto.querySelector(".face__flow");
+    var node = probe.querySelector("#e"+hit.dataset.entry);
+    if(node) goToPage(pageOf(node));
+  }
+});
+
+var qt;
+document.getElementById("q").addEventListener("input", function(e){
+  clearTimeout(qt);
+  var v = e.target.value.trim();
+  qt = setTimeout(function(){
+    var box = document.getElementById("results");
+    if(v.length < 2){ box.innerHTML=""; return; }
+    var t = v.toLowerCase();
+    var hits = ALL.filter(function(x){
+      return (x.quote+" "+x.attribution+" "+x.means+" "+x.use+" "+x.chTitle).toLowerCase().indexOf(t) !== -1;
+    });
+    box.innerHTML = hits.length ? hits.map(function(x){
+      var q = esc(x.quote);
+      if(!/[&<>"]/.test(v)) q = q.replace(new RegExp("("+v.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>");
+      return '<button class="res" data-entry="'+x.n+'"><div class="q">\u201C'+q+'\u201D</div>'+
+        '<div class="m">'+pad(x.n)+' · '+esc(x.attribution)+' · ch '+x.ch+'</div></button>';
+    }).join("") : '<p class="empty">Nothing here. Try a plainer word.</p>';
+  }, 160);
+});
+
+document.addEventListener("keydown", function(ev){
+  if(ev.target.tagName === "INPUT") { if(ev.key==="Escape") ev.target.blur(); return; }
+  if(ev.key === "ArrowRight") stepBy(1);
+  else if(ev.key === "ArrowLeft") stepBy(-1);
+  else if(ev.key === "Escape"){ sheet("sheet-contents",false); sheet("sheet-search",false); }
+  else if(ev.key === "+" || ev.key === "="){ zoomCentre(S.zoom*1.2); }
+  else if(ev.key === "-"){ zoomCentre(S.zoom/1.2); }
+});
+
+var rt;
+window.addEventListener("resize", function(){
+  clearTimeout(rt); rt = setTimeout(function(){ fitView(); sizeEdges(); syncDials(); }, 120);
+});
+
+S.zoom = clamp(parseFloat(recall("lwk3:zoom")||"1") || 1, 0.4, 4);
+S.spread = parseInt(recall("lwk3:spread")||"0",10) || 0;
+S.focus  = parseInt(recall("lwk3:focus")||"0",10) ? 1 : 0;
+var savedMark = recall("lwk3:mark");
+S.mark = (savedMark === null || savedMark === "null") ? null : (parseInt(savedMark,10) || 0);
+layout();
+sizeEdges();
+syncDials();
+var deep = (location.hash.match(/^#p(\d+)$/) || [])[1];
+if(deep){
+  S.open = true;
+  S.spread = clamp(Math.floor((parseInt(deep,10)-1)/2), 0, Math.max(0,Math.ceil(S.pages/2)-1));
+  S.focus = (parseInt(deep,10)-1) % 2;
+  faces.front.style.transform = coverTransform(-178);
+  paint();
+}else if(recall("lwk3:open") === "1"){
+  S.open = true;
+  faces.front.style.transform = coverTransform(-178);
+  paint();
+}
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ layout(); });
+})();
+</script>
+
+</body>
+</html>

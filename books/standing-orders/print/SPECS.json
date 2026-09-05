@@ -1,0 +1,47 @@
+{
+  "trim": "5.5x8.5",
+  "trim_name": "5.5 x 8.5 in (139.7 x 215.9 mm)",
+  "trim_w_in": 5.5,
+  "trim_h_in": 8.5,
+  "margin_top_in": 0.72,
+  "margin_bottom_in": 0.71,
+  "margin_inside_in": 0.8,
+  "margin_outside_in": 0.6,
+  "text_block_w_in": 4.1,
+  "text_block_h_in": 7.07,
+  "body_pt": 10.5,
+  "leading_pt": 14.6,
+  "front_pages": 6,
+  "body_pages": 104,
+  "pages": 110,
+  "chapters": 11,
+  "entries": 99,
+  "sources": 19,
+  "bytes": 342868,
+  "bleed_in": 0.125,
+  "safe_margin_in": 0.25,
+  "barcode_box_in": [
+    2.0,
+    1.2
+  ],
+  "covers": {
+    "white": {
+      "caliper_in": 0.002252,
+      "spine_in": 0.2477,
+      "spine_mm": 6.29,
+      "wrap_w_in": 11.4977,
+      "wrap_h_in": 8.75,
+      "file": "cover-white.pdf",
+      "bytes": 30772
+    },
+    "cream": {
+      "caliper_in": 0.0025,
+      "spine_in": 0.275,
+      "spine_mm": 6.99,
+      "wrap_w_in": 11.525,
+      "wrap_h_in": 8.75,
+      "file": "cover-cream.pdf",
+      "bytes": 30719
+    }
+  }
+}
