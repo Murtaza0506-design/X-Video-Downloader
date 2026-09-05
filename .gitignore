@@ -23,3 +23,10 @@ ebook/kdp-upload/
 ebook/lines-worth-keeping-kdp.zip
 books/*/print/*.html
 books/*/ebook/cover.html
+
+# Job search: personal data must never enter this repo — it is public.
+# CVs, contact details, employment history and per-application material
+# stay local and are shared directly instead.
+job-search/profile/
+job-search/roles/
+job-search/tracker.csv

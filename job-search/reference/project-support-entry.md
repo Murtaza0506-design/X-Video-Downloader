@@ -65,16 +65,40 @@ which is the real question behind the screen.
 - **PMP (PMI)** — dominant in the US, but requires documented project
   hours you don't yet have. Not a starting point.
 
-**Which one depends on sector**, so it's worth choosing after the CV read
-rather than before: PRINCE2 for traditional and public-sector delivery,
-PSM I for digital and tech. Doing the wrong one first isn't fatal but it
-is a few hundred pounds and several weeks spent on the wrong signal.
+**For a public-sector and regulated background — housing, policing, NHS,
+councils — PRINCE2 Foundation is the one to do.** That is where the
+credential is named in postings, and it is where a regulated-environment
+track record counts for something. PSM I is cheaper and points at tech and
+digital delivery, but competing there means competing without any domain
+advantage at all. Foundation alone is enough at this level.
 
 Two things worth knowing before paying: **prices and exam formats change**,
 so check current cost directly with the accrediting body rather than
 through a training reseller's ad; and **many employers will fund it** once
-you're in the role, which is a reasonable thing to ask about at offer stage
-and a reason not to rush the purchase.
+you're in the role, which is a reasonable thing to ask at offer stage. That
+said, "booked, exam on [date]" on the CV reads as a decision taken, where
+"intending to start soon" reads as a free intention — so booking it before
+applying is usually worth the money.
+
+## What these roles pay
+
+Checked live, UK, 2026:
+
+- Project support officer: average around **£29,500**, typical range
+  **£24,000-£36,750**
+- **Civil Service** average around **£33,000**
+- **NHS** postings roughly **£23,000-£48,000** depending on band; project
+  support is usually Band 4-5
+
+Worth comparing against current earnings before committing to the route. If
+a salary floor sits above about £36,000, entry-level project support will
+not clear it, and the target should shift to project officer roles or to
+sector roles where existing domain knowledge commands more.
+
+Sources: [Glassdoor](https://www.glassdoor.co.uk/Salaries/project-support-officer-salary-SRCH_KO0,23.htm) ·
+[Indeed](https://uk.indeed.com/career/project-officer/salaries) ·
+[Reed](https://www.reed.co.uk/average-salary/average-project-officer-salary) ·
+[NHS Jobs](https://www.jobs.nhs.uk/candidate/search/results?keyword=Project+Support+Officer&language=)
 
 ## The realistic path
 
