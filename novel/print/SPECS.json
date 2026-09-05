@@ -1,0 +1,15 @@
+{
+  "title": "The Handover",
+  "author": "Murtaza Raza",
+  "trim_w_in": 5.5,
+  "trim_h_in": 8.5,
+  "pages": 130,
+  "chapters": 24,
+  "words": 32874,
+  "margins_in": {
+    "inside": 0.78,
+    "outside": 0.58,
+    "top": 0.72,
+    "bottom": 0.7
+  }
+}
