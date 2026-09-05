@@ -15,9 +15,9 @@ Every figure below is measured off the files.
 
 | File | What it is | Size |
 |---|---|---|
-| `print/interior.pdf` | the book block | 5.5 × 8.5 in, 116 pages |
-| `print/cover-cream.pdf` | wrap cover for **cream** stock | 11.5400 × 8.7500 in |
-| `print/cover-white.pdf` | wrap cover for **white** stock | 11.5112 × 8.7500 in |
+| `print/interior.pdf` | the book block | 5.5 × 8.5 in, 118 pages |
+| `print/cover-cream.pdf` | wrap cover for **cream** stock | 11.5450 × 8.7500 in |
+| `print/cover-white.pdf` | wrap cover for **white** stock | 11.5157 × 8.7500 in |
 | `ebook/zombie-apocalypse.epub` | reflowable EPUB 3 | 20 documents |
 | `ebook/cover.jpg` | the store cover | 1600 × 2560, 1:1.6 |
 | `site/index.html` | the web edition | self-contained |
@@ -28,7 +28,7 @@ Every figure below is measured off the files.
 | | |
 |---|---|
 | Trim | **5.5 × 8.5 in** (139.7 × 215.9 mm) |
-| Pages | **116** (6 front + 110 body) |
+| Pages | **118** (6 front + 112 body) |
 | Bleed | none |
 | Colour | black only, verified neutral on every sampled page |
 | Margins | inside 0.80 in · outside 0.60 · top 0.72 · bottom 0.71, mirrored |
@@ -47,8 +47,8 @@ wall into "wall, the Beeston".
 
 | | cream | white |
 |---|---|---|
-| **Spine** | **0.2900 in** (7.37 mm) | **0.2612 in** (6.63 mm) |
-| **Full wrap** | **11.5400 × 8.7500 in** | **11.5112 × 8.7500 in** |
+| **Spine** | **0.2950 in** (7.49 mm) | **0.2657 in** (6.75 mm) |
+| **Full wrap** | **11.5450 × 8.7500 in** | **11.5157 × 8.7500 in** |
 
 Bleed 0.125 in on all four outer edges, safe margin 0.25 in, a 2.0 × 1.2 in
 barcode rectangle reserved on the back. Olive boards (#4A5D3A → #1C2617), cream
@@ -56,9 +56,41 @@ type, in the register of a field manual rather than a horror novel, which is
 the correct register for the contents. The author's name is not on the front
 board.
 
-The spine is thin. At 116 pages KDP will print it, but the title is set small
+The spine is thin. At 118 pages KDP will print it, but the title is set small
 and there is no room for an author line; if the book grows past about 130 pages
 in a later edition the spine can carry both.
+
+---
+
+## 3a. Positioning
+
+The comparable title is Max Brooks, *The Zombie Survival Guide* (2003), and it
+owns this shelf. Anyone browsing will have it in mind, so it is worth being
+precise about where this book differs, because four of the standing criticisms
+of Brooks are things this book does the other way round. That is a description,
+not a disparagement: his book invented the form and this one would not exist
+without it.
+
+| The criticism of Brooks | What this book does |
+|---|---|
+| Falls back on "science still can't explain it", which undercuts the realist premise | The mechanism is fully specified and internally consistent, and `CANON.md` fixes it so the spinoffs cannot drift |
+| Solanum has no incubation period: bitten, symptomatic and dead inside a day, which no real pathogen does | Four hours to nine days, tracking body mass and dose, which is what gives the book its bite protocol, its six-day compromise and two of its worst scenes |
+| Long stretches of firearms lore, much of it wrong | There is no weapons chapter at all, and the introduction says why: killing them is what you do once the rest of the manual has failed |
+| Dry, reads like a textbook | Every rule is signed by a named person with the day they were on, half of them are dead, and the rules argue with each other |
+
+The other useful bearing is the British one. This sits in the line that runs
+from Wyndham, and it is worth knowing that the standing charge against that
+tradition is Aldiss's: the cosy catastrophe, where the middle-class hero has a
+pretty good time while everyone else dies off. This book is built against that
+charge rather than into it. The compiler counts the dead, every rule carries its
+cost, and the one entry that reads like comfort is the one that gives you
+permission to leave a group.
+
+Two notes on the genre from current commentary, both of which the book is on
+the right side of. The tropes readers name as exhausted are superhuman speed,
+superhuman strength and stealth; these are slow, weak, loud and stopped by a
+hard frost. And the observation worth remembering when an agent says zombies
+are finished: readers do not get fatigued, editors do.
 
 ---
 
@@ -96,12 +128,12 @@ Keywords:
 
 ```
 post apocalyptic fiction british
-zombie apocalypse survival guide
+zombie survival guide fiction
 found document novel
 epistolary post apocalyptic
-survival manual fiction
+slow zombies realistic
 quiet apocalypse literary horror
-zombie book for adults
+cosy catastrophe wyndham
 ```
 
 Do not spend a keyword slot on `zombie` or on `99 ways` — both are already in
@@ -169,6 +201,30 @@ that is wrong about the checkable parts is not convincing about the rest:
   written as a procedure with three survivors and eight graves. That ratio is
   invented and it is in the book to make a point about survivorship, not to be
   followed.
+
+Two bodies of real evidence sit under the book and are worth naming, because
+they are what keeps the invented parts from floating free.
+
+**What actually kills people after a disaster.** The public health literature
+puts diarrhoeal disease and acute respiratory infection at the top of the list,
+with malnutrition, measles and untreated wounds behind them, and injury from the
+event itself well down the order once the first days are past. Chapter six is
+built on that finding and states it as the compiler's own count: cold, dirty
+water, chests, teeth and jaws, wounds that were not cleaned, other people, and
+then a long way down, them. The respiratory line is the one the chapter admits
+it has no rule for, and the admission is honest rather than decorative: the
+small warm room that chapter four recommends against the cold is exactly how a
+cough reaches everybody in it, and no survival manual has ever squared that.
+
+**The siege of Sarajevo, 1,425 days.** The closest documented analogue to the
+long middle, and the source of the chapter nine thesis. Survivors describe the
+deliberate manufacture of small normal routines, basement film screenings and
+theatre, and going back to work because you cannot hide at home for four years,
+and more than one account puts theatre level with food and water. That is the
+argument chapter nine makes and it is not a sentimental one. It is the reason
+the book ends with weddings, a tree, a haircut and a day when the names are read
+out, and the reason the compiler treats an hour of uselessness as a stock to be
+laid in like food.
 
 Nothing here should be read as medical or survival instruction. The one thing
 in it that is genuinely worth carrying out of the book is the shape of the

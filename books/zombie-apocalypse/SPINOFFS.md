@@ -82,6 +82,25 @@ This is the closest sibling to *Confident and Wrong* on the same shelf, and the
 two books can be sold as a pair. Unit: **the belief · what it cost · what was
 actually true**. 9 × 11.
 
+### 99 Ways to Raise a Child in It
+Promoted out of the maybes by one fact from the epidemiology. Measles needs
+about ninety-three per cent immunity in a population to stay away, and nothing
+in this county has been vaccinated for four years, and there is now a cohort of
+children born into it with no protection at all and no cold chain within two
+hundred miles. Whooping cough is worse, because the protection adults think they
+have has been waning since they were teenagers.
+
+That is a second-order consequence almost nobody writes, and it is the right
+size for this format: it is invisible, it is arithmetic, it arrives in year five
+or six rather than year one, and it cannot be fought with anything in book one.
+Ivy Okonjo is already the midwife, already carries three entries, and already
+has the gap in *A Note on the Sources* held open for her. The unit does not
+change. The register does: this is the book where the compiler's careful
+counting stops being a comfort.
+
+Pairs with the vaccination entry the fourth book does not have, and gives the
+series its first genuine antagonist that is not a person or a corpse.
+
 ## 3. The three that need more work
 
 - **The Long Room Ledger.** Nell Okafor's day-by-day record of the first two
@@ -89,12 +108,6 @@ actually true**. 9 × 11.
   it needs a different unit (**the date · what happened · what it cost**) and
   it loses the argument structure that makes the format bearable. Beautiful and
   harder.
-- **99 Ways to Raise a Child in It.** Okonjo and Kaminski's book, out of the
-  gap about children under four. The material is in entries 90 and 96 and the
-  argument is already live: Reith's generation is competent because nobody was
-  ever bored, and half of them would not trade it. Risks being sad without
-  being useful, which is the failure mode of every book about children in a
-  disaster.
 - **99 Ways to Survive the Fifth Winter.** A straight continuation, same
   compiler, same valley, shorter, as entry 99 promises. Cheap to write and the
   least interesting, because nothing in the world has changed. Best held back
