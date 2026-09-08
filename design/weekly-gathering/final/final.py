@@ -136,22 +136,22 @@ html,body{{background:#000}}
   letter-spacing:.045em;color:{pal['t2']}}}
 .lab{{font-family:Cinzel,serif;font-weight:400;font-size:12.5px;letter-spacing:.5em;
   text-indent:.5em;color:{pal['lab']}}}
-.val{{font-family:Cormorant,serif;font-weight:400;font-size:26px;letter-spacing:.075em;
+.val{{font-family:Cormorant,serif;font-weight:{pal.get('val_weight',400)};font-size:26px;letter-spacing:.075em;
   text-indent:.075em;color:{pal['val']}}}
-.body{{font-family:Cormorant,serif;font-weight:400;font-size:35px;line-height:1.24;
+.body{{font-family:Cormorant,serif;font-weight:{pal.get('body_weight',400)};font-size:35px;line-height:1.24;
   letter-spacing:.005em;color:{pal['body']}}}
 .body em{{font-style:italic;color:{pal['gloss']}}}
 .pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:27px;letter-spacing:.03em;
   text-indent:.03em;color:{pal['pt']}}}
-.pd{{font-family:Cormorant,serif;font-weight:400;font-size:21.5px;line-height:1.46;
+.pd{{font-family:Cormorant,serif;font-weight:{pal.get('pd_weight',400)};font-size:21.5px;line-height:1.46;
   letter-spacing:.03em;color:{pal['pd']}}}
 .rn{{font-family:Cinzel,serif;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:{pal['rn']}}}
 .venue{{font-family:Cinzel,serif;font-weight:600;font-size:39px;letter-spacing:.18em;text-indent:.18em}}
 .vsub{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:23px;
   letter-spacing:.06em;color:{pal['vsub']}}}
-.addr{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:400;font-size:24px;letter-spacing:.13em;
+.addr{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:{pal.get('addr_weight',400)};font-size:24px;letter-spacing:.13em;
   text-indent:.13em;color:{pal['addr']};text-transform:uppercase}}
-.wa{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:400;font-size:34.5px;letter-spacing:.1em;
+.wa{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:{pal.get('wa_weight',400)};font-size:34.5px;letter-spacing:.1em;
   text-indent:.1em;color:{pal['wa']}}}
 .note{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:20px;
   letter-spacing:.05em;color:{pal['note']}}}
@@ -235,10 +235,10 @@ def bottom_html():
 <div class="at lab" style="top:{v.ARCH_BASE+32}px;left:{CX+10}px;width:340px">EVENING</div>
 <div class="at val" style="top:{v.ARCH_BASE+58}px;left:{CX+10}px;width:340px">7:00 – 9:00 pm</div>
 
-<div class="at body" style="top:950px;left:{CX-500}px;width:1000px">
-Experience the Moroccan tradition of Sufi <em>dhikr</em> within the Qadiriyya Boutchichiya.
+<div class="at body" style="top:966px;left:{CX-500}px;width:1000px">
+The tariqa's weekly Moroccan <em>dhikr</em>, held for its regular members.
 </div>
-<div class="at body" style="top:1046px;left:{CX-500}px;width:1000px">
+<div class="at body" style="top:1024px;left:{CX-500}px;width:1000px">
 Guided remembrance, recited with <em>idhn</em> (spiritual permission), in the company of
 those walking the path of spiritual refinement.
 </div>
@@ -366,12 +366,13 @@ EARTHY.update(
 SANDSTONE = dict(DEFAULT_PALETTE)
 SANDSTONE.update(
     name="Sandstone & Gold", pattern="zellij",
-    tile_small_op=0.22, tile_big_op=0.20, band_op=0.30,
-    # a properly saturated clay-and-terracotta ground, not a washed-out sand —
-    # the top stays warm ochre, the base deepens into real burnt terracotta.
-    bg1="radial-gradient(160% 100% at 50% 20%, #F1DBA8 0%, #ECC983 55%, #E2AD63 85%, #D89A4E 100%)",
-    bg2="radial-gradient(140% 90% at 50% 100%, #E2AD63 0%, #D3924C 50%, #BD7A3B 100%)",
-    print_bg="#ECC983",
+    tile_small_op=0.30, tile_big_op=0.27, band_op=0.40,
+    body_weight=600, val_weight=600, pd_weight=600, addr_weight=600, wa_weight=600,
+    # a properly saturated clay-and-terracotta ground, pushed further into real
+    # sunset colour — warm ochre at top through to a deep, live burnt terracotta.
+    bg1="radial-gradient(160% 100% at 50% 20%, #F4DEA0 0%, #EEC876 60%, #E0A455 88%, #D18F42 100%)",
+    bg2="radial-gradient(140% 90% at 50% 100%, #E0A455 0%, #CC8740 50%, #A8672E 100%)",
+    print_bg="#EEC876",
     # richer, warmer antique amber-gold — more saturated than a muted olive-bronze —
     # for the hairlines, frame and pattern.
     hair1="#B8862E", hair2="#9C6F27", hair3="#7E5A20", hair4="#63451A", hair5="#4C3414",
@@ -380,7 +381,7 @@ SANDSTONE.update(
     dot="#8A5F22", fill_lit="#B8862E", stroke_node="#7E5A20",
     rule="#8A5F22", rule_lit="#B8862E",
     zh="#9C6F27", zf="#7E5A20", zstud="#9C6F27", zb="#8A5F22",
-    scrim="230,180,110", scrim_mult=0.20, halo_mult=0.30, ground_op=0.0,
+    scrim="230,180,110", scrim_mult=0.24, halo_mult=0.38, ground_op=0.0,
     gold_grad="linear-gradient(178deg,#C1922F 0%,#9C6F27 26%,#734D1B 58%,#B8862E 82%,#8A5F22 100%)",
     mark_grad="linear-gradient(176deg,#C1922F 0%,#A97D2B 22%,#8A5F22 54%,#B8862E 78%,#9C6F27 100%)",
     ayah="#8A5F22", gloss="#9C6F27", t2="#8A5F22", lab="#5C3E17", val="#3A210D",

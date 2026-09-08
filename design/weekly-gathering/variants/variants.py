@@ -133,8 +133,11 @@ FONTS = "\n".join([
     face("Cormorant", "CormorantGaramond-300.woff2", "300"),
     face("Cormorant", "CormorantGaramond-400.woff2", "400"),
     face("Cormorant", "CormorantGaramond-500.woff2", "500"),
+    face("Cormorant", "CormorantGaramond-600.woff2", "600"),
+    face("Cormorant", "CormorantGaramond-700.woff2", "700"),
     face("Cormorant", "CormorantGaramond-300-italic.woff2", "300", "italic"),
     face("Cormorant", "CormorantGaramond-400-italic.woff2", "400", "italic"),
+    face("Cormorant", "CormorantGaramond-600-italic.woff2", "600", "italic"),
     face("Marcellus", "Marcellus-400.woff2", "400"),
     face("Amiri", "Amiri-Regular-400.woff2", "400"),
 ])

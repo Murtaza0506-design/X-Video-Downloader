@@ -6,6 +6,13 @@ silhouette used to sit. Everything else (ayah, title, Arabic wordmark, date,
 programme, venue, WhatsApp, footer) is unchanged from the layout that was
 approved.
 
+The body copy now reads as a standing notice for the tariqa's regular
+members, not an invitation for newcomers to "experience" the practice:
+*"The tariqa's weekly Moroccan dhikr, held for its regular members. Guided
+remembrance, recited with idhn (spiritual permission), in the company of
+those walking the path of spiritual refinement."* — shared by every
+colourway, `bottom_html()` in `final.py`.
+
 | File | Palette | Pattern |
 |---|---|---|
 | `final-gold.png` | Lamplight Gold — the original warm umber and gold | Khatim star-and-cross |
@@ -73,6 +80,22 @@ colourways changed):
   equivalents. `halo_mult` and `scrim_mult` were added the same way, to turn
   down (not remove) the warm glow and the pattern-hiding scrim to the much
   smaller doses a pale ground needs.
+
+Sandstone was then pushed further on the same two complaints — "looks a bit
+dull" and "make the writing easier to read":
+
+- The background gradient was deepened into real sunset colour (warm ochre
+  through to burnt terracotta, not sand-and-beige) and the pattern/dado
+  opacities raised, now that the gradient itself no longer bands. The gold
+  tokens moved from a muted olive-bronze to a properly saturated amber.
+- The body paragraph, the date/time values, the programme description, the
+  address and the WhatsApp number all render **bold** on Sandstone. Weight
+  is a palette key too (`body_weight`, `val_weight`, `pd_weight`,
+  `addr_weight`, `wa_weight`, default 400 = unchanged for every other
+  colourway) — genuine Cormorant Garamond SemiBold/Bold faces were added to
+  the shared `FONTS` block in `variants.py` rather than left to the
+  browser's synthetic bold, so the letterforms stay properly drawn at
+  weight.
 
 ## Regenerating
 
