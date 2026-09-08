@@ -97,17 +97,17 @@ def ground_rosette(cx, cy, R):
     for d in petal_ring(cx, cy, 74*u, 114*u, 24, rot=360/48): g.append(path(d, "gh", 0.55))
     return "\n".join(g)
 
-def corner(x, y, sx, sy, s=1.0):
+def corner(x, y, sx, sy, s=1.0, cls1="hair-3", cls2="hair-4"):
     g, R = [], 96*s
     g.append(f'<g transform="translate({x},{y}) scale({sx},{sy})">')
-    g.append(f'<path d="M 0,{R:.1f} A {R:.1f},{R:.1f} 0 0 1 {R:.1f},0" class="hair-3" stroke-width="0.9"/>')
-    g.append(f'<path d="M 0,{R*0.62:.1f} A {R*0.62:.1f},{R*0.62:.1f} 0 0 1 {R*0.62:.1f},0" class="hair-4" stroke-width="0.7"/>')
+    g.append(f'<path d="M 0,{R:.1f} A {R:.1f},{R:.1f} 0 0 1 {R:.1f},0" class="{cls1}" stroke-width="0.9"/>')
+    g.append(f'<path d="M 0,{R*0.62:.1f} A {R*0.62:.1f},{R*0.62:.1f} 0 0 1 {R*0.62:.1f},0" class="{cls2}" stroke-width="0.7"/>')
     for i in range(7):
         a = 90*i/6.0
         x0, y0 = P(0, 0, R*0.62, a); x1, y1 = P(0, 0, R, a)
-        g.append(f'<path d="M {x0:.2f},{-y0:.2f} L {x1:.2f},{-y1:.2f}" class="hair-4" stroke-width="0.65"/>')
-    g.append(f'<path d="M 0,{R*1.5:.1f} L 0,{R*0.62:.1f}" class="hair-4" stroke-width="0.65"/>')
-    g.append(f'<path d="M {R*0.62:.1f},0 L {R*1.5:.1f},0" class="hair-4" stroke-width="0.65"/>')
+        g.append(f'<path d="M {x0:.2f},{-y0:.2f} L {x1:.2f},{-y1:.2f}" class="{cls2}" stroke-width="0.65"/>')
+    g.append(f'<path d="M 0,{R*1.5:.1f} L 0,{R*0.62:.1f}" class="{cls2}" stroke-width="0.65"/>')
+    g.append(f'<path d="M {R*0.62:.1f},0 L {R*1.5:.1f},0" class="{cls2}" stroke-width="0.65"/>')
     g.append('</g>')
     return "\n".join(g)
 

@@ -22,9 +22,9 @@ BLDG_ARCH_GOLD = v.mask_uri("mask-building-wide-gold.png")
 BLDG_SQ_GOLD   = v.mask_uri("mask-building-square-gold.png")
 AW, AH = 1016, 525          # native size of the wide silhouette crop
 
-def title_block(t1a, gap1=54, gap2=62):
-    return (f'<div class="at t1 gold" style="top:{t1a}px">TARIQA AL QADIRIYA</div>\n'
-            f'<div class="at t1 gold" style="top:{t1a+gap1}px">AL BOUTCHICHIYA</div>\n'
+def title_block(t1a, gap1=54, gap2=62, cls="gold"):
+    return (f'<div class="at t1 {cls}" style="top:{t1a}px">TARIQA AL QADIRIYA</div>\n'
+            f'<div class="at t1 {cls}" style="top:{t1a+gap1}px">AL BOUTCHICHIYA</div>\n'
             f'<div class="at t2" style="top:{t1a+gap1+gap2}px">Weekly Dhikr Gathering</div>')
 
 def ayah_block(top=104, gloss=172):

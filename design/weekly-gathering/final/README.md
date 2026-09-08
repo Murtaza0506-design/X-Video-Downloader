@@ -81,6 +81,31 @@ colourways changed):
   down (not remove) the warm glow and the pattern-hiding scrim to the much
   smaller doses a pale ground needs.
 
+Sandstone then picked up a three-zone colour split, on top of everything
+above:
+
+- **Top** (the ayah + its English translation) — bright, unambiguous gold
+  (`ayah`/`gloss` tokens pushed to the gold family's brightest stops).
+- **Middle** (the English title, "Weekly Dhikr Gathering", the Arabic
+  wordmark, and the star medallion) — black instead of gold, a bold graphic
+  centrepiece against the terracotta ground. `title_block()` now takes an
+  optional `cls` (default `"gold"`, unchanged for every other colourway);
+  `build_hero(pal)` passes `pal.get('title_cls', 'gold')` so Sandstone alone
+  supplies `"ink"`, a new class reading `title_color`. The star and Arabic
+  wordmark share the `.mark` class, so pointing Sandstone's `mark_grad` at a
+  near-black gradient turns both black together.
+- **Everything else** (date/time, body copy, programme, venue, WhatsApp,
+  footer) — left exactly as it already was.
+
+The page border — outer frame, arch outline, corner flourishes — is a rich
+red on Sandstone. It needed its own tokens (`border1`/`border2`/`border3`,
+new `.brd1`/`.brd2`/`.brd3` classes) rather than reusing `hair3`/`hair4`/
+`hair5` directly: the star's own halo ring (the 99-mark tasbih circle) reuses
+`hair-5` too, and recolouring that token would have dragged the medallion's
+ring red along with the frame. Every other colourway leaves `border1..3`
+unset, so `.brd1{{stroke:{pal.get('border1', pal['hair3'])}}}` (etc.) falls
+back to the original hairline colour — pixel-identical to before.
+
 Sandstone was then pushed further on the same two complaints — "looks a bit
 dull" and "make the writing easier to read":
 

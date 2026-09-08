@@ -21,12 +21,13 @@ def shot(html_path, out_png, scale=1):
     print(out_png.name, im.size)
 
 
-def build_hero():
+def build_hero(pal=None):
+    pal = pal or DEFAULT_PALETTE
     MED_CY, R, SEAL_D = 656, 150, 252          # SEAL_D deliberately smaller than R —
     extra_body = f'<g class="med">{v.halo(CX, MED_CY, R)}</g>'  # daylight for the 99-mark ring
     hero = f'''
 {ayah_block(90, 150)}
-{title_block(258, 50, 56)}
+{title_block(258, 50, 56, cls=pal.get('title_cls', 'gold'))}
 {wordmark(420, 72)}
 <div class="mark seal" style="top:{MED_CY-SEAL_D//2}px;width:{SEAL_D}px;height:{SEAL_D}px;
   -webkit-mask-image:url({v.STAR_URI});mask-image:url({v.STAR_URI})"></div>
@@ -91,6 +92,9 @@ html,body{{background:#000}}
 .hair-3{{fill:none;stroke:{pal['hair3']};opacity:.80}}
 .hair-4{{fill:none;stroke:{pal['hair4']};opacity:.75}}
 .hair-5{{fill:none;stroke:{pal['hair5']};opacity:.55}}
+.brd1{{fill:none;stroke:{pal.get('border1', pal['hair3'])};opacity:.80}}
+.brd2{{fill:none;stroke:{pal.get('border2', pal['hair5'])};opacity:.55}}
+.brd3{{fill:none;stroke:{pal.get('border3', pal['hair4'])};opacity:.75}}
 .petal{{fill:{pal['petal']};stroke:{pal['petal_stroke']};opacity:.75}}
 .petal-lit{{fill:{pal['petal_lit']};stroke:{pal['petal_lit_stroke']};opacity:.9}}
 .dot{{fill:{pal['dot']}}}
@@ -126,6 +130,7 @@ html,body{{background:#000}}
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:{pal.get('gold_shadow', 'drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 5px rgba(6,4,2,.7)) drop-shadow(0 0 20px rgba(214,172,100,.26))')}}}
 .at.gold{{text-shadow:none}}
+.ink{{color:{pal.get('title_color', '#1A1006')}}}
 .ayah{{font-family:Amiri,serif;font-size:40px;line-height:1.55;color:{pal['ayah']};
   direction:rtl;filter:{pal.get('ayah_shadow', 'drop-shadow(0 0 16px rgba(214,172,100,.28))')}}}
 .gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:31px;
@@ -185,8 +190,8 @@ def frame_svg(pal, hero_extra):
 
   <g class="ground">{v.ground_rosette(CX, 1060, 720)}</g>
 
-  {v.arch(0, "hair-5", 1.0)}
-  {v.arch(11, "hair-5", 0.6)}
+  {v.arch(0, "brd2", 1.0)}
+  {v.arch(11, "brd2", 0.6)}
 
   {hero_extra}
 
@@ -194,11 +199,11 @@ def frame_svg(pal, hero_extra):
   <defs>{band_pat}</defs>
   <path fill-rule="evenodd" fill="url(#{band_id})" style="opacity:{pal['band_op']}"
         d="M38,38 H{W-38} V{H-38} H38 Z M74,74 H{W-74} V{H-74} H74 Z"/>
-  <rect x="38" y="38" width="{W-76}" height="{H-76}" class="hair-3" stroke-width="1.15" fill="none"/>
-  <rect x="45" y="45" width="{W-90}" height="{H-90}" class="hair-5" stroke-width="0.6" fill="none"/>
-  <rect x="74" y="74" width="{W-148}" height="{H-148}" class="hair-3" stroke-width="1.0" fill="none"/>
-  <rect x="81" y="81" width="{W-162}" height="{H-162}" class="hair-5" stroke-width="0.6" fill="none"/>
-  {v.corner(74,74,1,1,0.66)}{v.corner(W-74,74,-1,1,0.66)}{v.corner(74,H-74,1,-1,0.66)}{v.corner(W-74,H-74,-1,-1,0.66)}
+  <rect x="38" y="38" width="{W-76}" height="{H-76}" class="brd1" stroke-width="1.15" fill="none"/>
+  <rect x="45" y="45" width="{W-90}" height="{H-90}" class="brd2" stroke-width="0.6" fill="none"/>
+  <rect x="74" y="74" width="{W-148}" height="{H-148}" class="brd1" stroke-width="1.0" fill="none"/>
+  <rect x="81" y="81" width="{W-162}" height="{H-162}" class="brd2" stroke-width="0.6" fill="none"/>
+  {v.corner(74,74,1,1,0.66,cls1="brd1",cls2="brd3")}{v.corner(W-74,74,-1,1,0.66,cls1="brd1",cls2="brd3")}{v.corner(74,H-74,1,-1,0.66,cls1="brd1",cls2="brd3")}{v.corner(W-74,H-74,-1,-1,0.66,cls1="brd1",cls2="brd3")}
 
   {v.rule(CX, v.ARCH_BASE, 350)}
   <line x1="{CX}" y1="{v.ARCH_BASE+34}" x2="{CX}" y2="{v.ARCH_BASE+128}" class="rule"/>
@@ -264,7 +269,7 @@ those walking the path of spiritual refinement.
 '''
 
 def render(pal, out_name, scale=1):
-    hero, hero_extra = build_hero()
+    hero, hero_extra = build_hero(pal)
     html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Weekly Dhikr Gathering</title>
 <style>{css(pal)}</style></head>
@@ -383,11 +388,19 @@ SANDSTONE.update(
     zh="#9C6F27", zf="#7E5A20", zstud="#9C6F27", zb="#8A5F22",
     scrim="230,180,110", scrim_mult=0.24, halo_mult=0.38, ground_op=0.0,
     gold_grad="linear-gradient(178deg,#C1922F 0%,#9C6F27 26%,#734D1B 58%,#B8862E 82%,#8A5F22 100%)",
-    mark_grad="linear-gradient(176deg,#C1922F 0%,#A97D2B 22%,#8A5F22 54%,#B8862E 78%,#9C6F27 100%)",
-    ayah="#8A5F22", gloss="#9C6F27", t2="#8A5F22", lab="#5C3E17", val="#3A210D",
+    # the title/subtitle/wordmark/star — the poster's "middle" — go black instead
+    # of gold, for a bold graphic centrepiece against the terracotta ground.
+    title_cls="ink", title_color="#140D06",
+    mark_grad="linear-gradient(176deg,#241708 0%,#140D06 55%,#000000 100%)",
+    # the top ayah + its translation read as clearly, richly gold.
+    ayah="#C1922F", gloss="#B8862E", t2="#140D06", lab="#5C3E17", val="#3A210D",
     body="#5C3E17", pt="#5C3E17", pd="#5C3E17", rn="#734D1B", vsub="#8A5F22",
     addr="#3A210D", wa="#3A210D", note="#734D1B", url="#734D1B",
     halo0="#B8862E", halo1="#9C6F27", halo2="#7E5A20", halo3="#63451A",
+    # the page border — outer frame, arch outline, corner flourishes — a rich red,
+    # kept separate from hair3/hair4/hair5 so the star's own halo ring (which
+    # reuses hair-5) isn't dragged red along with it.
+    border1="#8A1A1A", border2="#6E1414", border3="#7A1717",
     text_shadow="0 1px 1px rgba(255,250,240,.55)",
     gold_shadow="drop-shadow(0 1px 0 rgba(255,255,255,.35)) drop-shadow(0 1px 3px rgba(58,33,13,.24))",
     seal_shadow="drop-shadow(0 1px 3px rgba(58,33,13,.24)) drop-shadow(0 1px 1px rgba(255,255,255,.3))",
