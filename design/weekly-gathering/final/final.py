@@ -128,13 +128,15 @@ html,body{{background:#000}}
 .wordmark{{filter:{pal.get('wordmark_shadow', 'drop-shadow(0 0 16px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.55))')}}}
 .gold{{background:{pal['gold_grad']};
   -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:{pal.get('gold_stroke','0 transparent')};
   filter:{pal.get('gold_shadow', 'drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 5px rgba(6,4,2,.7)) drop-shadow(0 0 20px rgba(214,172,100,.26))')}}}
 .at.gold{{text-shadow:none}}
 .ink{{color:{pal.get('title_color', '#1A1006')}}}
 .ayah{{font-family:Amiri,serif;font-size:40px;line-height:1.55;color:{pal['ayah']};
+  -webkit-text-stroke:{pal.get('gold_stroke_thin','0 transparent')};
   direction:rtl;filter:{pal.get('ayah_shadow', 'drop-shadow(0 0 16px rgba(214,172,100,.28))')}}}
 .gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:31px;
-  letter-spacing:.03em;color:{pal['gloss']}}}
+  letter-spacing:.03em;color:{pal['gloss']};-webkit-text-stroke:{pal.get('gold_stroke_thin','0 transparent')}}}
 .t1{{font-family:Cinzel,serif;font-weight:600;font-size:50px;letter-spacing:.135em;
   text-indent:.135em;line-height:1}}
 .t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:43px;
@@ -233,27 +235,35 @@ def tiles_svg(pal):
 <div class="scrim"></div>
 '''
 
-def bottom_html():
-    return f'''
-<div class="at lab" style="top:{v.ARCH_BASE+32}px;left:{CX-350}px;width:340px">SATURDAY</div>
-<div class="at val" style="top:{v.ARCH_BASE+58}px;left:{CX-350}px;width:340px">29 August 2026</div>
-<div class="at lab" style="top:{v.ARCH_BASE+32}px;left:{CX+10}px;width:340px">EVENING</div>
-<div class="at val" style="top:{v.ARCH_BASE+58}px;left:{CX+10}px;width:340px">7:00 – 9:00 pm</div>
+# the current, manually-set example date — kept as the default so every
+# existing render (and every colourway's __main__ call) stays unchanged.
+# Pass a dict from prayer_times.build_schedule(event_date) to render(..., sched=...)
+# to compute these from the real Maghrib time for a different date instead.
+DEFAULT_SCHED = dict(
+    weekday="SATURDAY", date_str="29 August 2026", event_window="7:00 – 9:00 pm",
+    slot1_time="7:00 – 8:15", slot2_time="8:15 – 8:30", slot3_time="8:30",
+)
 
-<div class="at body" style="top:966px;left:{CX-500}px;width:1000px">
-The tariqa's weekly Moroccan <em>dhikr</em>, held for its regular members.
-</div>
-<div class="at body" style="top:1024px;left:{CX-500}px;width:1000px">
-Guided remembrance, recited with <em>idhn</em> (spiritual permission), in the company of
-those walking the path of spiritual refinement.
+def bottom_html(sched=None):
+    s = dict(DEFAULT_SCHED, **(sched or {}))
+    return f'''
+<div class="at lab" style="top:{v.ARCH_BASE+32}px;left:{CX-350}px;width:340px">{s['weekday']}</div>
+<div class="at val" style="top:{v.ARCH_BASE+58}px;left:{CX-350}px;width:340px">{s['date_str']}</div>
+<div class="at lab" style="top:{v.ARCH_BASE+32}px;left:{CX+10}px;width:340px">EVENING</div>
+<div class="at val" style="top:{v.ARCH_BASE+58}px;left:{CX+10}px;width:340px">{s['event_window']}</div>
+
+<div class="at body" style="top:980px;left:{CX-500}px;width:1000px">
+The tariqa's weekly Moroccan <em>dhikr</em> — guided remembrance, recited with
+<em>idhn</em> (spiritual permission), in the company of those walking the path
+of spiritual refinement.
 </div>
 
 <div class="cols" style="top:1220px">
-  <div><div class="rn">I</div><div class="pt" style="margin-top:11px">7:00 – 8:15</div>
+  <div><div class="rn">I</div><div class="pt" style="margin-top:11px">{s['slot1_time']}</div>
        <div class="pd" style="margin-top:13px">Wadhifa Dhikr<br>and Dhikr al&nbsp;Faraj</div></div>
-  <div><div class="rn">II</div><div class="pt" style="margin-top:11px">8:15 – 8:30</div>
+  <div><div class="rn">II</div><div class="pt" style="margin-top:11px">{s['slot2_time']}</div>
        <div class="pd" style="margin-top:13px">Talk</div></div>
-  <div><div class="rn">III</div><div class="pt" style="margin-top:11px">8:30</div>
+  <div><div class="rn">III</div><div class="pt" style="margin-top:11px">{s['slot3_time']}</div>
        <div class="pd" style="margin-top:13px">Maghrib, followed<br>by refreshments</div></div>
 </div>
 
@@ -268,7 +278,7 @@ those walking the path of spiritual refinement.
 <div class="at url" style="top:1700px">WWW.THESUFIWAY.CO.UK</div>
 '''
 
-def render(pal, out_name, scale=1):
+def render(pal, out_name, scale=1, sched=None):
     hero, hero_extra = build_hero(pal)
     html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Weekly Dhikr Gathering</title>
@@ -277,7 +287,7 @@ def render(pal, out_name, scale=1):
 {tiles_svg(pal)}
 {frame_svg(pal, hero_extra)}
 {hero}
-{bottom_html()}
+{bottom_html(sched)}
 </div></body></html>'''
     hp = HERE / f"{out_name}.html"
     hp.write_text(html, encoding="utf-8")
@@ -392,8 +402,11 @@ SANDSTONE.update(
     # of gold, for a bold graphic centrepiece against the terracotta ground.
     title_cls="ink", title_color="#140D06",
     mark_grad="linear-gradient(176deg,#241708 0%,#140D06 55%,#000000 100%)",
-    # the top ayah + its translation read as clearly, richly gold.
+    # the top ayah + its translation read as clearly, richly gold — with a
+    # thin black outline round the letterforms, since flat gold-on-terracotta
+    # was too low-contrast to read at a glance.
     ayah="#C1922F", gloss="#B8862E", t2="#140D06", lab="#5C3E17", val="#3A210D",
+    gold_stroke="0.6px #140D06", gold_stroke_thin="0.4px #140D06",
     body="#5C3E17", pt="#5C3E17", pd="#5C3E17", rn="#734D1B", vsub="#8A5F22",
     addr="#3A210D", wa="#3A210D", note="#734D1B", url="#734D1B",
     halo0="#B8862E", halo1="#9C6F27", halo2="#7E5A20", halo3="#63451A",

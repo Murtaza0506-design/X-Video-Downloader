@@ -97,6 +97,49 @@ above:
 - **Everything else** (date/time, body copy, programme, venue, WhatsApp,
   footer) — left exactly as it already was.
 
+The gold text (top ayah/translation, and "CRESCENT HALL" at the bottom,
+which still uses the shared `.gold` class) turned out to be low-contrast on
+its own against the terracotta ground — flat gold on orange. Fixed with a
+thin black `-webkit-text-stroke` outlined round the letterforms: new
+`gold_stroke`/`gold_stroke_thin` palette keys (default `"0 transparent"`,
+so no other colourway is affected), applied in `.gold`, `.ayah` and `.gloss`.
+
+The body paragraph was also rewritten again, still for members rather than
+newcomers but tighter — "held for its regular members" read as redundant
+once the whole poster's tone had already shifted, so it's now one sentence:
+*"The tariqa's weekly Moroccan dhikr — guided remembrance, recited with idhn
+(spiritual permission), in the company of those walking the path of
+spiritual refinement."*
+
+## Auto-computing the programme times from the real Maghrib time (`prayer_times.py`)
+
+The programme (session start, talk, "Maghrib, followed by refreshments")
+was hand-typed against one example date, so it drifts out of sync with
+sunset the moment the actual event date changes. `prayer_times.py` fixes
+that: `build_schedule(event_date)` calls the Aladhan API (Muslim World
+League calculation method, Rochdale's coordinates) for the real Maghrib
+time on that date, then derives the other three displayed times from three
+editable offsets — session start 90 min before Maghrib, the talk 15 min
+before, the event closing 30 min after — inferred from the one approved
+example (29 Aug 2026) since that's the only fixed point available. Adjust
+`SESSION_BEFORE_MAGHRIB`/`TALK_BEFORE_MAGHRIB`/`EVENT_END_AFTER_MAGHRIB` at
+the top of the file if the tariqa's actual practice differs. A
+`MAGHRIB_OVERRIDES` dict (keyed by ISO date) lets any specific date be
+pinned to a published local timetable value instead of the calculated one.
+
+`render()` now takes an optional `sched` dict — omit it and every colourway
+renders exactly as before (`DEFAULT_SCHED` in `final.py` holds the current
+29 August 2026 example); pass `prayer_times.build_schedule(date)` instead to
+regenerate the poster for a different date with correct times throughout:
+
+```bash
+python3 -c "
+import datetime, final as f, prayer_times as pt
+sched = pt.build_schedule(datetime.date(2026, 12, 5))
+f.render(f.SANDSTONE, 'final-sandstone-dec5', sched=sched)
+"
+```
+
 The page border — outer frame, arch outline, corner flourishes — is a rich
 red on Sandstone. It needed its own tokens (`border1`/`border2`/`border3`,
 new `.brd1`/`.brd2`/`.brd3` classes) rather than reusing `hair3`/`hair4`/
