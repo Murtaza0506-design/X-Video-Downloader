@@ -64,12 +64,17 @@ started reading as solid black rather than white. The request that followed
 — make the text sit on something opaque, but not a plain box — is what's
 actually in `final.py` now:
 
-- **`hero_arch_panel(base_y)`** closes the same mihrab-arch curve already
-  used as a decorative outline (`v.arch()`) into a filled region, instead of
-  just a stroke. One solid arch, coloured `cartouche_fill` (a deep navy
-  pulled from the artwork's own palette) with a `cartouche_edge` gold
-  hairline, sits behind the entire top of the page — ayah, title, subtitle,
-  wordmark and the star medallion all read straight off it.
+- **`hero_arch_panel(base_y)`** is a wide, flat horseshoe dome (a half-ellipse,
+  not the sharper pointed-mihrab curve used for the decorative outline
+  elsewhere) closed into a filled region. One solid arch, coloured
+  `cartouche_fill` (a deep navy pulled from the artwork's own palette) with a
+  `cartouche_edge` gold hairline, sits behind the entire top of the page —
+  ayah, title, subtitle, wordmark and the star medallion all read straight
+  off it. It started as a direct reuse of `v.arch()`'s own pointed-gothic
+  curve, which tapers to a near-zero-width point at the very top — fine for
+  a hairline outline, but the ayah (a full line of Arabic sitting right up
+  near the top of the panel) spilled straight off the sides of it onto the
+  bare photo. The wider ellipse stays close to full width much further up.
 - **`cartouche_bar(cx, cy, w, h)`** is the shape for everything below the
   arch: a horizontal bar with gently curved, pointed cusped ends — the same
   vocabulary Persian/Islamic illumination actually uses to carry an

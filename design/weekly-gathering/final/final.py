@@ -52,12 +52,16 @@ def build_hero(pal=None):
 # manuscript's own visual language instead — the mihrab arch already used as a
 # decorative outline (closed into a solid field), and a cusped cartouche bar,
 # the shape Persian/Islamic illumination actually uses to carry an inscription.
-def hero_arch_panel(base_y, inset=0.0):
-    l, r = v.ARCH_L+inset, v.ARCH_R-inset
-    a = v.ARCH_APEX+inset*0.9
-    sh = 430+inset*0.4
-    return (f'M {l},{base_y} L {l},{sh} Q {l},{a+95} {CX},{a} '
-            f'Q {r},{a+95} {r},{sh} L {r},{base_y} Z')
+def hero_arch_panel(base_y, inset=0.0, l=150, r=1050, apex_y=40, shoulder_y=250):
+    # a wide, flat horseshoe dome (half-ellipse), not the sharper mihrab point
+    # used for the decorative arch outline — the ayah sits right up near the
+    # top of this panel, and a true gothic point stays too narrow up there to
+    # hold a full line of Arabic without spilling off the opaque fill.
+    l, r = l+inset, r-inset
+    apex_y, shoulder_y = apex_y+inset*0.7, shoulder_y-inset*0.3
+    rx, ry = (r-l)/2, shoulder_y-apex_y
+    return (f'M {l},{base_y} L {l},{shoulder_y} '
+            f'A {rx:.1f},{ry:.1f} 0 0 1 {r},{shoulder_y} L {r},{base_y} Z')
 
 def cartouche_bar(cx, cy, w, h, tip=None):
     hw, hh = w/2, h/2
