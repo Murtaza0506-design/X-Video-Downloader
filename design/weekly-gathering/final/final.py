@@ -2,7 +2,7 @@
 """The chosen layout — arch, ayah, title, wordmark — with the order's own
    star mark (not a building) filling the arch, in a halo of 99 tasbih marks.
    A palette dict swaps the whole poster's colourway without touching layout."""
-import pathlib, subprocess
+import base64, pathlib, subprocess
 from PIL import Image
 import variants as v
 from render_variants import title_block, ayah_block, wordmark, HERE
@@ -25,10 +25,22 @@ def build_hero(pal=None):
     pal = pal or DEFAULT_PALETTE
     MED_CY, R, SEAL_D = 656, 150, 252          # SEAL_D deliberately smaller than R —
     extra_body = f'<g class="med">{v.halo(CX, MED_CY, R)}</g>'  # daylight for the 99-mark ring
+    # against a busy photographed background, the gold star/wordmark need a
+    # dark backing of their own to stay legible — off by default (transparent,
+    # 0 radius/size), a palette can opt in via mark_backing.
+    backing = pal.get('mark_backing')
+    word_backing = (f'<div style="position:absolute;left:50%;top:{420+36}px;width:640px;height:220px;'
+                     f'transform:translate(-50%,-50%);border-radius:50%;'
+                     f'background:radial-gradient(50% 50% at 50% 50%,{backing} 0%,{backing} 42%,transparent 78%)"></div>') if backing else ''
+    seal_backing = (f'<div style="position:absolute;left:50%;top:{MED_CY}px;width:{R*2+90}px;height:{R*2+90}px;'
+                     f'transform:translate(-50%,-50%);border-radius:50%;'
+                     f'background:radial-gradient(50% 50% at 50% 50%,{backing} 0%,{backing} 55%,transparent 82%)"></div>') if backing else ''
     hero = f'''
 {ayah_block(90, 150)}
 {title_block(258, 50, 56, cls=pal.get('title_cls', 'gold'))}
+{word_backing}
 {wordmark(420, 72)}
+{seal_backing}
 <div class="mark seal" style="top:{MED_CY-SEAL_D//2}px;width:{SEAL_D}px;height:{SEAL_D}px;
   -webkit-mask-image:url({v.STAR_URI});mask-image:url({v.STAR_URI})"></div>
 '''
@@ -81,7 +93,7 @@ html,body{{background:#000}}
 @page{{size:12.5in 18.75in;margin:0}}
 @media print{{html,body{{background:{pal['print_bg']};-webkit-print-color-adjust:exact;print-color-adjust:exact}}}}
 .page{{position:relative;width:{W}px;height:{H}px;overflow:hidden;
-  background:{pal['bg1']},{pal['bg2']};
+  background:{f"url({pal['bg_image_uri']}) center/cover no-repeat" if pal.get('bg_image_uri') else f"{pal['bg1']},{pal['bg2']}"};
   font-kerning:normal;-webkit-font-smoothing:antialiased;}}
 .layer{{position:absolute;inset:0;width:100%;height:100%}}
 .grain{{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
@@ -118,6 +130,7 @@ html,body{{background:#000}}
 .med{{filter:{pal.get('med_shadow', 'drop-shadow(0 0 16px rgba(230,192,116,.26))')}}}
 
 .at{{position:absolute;left:0;right:0;text-align:center;
+  -webkit-text-stroke:{pal.get('outline_stroke','0 transparent')};
   text-shadow:{pal.get('text_shadow', '0 1px 3px rgba(6,4,2,.72), 0 0 14px rgba(6,4,2,.45)')}}}
 .mark{{position:absolute;left:50%;transform:translateX(-50%);
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
@@ -128,15 +141,13 @@ html,body{{background:#000}}
 .wordmark{{filter:{pal.get('wordmark_shadow', 'drop-shadow(0 0 16px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.55))')}}}
 .gold{{background:{pal['gold_grad']};
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  -webkit-text-stroke:{pal.get('gold_stroke','0 transparent')};
   filter:{pal.get('gold_shadow', 'drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 5px rgba(6,4,2,.7)) drop-shadow(0 0 20px rgba(214,172,100,.26))')}}}
 .at.gold{{text-shadow:none}}
 .ink{{color:{pal.get('title_color', '#1A1006')}}}
 .ayah{{font-family:Amiri,serif;font-size:40px;line-height:1.55;color:{pal['ayah']};
-  -webkit-text-stroke:{pal.get('gold_stroke_thin','0 transparent')};
   direction:rtl;filter:{pal.get('ayah_shadow', 'drop-shadow(0 0 16px rgba(214,172,100,.28))')}}}
 .gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:31px;
-  letter-spacing:.03em;color:{pal['gloss']};-webkit-text-stroke:{pal.get('gold_stroke_thin','0 transparent')}}}
+  letter-spacing:.03em;color:{pal['gloss']}}}
 .t1{{font-family:Cinzel,serif;font-weight:600;font-size:50px;letter-spacing:.135em;
   text-indent:.135em;line-height:1}}
 .t2{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:43px;
@@ -423,6 +434,42 @@ SANDSTONE.update(
     med_shadow="drop-shadow(0 0 12px rgba(184,134,46,.24))",
 )
 
+# ---------- Illuminated Manuscript — the user's own hand-painted tazhib ----------
+# Not a generated pattern at all: bg-illum-1200x1800.jpg is built from a photo of
+# the user's own illumination work (mirrored 2x2 into a symmetric medallion tile,
+# then tiled down the page — see design/weekly-gathering/illuminated/README.md).
+# Real photographed paint/gold-leaf texture as the actual background, so every
+# generated overlay (zellij tiles, ground rosette, dado band, halo glow, scrim)
+# is switched off — layering vector pattern on top of a photograph would just
+# fight it. The star and Arabic wordmark keep their gold on a soft dark backing
+# (mark_backing) so they don't get lost in the busy artwork; every actual line
+# of text is flat white with a bold black outline (outline_stroke) instead,
+# since it has to read against blue, purple, teal and gold in different places.
+def _jpeg_uri(name):
+    return "data:image/jpeg;base64," + base64.b64encode((HERE / name).read_bytes()).decode()
+
+ILLUMINATED = dict(DEFAULT_PALETTE)
+ILLUMINATED.update(
+    name="Illuminated Manuscript", pattern="zellij",
+    bg_image_uri=_jpeg_uri("illum-bg.jpg"), print_bg="#1B2A4A",
+    tile_small_op=0, tile_big_op=0, band_op=0, ground_op=0, halo_mult=0, scrim_mult=0,
+    hair1="#F0D8A0", hair2="#D8B870", hair3="#C6A055", hair4="#A9853E", hair5="#8C6B2E",
+    mark_grad="linear-gradient(176deg,#F8ECC8 0%,#E0BE72 30%,#B8862E 62%,#F0D8A0 82%,#C6A055 100%)",
+    mark_backing="rgba(6,6,14,.62)",
+    gold_grad="linear-gradient(178deg,#FFFFFF 0%,#FFFFFF 100%)",
+    outline_stroke="2.1px #000000",
+    ayah="#FFFFFF", gloss="#FFFFFF", t2="#FFFFFF", lab="#FFFFFF", val="#FFFFFF",
+    body="#FFFFFF", pt="#FFFFFF", pd="#FFFFFF", rn="#FFFFFF", vsub="#FFFFFF",
+    addr="#FFFFFF", wa="#FFFFFF", note="#FFFFFF", url="#FFFFFF",
+    val_size="38px", pt_size="34px", body_weight=600, val_weight=600, pd_weight=600,
+    addr_weight=600, wa_weight=600,
+    text_shadow="0 1px 6px rgba(0,0,0,.8), 0 0 2px rgba(0,0,0,.9)",
+    gold_shadow="drop-shadow(0 1px 3px rgba(0,0,0,.5))",
+    seal_shadow="drop-shadow(0 2px 6px rgba(0,0,0,.55))",
+    wordmark_shadow="drop-shadow(0 2px 6px rgba(0,0,0,.5))",
+    ayah_shadow="none", med_shadow="none",
+)
+
 if __name__ == "__main__":
     render(DEFAULT_PALETTE, "final-gold")
     render(EMERALD, "final-emerald")
@@ -431,3 +478,4 @@ if __name__ == "__main__":
     render(BLACKGOLD, "final-blackgold")
     render(EARTHY, "final-earthy")
     render(SANDSTONE, "final-sandstone")
+    render(ILLUMINATED, "final-illuminated")
