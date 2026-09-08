@@ -47,20 +47,45 @@ over a photograph just fights it rather than adding to it.
 Two more things needed solving once the ground was a genuinely busy photo
 instead of a flat colour or soft gradient:
 
-- **The star and Arabic wordmark are gold-on-mask images, not text** — they
-  can't take a CSS text outline. Both get a soft dark radial-gradient
-  vignette behind them instead (`build_hero()`'s `word_backing`/
-  `seal_backing`, driven by a new `mark_backing` palette key, default unset
-  so no other colourway is affected) so the gold reads clearly wherever it
-  lands on the pattern.
 - **Every actual line of text** (title, subtitle, ayah + translation,
   date/time, body, programme, venue, address, WhatsApp, footer) is flat
-  white with a bold black outline, since it has to stay readable over blue,
-  purple, teal and gold in different places depending on where it falls.
-  The per-class `-webkit-text-stroke` hack from Sandstone's gold-text pass
-  was consolidated into one rule on the shared `.at` class
-  (`outline_stroke` palette key, default `"0 transparent"` — invisible,
-  so every other colourway is unaffected) rather than scattered per element.
+  white. The per-class `-webkit-text-stroke` hack from Sandstone's gold-text
+  pass was consolidated into one rule on the shared `.at` class
+  (`outline_stroke` palette key, default `"0 transparent"` — invisible, so
+  no other colourway is affected).
+- **The star and Arabic wordmark are gold-on-mask images, not text** — they
+  can't take a CSS text outline at all.
+
+The first pass tried to make white-with-a-heavy-black-outline text legible
+sitting *directly* on the photo, with only a soft dark vignette behind the
+star/wordmark. Two problems: it was still genuinely hard to read in places
+(blue-on-blue, gold-on-gold), and a heavy outline on long lines of body copy
+started reading as solid black rather than white. The request that followed
+— make the text sit on something opaque, but not a plain box — is what's
+actually in `final.py` now:
+
+- **`hero_arch_panel(base_y)`** closes the same mihrab-arch curve already
+  used as a decorative outline (`v.arch()`) into a filled region, instead of
+  just a stroke. One solid arch, coloured `cartouche_fill` (a deep navy
+  pulled from the artwork's own palette) with a `cartouche_edge` gold
+  hairline, sits behind the entire top of the page — ayah, title, subtitle,
+  wordmark and the star medallion all read straight off it.
+- **`cartouche_bar(cx, cy, w, h)`** is the shape for everything below the
+  arch: a horizontal bar with gently curved, pointed cusped ends — the same
+  vocabulary Persian/Islamic illumination actually uses to carry an
+  inscription, not a rectangle with corners rounded off. One bar each for
+  the date/time row, the body paragraph, the programme columns, the venue
+  block, the WhatsApp confirmation, and the footer line.
+- Both are driven by one `cartouche_zones` palette key (a list of
+  `{shape, ...}` dicts) read by `cartouche_panels_svg()` in `frame_svg()`,
+  default empty so every other colourway is untouched. With the panels
+  doing the contrast work, `outline_stroke` dropped back down to a thin
+  `0.6px` (a crisp edge, not a heavy stroke) and the old `mark_backing`
+  vignette was removed — the star and wordmark now just sit on the arch
+  panel like everything else.
+- The old hairline "confirm attendance" box (a plain rounded rectangle)
+  is suppressed on any colourway that supplies `cartouche_zones`, so it
+  doesn't draw on top of the WhatsApp cartouche.
 
 ## Regenerating with a different source photo
 

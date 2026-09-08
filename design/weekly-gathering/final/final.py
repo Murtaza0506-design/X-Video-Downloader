@@ -47,6 +47,51 @@ def build_hero(pal=None):
     return hero, extra_body
 
 
+# ---------- opaque "inscription panel" shapes, for text over a busy photo ----------
+# Plain rectangles read as pasted-on boxes; these two shapes are drawn from the
+# manuscript's own visual language instead — the mihrab arch already used as a
+# decorative outline (closed into a solid field), and a cusped cartouche bar,
+# the shape Persian/Islamic illumination actually uses to carry an inscription.
+def hero_arch_panel(base_y, inset=0.0):
+    l, r = v.ARCH_L+inset, v.ARCH_R-inset
+    a = v.ARCH_APEX+inset*0.9
+    sh = 430+inset*0.4
+    return (f'M {l},{base_y} L {l},{sh} Q {l},{a+95} {CX},{a} '
+            f'Q {r},{a+95} {r},{sh} L {r},{base_y} Z')
+
+def cartouche_bar(cx, cy, w, h, tip=None):
+    hw, hh = w/2, h/2
+    # a shallower cusp than a true lens — enough to read as a pointed cartouche
+    # without narrowing the top/bottom edges so much that wrapped text overflows.
+    tip = tip if tip is not None else min(hh*1.4, hw*0.35)
+    bow = hh*0.55
+    return (f'M {cx-hw:.1f},{cy:.1f} '
+            f'Q {cx-hw+tip*0.5:.1f},{cy-bow:.1f} {cx-hw+tip:.1f},{cy-hh:.1f} '
+            f'L {cx+hw-tip:.1f},{cy-hh:.1f} '
+            f'Q {cx+hw-tip*0.5:.1f},{cy-bow:.1f} {cx+hw:.1f},{cy:.1f} '
+            f'Q {cx+hw-tip*0.5:.1f},{cy+bow:.1f} {cx+hw-tip:.1f},{cy+hh:.1f} '
+            f'L {cx-hw+tip:.1f},{cy+hh:.1f} '
+            f'Q {cx-hw+tip*0.5:.1f},{cy+bow:.1f} {cx-hw:.1f},{cy:.1f} Z')
+
+def cartouche_panels_svg(pal):
+    zones = pal.get('cartouche_zones')
+    if not zones:
+        return ''
+    fill = pal.get('cartouche_fill', 'rgba(10,14,40,.86)')
+    edge = pal.get('cartouche_edge', '#D8B870')
+    out = []
+    for z in zones:
+        if z['shape'] == 'arch':
+            d_outer = hero_arch_panel(z['base_y'])
+            d_inner = hero_arch_panel(z['base_y']-14, inset=14)
+        else:
+            d_outer = cartouche_bar(z['cx'], z['cy'], z['w'], z['h'])
+            d_inner = cartouche_bar(z['cx'], z['cy'], z['w']-24, z['h']-24)
+        out.append(f'<path d="{d_outer}" fill="{fill}" stroke="{edge}" stroke-width="1.4"/>')
+        out.append(f'<path d="{d_inner}" fill="none" stroke="{edge}" stroke-width="0.6" opacity="0.75"/>')
+    return "\n".join(out)
+
+
 def _polygon(cx, cy, r, n, rot=0.0):
     return v.fmt([v.P(cx, cy, r, rot + i*360.0/n) for i in range(n)])
 
@@ -206,6 +251,8 @@ def frame_svg(pal, hero_extra):
   {v.arch(0, "brd2", 1.0)}
   {v.arch(11, "brd2", 0.6)}
 
+  {cartouche_panels_svg(pal)}
+
   {hero_extra}
 
   <!-- frame: a tiled band, the way a Moroccan wall carries its dado -->
@@ -221,9 +268,8 @@ def frame_svg(pal, hero_extra):
   {v.rule(CX, v.ARCH_BASE, 350)}
   <line x1="{CX}" y1="{v.ARCH_BASE+34}" x2="{CX}" y2="{v.ARCH_BASE+128}" class="rule"/>
 
-  {v.rule(CX, 1366, 350)}
-  <rect x="{CX-322}" y="1536" width="644" height="140" rx="2" class="hair-3" stroke-width="1" fill="none"/>
-  <rect x="{CX-315}" y="1543" width="630" height="126" rx="1" class="hair-5" stroke-width="0.6" fill="none"/>
+  {v.rule(CX, 1366, 350) if not pal.get('cartouche_zones') else ''}
+  {f'<rect x="{CX-322}" y="1536" width="644" height="140" rx="2" class="hair-3" stroke-width="1" fill="none"/><rect x="{CX-315}" y="1543" width="630" height="126" rx="1" class="hair-5" stroke-width="0.6" fill="none"/>' if not pal.get('cartouche_zones') else ''}
   {v.lozenge(CX-322,1606,5,8,"fill-ink")}{v.lozenge(CX+322,1606,5,8,"fill-ink")}
   {v.lozenge(CX-322,1606,5,8,"stroke-node")}{v.lozenge(CX+322,1606,5,8,"stroke-node")}
 </svg>
@@ -455,19 +501,37 @@ ILLUMINATED.update(
     tile_small_op=0, tile_big_op=0, band_op=0, ground_op=0, halo_mult=0, scrim_mult=0,
     hair1="#F0D8A0", hair2="#D8B870", hair3="#C6A055", hair4="#A9853E", hair5="#8C6B2E",
     mark_grad="linear-gradient(176deg,#F8ECC8 0%,#E0BE72 30%,#B8862E 62%,#F0D8A0 82%,#C6A055 100%)",
-    mark_backing="rgba(6,6,14,.62)",
+    # no mark_backing needed — the hero arch cartouche panel already gives the
+    # star/wordmark a solid navy ground to sit on.
     gold_grad="linear-gradient(178deg,#FFFFFF 0%,#FFFFFF 100%)",
-    outline_stroke="2.1px #000000",
+    # opaque cartouche panels now carry the contrast, so text just needs a
+    # crisp hairline + a light lift, not the heavy outline needed when it
+    # sat directly on the busy photo — that combination was reading as
+    # solid black on the bigger, longer lines (body copy) instead of white.
+    outline_stroke="0.6px #000000",
     ayah="#FFFFFF", gloss="#FFFFFF", t2="#FFFFFF", lab="#FFFFFF", val="#FFFFFF",
     body="#FFFFFF", pt="#FFFFFF", pd="#FFFFFF", rn="#FFFFFF", vsub="#FFFFFF",
     addr="#FFFFFF", wa="#FFFFFF", note="#FFFFFF", url="#FFFFFF",
     val_size="38px", pt_size="34px", body_weight=600, val_weight=600, pd_weight=600,
     addr_weight=600, wa_weight=600,
-    text_shadow="0 1px 6px rgba(0,0,0,.8), 0 0 2px rgba(0,0,0,.9)",
-    gold_shadow="drop-shadow(0 1px 3px rgba(0,0,0,.5))",
-    seal_shadow="drop-shadow(0 2px 6px rgba(0,0,0,.55))",
-    wordmark_shadow="drop-shadow(0 2px 6px rgba(0,0,0,.5))",
+    text_shadow="0 1px 3px rgba(0,0,0,.6)",
+    gold_shadow="drop-shadow(0 1px 2px rgba(0,0,0,.4))",
+    seal_shadow="drop-shadow(0 2px 4px rgba(0,0,0,.4))",
+    wordmark_shadow="drop-shadow(0 2px 4px rgba(0,0,0,.4))",
     ayah_shadow="none", med_shadow="none",
+    # opaque "inscription panels" behind every text zone, shaped like the
+    # manuscript's own vocabulary (the mihrab arch, a cusped cartouche bar)
+    # rather than plain boxes — see hero_arch_panel()/cartouche_bar() above.
+    cartouche_fill="rgba(8,12,36,.88)", cartouche_edge="#D8B870",
+    cartouche_zones=[
+        dict(shape="arch", base_y=812),
+        dict(shape="bar", cx=CX, cy=907, w=820, h=110),
+        dict(shape="bar", cx=CX, cy=1046, w=1080, h=150),
+        dict(shape="bar", cx=CX, cy=1288, w=1080, h=187),
+        dict(shape="bar", cx=CX, cy=1462, w=950, h=145),
+        dict(shape="bar", cx=CX, cy=1606, w=700, h=140),
+        dict(shape="bar", cx=CX, cy=1707, w=440, h=45),
+    ],
 )
 
 if __name__ == "__main__":
