@@ -504,11 +504,11 @@ ILLUMINATED.update(
     # no mark_backing needed — the hero arch cartouche panel already gives the
     # star/wordmark a solid navy ground to sit on.
     gold_grad="linear-gradient(178deg,#FFFFFF 0%,#FFFFFF 100%)",
-    # opaque cartouche panels now carry the contrast, so text just needs a
-    # crisp hairline + a light lift, not the heavy outline needed when it
-    # sat directly on the busy photo — that combination was reading as
-    # solid black on the bigger, longer lines (body copy) instead of white.
-    outline_stroke="0.6px #000000",
+    # a thin aqua-blue outline (pulled from the artwork's own teal) round
+    # white letterforms — reads as a deliberate inked edge against the navy
+    # cartouche panels, rather than the black outline getting lost against
+    # them (black-on-navy has much less separation than blue-on-navy does).
+    outline_stroke="0.9px #5FE1EC",
     ayah="#FFFFFF", gloss="#FFFFFF", t2="#FFFFFF", lab="#FFFFFF", val="#FFFFFF",
     body="#FFFFFF", pt="#FFFFFF", pd="#FFFFFF", rn="#FFFFFF", vsub="#FFFFFF",
     addr="#FFFFFF", wa="#FFFFFF", note="#FFFFFF", url="#FFFFFF",

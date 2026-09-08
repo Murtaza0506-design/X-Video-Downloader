@@ -80,9 +80,12 @@ actually in `final.py` now:
   `{shape, ...}` dicts) read by `cartouche_panels_svg()` in `frame_svg()`,
   default empty so every other colourway is untouched. With the panels
   doing the contrast work, `outline_stroke` dropped back down to a thin
-  `0.6px` (a crisp edge, not a heavy stroke) and the old `mark_backing`
-  vignette was removed — the star and wordmark now just sit on the arch
-  panel like everything else.
+  hairline and the old `mark_backing` vignette was removed — the star and
+  wordmark now just sit on the arch panel like everything else.
+- That hairline is aqua-blue (`0.9px #5FE1EC`), not black — black-on-navy
+  had much less separation than a colour pulled from the artwork's own
+  teal does, and it reads as a deliberate inked edge rather than a legibility
+  patch.
 - The old hairline "confirm attendance" box (a plain rounded rectangle)
   is suppressed on any colourway that supplies `cartouche_zones`, so it
   doesn't draw on top of the WhatsApp cartouche.
