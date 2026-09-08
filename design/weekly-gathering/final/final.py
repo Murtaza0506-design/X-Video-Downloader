@@ -143,12 +143,12 @@ html,body{{background:#000}}
   letter-spacing:.045em;color:{pal['t2']}}}
 .lab{{font-family:Cinzel,serif;font-weight:400;font-size:12.5px;letter-spacing:.5em;
   text-indent:.5em;color:{pal['lab']}}}
-.val{{font-family:Cormorant,serif;font-weight:{pal.get('val_weight',400)};font-size:26px;letter-spacing:.075em;
+.val{{font-family:Cormorant,serif;font-weight:{pal.get('val_weight',400)};font-size:{pal.get('val_size','26px')};letter-spacing:.075em;
   text-indent:.075em;color:{pal['val']}}}
 .body{{font-family:Cormorant,serif;font-weight:{pal.get('body_weight',400)};font-size:35px;line-height:1.24;
   letter-spacing:.005em;color:{pal['body']}}}
 .body em{{font-style:italic;color:{pal['gloss']}}}
-.pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:27px;letter-spacing:.03em;
+.pt{{font-variant-numeric:lining-nums;font-family:Cinzel,serif;font-weight:600;font-size:{pal.get('pt_size','27px')};letter-spacing:.03em;
   text-indent:.03em;color:{pal['pt']}}}
 .pd{{font-family:Cormorant,serif;font-weight:{pal.get('pd_weight',400)};font-size:21.5px;line-height:1.46;
   letter-spacing:.03em;color:{pal['pd']}}}
@@ -397,18 +397,19 @@ SANDSTONE.update(
     rule="#8A5F22", rule_lit="#B8862E",
     zh="#9C6F27", zf="#7E5A20", zstud="#9C6F27", zb="#8A5F22",
     scrim="230,180,110", scrim_mult=0.24, halo_mult=0.38, ground_op=0.0,
-    gold_grad="linear-gradient(178deg,#C1922F 0%,#9C6F27 26%,#734D1B 58%,#B8862E 82%,#8A5F22 100%)",
-    # the title/subtitle/wordmark/star — the poster's "middle" — go black instead
-    # of gold, for a bold graphic centrepiece against the terracotta ground.
+    # every reading text — title, subtitle, wordmark, star, ayah + translation,
+    # date/time, body, programme, venue and its details, WhatsApp, footer —
+    # in one plain black ink. Simplest possible read against the terracotta
+    # ground; only the outer border stays a deliberate accent colour (red).
+    gold_grad="linear-gradient(178deg,#140D06 0%,#140D06 100%)",
     title_cls="ink", title_color="#140D06",
-    mark_grad="linear-gradient(176deg,#241708 0%,#140D06 55%,#000000 100%)",
-    # the top ayah + its translation read as clearly, richly gold — with a
-    # thin black outline round the letterforms, since flat gold-on-terracotta
-    # was too low-contrast to read at a glance.
-    ayah="#C1922F", gloss="#B8862E", t2="#140D06", lab="#5C3E17", val="#3A210D",
-    gold_stroke="0.6px #140D06", gold_stroke_thin="0.4px #140D06",
-    body="#5C3E17", pt="#5C3E17", pd="#5C3E17", rn="#734D1B", vsub="#8A5F22",
-    addr="#3A210D", wa="#3A210D", note="#734D1B", url="#734D1B",
+    mark_grad="linear-gradient(176deg,#140D06 0%,#140D06 100%)",
+    ayah="#140D06", gloss="#140D06", t2="#140D06", lab="#140D06", val="#140D06",
+    body="#140D06", pt="#140D06", pd="#140D06", rn="#140D06", vsub="#140D06",
+    addr="#140D06", wa="#140D06", note="#140D06", url="#140D06",
+    # the actual clock times — the top event window and the three programme
+    # slots — enlarged to fill their columns rather than sitting small in them.
+    val_size="38px", pt_size="34px",
     halo0="#B8862E", halo1="#9C6F27", halo2="#7E5A20", halo3="#63451A",
     # the page border — outer frame, arch outline, corner flourishes — a rich red,
     # kept separate from hair3/hair4/hair5 so the star's own halo ring (which

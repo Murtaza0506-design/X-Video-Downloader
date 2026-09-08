@@ -81,28 +81,37 @@ colourways changed):
   down (not remove) the warm glow and the pattern-hiding scrim to the much
   smaller doses a pale ground needs.
 
-Sandstone then picked up a three-zone colour split, on top of everything
-above:
+Sandstone briefly picked up a three-zone colour split (gold top, black
+middle, everything else untouched), then went fully black by request —
+gold-on-terracotta still read as too low-contrast even with the outline
+below, so every reading token (`ayah`, `gloss`, `t2`, `lab`, `val`, `body`,
+`pt`, `pd`, `rn`, `vsub`, `addr`, `wa`, `note`, `url`, plus `gold_grad` and
+`mark_grad`) now points at the same plain black ink. Only the border stays a
+deliberate accent colour (red) — everything that's actually text is one
+flat, maximally-legible black against the terracotta ground.
 
-- **Top** (the ayah + its English translation) — bright, unambiguous gold
-  (`ayah`/`gloss` tokens pushed to the gold family's brightest stops).
-- **Middle** (the English title, "Weekly Dhikr Gathering", the Arabic
-  wordmark, and the star medallion) — black instead of gold, a bold graphic
-  centrepiece against the terracotta ground. `title_block()` now takes an
-  optional `cls` (default `"gold"`, unchanged for every other colourway);
-  `build_hero(pal)` passes `pal.get('title_cls', 'gold')` so Sandstone alone
-  supplies `"ink"`, a new class reading `title_color`. The star and Arabic
-  wordmark share the `.mark` class, so pointing Sandstone's `mark_grad` at a
-  near-black gradient turns both black together.
-- **Everything else** (date/time, body copy, programme, venue, WhatsApp,
-  footer) — left exactly as it already was.
+The mechanism from the three-zone version is still there and still useful
+for a future colourway: `title_block()` takes an optional `cls` (default
+`"gold"`, unchanged for every other colourway); `build_hero(pal)` passes
+`pal.get('title_cls', 'gold')` so a colourway can supply `"ink"` (a class
+reading `title_color`) instead. The star and Arabic wordmark share the
+`.mark` class, so pointing a palette's `mark_grad` at a near-black gradient
+turns both black together — that's now Sandstone's permanent state rather
+than a title-only swap.
 
-The gold text (top ayah/translation, and "CRESCENT HALL" at the bottom,
-which still uses the shared `.gold` class) turned out to be low-contrast on
-its own against the terracotta ground — flat gold on orange. Fixed with a
-thin black `-webkit-text-stroke` outlined round the letterforms: new
-`gold_stroke`/`gold_stroke_thin` palette keys (default `"0 transparent"`,
-so no other colourway is affected), applied in `.gold`, `.ayah` and `.gloss`.
+The programme's actual clock times — the top event window and the three
+`I`/`II`/`III` slots — were enlarged to fill their columns: new `val_size`/
+`pt_size` palette keys (default `26px`/`27px`, unchanged elsewhere), set to
+`38px`/`34px` on Sandstone.
+
+Along the way, the gold text (top ayah/translation, and "CRESCENT HALL")
+turned out to be low-contrast on its own against the terracotta ground —
+flat gold on orange — and got a thin black `-webkit-text-stroke` outline as
+a fix (new `gold_stroke`/`gold_stroke_thin` palette keys, default
+`"0 transparent"` so no other colourway is affected). Sandstone no longer
+uses gold at all so the stroke is moot there today, but the keys — and the
+`-webkit-text-stroke` line in `.gold`/`.ayah`/`.gloss` — stay in place for
+any future colourway that keeps gold text on a light, low-contrast ground.
 
 The body paragraph was also rewritten again, still for members rather than
 newcomers but tighter — "held for its regular members" read as redundant
