@@ -99,7 +99,7 @@ html,body{{background:#000}}
 .stroke-node{{fill:none;stroke:{pal['stroke_node']};stroke-width:1}}
 .rule{{stroke:{pal['rule']};stroke-width:1;opacity:.85}}
 .rule-lit{{stroke:{pal['rule_lit']};stroke-width:1;opacity:.9}}
-.ground{{opacity:.072}}
+.ground{{opacity:{pal.get('ground_op', 0.072)}}}
 .zh{{stroke:{pal['zh']}}}
 .zf{{stroke:{pal['zf']}}}
 .zstud{{fill:{pal['zstud']}}}
@@ -108,27 +108,26 @@ html,body{{background:#000}}
 .tiles{{opacity:.20}}
 .scrim{{position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(62% 34% at 50% 21%, rgba({pal['scrim']},.64) 0%, rgba({pal['scrim']},.30) 58%, rgba({pal['scrim']},0) 100%),
-    radial-gradient(72% 40% at 50% 61%, rgba({pal['scrim']},.70) 0%, rgba({pal['scrim']},.36) 55%, rgba({pal['scrim']},0) 100%),
-    radial-gradient(64% 26% at 50% 87%, rgba({pal['scrim']},.68) 0%, rgba({pal['scrim']},.32) 58%, rgba({pal['scrim']},0) 100%);}}
-.med{{filter:drop-shadow(0 0 16px rgba(230,192,116,.26))}}
+    radial-gradient(62% 34% at 50% 21%, rgba({pal['scrim']},{0.64*pal.get('scrim_mult',1.0):.3f}) 0%, rgba({pal['scrim']},{0.30*pal.get('scrim_mult',1.0):.3f}) 58%, rgba({pal['scrim']},0) 100%),
+    radial-gradient(72% 40% at 50% 61%, rgba({pal['scrim']},{0.70*pal.get('scrim_mult',1.0):.3f}) 0%, rgba({pal['scrim']},{0.36*pal.get('scrim_mult',1.0):.3f}) 55%, rgba({pal['scrim']},0) 100%),
+    radial-gradient(64% 26% at 50% 87%, rgba({pal['scrim']},{0.68*pal.get('scrim_mult',1.0):.3f}) 0%, rgba({pal['scrim']},{0.32*pal.get('scrim_mult',1.0):.3f}) 58%, rgba({pal['scrim']},0) 100%);}}
+.med{{filter:{pal.get('med_shadow', 'drop-shadow(0 0 16px rgba(230,192,116,.26))')}}}
 
 .at{{position:absolute;left:0;right:0;text-align:center;
-  text-shadow:0 1px 3px rgba(6,4,2,.72), 0 0 14px rgba(6,4,2,.45)}}
+  text-shadow:{pal.get('text_shadow', '0 1px 3px rgba(6,4,2,.72), 0 0 14px rgba(6,4,2,.45)')}}}
 .mark{{position:absolute;left:50%;transform:translateX(-50%);
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-size:contain;mask-size:contain;
   -webkit-mask-position:center;mask-position:center;
   background-image:{pal['mark_grad']};}}
-.seal{{filter:drop-shadow(0 0 20px rgba(232,194,116,.30)) drop-shadow(0 1px 1px rgba(0,0,0,.5))}}
-.wordmark{{filter:drop-shadow(0 0 16px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.55))}}
+.seal{{filter:{pal.get('seal_shadow', 'drop-shadow(0 0 20px rgba(232,194,116,.30)) drop-shadow(0 1px 1px rgba(0,0,0,.5))')}}}
+.wordmark{{filter:{pal.get('wordmark_shadow', 'drop-shadow(0 0 16px rgba(226,186,108,.24)) drop-shadow(0 1px 1px rgba(0,0,0,.55))')}}}
 .gold{{background:{pal['gold_grad']};
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 5px rgba(6,4,2,.7))
-         drop-shadow(0 0 20px rgba(214,172,100,.26))}}
+  filter:{pal.get('gold_shadow', 'drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 5px rgba(6,4,2,.7)) drop-shadow(0 0 20px rgba(214,172,100,.26))')}}}
 .at.gold{{text-shadow:none}}
 .ayah{{font-family:Amiri,serif;font-size:40px;line-height:1.55;color:{pal['ayah']};
-  direction:rtl;filter:drop-shadow(0 0 16px rgba(214,172,100,.28))}}
+  direction:rtl;filter:{pal.get('ayah_shadow', 'drop-shadow(0 0 16px rgba(214,172,100,.28))')}}}
 .gloss{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:31px;
   letter-spacing:.03em;color:{pal['gloss']}}}
 .t1{{font-family:Cinzel,serif;font-weight:600;font-size:50px;letter-spacing:.135em;
@@ -174,11 +173,11 @@ def frame_svg(pal, hero_extra):
       <feColorMatrix type="saturate" values="0"/>
     </filter>
     <radialGradient id="halo" cx="50%" cy="{656/H*100:.1f}%" r="52%">
-      <stop offset="0%"   stop-color="{pal['halo0']}" stop-opacity="0.20"/>
-      <stop offset="26%"  stop-color="{pal['halo1']}" stop-opacity="0.105"/>
-      <stop offset="48%"  stop-color="{pal['halo2']}" stop-opacity="0.048"/>
-      <stop offset="72%"  stop-color="{pal['halo3']}" stop-opacity="0.016"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0%"   stop-color="{pal['halo0']}" stop-opacity="{0.20*pal.get('halo_mult',1.0):.4f}"/>
+      <stop offset="26%"  stop-color="{pal['halo1']}" stop-opacity="{0.105*pal.get('halo_mult',1.0):.4f}"/>
+      <stop offset="48%"  stop-color="{pal['halo2']}" stop-opacity="{0.048*pal.get('halo_mult',1.0):.4f}"/>
+      <stop offset="72%"  stop-color="{pal['halo3']}" stop-opacity="{0.016*pal.get('halo_mult',1.0):.4f}"/>
+      <stop offset="100%" stop-color="{pal['halo3']}" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
@@ -354,6 +353,44 @@ EARTHY.update(
     scrim="19,11,5",
 )
 
+# ---------- Sandstone & Gold — earthy, but light ----------
+# EARTHY kept the ground dark (terracotta-clay black) with light gold/white
+# reading text. This flips that: a genuinely light, sun-baked sandstone and
+# terracotta ground, with every gold token and every reading-text token
+# pushed down to a deep antique bronze / espresso ink so it still reads
+# clearly against the pale ground. The warm glows and dark contact-shadows
+# tuned for a dark backdrop are replaced with much quieter light-appropriate
+# equivalents (text_shadow/gold_shadow/seal_shadow/wordmark_shadow/
+# ayah_shadow/med_shadow, halo_mult) rather than muddying a light page with
+# shadow tones built for a dark one.
+SANDSTONE = dict(DEFAULT_PALETTE)
+SANDSTONE.update(
+    name="Sandstone & Gold", pattern="zellij",
+    tile_small_op=0.16, tile_big_op=0.14, band_op=0.22,
+    bg1="radial-gradient(160% 100% at 50% 20%, #EDDCB9 0%, #E8D2A6 45%, #E0C592 75%, #D8B87E 100%)",
+    bg2="radial-gradient(140% 90% at 50% 100%, #E0C592 0%, #D6B57C 50%, #C9A468 100%)",
+    print_bg="#E5CFA0",
+    hair1="#8C6B2E", hair2="#75592A", hair3="#5F4922", hair4="#4C3A1B", hair5="#3C2E15",
+    petal="rgba(117,89,42,.09)", petal_stroke="#6E5424",
+    petal_lit="rgba(140,107,46,.15)", petal_lit_stroke="#8C6B2E",
+    dot="#6E5424", fill_lit="#8C6B2E", stroke_node="#5F4922",
+    rule="#6E5424", rule_lit="#8C6B2E",
+    zh="#75592A", zf="#5F4922", zstud="#75592A", zb="#6E5424",
+    scrim="236,210,164", scrim_mult=0.15, halo_mult=0.15, ground_op=0.0,
+    gold_grad="linear-gradient(178deg,#96742F 0%,#7A5B26 26%,#5F4922 58%,#8C6B2E 82%,#6E5424 100%)",
+    mark_grad="linear-gradient(176deg,#96742F 0%,#84642A 22%,#6E5424 54%,#8C6B2E 78%,#75592A 100%)",
+    ayah="#6E5424", gloss="#7A5B26", t2="#6E5424", lab="#4A3620", val="#2E2013",
+    body="#4C3A1B", pt="#4A3620", pd="#4C3A1B", rn="#5F4922", vsub="#6E5424",
+    addr="#2E2013", wa="#2E2013", note="#5F4922", url="#5F4922",
+    halo0="#8C6B2E", halo1="#75592A", halo2="#5F4922", halo3="#4C3A1B",
+    text_shadow="0 1px 1px rgba(255,250,240,.55)",
+    gold_shadow="drop-shadow(0 1px 0 rgba(255,255,255,.35)) drop-shadow(0 1px 3px rgba(46,32,19,.22))",
+    seal_shadow="drop-shadow(0 1px 3px rgba(46,32,19,.22)) drop-shadow(0 1px 1px rgba(255,255,255,.3))",
+    wordmark_shadow="drop-shadow(0 1px 3px rgba(46,32,19,.20)) drop-shadow(0 1px 1px rgba(255,255,255,.3))",
+    ayah_shadow="drop-shadow(0 1px 2px rgba(46,32,19,.18))",
+    med_shadow="drop-shadow(0 0 10px rgba(140,107,46,.18))",
+)
+
 if __name__ == "__main__":
     render(DEFAULT_PALETTE, "final-gold")
     render(EMERALD, "final-emerald")
@@ -361,3 +398,4 @@ if __name__ == "__main__":
     render(INDIGO, "final-indigo")
     render(BLACKGOLD, "final-blackgold")
     render(EARTHY, "final-earthy")
+    render(SANDSTONE, "final-sandstone")
