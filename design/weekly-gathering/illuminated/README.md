@@ -77,6 +77,13 @@ actually in `final.py` now:
   a hairline outline, but the ayah (a full line of Arabic sitting right up
   near the top of the panel) spilled straight off the sides of it onto the
   bare photo. The wider ellipse stays close to full width much further up.
+  Below the title/subtitle/wordmark it now tapers inward to a narrower
+  `waist_y`/`waist_l`/`waist_r`, running straight down past the star instead
+  of staying at the full dome width all the way to the base — the user
+  circled that space in black on a rendered copy: full width there was just
+  dead solid-colour panel either side of the medallion, holding nothing,
+  and read as empty rather than deliberate. The result is closer to a
+  genuine keyhole/mihrab silhouette than the dome-on-a-rectangle it was.
 - **`cartouche_bar(cx, cy, w, h)`** is the shape for everything below the
   arch: a horizontal bar with a smooth pointed-oval cap at each end — the
   same vocabulary Persian/Islamic illumination actually uses to carry an
@@ -97,6 +104,15 @@ actually in `final.py` now:
 - The old hairline "confirm attendance" box (a plain rounded rectangle)
   is suppressed on any colourway that supplies `cartouche_zones`, so it
   doesn't draw on top of the WhatsApp cartouche.
+- The programme columns (`.cols`, previously a fixed 700px) and the venue
+  block's letter-spacing (`.venue`/`.vsub`/`.addr`) were both noticeably
+  narrower than the wide cartouche bars sitting behind them — the user
+  circled the dead space at both ends of those bars in red. `cols_hw`/
+  `cols_pad` and `venue_ls`/`vsub_ls`/`addr_ls` are now palette keys
+  (defaults match the previous hardcoded values, so every other colourway
+  is unaffected); Illuminated widens the columns and roughly doubles the
+  venue block's tracking so the writing actually fills the bar instead of
+  sitting in a narrow strip in the middle of it.
 
 ### The panel fill itself: four colourways, real gradients not flat tints
 

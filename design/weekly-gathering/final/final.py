@@ -52,16 +52,23 @@ def build_hero(pal=None):
 # manuscript's own visual language instead — the mihrab arch already used as a
 # decorative outline (closed into a solid field), and a cusped cartouche bar,
 # the shape Persian/Islamic illumination actually uses to carry an inscription.
-def hero_arch_panel(base_y, inset=0.0, l=150, r=1050, apex_y=40, shoulder_y=250):
+def hero_arch_panel(base_y, inset=0.0, l=150, r=1050, apex_y=40, shoulder_y=250,
+                     waist_y=500, waist_l=370, waist_r=830):
     # a wide, flat horseshoe dome (half-ellipse), not the sharper mihrab point
     # used for the decorative arch outline — the ayah sits right up near the
     # top of this panel, and a true gothic point stays too narrow up there to
     # hold a full line of Arabic without spilling off the opaque fill.
+    # Below the title/subtitle/wordmark it tapers inward to a narrower waist
+    # that runs straight down past the star — full dome width there was just
+    # dead solid-colour space either side of the medallion, not holding
+    # anything, which read as empty rather than deliberate.
     l, r = l+inset, r-inset
     apex_y, shoulder_y = apex_y+inset*0.7, shoulder_y-inset*0.3
+    wl, wr = waist_l+inset, waist_r-inset
     rx, ry = (r-l)/2, shoulder_y-apex_y
-    return (f'M {l},{base_y} L {l},{shoulder_y} '
-            f'A {rx:.1f},{ry:.1f} 0 0 1 {r},{shoulder_y} L {r},{base_y} Z')
+    return (f'M {wl},{base_y} L {wl},{waist_y} L {l},{shoulder_y} '
+            f'A {rx:.1f},{ry:.1f} 0 0 1 {r},{shoulder_y} L {wr},{waist_y} '
+            f'L {wr},{base_y} Z')
 
 def cartouche_bar(cx, cy, w, h, cap=None):
     # a rectangle with a smooth pointed-oval cap at each end, built from true
@@ -224,19 +231,19 @@ html,body{{background:#000}}
 .pd{{font-family:Cormorant,serif;font-weight:{pal.get('pd_weight',400)};font-size:21.5px;line-height:1.46;
   letter-spacing:.03em;color:{pal['pd']}}}
 .rn{{font-family:Cinzel,serif;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:{pal['rn']}}}
-.venue{{font-family:Cinzel,serif;font-weight:600;font-size:39px;letter-spacing:.18em;text-indent:.18em}}
+.venue{{font-family:Cinzel,serif;font-weight:600;font-size:39px;letter-spacing:{pal.get('venue_ls','.18em')};text-indent:{pal.get('venue_ls','.18em')}}}
 .vsub{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:23px;
-  letter-spacing:.06em;color:{pal['vsub']}}}
-.addr{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:{pal.get('addr_weight',400)};font-size:24px;letter-spacing:.13em;
-  text-indent:.13em;color:{pal['addr']};text-transform:uppercase}}
+  letter-spacing:{pal.get('vsub_ls','.06em')};color:{pal['vsub']}}}
+.addr{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:{pal.get('addr_weight',400)};font-size:24px;letter-spacing:{pal.get('addr_ls','.13em')};
+  text-indent:{pal.get('addr_ls','.13em')};color:{pal['addr']};text-transform:uppercase}}
 .wa{{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;font-family:Cormorant,serif;font-weight:{pal.get('wa_weight',400)};font-size:34.5px;letter-spacing:.1em;
   text-indent:.1em;color:{pal['wa']}}}
 .note{{font-family:Cormorant,serif;font-style:italic;font-weight:300;font-size:20px;
   letter-spacing:.05em;color:{pal['note']}}}
 .url{{font-family:Cinzel,serif;font-size:12.5px;letter-spacing:.42em;text-indent:.42em;color:{pal['url']}}}
-.cols{{position:absolute;left:{CX-350}px;width:700px;display:grid;
+.cols{{position:absolute;left:{CX-pal.get('cols_hw',350)}px;width:{pal.get('cols_hw',350)*2}px;display:grid;
   grid-template-columns:1fr 1fr 1fr;text-align:center}}
-.cols > div{{padding:0 14px}}
+.cols > div{{padding:0 {pal.get('cols_pad',14)}px}}
 .cols > div + div{{border-left:1px solid rgba(138,108,52,.5)}}
 '''
 
@@ -542,6 +549,11 @@ ILLUMINATED.update(
     # _GOLD/_PURPLE variants below for the other panel colourways.
     cartouche_stops=[(0, "#A01A25"), (55, "#871314"), (100, "#2A1011")],
     cartouche_opacity=0.92, cartouche_edge="#D8B870",
+    # the programme columns and the venue block were both a good deal
+    # narrower than the cartouche bar behind them, leaving plain dead panel
+    # either side — widened/spread out to actually use that width instead.
+    cols_hw=470, cols_pad=20,
+    venue_ls=".34em", vsub_ls=".14em", addr_ls=".22em",
     cartouche_zones=[
         dict(shape="arch", base_y=812),
         dict(shape="bar", cx=CX, cy=907, w=820, h=110),
