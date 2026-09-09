@@ -63,27 +63,38 @@ def hero_arch_panel(base_y, inset=0.0, l=150, r=1050, apex_y=40, shoulder_y=250)
     return (f'M {l},{base_y} L {l},{shoulder_y} '
             f'A {rx:.1f},{ry:.1f} 0 0 1 {r},{shoulder_y} L {r},{base_y} Z')
 
-def cartouche_bar(cx, cy, w, h, tip=None):
+def cartouche_bar(cx, cy, w, h, cap=None):
+    # a rectangle with a smooth pointed-oval cap at each end, built from true
+    # elliptical arcs rather than hand-tuned bezier control points — the old
+    # single-control-point curve pinched into a hard, jagged-looking cusp
+    # right where wrapped text sat, reading as a cut-off corner rather than a
+    # deliberate point. An arc is smooth by construction, no tuning needed.
     hw, hh = w/2, h/2
-    # a shallower cusp than a true lens — enough to read as a pointed cartouche
-    # without narrowing the top/bottom edges so much that wrapped text overflows.
-    tip = tip if tip is not None else min(hh*1.4, hw*0.35)
-    bow = hh*0.55
-    return (f'M {cx-hw:.1f},{cy:.1f} '
-            f'Q {cx-hw+tip*0.5:.1f},{cy-bow:.1f} {cx-hw+tip:.1f},{cy-hh:.1f} '
-            f'L {cx+hw-tip:.1f},{cy-hh:.1f} '
-            f'Q {cx+hw-tip*0.5:.1f},{cy-bow:.1f} {cx+hw:.1f},{cy:.1f} '
-            f'Q {cx+hw-tip*0.5:.1f},{cy+bow:.1f} {cx+hw-tip:.1f},{cy+hh:.1f} '
-            f'L {cx-hw+tip:.1f},{cy+hh:.1f} '
-            f'Q {cx-hw+tip*0.5:.1f},{cy+bow:.1f} {cx-hw:.1f},{cy:.1f} Z')
+    cap = cap if cap is not None else hh*1.35
+    xl, xr = cx-hw+cap, cx+hw-cap
+    return (f'M {xl:.1f},{cy-hh:.1f} L {xr:.1f},{cy-hh:.1f} '
+            f'A {cap:.1f},{hh:.1f} 0 0 1 {xr:.1f},{cy+hh:.1f} '
+            f'L {xl:.1f},{cy+hh:.1f} '
+            f'A {cap:.1f},{hh:.1f} 0 0 1 {xl:.1f},{cy-hh:.1f} Z')
 
 def cartouche_panels_svg(pal):
     zones = pal.get('cartouche_zones')
     if not zones:
         return ''
-    fill = pal.get('cartouche_fill', 'rgba(10,14,40,.86)')
     edge = pal.get('cartouche_edge', '#D8B870')
-    out = []
+    # cartouche_stops: [(offset%, colour), ...] sampled from real shadow/mid/
+    # highlight tones in the artwork itself, built into a radial gradient —
+    # a flat single colour behind the text read as a pasted-on tint; a
+    # gradient built from the photo's own tones reads as lit fabric/lacquer.
+    stops = pal.get('cartouche_stops')
+    defs = ''
+    if stops:
+        fill = 'url(#cartoucheGrad)'
+        stop_tags = "".join(f'<stop offset="{o}%" stop-color="{c}"/>' for o, c in stops)
+        defs = f'<radialGradient id="cartoucheGrad" cx="50%" cy="38%" r="75%">{stop_tags}</radialGradient>'
+    else:
+        fill = pal.get('cartouche_fill', 'rgba(10,14,40,.86)')
+    out = [f'<defs>{defs}</defs>'] if defs else []
     for z in zones:
         if z['shape'] == 'arch':
             d_outer = hero_arch_panel(z['base_y'])
@@ -91,7 +102,7 @@ def cartouche_panels_svg(pal):
         else:
             d_outer = cartouche_bar(z['cx'], z['cy'], z['w'], z['h'])
             d_inner = cartouche_bar(z['cx'], z['cy'], z['w']-24, z['h']-24)
-        out.append(f'<path d="{d_outer}" fill="{fill}" stroke="{edge}" stroke-width="1.4"/>')
+        out.append(f'<path d="{d_outer}" fill="{fill}" fill-opacity="{pal.get("cartouche_opacity",0.9)}" stroke="{edge}" stroke-width="1.4"/>')
         out.append(f'<path d="{d_inner}" fill="none" stroke="{edge}" stroke-width="0.6" opacity="0.75"/>')
     return "\n".join(out)
 
@@ -524,7 +535,13 @@ ILLUMINATED.update(
     # opaque "inscription panels" behind every text zone, shaped like the
     # manuscript's own vocabulary (the mihrab arch, a cusped cartouche bar)
     # rather than plain boxes — see hero_arch_panel()/cartouche_bar() above.
-    cartouche_fill="rgba(56,8,14,.90)", cartouche_edge="#D8B870",
+    # cartouche_stops is a radial gradient built from real sampled shadow/
+    # mid/highlight tones from the artwork (see cartouche_panels_svg) —
+    # a flat rgba fill read as a tacky pasted-on tint; this reads as lit
+    # fabric/lacquer instead. Red is the default; see the _RED/_GREEN/
+    # _GOLD/_PURPLE variants below for the other panel colourways.
+    cartouche_stops=[(0, "#A01A25"), (55, "#871314"), (100, "#2A1011")],
+    cartouche_opacity=0.92, cartouche_edge="#D8B870",
     cartouche_zones=[
         dict(shape="arch", base_y=812),
         dict(shape="bar", cx=CX, cy=907, w=820, h=110),
@@ -536,6 +553,39 @@ ILLUMINATED.update(
     ],
 )
 
+# Four panel colourways, same background photo, same layout — only the
+# cartouche fill (and the reading-text colours it forces) change, so they
+# can be compared side by side. Each gradient is built from real sampled
+# tones (dark/mid/light) in the artwork itself, per colour family.
+ILLUMINATED_RED = ILLUMINATED  # the default already defined above
+
+ILLUMINATED_GREEN = dict(ILLUMINATED)
+ILLUMINATED_GREEN.update(
+    cartouche_stops=[(0, "#57B46D"), (55, "#43A45D"), (100, "#254828")],
+    outline_stroke="0.9px #E8C46A",  # gold outline instead of green-on-green
+)
+
+ILLUMINATED_PURPLE = dict(ILLUMINATED)
+ILLUMINATED_PURPLE.update(
+    cartouche_stops=[(0, "#664C96"), (55, "#46377C"), (100, "#2A2140")],
+    outline_stroke="0.9px #E8C46A",
+)
+
+ILLUMINATED_GOLD = dict(ILLUMINATED)
+ILLUMINATED_GOLD.update(
+    cartouche_stops=[(0, "#EBCC93"), (48, "#C7A968"), (100, "#463714")],
+    cartouche_opacity=0.95,
+    # a light panel needs dark ink instead of white — same swap final-sandstone
+    # made, just localised to this one colourway rather than the whole page.
+    outline_stroke="0.7px #FFF6E2",
+    gold_grad="linear-gradient(178deg,#2A1B0A 0%,#2A1B0A 100%)",
+    ayah="#2A1B0A", gloss="#2A1B0A", t2="#2A1B0A", lab="#2A1B0A", val="#2A1B0A",
+    body="#2A1B0A", pt="#2A1B0A", pd="#2A1B0A", rn="#2A1B0A", vsub="#2A1B0A",
+    addr="#2A1B0A", wa="#2A1B0A", note="#2A1B0A", url="#2A1B0A",
+    text_shadow="0 1px 2px rgba(255,255,255,.35)",
+    gold_shadow="drop-shadow(0 1px 1px rgba(255,255,255,.25))",
+)
+
 if __name__ == "__main__":
     render(DEFAULT_PALETTE, "final-gold")
     render(EMERALD, "final-emerald")
@@ -544,4 +594,7 @@ if __name__ == "__main__":
     render(BLACKGOLD, "final-blackgold")
     render(EARTHY, "final-earthy")
     render(SANDSTONE, "final-sandstone")
-    render(ILLUMINATED, "final-illuminated")
+    render(ILLUMINATED_RED, "final-illuminated-red")
+    render(ILLUMINATED_GREEN, "final-illuminated-green")
+    render(ILLUMINATED_GOLD, "final-illuminated-gold")
+    render(ILLUMINATED_PURPLE, "final-illuminated-purple")

@@ -78,24 +78,54 @@ actually in `final.py` now:
   near the top of the panel) spilled straight off the sides of it onto the
   bare photo. The wider ellipse stays close to full width much further up.
 - **`cartouche_bar(cx, cy, w, h)`** is the shape for everything below the
-  arch: a horizontal bar with gently curved, pointed cusped ends — the same
-  vocabulary Persian/Islamic illumination actually uses to carry an
+  arch: a horizontal bar with a smooth pointed-oval cap at each end — the
+  same vocabulary Persian/Islamic illumination actually uses to carry an
   inscription, not a rectangle with corners rounded off. One bar each for
   the date/time row, the body paragraph, the programme columns, the venue
-  block, the WhatsApp confirmation, and the footer line.
-- Both are driven by one `cartouche_zones` palette key (a list of
+  block, the WhatsApp confirmation, and the footer line. Its first version
+  built the cusp from a single hand-tuned bezier control point per corner;
+  on the wider bars that pinched into a hard, jagged-looking point right
+  where wrapped text sat — read as a "cut off" corner rather than a
+  deliberate one. It's now two true elliptical arcs (`A rx,ry ...`), smooth
+  by construction with no tuning needed.
+- Both shapes are driven by one `cartouche_zones` palette key (a list of
   `{shape, ...}` dicts) read by `cartouche_panels_svg()` in `frame_svg()`,
   default empty so every other colourway is untouched. With the panels
   doing the contrast work, `outline_stroke` dropped back down to a thin
   hairline and the old `mark_backing` vignette was removed — the star and
   wordmark now just sit on the arch panel like everything else.
-- That hairline is aqua-blue (`0.9px #5FE1EC`), not black — black-on-navy
-  had much less separation than a colour pulled from the artwork's own
-  teal does, and it reads as a deliberate inked edge rather than a legibility
-  patch.
 - The old hairline "confirm attendance" box (a plain rounded rectangle)
   is suppressed on any colourway that supplies `cartouche_zones`, so it
   doesn't draw on top of the WhatsApp cartouche.
+
+### The panel fill itself: four colourways, real gradients not flat tints
+
+A flat `rgba(...)` fill behind the text — the original approach — read as a
+dull, pasted-on tint sitting on top of the photo, not part of it. Two fixes,
+plus four colours to choose from:
+
+- **`cartouche_stops`** replaces the flat colour with an SVG radial gradient
+  (`cartouche_panels_svg()` builds a `<radialGradient>` in `<defs>` and
+  points every panel's `fill` at it). The three stops per colour aren't
+  picked by eye — `dark`/`mid`/`light` are the actual 6th/50th/93rd-
+  percentile-by-brightness pixel values sampled from that colour's own hue
+  band in the real photo, so the gradient reads as light catching folded
+  fabric or lacquer rather than a UI tint. `cartouche_opacity` controls how
+  much of the photo shows through underneath (0.90–0.95 — enough that the
+  colour reads as solid, not so much that the sampling that made it
+  "realistic" gets lost).
+- **Four colourways** — `ILLUMINATED_RED` (the default), `_GREEN`, `_GOLD`,
+  `_PURPLE` — same background photo and layout, only `cartouche_stops` and
+  the text colours it forces differ, so they render side by side for
+  comparison. Red and the default gold-leaf `outline_stroke` green were
+  already close in value to white text, so green/purple panels use a gold
+  outline instead (`0.9px #E8C46A`) to avoid a same-colour-on-itself clash.
+  Gold is the one true swap: a light panel needs dark ink, not white, so
+  `ILLUMINATED_GOLD` flips every reading-text colour and `gold_grad` to a
+  near-black bronze (`#2A1B0A`) with a soft cream outline and a light-lift
+  shadow instead of a dark one — the same swap `final-sandstone` made
+  going from a dark ground to a light one, just localised to one panel
+  colourway here instead of the whole page.
 
 ## Recolouring (`source-crop-redgreen.jpg`)
 
