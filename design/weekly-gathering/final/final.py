@@ -501,18 +501,16 @@ def _jpeg_uri(name):
 ILLUMINATED = dict(DEFAULT_PALETTE)
 ILLUMINATED.update(
     name="Illuminated Manuscript", pattern="zellij",
-    bg_image_uri=_jpeg_uri("illum-bg.jpg"), print_bg="#1B2A4A",
+    bg_image_uri=_jpeg_uri("illum-bg.jpg"), print_bg="#38080E",
     tile_small_op=0, tile_big_op=0, band_op=0, ground_op=0, halo_mult=0, scrim_mult=0,
     hair1="#F0D8A0", hair2="#D8B870", hair3="#C6A055", hair4="#A9853E", hair5="#8C6B2E",
     mark_grad="linear-gradient(176deg,#F8ECC8 0%,#E0BE72 30%,#B8862E 62%,#F0D8A0 82%,#C6A055 100%)",
     # no mark_backing needed — the hero arch cartouche panel already gives the
     # star/wordmark a solid navy ground to sit on.
     gold_grad="linear-gradient(178deg,#FFFFFF 0%,#FFFFFF 100%)",
-    # a thin aqua-blue outline (pulled from the artwork's own teal) round
-    # white letterforms — reads as a deliberate inked edge against the navy
-    # cartouche panels, rather than the black outline getting lost against
-    # them (black-on-navy has much less separation than blue-on-navy does).
-    outline_stroke="0.9px #5FE1EC",
+    # a thin green outline (pulled from the artwork's own green, now that the
+    # ground is red/green rather than red/blue) round white letterforms.
+    outline_stroke="0.9px #5EE38A",
     ayah="#FFFFFF", gloss="#FFFFFF", t2="#FFFFFF", lab="#FFFFFF", val="#FFFFFF",
     body="#FFFFFF", pt="#FFFFFF", pd="#FFFFFF", rn="#FFFFFF", vsub="#FFFFFF",
     addr="#FFFFFF", wa="#FFFFFF", note="#FFFFFF", url="#FFFFFF",
@@ -526,7 +524,7 @@ ILLUMINATED.update(
     # opaque "inscription panels" behind every text zone, shaped like the
     # manuscript's own vocabulary (the mihrab arch, a cusped cartouche bar)
     # rather than plain boxes — see hero_arch_panel()/cartouche_bar() above.
-    cartouche_fill="rgba(8,12,36,.88)", cartouche_edge="#D8B870",
+    cartouche_fill="rgba(56,8,14,.90)", cartouche_edge="#D8B870",
     cartouche_zones=[
         dict(shape="arch", base_y=812),
         dict(shape="bar", cx=CX, cy=907, w=820, h=110),

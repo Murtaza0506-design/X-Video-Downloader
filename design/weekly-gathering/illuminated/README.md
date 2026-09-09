@@ -11,8 +11,10 @@ texture shows.
 
 | File | What it is |
 |---|---|
-| `source-crop.jpg` | The painted corner motif, cropped out of the user's photo (desk, dried roses, paintbrush removed) |
-| `tiled-background.jpg` | The actual 1200×1800 leaflet background: `source-crop.jpg` mirrored into a 2×2 symmetric medallion, then tiled down the page |
+| `source-crop.jpg` | The painted corner motif, cropped out of the user's photo (desk, dried roses, paintbrush removed) — original blue/purple/teal colouring |
+| `tiled-background.jpg` | The 1200×1800 leaflet background built from the original colouring: `source-crop.jpg` mirrored into a 2×2 symmetric medallion, then tiled down the page |
+| `source-crop-redgreen.jpg` | The same crop, hue-shifted: the two blues become a rich red and a vivid green (gold and purple untouched) — see "Recolouring" below |
+| `tiled-background-redgreen.jpg` | The tiled background built from the red/green crop — **this is the one `final.py` actually uses** (copied to `final/illum-bg.jpg`) |
 
 ## How it was built
 
@@ -94,6 +96,45 @@ actually in `final.py` now:
 - The old hairline "confirm attendance" box (a plain rounded rectangle)
   is suppressed on any colourway that supplies `cartouche_zones`, so it
   doesn't draw on top of the WhatsApp cartouche.
+
+## Recolouring (`source-crop-redgreen.jpg`)
+
+The request was "turn the light blue and dark blue background to red and
+green, with the same realism" — a hue rotation of specific colour bands in
+the actual photo, not a redraw, so all the shading, gold-leaf shimmer and
+brush texture had to survive untouched.
+
+Converting to HSV makes this precise: hue carries *which* colour a pixel is,
+saturation and value carry *how* it's shaded (both left alone, which is what
+keeps the realism). Sampling the artwork found two distinct blue bands —
+a darker, more saturated royal blue (hue ≈ 208–242°) and a lighter teal
+(hue ≈ 188–203°) — clearly separated from the gold (≈ 30–60°) and the purple
+swirl accent (≈ 250°+), so each band could be rotated independently:
+
+```python
+navy_w = band_weight(hue_deg, 208, 242, feather=8)   # dark blue
+teal_w = band_weight(hue_deg, 188, 203, feather=10)  # light blue
+offset = navy_w*136 + teal_w*(-68)     # navy -> red, teal -> green
+new_hue = (hue_deg + offset) % 360     # saturation & value untouched
+```
+
+`band_weight()` is a smoothstep-feathered band, not a hard cutoff — pixels
+right at a band's edge get a *partial* rotation that fades in/out, so there's
+no hard seam where (say) a slightly-blue-purple pixel suddenly jumps to full
+red. The **offset is added, not set to a fixed hue** — every pixel keeps its
+own position within the band, so the natural variation from shading and
+brush texture carries straight through into the new colour instead of
+flattening into one flat red and one flat green.
+
+Gold and purple are far enough away in hue (and get zero weight from both
+bands) to pass through completely unchanged.
+
+The rest of the pipeline (mirror into a 2×2 tile, scale, repeat down the
+page) is identical to the original — see below. `cartouche_fill` (the
+opaque panel colour) and `outline_stroke` (the text edge) in `final.py`'s
+`ILLUMINATED` palette were then repicked to match: a deep red sampled from
+the recoloured artwork for the panels, a bright green for the outline
+(previously navy and aqua-blue, picked to match the blue original).
 
 ## Regenerating with a different source photo
 
