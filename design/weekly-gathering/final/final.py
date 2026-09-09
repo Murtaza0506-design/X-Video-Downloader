@@ -589,7 +589,11 @@ ILLUMINATED_GOLD.update(
     cartouche_opacity=0.95,
     # a light panel needs dark ink instead of white — same swap final-sandstone
     # made, just localised to this one colourway rather than the whole page.
-    outline_stroke="0.7px #FFF6E2",
+    # No outline at all: dark ink on a light gold panel already has plenty of
+    # contrast on its own, and a stroke tuned against the bold 50px title
+    # overwhelmed thinner italic text (gloss/t2/note) at smaller sizes —
+    # the stroke colour visually dominated the thin dark fill entirely.
+    outline_stroke="0 transparent",
     gold_grad="linear-gradient(178deg,#2A1B0A 0%,#2A1B0A 100%)",
     ayah="#2A1B0A", gloss="#2A1B0A", t2="#2A1B0A", lab="#2A1B0A", val="#2A1B0A",
     body="#2A1B0A", pt="#2A1B0A", pd="#2A1B0A", rn="#2A1B0A", vsub="#2A1B0A",
@@ -597,6 +601,95 @@ ILLUMINATED_GOLD.update(
     text_shadow="0 1px 2px rgba(255,255,255,.35)",
     gold_shadow="drop-shadow(0 1px 1px rgba(255,255,255,.25))",
 )
+
+# ---------- Dhikr Qasaaid — a different event, same illuminated design system ----------
+# The ayah + translation at the very top, and the whole visual system (photo
+# background, the mihrab/cartouche panels, the four colourways) carry over
+# unchanged from the weekly-gathering leaflet. Everything else is this
+# event's own copy, pulled from a reference flyer supplied as an image.
+QASAAID_LABEL  = "TARIQA QADIRIYYA BOUTCHICHIYYA"
+QASAAID_QUOTE  = "“The two royal gates to access GOD’s mercy are invocation (dhikr) and generosity.”"
+QASAAID_ATTRIB = "SIDI HAMZA AL-QADIRI AL-BOUTCHICHI"
+QASAAID_ARCH_BASE = 830
+
+def _caps(text, top, pal, size=16, weight=600, ls=".12em", color_key='lab', extra=''):
+    return (f'<div class="at" style="top:{top}px;font-family:Cinzel,serif;font-weight:{weight};'
+            f'font-size:{size}px;letter-spacing:{ls};text-indent:{ls};color:{pal[color_key]};{extra}">{text}</div>')
+
+def hero_qasaaid(pal):
+    MED_CY, R, SEAL_D = 664, 126, 214
+    extra_body = f'<g class="med">{v.halo(CX, MED_CY, R)}</g>'
+    gold_cls = pal.get('title_cls', 'gold')
+    hero = f'''
+{ayah_block(90, 150)}
+{_caps(QASAAID_LABEL, 212, pal, size=13, weight=400, ls=".4em")}
+<div class="at t1 {gold_cls}" style="top:250px">DHIKR</div>
+<div class="at t1 {gold_cls}" style="top:318px">QASAAID</div>
+<div class="at t2" style="top:390px;font-size:26px;left:{CX-380}px;width:760px;right:auto">Remembrance, sacred praise and spiritual companionship</div>
+{wordmark(456, 56)}
+<div class="mark seal" style="top:{MED_CY-SEAL_D//2}px;width:{SEAL_D}px;height:{SEAL_D}px;
+  -webkit-mask-image:url({v.STAR_URI});mask-image:url({v.STAR_URI})"></div>
+'''
+    return hero, extra_body
+
+def bottom_qasaaid(pal):
+    return f'''
+<div class="at" style="top:862px;left:{CX-440}px;width:880px;font-family:Cormorant,serif;
+  font-style:italic;font-weight:{pal.get('body_weight',400)};font-size:23px;line-height:1.35;color:{pal['body']}">
+{QASAAID_QUOTE}
+</div>
+{_caps(QASAAID_ATTRIB, 930, pal, size=13, weight=600, ls=".18em")}
+
+{_caps("BENEFITS OF THE DHIKR", 988, pal, size=15, weight=600, ls=".24em")}
+{_caps("PEACE OF HEART &#10052; CLARITY OF MIND &#10052; NEARNESS TO GOD &#10052; BROTHERHOOD", 1032, pal, size=15.5, weight=600, ls=".05em", color_key='pd')}
+
+<div class="cols" style="top:1200px">
+  <div>{_caps("DATE", 0, pal, size=11, weight=400, ls=".3em", extra="position:static")}
+       <div class="pt" style="margin-top:9px">13 NOV 2026</div>
+       <div class="pd" style="margin-top:11px">Friday<br>6:30&nbsp;&ndash;&nbsp;9:00&nbsp;pm</div></div>
+  <div>{_caps("VENUE", 0, pal, size=11, weight=400, ls=".3em", extra="position:static")}
+       <div class="pt" style="margin-top:9px;font-size:26px">CRESCENT HALL</div>
+       <div class="pd" style="margin-top:11px">162 Edmund Street<br>Rochdale OL12 6QG</div></div>
+  <div>{_caps("GATHERING", 0, pal, size=11, weight=400, ls=".3em", extra="position:static")}
+       <div class="pt" style="margin-top:9px;font-size:26px">BROTHERS</div>
+       <div class="pd" style="margin-top:11px">Everyone welcome —<br>first time or returning</div></div>
+</div>
+
+{_caps("FEATURING", 1395, pal, size=13, weight=400, ls=".4em")}
+<div class="at venue" style="top:1418px;font-size:32px;color:{pal['pt']}">ENSEMBLE SAFAA UK</div>
+{_caps("SPECIAL CHORAL DHIKR &amp; QASAAID", 1470, pal, size=13, weight=600, ls=".14em")}
+
+{_caps("DHIKR &#10052; QASAAID &#10052; SUFI TALK &#10052; QUESTIONS &amp; ANSWERS", 1535, pal, size=16, weight=600, ls=".04em", color_key='pt')}
+{_caps("FOOD WILL BE SERVED &#10052; REFRESHMENTS THROUGHOUT", 1580, pal, size=14, weight=400, ls=".08em", color_key='note')}
+
+<div class="at wa" style="top:1668px;font-size:24px">www.thesufiway.co.uk &nbsp;&middot;&nbsp; 07740 757135</div>
+<div class="at note" style="top:1704px">for further info, phone or WhatsApp</div>
+'''
+
+def page_qasaaid(pal, out_name, scale=1):
+    pal = dict(pal)
+    pal['cartouche_zones'] = [
+        dict(shape="arch", base_y=QASAAID_ARCH_BASE),
+        dict(shape="bar", cx=CX, cy=905, w=940, h=124),
+        dict(shape="bar", cx=CX, cy=1052, w=1080, h=140),
+        dict(shape="bar", cx=CX, cy=1285, w=1080, h=190),
+        dict(shape="bar", cx=CX, cy=1448, w=880, h=130),
+        dict(shape="bar", cx=CX, cy=1588, w=1080, h=126),
+        dict(shape="bar", cx=CX, cy=1700, w=760, h=90),
+    ]
+    hero, hero_extra = hero_qasaaid(pal)
+    html = f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Dhikr Qasaaid</title>
+<style>{css(pal)}</style></head>
+<body><div class="page">
+{tiles_svg(pal)}
+{frame_svg(pal, hero_extra)}
+{hero}
+{bottom_qasaaid(pal)}
+</div></body></html>'''
+    hp = HERE / f"{out_name}.html"
+    hp.write_text(html, encoding="utf-8")
+    shot(hp, HERE / f"{out_name}.png", scale=scale)
 
 if __name__ == "__main__":
     render(DEFAULT_PALETTE, "final-gold")

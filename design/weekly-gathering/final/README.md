@@ -26,6 +26,7 @@ colourway, `bottom_html()` in `final.py`.
 | `banner-<colour>.png` | The banner (1600×900, `banner.py`), redone as a crest — star, wordmark, name and venue only, no date/time/WhatsApp — against a much denser Islamic geometric ground (a large faint rosette behind the star, a tiled dado border). Rendered in all six palettes: gold, emerald, burgundy, indigo, blackgold, earthy. |
 | `banner-blackgold.png` | The fully customised banner (full address, solid minarets, crescent moon, no "brothers-only" line), on the **Earthy Gold** ground — same warm terracotta-clay gradient as `final-earthy.png` — with the mihrab arch filled as a genuinely solid niche (not a soft vignette): `arch_panel_d()` closes the same curve straight down near the bottom frame, filled ~0.94 opacity, with a faint clipped zellij texture and an inset moulding line inside it. |
 | `banner-ivory.png` / `banner-blush.png` / `banner-sage.png` / `banner-powder.png` | Four **light** grounds — ivory, blush, sage, powder blue — built the same way as Earthy Gold: only the outer background and the ornament that has to read against it (frame hairlines, pattern, minaret fill — dropped to a deeper antique bronze, `_DEEP_GOLD`) change. The niche itself stays exactly black-and-gold; every reading token inside it is untouched. |
+| `qasaaid-red.png` / `-green.png` / `-gold.png` / `-purple.png` | **A different event**, same illuminated design system: "Dhikr Qasaaid" featuring Ensemble Safaa UK, 13 November 2026 — text pulled from a reference flyer supplied as an image, everything else (the ayah + translation, the photographed background, the arch/cartouche panels, all four colourways) carried straight over. `page_qasaaid()` in `final.py`, its own hero/bottom content but the same shared `css()`/`frame_svg()`/`tiles_svg()`. |
 | `banner-invert-ivory.png` / `banner-invert-blush.png` / `banner-invert-sage.png` / `banner-invert-powder.png` | The **reverse** of the four above: outer frame, minarets, moon and pattern stay dark (true Black & Gold), and it's the niche panel itself that takes the pastel fill this time. The star sits on its own small dark disc (`STAR_DISC`) behind the halo ring, so it still reads as a gold mark on black even with a light panel around it; the title, wordmark, venue, address and note all switch to a deep-gold/espresso ink (`NICHE_*` tokens, `page(..., invert=True, niche_fill=...)`) tuned for the pale ground instead of the dark one. |
 
 Indigo is the one structural departure: every gold token (hairlines, the
@@ -175,12 +176,59 @@ dull" and "make the writing easier to read":
   browser's synthetic bold, so the letterforms stay properly drawn at
   weight.
 
+## Dhikr Qasaaid — a different event, on the same design system
+
+`qasaaid-red.png` / `-green.png` / `-gold.png` / `-purple.png` are a
+one-off event flyer ("Dhikr Qasaaid", featuring Ensemble Safaa UK, 13
+November 2026), not the weekly gathering. Its content was pulled from a
+reference flyer supplied as an image, with two exceptions kept from the
+existing design: the ayah + its translation at the very top, and the date
+(the reference's own example date wasn't reused — 13 Nov 2026 was, and it
+happens to fall on a Friday same as the reference's example).
+
+Nothing about the shared machinery changed — `page_qasaaid()` calls the
+same `css()`, `frame_svg()`, `tiles_svg()`, and the same four `ILLUMINATED_*`
+palettes, so it's the identical photographed background, arch/cartouche
+panel system and colourways as the weekly-gathering leaflet. Only the
+content is different, in two new functions:
+
+- **`hero_qasaaid(pal)`** — the ayah/translation (unchanged, via the same
+  `ayah_block()`), a new small tracked-caps label ("TARIQA QADIRIYYA
+  BOUTCHICHIYYA" — note this is transcribed straight from the reference
+  flyer, a different transliteration than the rest of this project's own
+  "AL QADIRIYA AL BOUTCHICHIYA"), the event title ("DHIKR"/"QASAAID") in
+  place of the tariqa's name, a shorter subtitle, then the same wordmark
+  and star medallion, slightly smaller to leave room for the extra label.
+- **`bottom_qasaaid(pal)`** — the quote and its attribution, the benefits
+  list, a date/venue/gathering-type row (reusing the exact same `.cols`/
+  `.rn`/`.pt`/`.pd` three-column mechanism the weekly gathering uses for
+  its programme times), the "Featuring Ensemble Safaa UK" line, the
+  programme/food line, and a footer with the phone number from the
+  reference flyer (a different number than the weekly gathering's own
+  WhatsApp line — also pulled straight from the reference, not assumed).
+- `page_qasaaid()` supplies its own `cartouche_zones` (on a local copy of
+  the palette, so it doesn't touch the weekly-gathering zones) — seven
+  panels instead of six, sized for this event's own content rather than
+  reusing the weekly gathering's positions unchanged.
+
+Building this surfaced a real bug in the gold colourway that had been
+sitting there since Illuminated Gold was first added: `outline_stroke`
+(the thin stroke drawn round every letterform) was tuned against the bold
+50px title, where a 0.7px stroke is proportionally thin. Against thinner
+italic text at smaller sizes (the ayah's translation, the subtitle, body
+copy) the same stroke width visually overwhelmed the thin dark fill
+entirely — the letters rendered as pale outlines rather than dark ink.
+Gold's `outline_stroke` is now `"0 transparent"` (no stroke at all): a dark
+panel and dark ink already have plenty of contrast without one, so this
+also cleaned up `final-illuminated-gold.png` itself, not just the new page.
+
 ## Regenerating
 
 ```bash
 python3 final.py
 ```
 
-Renders all eight. To add a colourway, copy one of the palette dicts near
-the bottom of the file, override the tokens that should change, and add a
-`render(...)` call.
+Renders all eight, plus the four Dhikr Qasaaid colourways. To add a
+colourway, copy one of the palette dicts near the bottom of the file,
+override the tokens that should change, and add a `render(...)` call
+(or `page_qasaaid(pal, "out-name")` for the Qasaaid flyer).
