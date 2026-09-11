@@ -56,15 +56,19 @@ labels. Same architecture, same registers, same generator.
 
 ```bash
 python3 moroccan.py                              # draft, gold and rose
+SET=qasaaid  Q=2.0 PDF=1 python3 moroccan.py     # the other text
 THEME=rose   Q=2.0 PDF=1 python3 moroccan.py     # print quality
 THEME=indigo Q=2.0 PDF=1 python3 moroccan.py     # the night colourway
 BLANK=1 Q=2.0 PDF=1 python3 moroccan.py          # empty registers
 GUIDE=1 BLANK=1 python3 moroccan.py              # measured overlay
 ```
 
-Every block is auto-fitted: `fit_line` shrinks a headline until it fits its
-register, `fit_block` wraps and shrinks a paragraph until it fits. Longer text
-gets smaller rather than overflowing, so you cannot break the layout by typing.
+Every block is auto-fitted and every position is derived from its register —
+nothing is placed at a fixed height, so type can never land on a rule. `fit_line`
+shrinks a headline to the measure, `fit_block` wraps and shrinks a paragraph, and
+`set_lines` fits a stack of lines and then scales the whole group down if the
+group is still too tall. Longer text gets smaller rather than overflowing, so you
+cannot break the layout by typing.
 
 **The other way** — open `moroccan-poster-blank.png` in Canva, Affinity, Word or
 Illustrator and set type inside the boxes `moroccan-poster-guide.jpg` marks. The

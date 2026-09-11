@@ -166,6 +166,33 @@ def fit_block(d, text, fname, box, size, fill, lead=1.28, align="c",
         y += lh
     return total, s
 
+def set_lines(d, bx, items, lead=0.40):
+    """Fit a stack of lines to a register and centre it. It cannot overflow."""
+    x0, y0, x1, y1 = bx
+    W, H = x1 - x0, y1 - y0
+    cx = (x0 + x1) / 2.0
+    for it in items:
+        it["size"] = fit_line(d, it["text"], it["font"], W * it.get("w", 1.0),
+                              it["size"], tracking=it.get("tr", 0.0),
+                              rtl=it.get("rtl", False))
+    hs = [float(it["size"]) for it in items]
+    gaps = [0.0] + [lead * (hs[i - 1] + hs[i]) / 2.0 * items[i].get("gap", 1.0)
+                    for i in range(1, len(items))]
+    total = sum(hs) + sum(gaps)
+    if total > H:
+        f = H / total
+        hs = [h * f for h in hs]; gaps = [g * f for g in gaps]
+        total = sum(hs) + sum(gaps)
+    y = y0 + (H - total) / 2.0
+    for it, h, g in zip(items, hs, gaps):
+        y += g
+        fnt = F(it["font"], max(6, int(round(h))))
+        yc = y + h / 2.0
+        if it.get("rtl"):   rtl_text(d, (cx, yc), it["text"], fnt, it["fill"])
+        elif it.get("tr"):  tracked(d, it["text"], cx, yc, fnt, it["tr"], it["fill"])
+        else: d.text((cx, yc), it["text"], font=fnt, fill=it["fill"], anchor="mm")
+        y += h
+
 def fit_line(d, text, fname, maxw, size, minsize=8, tracking=0.0, rtl=False):
     """Largest size at or below `size` whose single line fits maxw."""
     s = size
@@ -676,27 +703,56 @@ def corner_seal(d, x, y, R):
               fill=GOLD_LT)
 
 # --------------------------------------------------------------- content ----
-CONTENT = {
-  "quote_ar": "أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
-  "quote_en": "Verily, in the remembrance of God do hearts find rest.",
-  "title":    ["TARIQA AL QADIRIYA", "AL BOUTCHICHIYA"],
-  "subtitle": "Weekly Dhikr Gathering",
-  "title_ar": "الطريقة القادرية البودشيشية",
-  "when": [("SATURDAY", "29 August 2026"), ("EVENING", "7:00 – 9:00 pm")],
-  "body": "The tariqa's weekly Moroccan dhikr — guided remembrance, recited with "
-          "idhn (spiritual permission), in the company of those walking the path "
-          "of spiritual refinement.",
-  "sched": [("I", "7:00 – 8:15", "Wadhifa Dhikr\nand Dhikr al Faraj"),
-            ("II", "8:15 – 8:30", "Talk"),
-            ("III", "8:30", "Maghrib, followed\nby refreshments")],
-  "venue":  "CRESCENT HALL",
-  "venue_sub": "Crescent Nursery",
-  "venue_addr": "162 EDMUND STREET · ROCHDALE OL12 6QG",
-  "rsvp_label": "PLEASE CONFIRM YOUR ATTENDANCE",
-  "rsvp": "WhatsApp 07884 053544",
-  "rsvp_note": "A brothers-only gathering",
-  "web": "WWW.THESUFIWAY.CO.UK",
+AYAH_AR = "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"
+AYAH_EN = "Verily, in the remembrance of God do hearts find rest."
+ORDER_AR = "الطريقة القادرية البودشيشية"
+
+SETS = {
+  # ---- the weekly gathering ---------------------------------------------
+  "dhikr": {
+    "quote_ar": AYAH_AR, "quote_en": AYAH_EN,
+    "title":    ["TARIQA AL QADIRIYA", "AL BOUTCHICHIYA"],
+    "subtitle": "Weekly Dhikr Gathering",
+    "title_ar": ORDER_AR,
+    "when": [("SATURDAY", "29 August 2026"), ("EVENING", "7:00 – 9:00 pm")],
+    "body": "The tariqa's weekly Moroccan dhikr — guided remembrance, recited with "
+            "idhn (spiritual permission), in the company of those walking the path "
+            "of spiritual refinement.",
+    "sched": [("I", "7:00 – 8:15", "Wadhifa Dhikr\nand Dhikr al Faraj"),
+              ("II", "8:15 – 8:30", "Talk"),
+              ("III", "8:30", "Maghrib, followed\nby refreshments")],
+    "venue":  "CRESCENT HALL",
+    "venue_sub": "Crescent Nursery",
+    "venue_addr": "162 EDMUND STREET · ROCHDALE OL12 6QG",
+    "rsvp_label": "PLEASE CONFIRM YOUR ATTENDANCE",
+    "rsvp": "WhatsApp 07884 053544",
+    "rsvp_note": "A brothers-only gathering",
+    "web": "WWW.THESUFIWAY.CO.UK",
+  },
+  # ---- the evening of dhikr and qasaaid ----------------------------------
+  "qasaaid": {
+    "quote_ar": AYAH_AR, "quote_en": AYAH_EN,
+    "eyebrow":  "TARIQA QADIRIYYA BOUTCHICHIYYA",
+    "title":    ["DHIKR", "QASAAID"],
+    "subtitle": "Remembrance, sacred praise and spiritual companionship",
+    "title_ar": ORDER_AR,
+    "when": [("FRIDAY", "13 November 2026"), ("EVENING", "6:30 – 9:00 pm")],
+    "body": "\u201cThe two royal gates to access God's mercy are invocation (dhikr) "
+            "and generosity.\u201d\n— Sidi Hamza al-Qadiri al-Boutchichi",
+    "sched": [("I", "DHIKR", "Qasaaid sung with\nEnsemble Safaa UK"),
+              ("II", "SUFI TALK", "Questions and answers"),
+              ("III", "FOOD", "Served, with refreshments\nthroughout the evening")],
+    "venue":  "CRESCENT HALL",
+    "venue_sub": "Brothers — everyone welcome, first time or returning",
+    "venue_addr": "162 EDMUND STREET · ROCHDALE OL12 6QG",
+    "rsvp_label": "FOR FURTHER INFORMATION, PHONE OR WHATSAPP",
+    "rsvp": "07740 757135",
+    "rsvp_note": "Peace of heart · Clarity of mind · Nearness to God · Brotherhood",
+    "web": "WWW.THESUFIWAY.CO.UK",
+  },
 }
+SET = os.environ.get("SET", "dhikr").lower()
+CONTENT = SETS[SET]
 BLANK = os.environ.get("BLANK", "0") == "1"
 TXT   = _P["txt"]          # figures and running text
 TXT_H = _P["txt_h"]        # display type
@@ -712,24 +768,29 @@ def typeset(canvas):
     C = CONTENT
 
     # -- the ayah, in the head of the arch -----------------------------------
-    b = text_box(*REG["quote"], frac=0.80)
-    w = b[2] - b[0]
-    s = fit_line(d, C["quote_ar"], ARABIC, w, u(104), rtl=True)
-    rtl_text(d, (CX, u(690)), C["quote_ar"], F(ARABIC, s), TXT_G)
-    s = fit_line(d, C["quote_en"], BODY_IT, w * 0.94, u(76))
-    d.text((CX, u(812)), C["quote_en"], font=F(BODY_IT, s), fill=TXT_Q, anchor="mm")
+    set_lines(d, text_box(*REG["quote"], frac=0.94), [
+        dict(text=C["quote_ar"], font=ARABIC, size=u(104), fill=TXT_G, rtl=True, w=0.92),
+        dict(text=C["quote_en"], font=BODY_IT, size=u(76), fill=TXT_Q, gap=0.95)],
+        lead=0.36)
 
     # -- the name of the order ----------------------------------------------
-    b = text_box(*REG["title"], frac=0.94); w = b[2] - b[0]
-    s = min(fit_line(d, C["title"][0], DISPLAY, w, u(146), tracking=u(9)),
-            fit_line(d, C["title"][1], DISPLAY, w, u(146), tracking=u(9)))
-    y_t = u(1042)
-    tracked(d, C["title"][0], CX, y_t, F(DISPLAY, s), u(9), TXT_H)
-    tracked(d, C["title"][1], CX, y_t + s * 1.20, F(DISPLAY, s), u(9), TXT_H)
-    s2 = fit_line(d, C["subtitle"], BODY_IT, w * 0.8, u(94))
-    d.text((CX, u(1360)), C["subtitle"], font=F(BODY_IT, s2), fill=TXT_G, anchor="mm")
-    s3 = fit_line(d, C["title_ar"], ARABIC, w * 0.78, u(96), rtl=True)
-    rtl_text(d, (CX, u(1496)), C["title_ar"], F(ARABIC, s3), TXT_G)
+    tb = text_box(*REG["title"], frac=0.96)
+    tw = (tb[2] - tb[0]) * 0.98
+    ts = min(fit_line(d, C["title"][0], DISPLAY, tw, u(210), tracking=u(10)),
+             fit_line(d, C["title"][1], DISPLAY, tw, u(210), tracking=u(10)))
+    items = []
+    if C.get("eyebrow"):
+        items.append(dict(text=C["eyebrow"], font=LABEL, size=u(40), fill=TXT_T,
+                          tr=u(14), w=0.86, gap=0.0))
+    items += [dict(text=C["title"][0], font=DISPLAY, size=ts, fill=TXT_H, tr=u(10),
+                   w=0.98, gap=1.15 if C.get("eyebrow") else 1.0),
+              dict(text=C["title"][1], font=DISPLAY, size=ts, fill=TXT_H, tr=u(10),
+                   w=0.98, gap=0.42),
+              dict(text=C["subtitle"], font=BODY_IT, size=u(94), fill=TXT_G,
+                   gap=1.25, w=0.78),
+              dict(text=C["title_ar"], font=ARABIC, size=u(96), fill=TXT_H,
+                   rtl=True, gap=1.00, w=0.76)]
+    set_lines(d, tb, items, lead=0.40)
 
     # -- when ----------------------------------------------------------------
     y0, y1 = REG["when"]; hw = NHW - INSET - PAD
