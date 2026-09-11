@@ -332,16 +332,32 @@ def night_ground(w, h, rng):
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
 
 def gold_leaf(w, h, rng):
+    """Beaten leaf: laid in squares, overlapped at the seams, lightly crazed."""
     sw, sh = w // 3, h // 3
     n1 = G.fbm(sh, sw, 6, sw / 2.2, rng=rng)
     n2 = G.fbm(sh, sw, 5, sw / 6.0, rng=rng)
     t = 0.5 + 0.42 * np.sin(5.2 * n1 + 3.1 * n2) * 0.5 + 0.3 * (n2 - 0.5)
+
+    leaf = max(10, int(u(840) / 3))                       # a leaf is about 70 mm
+    ys, xs = np.mgrid[0:sh, 0:sw]
+    cy, cx = ys // leaf, xs // leaf
+    tone = np.modf(np.sin(cx * 12.9898 + cy * 78.233) * 43758.5453)[0]
+    t = t + (tone - 0.5) * 0.085                          # each leaf sits differently
+    ox = np.modf(np.sin(cy * 31.7 + 7.3) * 1237.0)[0] * leaf * 0.12
+    seam = (((xs - ox) % leaf) < 2.2) | ((ys % leaf) < 2.2)
+    t = t + seam * 0.055                                  # the overlap catches light
+    del ys, xs, cy, cx, tone, ox, seam
+
+    crz = G.fbm(sh, sw, 4, sw / 30.0, rng=rng)            # crazing in the size
+    t = t - (np.abs(crz - 0.5) < 0.010) * 0.20
+    del crz
+
     stops = [(0.0, (120, 82, 30)), (0.28, (168, 124, 52)), (0.52, (206, 166, 90)),
              (0.75, (236, 208, 144)), (1.0, (252, 240, 200))]
     rgb = G.ramp(t, stops)
     img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8)).resize((w, h), Image.BICUBIC)
     a = np.asarray(img, np.float32)
-    st = G._vnoise(h, w, max(2.0, u(1.8)), rng)
+    st = G._vnoise(h, w, max(2.0, u(1.8)), rng)           # the burnisher's strokes
     st = np.asarray(Image.fromarray((st * 255).astype(np.uint8))
                     .filter(ImageFilter.GaussianBlur(u(0.6))), np.float32) / 255.0
     a += ((st - 0.5) * 16.0)[:, :, None] * np.array([1.0, 0.86, 0.5], np.float32)
@@ -381,29 +397,30 @@ def bevel(canvas, mask, up=0.30, down=0.34, r=None):
     return canvas
 
 # ---------------------------------------------------------------- layout ----
-TRIM = 74.0
-BS0, BS1 = 96.0, 404.0                    # zellij strip, outer and inner edge
-FLD = 430.0                               # the plaster field begins
+TRIM = 62.0
+BS0, BS1 = 84.0, 328.0                    # zellij strip, outer and inner edge
+FLD = 354.0                               # the plaster field begins
+PIL_HW, PIL_BAND = 76.0, 15.0             # the flanking arcade
 NCX = PW / 2.0
-NHW = 1032.0                              # niche half width
-NTOP, NSPR, NBASE = 466.0, 1560.0, 4486.0
+NHW = 1206.0                              # niche half width
+NTOP, NSPR, NBASE = 392.0, 1600.0, 4540.0
 FRAME = 40.0                              # gold band around the niche
 INSET = FRAME + BAND_W                    # frame + any colour band inside it
 PAD = 78.0                                # text inset from the band
 
 REG = {                                   # every line of type owns a register
-    "quote": (586.0,  874.0),
-    "title": (930.0, 1566.0),
-    "logo":  (1622.0, 2142.0),
-    "when":  (2204.0, 2474.0),
-    "body":  (2532.0, 2924.0),
-    "sched": (2982.0, 3502.0),
-    "venue": (3560.0, 3852.0),
-    "rsvp":  (3912.0, 4222.0),
-    "web":   (4272.0, 4398.0),
+    "quote": (515.8, 813.0),
+    "title": (870.8, 1527.0),
+    "logo":  (1584.8, 2121.4),
+    "when":  (2185.3, 2463.9),
+    "body":  (2523.8, 2928.3),
+    "sched": (2988.1, 3524.7),
+    "venue": (3584.5, 3885.8),
+    "rsvp":  (3947.7, 4267.6),
+    "web":   (4319.2, 4449.2),
 }
-MAJOR = [1594.0, 2174.0, 2502.0, 3540.0, 3884.0]     # interlace rules + knot
-MINOR = [900.0, 2952.0, 4248.0]                       # hairline + lozenge
+MAJOR = [1555.9, 2154.4, 2492.8, 3563.9, 3918.8]      # interlace rules + knot
+MINOR = [839.8, 2957.2, 4294.4]                        # hairline + lozenge
 
 def niche_at(t, lobes=9):
     """The niche outline inset by t page units, drawn concentrically."""
@@ -731,8 +748,7 @@ def build():
     canvas = Image.alpha_composite(canvas.convert("RGBA"),
                                    carved_damask(m_out, rng)).convert("RGB")
 
-    courses = [NTOP, 900.0, 1594.0, 2174.0, 2502.0, 2952.0, 3540.0, 3884.0,
-               4248.0, NBASE]
+    courses = [NTOP] + sorted(MAJOR + MINOR) + [NBASE]
     cw_ = Image.new("L", (CW, CH), 0); dc = ImageDraw.Draw(cw_)
     for i in range(len(courses) - 1):
         if i % 2: continue
@@ -779,9 +795,6 @@ def build():
     # the emblem, ringed like a boss in the plaster
     lx, ly = CX, u((REG["logo"][0] + REG["logo"][1]) / 2.0)
     R = u(276)
-    if LOGO_DISC:
-        d.ellipse([lx - R * .93, ly - R * .93, lx + R * .93, ly + R * .93],
-                  fill=LOGO_DISC)
     d.ellipse([lx - R, ly - R, lx + R, ly + R], fill=None,
               outline=GOLD, width=max(1, int(u(7))))
     d.ellipse([lx - R * .90, ly - R * .90, lx + R * .90, ly + R * .90],
@@ -793,12 +806,30 @@ def build():
         knot(d, lx + R * 1.10 * math.cos(a), ly + R * 1.10 * math.sin(a),
              u(15), GOLD_MD, GOLD_LT)
 
+    if LOGO_DISC:                       # ground pigment, not a flat fill
+        rr = int(R * .93) + 2
+        disc = tadelakt(2 * rr, 2 * rr, np.random.default_rng(613),
+                        stops=[(0.0, (62, 8, 20)), (0.36, (94, 18, 30)),
+                               (0.70, (128, 30, 42)), (1.0, (156, 48, 58))])
+        dm = Image.new("L", (2 * rr, 2 * rr), 0)
+        ImageDraw.Draw(dm).ellipse([0, 0, 2 * rr - 1, 2 * rr - 1], fill=255)
+        canvas.paste(disc, (int(lx - rr), int(ly - rr)), dm)
+        del disc, dm
+
     pnt.im.putalpha(pnt.im.split()[3].point(lambda v: int(v * 0.97)))
     canvas = Image.alpha_composite(canvas.convert("RGBA"), pnt.im).convert("RGB")
     del pnt
 
     logo = load_logo(u(446))
-    canvas.paste(logo, (int(lx - logo.width / 2), int(ly - logo.height / 2)), logo)
+    lw, lh = logo.size
+    bx, by = int(lx - lw / 2), int(ly - lh / 2)
+    leafp = gold_tex.crop((bx, by, bx + lw, by + lh)).convert("RGBA")
+    la = np.asarray(leafp, np.float32); lo = np.asarray(logo, np.float32)
+    la[..., :3] = la[..., :3] * 0.55 + lo[..., :3] * 0.45      # leaf, but still a logo
+    la[..., 3] = lo[..., 3]
+    leafp = Image.fromarray(np.clip(la, 0, 255).astype(np.uint8), "RGBA")
+    canvas.paste(leafp, (bx, by), leafp)
+    del la, lo, leafp
 
     # the niche is flanked by a slender arcade, so it belongs to a wall
     mx = (FLD + (NCX - NHW)) / 2.0
@@ -806,22 +837,22 @@ def build():
                        base=CREAM if ROSEY else CREAM_DK)
     sp = Painter((CW, CH), rng)
     for cx_ in (mx, PW - mx):
-        po = niche_outline(u(cx_), u(102), u(FLD + 56), u(FLD + 250),
-                           u(PH - FLD - 56), lobes=5, depth=u(10), foot=u(22))
+        po = niche_outline(u(cx_), u(PIL_HW), u(FLD + 52), u(FLD + 232),
+                           u(PH - FLD - 52), lobes=5, depth=u(9), foot=u(20))
         pm = G.poly_mask(po)
         canvas = inlay(canvas, pm, plaster, sh_off=u(6), sh_blur=u(11), sh_amt=0.34)
-        pbm, pim = band_mask(po, u(17))
+        pbm, pim = band_mask(po, u(PIL_BAND))
         canvas = inlay(canvas, pbm, gold_tex, shadow=False)
         canvas = bevel(canvas, pbm, up=0.22, down=0.26, r=u(4))
         sp.outline(po, lerp(GOLD_DK, INK, .55), u(2.2))
-        sp.outline(G.offset_inward(po, u(17)), lerp(GOLD_DK, INK, .5), u(1.6))
+        sp.outline(G.offset_inward(po, u(PIL_BAND)), lerp(GOLD_DK, INK, .5), u(1.6))
         vine = Painter((CW, CH), rng)
-        zellij_column(vine.d, cx_, FLD + 336, PH - FLD - 132, 72.0)
+        zellij_column(vine.d, cx_, FLD + 306, PH - FLD - 118, 52.0)
         vine.im.putalpha(ImageChops.multiply(vine.im.split()[3],
-                         G.poly_mask(G.offset_inward(po, u(24)))))
+                         G.poly_mask(G.offset_inward(po, u(20)))))
         canvas = Image.alpha_composite(canvas.convert("RGBA"), vine.im).convert("RGB")
         del vine
-        corner_seal(sp.d, cx_, FLD + 168, 54)
+        corner_seal(sp.d, cx_, FLD + 152, 44)
     del plaster
     field = Image.new("L", (CW, CH), 0)
     ImageDraw.Draw(field).rectangle([u(FLD), u(FLD), CW - u(FLD) - 1, CH - u(FLD) - 1],
@@ -831,21 +862,76 @@ def build():
     canvas = Image.alpha_composite(canvas.convert("RGBA"), sp.im).convert("RGB")
     return canvas
 
+def _field(h, w, cx_, cy_, rng):
+    """A smooth random field, generated small and grown - cheap at poster size."""
+    g = (rng.random((max(2, int(cy_)), max(2, int(cx_)))) * 255).astype(np.uint8)
+    return np.asarray(Image.fromarray(g).resize((w, h), Image.BICUBIC), np.float32) / 255.0
+
+def handwarp(im, rng, amp, cells=30):
+    """Displace everything by a hair. Nothing drawn by hand is truly straight."""
+    from scipy import ndimage
+    a = np.asarray(im, np.float32)
+    h, w = a.shape[:2]
+    dx = (_field(h, w, cells, cells * h // w, rng) - 0.5) * 2.0 * amp
+    dy = (_field(h, w, cells, cells * h // w, rng) - 0.5) * 2.0 * amp
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    co = np.stack([yy + dy, xx + dx]); del yy, xx, dx, dy
+    out = np.empty_like(a)
+    for c in range(3):
+        ndimage.map_coordinates(a[..., c], co, order=1, mode="nearest",
+                                output=out[..., c])
+    del co, a
+    return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
+
 def finish(canvas, rng):
-    canvas = canvas.filter(ImageFilter.GaussianBlur(u(0.30)))
+    canvas = canvas.filter(ImageFilter.GaussianBlur(u(0.34)))
+    if Q != 1.0:
+        canvas = canvas.resize((PW, PH), Image.LANCZOS)   # everything below is at size
+    canvas = handwarp(canvas, rng, amp=2.4, cells=34)
+
     a = np.asarray(canvas, np.float32)
     h, w = a.shape[:2]
-    grain = rng.normal(0, 1, (h, w)).astype(np.float32)
-    grain = np.asarray(Image.fromarray(np.clip(grain * 26 + 128, 0, 255).astype(np.uint8))
-                       .filter(ImageFilter.GaussianBlur(u(0.5))), np.float32)
-    a *= (1.0 + ((grain - 128) / 128.0) * 0.045)[:, :, None]
+
+    # --- the sheet: tooth, laid lines, and the shadow each fibre raises ------
+    tooth = _field(h, w, w // 3, h // 3, rng)
+    a *= (1.0 + (tooth - 0.5) * 0.050)[:, :, None]
+    del tooth
+    fibre = _field(h, w, int(w / 2.2), h // 90, rng)
+    a *= (1.0 + (fibre - 0.5) * 0.030)[:, :, None]
+    del fibre
+    relief = _field(h, w, w // 240, h // 240, rng)
+    gy, gx = np.gradient(relief)
+    a *= (1.0 + np.clip((gx + gy) * 55.0, -1.0, 1.0) * 0.042)[:, :, None]
+    del gy, gx, relief
+
+    # --- pigment pools where the brush stopped ------------------------------
+    lum = a.mean(2)
+    ey, ex = np.gradient(lum)
+    edge = np.clip(np.sqrt(ex * ex + ey * ey) / 34.0, 0, 1); del ex, ey, lum
+    edge = np.asarray(Image.fromarray((edge * 255).astype(np.uint8))
+                      .filter(ImageFilter.GaussianBlur(1.0)), np.float32) / 255.0
+    a *= (1.0 - 0.075 * edge)[:, :, None]
+    del edge
+
+    # --- age: uneven warmth, a very little foxing ---------------------------
+    cloud = _field(h, w, w // 34, h // 34, rng)
+    a[:, :, 2] *= (1.0 - 0.030 * cloud)
+    a[:, :, 0] *= (1.0 + 0.010 * cloud)
+    fox = _field(h, w, w // 110, h // 110, rng)
+    spot = np.clip((fox - 0.935) * 12.0, 0, 1)
+    a[:, :, 1] *= (1.0 - 0.045 * spot)
+    a[:, :, 2] *= (1.0 - 0.080 * spot)
+    del fox, spot, cloud
+
+    # --- the light in the room ----------------------------------------------
     yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
-    nx = xx / w - 0.5; ny = yy / h - 0.5
-    a *= (1.0 + 0.05 * (-nx * .7 - ny) - 0.26 * (nx * nx * 1.9 + ny * ny * 1.1) ** 1.35)[:, :, None]
-    del yy, xx, nx, ny, grain
+    nx = xx / w - 0.5; ny = yy / h - 0.5; del yy, xx
+    a *= (1.0 + 0.050 * (-nx * .7 - ny)
+          - 0.26 * (nx * nx * 1.9 + ny * ny * 1.1) ** 1.35)[:, :, None]
+    del nx, ny
+
     canvas = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)); del a
-    if Q != 1.0: canvas = canvas.resize((PW, PH), Image.LANCZOS)
-    return canvas.filter(ImageFilter.UnsharpMask(radius=1.5, percent=58, threshold=2))
+    return canvas.filter(ImageFilter.UnsharpMask(radius=1.3, percent=52, threshold=3))
 
 def guide(canvas):
     """Overlay the register boxes, in final-image pixels and millimetres."""

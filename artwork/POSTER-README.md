@@ -17,7 +17,7 @@ has to move with it — which is exactly the relationship you want.
 Three things do the work:
 
 1. **The niche is cut, not pasted.** It casts a real shadow onto the plaster, its
-   gold band is bevelled with a light and a shade rim, and its indigo ground
+   gold band is bevelled with a light and a shade rim, and its ground
    carries a faint tooled damask of the same eight-pointed seal used in the
    border. It reads as recessed stucco.
 2. **The registers are stone courses.** Alternate courses are a few percent
@@ -27,8 +27,6 @@ Three things do the work:
    the border, the flanking columns, the divider knots, the corner seals, the
    damask — and the emblem, which is itself a khatim. The logo is not an import;
    it is the motif the whole page is made from.
-
-## Files
 
 ## Two colourways
 
@@ -74,15 +72,19 @@ register boxes, in final-image pixels at 3508 × 4961:
 
 | register | x | y | size |
 |---|---|---|---|
-| quote (the ayah) | 833 – 2675 | 586 – 874 | 156 × 24 mm |
-| title | 640 – 2868 | 930 – 1566 | 189 × 54 mm |
-| emblem | 640 – 2868 | 1622 – 2142 | 189 × 44 mm |
-| date / time | 640 – 2868 | 2204 – 2474 | 189 × 23 mm |
-| body | 640 – 2868 | 2532 – 2924 | 189 × 33 mm |
-| programme | 640 – 2868 | 2982 – 3502 | 189 × 44 mm |
-| venue | 640 – 2868 | 3560 – 3852 | 189 × 25 mm |
-| contact | 640 – 2868 | 3912 – 4222 | 189 × 26 mm |
-| web | 640 – 2868 | 4272 – 4398 | 189 × 11 mm |
+| quote (the ayah) | 1299 – 2208 | 515 – 813 | 77 × 25 mm |
+| title | 905 – 2602 | 870 – 1527 | 144 × 56 mm |
+| emblem | 732 – 2775 | 1584 – 2121 | 173 × 45 mm |
+| date / time | 732 – 2776 | 2185 – 2463 | 173 × 24 mm |
+| body | 732 – 2776 | 2523 – 2928 | 173 × 34 mm |
+| programme | 732 – 2776 | 2988 – 3524 | 173 × 45 mm |
+| venue | 732 – 2776 | 3584 – 3885 | 173 × 26 mm |
+| contact | 732 – 2776 | 3947 – 4267 | 173 × 27 mm |
+| web | 732 – 2776 | 4319 – 4449 | 173 × 11 mm |
+
+The quote and title registers are narrower because they sit up inside the curve
+of the arch — `niche_hw_at(y)` returns the real interior half-width at any
+height, and the generator uses it so nothing can run into the haunch.
 
 Centre each block in its box and keep to the type scale below; the dividers are
 already drawn between them, so nothing needs a border of its own.
@@ -106,8 +108,29 @@ already drawn between them, so nothing needs a border of its own.
 **Indigo** — `#0E1A36` → `#26447A` · terracotta `#A23E2C` · turquoise `#166076` ·
 tadelakt cream `#F2E7D0` · the same golds.
 
+## The surface
+
+The poster is finished as an object rather than a file. After the supersampled
+render is brought down to size, `finish()`:
+
+- **displaces everything by a hair** — a smooth random field of about two pixels,
+  so no line is perfectly straight. This one step does more for the hand-made
+  read than any amount of texture.
+- lays a **paper tooth**, long **laid lines**, and a low-frequency **relief**
+  whose gradient is lit from the upper left, so the sheet has a surface.
+- **pools pigment at every edge** — a touch of darkening wherever the image
+  changes, the way paint gathers where a brush stops.
+- ages it slightly: uneven warmth, a little foxing.
+- finishes with a raking light and a soft vignette.
+
+The gold is laid as **beaten leaf**: squares of about 70 mm, each with its own
+tone, offset row by row, with the overlap at the seams catching the light and a
+fine crazing through the size. The emblem is tinted from that same leaf rather
+than a flat gradient, and the crimson ground behind it is ground pigment, not a
+fill.
+
 ## Printing
 
 A3 at 300 dpi as supplied. It scales to A2 at ~212 dpi and to A4 at 300 dpi with
-no change. There is a 74-unit (6 mm) plain margin outside the outer gold rule, so
+no change. There is a 62-unit (5 mm) plain margin outside the outer gold rule, so
 trimming is safe; the design does not bleed off the sheet.
