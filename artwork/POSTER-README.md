@@ -34,7 +34,7 @@ Three things do the work:
 |---|---|
 | `moroccan-poster.png` / `.pdf` | the finished poster, A3 at 300 dpi (3508 × 4961) |
 | `moroccan-poster-blank.png` / `.pdf` | the same wall with every register empty |
-| `moroccan-poster-guide.png` | the blank with each register boxed and measured |
+| `moroccan-poster-guide.jpg` | the blank with each register boxed and measured |
 | `moroccan.py` | the generator |
 | `logo-khatim.png` | the emblem, re-cast in leaf gold at render time |
 | `fonts/` | Cinzel, Cormorant Garamond, Marcellus, Amiri, Scheherazade New |
@@ -55,7 +55,7 @@ register, `fit_block` wraps and shrinks a paragraph until it fits. Longer text
 gets smaller rather than overflowing, so you cannot break the layout by typing.
 
 **The other way** — open `moroccan-poster-blank.png` in Canva, Affinity, Word or
-Illustrator and set type inside the boxes `moroccan-poster-guide.png` marks. The
+Illustrator and set type inside the boxes `moroccan-poster-guide.jpg` marks. The
 register boxes, in final-image pixels at 3508 × 4961:
 
 | register | x | y | size |

@@ -782,8 +782,8 @@ def guide(canvas):
         x0, x1 = NCX - hw, NCX + hw
         d.rectangle([x0, y0, x1, y1], outline=(255, 90, 90, 230), width=4)
         d.rectangle([x0, y0, x1, y1], fill=(255, 90, 90, 26))
-        f = ImageFont.truetype(os.path.join(FDIR, "Marcellus-400.ttf"), 30)
-        d.text((x0 + 14, y0 + 10),
+        f = ImageFont.truetype(os.path.join(FDIR, "Marcellus-400.ttf"), 48)
+        d.text((x0 + 20, y0 + 14),
                f"{name.upper()}  x {int(x0)}-{int(x1)}  y {int(y0)}-{int(y1)} px"
                f"   ({(x1-x0)*mm:.0f} x {(y1-y0)*mm:.0f} mm)",
                font=f, fill=(150, 20, 20, 255))
