@@ -72,15 +72,15 @@ register boxes, in final-image pixels at 3508 × 4961:
 
 | register | x | y | size |
 |---|---|---|---|
-| quote (the ayah) | 1299 – 2208 | 515 – 813 | 77 × 25 mm |
-| title | 905 – 2602 | 870 – 1527 | 144 × 56 mm |
-| emblem | 732 – 2775 | 1584 – 2121 | 173 × 45 mm |
-| date / time | 732 – 2776 | 2185 – 2463 | 173 × 24 mm |
-| body | 732 – 2776 | 2523 – 2928 | 173 × 34 mm |
-| programme | 732 – 2776 | 2988 – 3524 | 173 × 45 mm |
-| venue | 732 – 2776 | 3584 – 3885 | 173 × 26 mm |
-| contact | 732 – 2776 | 3947 – 4267 | 173 × 27 mm |
-| web | 732 – 2776 | 4319 – 4449 | 173 × 11 mm |
+| quote (the ayah) | 1253 – 2254 | 420 – 732 | 85 × 26 mm |
+| title | 826 – 2681 | 792 – 1481 | 157 × 58 mm |
+| emblem | 628 – 2879 | 1542 – 2105 | 191 × 48 mm |
+| date / time | 628 – 2880 | 2172 – 2465 | 191 × 25 mm |
+| body | 628 – 2880 | 2528 – 2952 | 191 × 36 mm |
+| programme | 628 – 2880 | 3015 – 3579 | 191 × 48 mm |
+| venue | 628 – 2880 | 3641 – 3958 | 191 × 27 mm |
+| contact | 628 – 2880 | 4023 – 4359 | 191 × 28 mm |
+| web | 628 – 2880 | 4413 – 4549 | 191 × 12 mm |
 
 The quote and title registers are narrower because they sit up inside the curve
 of the arch — `niche_hw_at(y)` returns the real interior half-width at any
@@ -123,6 +123,12 @@ render is brought down to size, `finish()`:
 - ages it slightly: uneven warmth, a little foxing.
 - finishes with a raking light and a soft vignette.
 
+The **border is cut, not printed**. Every piece is set by hand, so no two match:
+each seal and cross gets its own tone, its own fraction of a degree of rotation,
+and its own pixel or two of drift. Each sits in a darker joint, the whole course
+is bevelled so the pieces stand proud of their bed, and the glaze crazes — but
+only on the pieces, never on the plaster between them.
+
 The gold is laid as **beaten leaf**: squares of about 70 mm, each with its own
 tone, offset row by row, with the overlap at the seams catching the light and a
 fine crazing through the size. The emblem is tinted from that same leaf rather
@@ -132,5 +138,5 @@ fill.
 ## Printing
 
 A3 at 300 dpi as supplied. It scales to A2 at ~212 dpi and to A4 at 300 dpi with
-no change. There is a 62-unit (5 mm) plain margin outside the outer gold rule, so
+no change. There is a 44-unit (3.7 mm) plain margin outside the outer gold rule, so
 trimming is safe; the design does not bleed off the sheet.

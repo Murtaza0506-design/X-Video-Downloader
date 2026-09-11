@@ -397,30 +397,30 @@ def bevel(canvas, mask, up=0.30, down=0.34, r=None):
     return canvas
 
 # ---------------------------------------------------------------- layout ----
-TRIM = 62.0
-BS0, BS1 = 84.0, 328.0                    # zellij strip, outer and inner edge
-FLD = 354.0                               # the plaster field begins
-PIL_HW, PIL_BAND = 76.0, 15.0             # the flanking arcade
+TRIM = 44.0
+BS0, BS1 = 60.0, 223.0                    # zellij strip, outer and inner edge
+FLD = 249.0                               # the plaster field begins
+PIL_HW, PIL_BAND = 74.0, 14.0             # the flanking arcade
 NCX = PW / 2.0
-NHW = 1206.0                              # niche half width
-NTOP, NSPR, NBASE = 392.0, 1600.0, 4540.0
+NHW = 1310.0                              # niche half width
+NTOP, NSPR, NBASE = 290.0, 1600.0, 4645.0
 FRAME = 40.0                              # gold band around the niche
 INSET = FRAME + BAND_W                    # frame + any colour band inside it
 PAD = 78.0                                # text inset from the band
 
 REG = {                                   # every line of type owns a register
-    "quote": (515.8, 813.0),
-    "title": (870.8, 1527.0),
-    "logo":  (1584.8, 2121.4),
-    "when":  (2185.3, 2463.9),
-    "body":  (2523.8, 2928.3),
-    "sched": (2988.1, 3524.7),
-    "venue": (3584.5, 3885.8),
-    "rsvp":  (3947.7, 4267.6),
-    "web":   (4319.2, 4449.2),
+    "quote": (420.0, 732.0),
+    "title": (792.7, 1481.6),
+    "logo":  (1542.3, 2105.7),
+    "when":  (2172.8, 2465.3),
+    "body":  (2528.2, 2952.9),
+    "sched": (3015.7, 3579.0),
+    "venue": (3641.8, 3958.2),
+    "rsvp":  (4023.1, 4359.0),
+    "web":   (4413.2, 4549.7),
 }
-MAJOR = [1555.9, 2154.4, 2492.8, 3563.9, 3918.8]      # interlace rules + knot
-MINOR = [839.8, 2957.2, 4294.4]                        # hairline + lozenge
+MAJOR = [1512.0, 2140.4, 2495.6, 3620.2, 3992.8]      # interlace rules + knot
+MINOR = [760.1, 2983.2, 4387.1]                        # hairline + lozenge
 
 def niche_at(t, lobes=9):
     """The niche outline inset by t page units, drawn concentrically."""
@@ -445,17 +445,22 @@ def text_box(y0, y1, pad=None, frac=1.0):
 
 # ---------------------------------------------------------------- zellij ----
 def zellij(canvas, rng):
+    """A cut border. Every piece is laid by hand, so none of them match."""
     lay = Image.new("RGBA", (CW, CH), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
+    tiles = Image.new("L", (CW, CH), 0)                 # the pieces, for relief
+    dt = ImageDraw.Draw(tiles)
     strip = Image.new("L", (CW, CH), 0)
     ds = ImageDraw.Draw(strip)
     ds.rectangle([u(BS0), u(BS0), CW - u(BS0) - 1, CH - u(BS0) - 1], fill=255)
     ds.rectangle([u(BS1), u(BS1), CW - u(BS1) - 1, CH - u(BS1) - 1], fill=0)
 
-    d.rectangle([u(BS0), u(BS0), CW - u(BS0) - 1, CH - u(BS0) - 1], fill=STRIP_BG + (255,))
+    joint = lerp(STRIP_BG, INK, 0.38)                   # the bed they are set in
+    d.rectangle([u(BS0), u(BS0), CW - u(BS0) - 1, CH - u(BS0) - 1],
+                fill=STRIP_BG + (255,))
 
     C = (BS0 + BS1) / 2.0
-    R = u((BS1 - BS0) / 2.0 - 4.0)
+    R = u((BS1 - BS0) / 2.0 - 3.0)
     x0, x1 = u(C), CW - u(C)
     y0, y1 = u(C), CH - u(C)
     nh = max(2, int(round((x1 - x0) / (2 * R))))
@@ -472,33 +477,71 @@ def zellij(canvas, rng):
     for j in range(nv):
         mids += [(x0, y0 + (j + .5) * pv), (x1, y0 + (j + .5) * pv)]
 
+    jz = u(1.7)
+    lw = max(1, int(u(1.6)))
+    def tone(c, k):
+        return tuple(int(np.clip(v * (1.0 + 0.062 * k), 0, 255)) for v in c)
+    def poly(dr, pp, **kw):
+        dr.polygon([tuple(q) for q in pp], **kw)
+
     for (mx, my) in mids:                                   # the crosses
-        d.polygon([tuple(p) for p in saft(mx, my, R * 0.86, 0.34)],
-                  fill=SAFT_A + (255,), outline=GOLD_DK + (255,), width=max(1, int(u(2))))
-        d.polygon([tuple(p) for p in saft(mx, my, R * 0.60, 0.34)], fill=SAFT_B + (255,))
+        k = float(rng.normal()) * 0.8
+        rot = np.pi / 4 + float(rng.normal()) * 0.017
+        mx += float(rng.normal()) * jz; my += float(rng.normal()) * jz
+        poly(d, saft(mx, my, R * 0.91, 0.34, rot), fill=joint + (255,))
+        poly(d, saft(mx, my, R * 0.86, 0.34, rot), fill=tone(SAFT_A, k) + (255,),
+             outline=GOLD_DK + (255,), width=lw)
+        poly(d, saft(mx, my, R * 0.60, 0.34, rot), fill=tone(SAFT_B, k) + (255,))
         d.ellipse([mx - R * .10, my - R * .10, mx + R * .10, my + R * .10],
                   fill=SAFT_DOT + (255,))
+        poly(dt, saft(mx, my, R * 0.88, 0.34, rot), fill=255)
+
     for (sx, sy) in nodes:                                  # the seals
-        d.polygon([tuple(p) for p in khatim(sx, sy, R, 0.585)], fill=GOLD + (255,))
-        d.polygon([tuple(p) for p in khatim(sx, sy, R * 0.90, 0.585)], fill=CREAM + (255,))
-        d.polygon([tuple(p) for p in khatim(sx, sy, R * 0.56, 0.585, rot=np.pi / 8)],
-                  fill=STAR_INNER + (255,))
-        d.polygon([tuple(p) for p in khatim(sx, sy, R * 0.30, 0.585)], fill=GOLD_LT + (255,))
+        k = float(rng.normal()) * 0.8
+        rot = float(rng.normal()) * 0.015
+        sx += float(rng.normal()) * jz; sy += float(rng.normal()) * jz
+        poly(d, khatim(sx, sy, R * 1.030, 0.585, rot=rot), fill=joint + (255,))
+        poly(d, khatim(sx, sy, R, 0.585, rot=rot), fill=tone(GOLD, k) + (255,))
+        poly(d, khatim(sx, sy, R * 0.90, 0.585, rot=rot), fill=tone(CREAM, k) + (255,))
+        poly(d, khatim(sx, sy, R * 0.56, 0.585, rot=rot + np.pi / 8),
+             fill=tone(STAR_INNER, k) + (255,))
+        poly(d, khatim(sx, sy, R * 0.30, 0.585, rot=rot), fill=GOLD_LT + (255,))
         d.ellipse([sx - R * .10, sy - R * .10, sx + R * .10, sy + R * .10],
                   fill=lerp(STAR_INNER, INK, .45) + (255,))
+        poly(dt, khatim(sx, sy, R * 1.012, 0.585, rot=rot), fill=255)
+
     lay.putalpha(ImageChops.multiply(lay.split()[3], strip))
+    tiles = ImageChops.multiply(tiles, strip)
     canvas = Image.alpha_composite(canvas.convert("RGBA"), lay).convert("RGB")
+    del lay, d, dt
+
+    # glaze: granulation, a little crazing, and the light each piece catches
+    a = np.asarray(canvas, np.float32)
+    m = (np.asarray(strip, np.float32) / 255.0)[:, :, None]
+    tf = np.asarray(tiles, np.float32) / 255.0
+    gl = _field(CH, CW, CW // 3, CH // 3, rng)
+    cz = G.fbm(CH // 3, CW // 3, 4, CW / 44.0, rng=rng)
+    cz = np.asarray(Image.fromarray((cz * 255).astype(np.uint8))
+                    .resize((CW, CH), Image.BICUBIC), np.float32) / 255.0
+    craze = (np.abs(cz - 0.5) < 0.0060) * tf          # glaze crazes, the bed does not
+    g = (1.0 + (gl - 0.5) * 0.090) * (1.0 - craze * 0.10)
+    del gl, cz, craze, tf
+    a = a * (1.0 - m) + a * m * g[:, :, None]
+    del m, g
+    canvas = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)); del a
+    canvas = bevel(canvas, tiles, up=0.24, down=0.27, r=u(3.0))
+    del tiles, strip
 
     ov = ImageDraw.Draw(canvas)
     def rule(inset, w, col):
         ov.rectangle([u(inset), u(inset), CW - u(inset) - 1, CH - u(inset) - 1],
                      outline=col, width=max(1, int(round(u(w)))))
-    rule(BS0 - 5, 9, GOLD)
-    rule(BS0 - 11, 2, GOLD_DK)
-    rule(BS1 + 5, 9, GOLD)
-    rule(BS1 + 11, 2, GOLD_DK)
-    rule(TRIM, 3, GOLD_DK)
-    rule(TRIM - 9, 1.5, lerp(GOLD_DK, INK, .4))
+    rule(BS0 - 4, 7, GOLD)
+    rule(BS0 - 9, 1.8, GOLD_DK)
+    rule(BS1 + 4, 7, GOLD)
+    rule(BS1 + 9, 1.8, GOLD_DK)
+    rule(TRIM, 2.6, GOLD_DK)
+    rule(TRIM - 7, 1.4, lerp(GOLD_DK, INK, .4))
     return canvas
 
 # ----------------------------------------------------------------- niche ----
@@ -837,8 +880,8 @@ def build():
                        base=CREAM if ROSEY else CREAM_DK)
     sp = Painter((CW, CH), rng)
     for cx_ in (mx, PW - mx):
-        po = niche_outline(u(cx_), u(PIL_HW), u(FLD + 52), u(FLD + 232),
-                           u(PH - FLD - 52), lobes=5, depth=u(9), foot=u(20))
+        po = niche_outline(u(cx_), u(PIL_HW), u(FLD + 48), u(FLD + 216),
+                           u(PH - FLD - 48), lobes=5, depth=u(9), foot=u(19))
         pm = G.poly_mask(po)
         canvas = inlay(canvas, pm, plaster, sh_off=u(6), sh_blur=u(11), sh_amt=0.34)
         pbm, pim = band_mask(po, u(PIL_BAND))
@@ -847,12 +890,12 @@ def build():
         sp.outline(po, lerp(GOLD_DK, INK, .55), u(2.2))
         sp.outline(G.offset_inward(po, u(PIL_BAND)), lerp(GOLD_DK, INK, .5), u(1.6))
         vine = Painter((CW, CH), rng)
-        zellij_column(vine.d, cx_, FLD + 306, PH - FLD - 118, 52.0)
+        zellij_column(vine.d, cx_, FLD + 286, PH - FLD - 108, 48.0)
         vine.im.putalpha(ImageChops.multiply(vine.im.split()[3],
                          G.poly_mask(G.offset_inward(po, u(20)))))
         canvas = Image.alpha_composite(canvas.convert("RGBA"), vine.im).convert("RGB")
         del vine
-        corner_seal(sp.d, cx_, FLD + 152, 44)
+        corner_seal(sp.d, cx_, FLD + 142, 40)
     del plaster
     field = Image.new("L", (CW, CH), 0)
     ImageDraw.Draw(field).rectangle([u(FLD), u(FLD), CW - u(FLD) - 1, CH - u(FLD) - 1],
