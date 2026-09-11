@@ -30,10 +30,23 @@ Three things do the work:
 
 ## Files
 
+## Two colourways
+
+`THEME=rose` (the default) is the palette of the plate: a burnished gold sheet,
+a rose zellij border, ivory plaster in the niche with a rose band and a lapis
+pearl chain holding it, and a deep crimson boss behind the emblem. Type is
+crimson and warm umber on ivory, which is how an illuminated page actually
+works — dark ink on a light ground.
+
+`THEME=indigo` is the night version: lapis ground, warm white type, turquoise
+labels. Same architecture, same registers, same generator.
+
 | file | what it is |
 |---|---|
-| `moroccan-poster.png` / `.pdf` | the finished poster, A3 at 300 dpi (3508 × 4961) |
+| `moroccan-poster.png` / `.pdf` | the finished poster, gold and rose, A3 at 300 dpi (3508 × 4961) |
 | `moroccan-poster-blank.png` / `.pdf` | the same wall with every register empty |
+| `moroccan-poster-indigo.png` / `.pdf` | the night colourway |
+| `moroccan-poster-indigo-blank.png` / `.pdf` | and its blank |
 | `moroccan-poster-guide.jpg` | the blank with each register boxed and measured |
 | `moroccan.py` | the generator |
 | `logo-khatim.png` | the emblem, re-cast in leaf gold at render time |
@@ -44,10 +57,11 @@ Three things do the work:
 **The easy way** — edit `CONTENT` at the top of `moroccan.py` and re-render:
 
 ```bash
-python3 moroccan.py                    # draft
-Q=2.0 PDF=1 python3 moroccan.py        # print quality
-BLANK=1 Q=2.0 PDF=1 python3 moroccan.py
-GUIDE=1 BLANK=1 python3 moroccan.py
+python3 moroccan.py                              # draft, gold and rose
+THEME=rose   Q=2.0 PDF=1 python3 moroccan.py     # print quality
+THEME=indigo Q=2.0 PDF=1 python3 moroccan.py     # the night colourway
+BLANK=1 Q=2.0 PDF=1 python3 moroccan.py          # empty registers
+GUIDE=1 BLANK=1 python3 moroccan.py              # measured overlay
 ```
 
 Every block is auto-fitted: `fit_line` shrinks a headline until it fits its
@@ -75,18 +89,22 @@ already drawn between them, so nothing needs a border of its own.
 
 ## Type
 
-| role | face | colour |
-|---|---|---|
-| headline, venue | Cinzel 600, letterspaced | warm white `#FBF5E6` |
-| figures, times | Cormorant Garamond 600 | warm white |
-| body, notes | Cormorant Garamond 400 / italic | warm white, gold `#EED69C` |
-| small labels | Marcellus, widely letterspaced | turquoise `#7EC4C8` |
-| Arabic | Amiri (Scheherazade New also supplied) | gold |
+| role | face | rose colourway | indigo colourway |
+|---|---|---|---|
+| headline, venue | Cinzel 600, letterspaced | crimson `#7C1C28` | warm white `#FBF5E6` |
+| figures, times | Cormorant Garamond 600 | crimson | warm white |
+| body, notes | Cormorant Garamond 400 / italic | umber `#462E24` | warm white |
+| small labels | Marcellus, widely letterspaced | rose `#963A3E` | turquoise `#7EC4C8` |
+| Arabic | Amiri (Scheherazade New also supplied) | old gold `#92642C` | gold |
 
 ## Colour
 
-Indigo `#0E1A36` → `#26447A` · gold `#8C642C` / `#C49C50` / `#F4E2AC` ·
-tadelakt cream `#F2E7D0` · terracotta `#A23E2C` · turquoise `#166076`.
+**Rose** — burnished gold sheet `#B2824A` → `#FBF0D5` · rose `#DF8583` /
+`#C06060` · crimson `#8A1E2A` / `#5C101C` · ivory `#FAF1DE` · lapis pearls
+`#1A224C` · gold `#8C642C` / `#C49C50` / `#F4E2AC`.
+
+**Indigo** — `#0E1A36` → `#26447A` · terracotta `#A23E2C` · turquoise `#166076` ·
+tadelakt cream `#F2E7D0` · the same golds.
 
 ## Printing
 

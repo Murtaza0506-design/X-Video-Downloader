@@ -32,24 +32,61 @@ lerp = G.lerp
 Painter = G.Painter
 
 # --------------------------------------------------------------- palette ----
-INK        = (18,  20,  34)
-NIGHT      = (10,  20,  44)      # deepest indigo, the niche ground
-INDIGO     = (20,  38,  78)
-INDIGO_LT  = (38,  68, 122)
-INDIGO_PALE= (86, 122, 176)
-TEAL       = (22,  96, 118)
-TEAL_LT    = (64, 156, 166)
-TERRA      = (162,  62,  44)
-TERRA_DK   = (112,  38,  30)
-SAFFRON    = (212, 152,  48)
+INK        = (40,  26,  22)
 GOLD       = (196, 156,  80)
 GOLD_LT    = (244, 226, 172)
 GOLD_MD    = (222, 190, 118)
 GOLD_DK    = (140, 100,  44)
-CREAM      = (242, 231, 208)     # tadelakt
+
+NIGHT      = (10,  20,  44)
+INDIGO     = (20,  38,  78)
+INDIGO_LT  = (38,  68, 122)
+TEAL       = (22,  96, 118)
+TEAL_LT    = (64, 156, 166)
+TERRA      = (162,  62,  44)
+TERRA_DK   = (112,  38,  30)
+
+ROSE       = (223, 133, 131)
+ROSE_DK    = (192,  96,  96)
+ROSE_LT    = (238, 172, 164)
+CRIMSON    = (138,  30,  42)
+CRIMSON_DK = (92,  16,  28)
+CREAM      = (242, 231, 208)
 CREAM_DK   = (219, 201, 168)
 CREAM_LT   = (251, 245, 230)
+IVORY      = (250, 241, 222)
 GREEN      = (30,  92,  74)
+
+THEME = os.environ.get("THEME", "rose").lower()
+_P = {
+  "indigo": dict(
+     strip_bg=INDIGO, star_inner=TERRA, saft_a=TEAL, saft_b=TEAL_LT,
+     saft_dot=GOLD_LT, band_w=0.0, band=None, damask=INDIGO_LT, damask_a=44,
+     knot_dot=TERRA, col_alt=(TERRA, TEAL), logo_disc=None, shadow=0.46,
+     course=1.075, txt=(251, 245, 230), txt_h=(251, 245, 230),
+     txt_g=(238, 214, 156), txt_t=(126, 196, 200),
+     body=(226, 234, 240), addr=(206, 220, 230), quote=(214, 226, 232)),
+  "rose": dict(
+     strip_bg=ROSE, star_inner=CRIMSON, saft_a=CREAM, saft_b=ROSE_LT,
+     saft_dot=CRIMSON, band_w=66.0, band="rose", damask=ROSE_DK, damask_a=40,
+     knot_dot=CRIMSON, col_alt=(CRIMSON, ROSE_DK), logo_disc=CRIMSON_DK,
+     shadow=0.34, course=0.978,
+     txt=(62, 38, 30), txt_h=(124, 28, 40), txt_g=(146, 100, 44),
+     txt_t=(150, 58, 62), body=(70, 46, 36), addr=(96, 62, 46),
+     quote=(96, 60, 42)),
+}[THEME]
+
+STRIP_BG   = _P["strip_bg"]
+STAR_INNER = _P["star_inner"]
+SAFT_A, SAFT_B, SAFT_DOT = _P["saft_a"], _P["saft_b"], _P["saft_dot"]
+BAND_W     = _P["band_w"]
+DAMASK, DAMASK_A = _P["damask"], _P["damask_a"]
+KNOT_DOT   = _P["knot_dot"]
+COL_ALT    = _P["col_alt"]
+LOGO_DISC  = _P["logo_disc"]
+SHADOW     = _P["shadow"]
+COURSE     = _P["course"]
+ROSEY      = THEME == "rose"
 
 # ----------------------------------------------------------------- fonts ----
 FDIR = os.path.join(HERE, "fonts")
@@ -244,14 +281,14 @@ def load_logo(px, tint=(GOLD_LT, GOLD_MD, GOLD_DK)):
     return im.resize((int(px), int(px * src.height / src.width)), Image.LANCZOS)
 
 # ---------------------------------------------------------------- grounds ---
-def tadelakt(w, h, rng, base=CREAM):
+def tadelakt(w, h, rng, base=CREAM, stops=None):
     """Polished lime plaster: warm, faintly clouded, never flat."""
     sw, sh = w // 3, h // 3
     n1 = G.fbm(sh, sw, 6, sw / 2.4, rng=rng)
     n2 = G.fbm(sh, sw, 5, sw / 8.0, rng=rng)
     t = 0.52 + 0.20 * (n1 - 0.5) + 0.26 * (n2 - 0.5)
-    stops = [(0.0, (206, 184, 148)), (0.35, (228, 212, 182)),
-             (0.65, tuple(base)), (1.0, (252, 246, 232))]
+    stops = stops or [(0.0, (206, 184, 148)), (0.35, (228, 212, 182)),
+                      (0.65, tuple(base)), (1.0, (252, 246, 232))]
     rgb = G.ramp(t, stops)
     img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8)).resize((w, h), Image.BICUBIC)
     a = np.asarray(img, np.float32)
@@ -260,6 +297,22 @@ def tadelakt(w, h, rng, base=CREAM):
                        .filter(ImageFilter.GaussianBlur(0.7)), np.float32)
     a += ((grain - 128) / 12.0)[:, :, None] * np.array([1.1, 1.0, 0.82], np.float32)
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+def field_ground(w, h, rng):
+    """What the whole sheet is made of."""
+    if not ROSEY: return tadelakt(w, h, rng)
+    a = np.asarray(G.gold_ground(w, h, rng), np.float32) * 0.955
+    a[:, :, 2] *= 0.965
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+def panel_ground(w, h, rng):
+    """The ground of the niche - the surface the writing sits on."""
+    if ROSEY:
+        return tadelakt(w, h, rng, stops=[(0.0, (234, 214, 176)),
+                                          (0.34, (245, 231, 202)),
+                                          (0.66, (252, 243, 223)),
+                                          (1.0, (255, 251, 241))])
+    return night_ground(w, h, rng)
 
 def night_ground(w, h, rng):
     """The indigo of the niche - lapis over dark plaster."""
@@ -335,6 +388,7 @@ NCX = PW / 2.0
 NHW = 1032.0                              # niche half width
 NTOP, NSPR, NBASE = 466.0, 1560.0, 4486.0
 FRAME = 40.0                              # gold band around the niche
+INSET = FRAME + BAND_W                    # frame + any colour band inside it
 PAD = 78.0                                # text inset from the band
 
 REG = {                                   # every line of type owns a register
@@ -369,7 +423,7 @@ def niche_hw_at(y):
 def text_box(y0, y1, pad=None, frac=1.0):
     """Canvas-pixel box inscribed in the niche between two heights."""
     pad = PAD if pad is None else pad
-    hw = (min(niche_hw_at(y0), niche_hw_at(y1)) - FRAME - pad) * frac
+    hw = (min(niche_hw_at(y0), niche_hw_at(y1)) - INSET - pad) * frac
     return (u(NCX - hw), u(y0), u(NCX + hw), u(y1))
 
 # ---------------------------------------------------------------- zellij ----
@@ -381,7 +435,7 @@ def zellij(canvas, rng):
     ds.rectangle([u(BS0), u(BS0), CW - u(BS0) - 1, CH - u(BS0) - 1], fill=255)
     ds.rectangle([u(BS1), u(BS1), CW - u(BS1) - 1, CH - u(BS1) - 1], fill=0)
 
-    d.rectangle([u(BS0), u(BS0), CW - u(BS0) - 1, CH - u(BS0) - 1], fill=INDIGO + (255,))
+    d.rectangle([u(BS0), u(BS0), CW - u(BS0) - 1, CH - u(BS0) - 1], fill=STRIP_BG + (255,))
 
     C = (BS0 + BS1) / 2.0
     R = u((BS1 - BS0) / 2.0 - 4.0)
@@ -403,18 +457,18 @@ def zellij(canvas, rng):
 
     for (mx, my) in mids:                                   # the crosses
         d.polygon([tuple(p) for p in saft(mx, my, R * 0.86, 0.34)],
-                  fill=TEAL + (255,), outline=GOLD_DK + (255,), width=max(1, int(u(2))))
-        d.polygon([tuple(p) for p in saft(mx, my, R * 0.60, 0.34)], fill=TEAL_LT + (255,))
+                  fill=SAFT_A + (255,), outline=GOLD_DK + (255,), width=max(1, int(u(2))))
+        d.polygon([tuple(p) for p in saft(mx, my, R * 0.60, 0.34)], fill=SAFT_B + (255,))
         d.ellipse([mx - R * .10, my - R * .10, mx + R * .10, my + R * .10],
-                  fill=GOLD_LT + (255,))
+                  fill=SAFT_DOT + (255,))
     for (sx, sy) in nodes:                                  # the seals
         d.polygon([tuple(p) for p in khatim(sx, sy, R, 0.585)], fill=GOLD + (255,))
         d.polygon([tuple(p) for p in khatim(sx, sy, R * 0.90, 0.585)], fill=CREAM + (255,))
         d.polygon([tuple(p) for p in khatim(sx, sy, R * 0.56, 0.585, rot=np.pi / 8)],
-                  fill=TERRA + (255,))
+                  fill=STAR_INNER + (255,))
         d.polygon([tuple(p) for p in khatim(sx, sy, R * 0.30, 0.585)], fill=GOLD_LT + (255,))
         d.ellipse([sx - R * .10, sy - R * .10, sx + R * .10, sy + R * .10],
-                  fill=TERRA_DK + (255,))
+                  fill=lerp(STAR_INNER, INK, .45) + (255,))
     lay.putalpha(ImageChops.multiply(lay.split()[3], strip))
     canvas = Image.alpha_composite(canvas.convert("RGBA"), lay).convert("RGB")
 
@@ -431,8 +485,10 @@ def zellij(canvas, rng):
     return canvas
 
 # ----------------------------------------------------------------- niche ----
-def carved_damask(mask, rng, pitch=214.0, col=INDIGO_LT, alpha=44):
+def carved_damask(mask, rng, pitch=214.0, col=None, alpha=None):
     """The same seal, repeated small and almost unseen - tooled, not printed."""
+    col = DAMASK if col is None else col
+    alpha = DAMASK_A if alpha is None else alpha
     lay = Image.new("RGBA", (CW, CH), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
     p = u(pitch); R = p * 0.47
@@ -463,7 +519,7 @@ def divider(d, y, hw, major=True):
         for s in (-1, 1):
             knot(d, CX + s * u(hw - 26), y, u(17), GOLD_MD, GOLD_LT)
         knot(d, CX, y, u(31), GOLD, GOLD_LT)
-        d.ellipse([CX - u(7), y - u(7), CX + u(7), y + u(7)], fill=TERRA)
+        d.ellipse([CX - u(7), y - u(7), CX + u(7), y + u(7)], fill=KNOT_DOT)
     else:
         d.rectangle([x0, y - u(1.2), x1, y + u(1.2)], fill=GOLD_DK)
         d.polygon([tuple(p) for p in khatim(CX, y, u(15), 0.42, 4, np.pi / 4)],
@@ -527,10 +583,11 @@ def colonnette(pnt, xc, y0, y1, amp=44.0, waves=7.0, mirror=1.0):
         pnt.poly(G.petal_ring(6, s=r, r0=0.44, phase=k) + P[i], mid)
         pnt.outline(G.petal_ring(6, s=r, r0=0.44, phase=k) + P[i],
                     lerp(GOLD_DK, INK, .4), max(1.0, u(1.3)))
-        pnt.dot(P[i][0], P[i][1], r * 0.30, TERRA)
+        pnt.dot(P[i][0], P[i][1], r * 0.30, KNOT_DOT)
 
-def zellij_column(d, cx, y0, y1, R, alt=(TERRA, TEAL)):
+def zellij_column(d, cx, y0, y1, R, alt=None):
     """A narrow chain of seals - the border's rhythm, quietly repeated."""
+    alt = COL_ALT if alt is None else alt
     n = max(2, int(round((y1 - y0) / (2 * R))))
     p = (y1 - y0) / n
     for i in range(n + 1):
@@ -547,14 +604,14 @@ def zellij_column(d, cx, y0, y1, R, alt=(TERRA, TEAL)):
         d.polygon([tuple(q) for q in saft(u(cx), u(y), u(R * 0.60), 0.34)],
                   fill=GOLD_MD, outline=lerp(GOLD_DK, INK, .5), width=max(1, int(u(1.4))))
         d.ellipse([u(cx - R * .10), u(y - R * .10), u(cx + R * .10), u(y + R * .10)],
-                  fill=TERRA_DK)
+                  fill=lerp(KNOT_DOT, INK, .4))
 
 def corner_seal(d, x, y, R):
     d.polygon([tuple(p) for p in khatim(u(x), u(y), u(R), 0.585)],
               fill=GOLD, outline=lerp(GOLD_DK, INK, .5), width=max(1, int(u(2.4))))
     d.polygon([tuple(p) for p in khatim(u(x), u(y), u(R * 0.86), 0.585)], fill=CREAM)
     d.polygon([tuple(p) for p in khatim(u(x), u(y), u(R * 0.50), 0.585, rot=np.pi / 8)],
-              fill=TERRA)
+              fill=STAR_INNER)
     d.ellipse([u(x - R * .16), u(y - R * .16), u(x + R * .16), u(y + R * .16)],
               fill=GOLD_LT)
 
@@ -581,9 +638,13 @@ CONTENT = {
   "web": "WWW.THESUFIWAY.CO.UK",
 }
 BLANK = os.environ.get("BLANK", "0") == "1"
-TXT   = CREAM_LT
-TXT_G = (238, 214, 156)
-TXT_T = (126, 196, 200)
+TXT   = _P["txt"]          # figures and running text
+TXT_H = _P["txt_h"]        # display type
+TXT_G = _P["txt_g"]        # gilt accents
+TXT_T = _P["txt_t"]        # small letterspaced labels
+TXT_B = _P["body"]
+TXT_A = _P["addr"]
+TXT_Q = _P["quote"]
 
 def typeset(canvas):
     lay = Image.new("RGBA", (CW, CH), (0, 0, 0, 0))
@@ -595,58 +656,57 @@ def typeset(canvas):
     w = b[2] - b[0]
     s = fit_line(d, C["quote_ar"], ARABIC, w, u(104), rtl=True)
     rtl_text(d, (CX, u(690)), C["quote_ar"], F(ARABIC, s), TXT_G)
-    s = fit_line(d, C["quote_en"], BODY_IT, w * 0.94, u(68))
-    d.text((CX, u(812)), C["quote_en"], font=F(BODY_IT, s), fill=(214, 226, 232, 235),
-           anchor="mm")
+    s = fit_line(d, C["quote_en"], BODY_IT, w * 0.94, u(76))
+    d.text((CX, u(812)), C["quote_en"], font=F(BODY_IT, s), fill=TXT_Q, anchor="mm")
 
     # -- the name of the order ----------------------------------------------
     b = text_box(*REG["title"], frac=0.94); w = b[2] - b[0]
     s = min(fit_line(d, C["title"][0], DISPLAY, w, u(146), tracking=u(9)),
             fit_line(d, C["title"][1], DISPLAY, w, u(146), tracking=u(9)))
     y_t = u(1042)
-    tracked(d, C["title"][0], CX, y_t, F(DISPLAY, s), u(9), TXT)
-    tracked(d, C["title"][1], CX, y_t + s * 1.20, F(DISPLAY, s), u(9), TXT)
+    tracked(d, C["title"][0], CX, y_t, F(DISPLAY, s), u(9), TXT_H)
+    tracked(d, C["title"][1], CX, y_t + s * 1.20, F(DISPLAY, s), u(9), TXT_H)
     s2 = fit_line(d, C["subtitle"], BODY_IT, w * 0.8, u(94))
     d.text((CX, u(1360)), C["subtitle"], font=F(BODY_IT, s2), fill=TXT_G, anchor="mm")
     s3 = fit_line(d, C["title_ar"], ARABIC, w * 0.78, u(96), rtl=True)
     rtl_text(d, (CX, u(1496)), C["title_ar"], F(ARABIC, s3), TXT_G)
 
     # -- when ----------------------------------------------------------------
-    y0, y1 = REG["when"]; hw = NHW - FRAME - PAD
+    y0, y1 = REG["when"]; hw = NHW - INSET - PAD
     for i, (lab, val) in enumerate(C["when"]):
         cx = CX + (-1 if i == 0 else 1) * u(hw / 2.0)
         tracked(d, lab, cx, u(y0 + 44), F(LABEL, u(34)), u(11), TXT_T)
         s = fit_line(d, val, BODY_SB, u(hw * 0.86), u(114))
-        d.text((cx, u(y0 + 168)), val, font=F(BODY_SB, s), fill=TXT, anchor="mm")
+        d.text((cx, u(y0 + 168)), val, font=F(BODY_SB, s), fill=TXT_H, anchor="mm")
 
     # -- the body ------------------------------------------------------------
     fit_block(d, C["body"], BODY, text_box(*REG["body"], frac=0.92), u(82),
-              TXT, lead=1.32)
+              TXT_B, lead=1.32)
 
     # -- the order of the evening -------------------------------------------
-    y0, y1 = REG["sched"]; W = 2 * (NHW - FRAME - PAD)
+    y0, y1 = REG["sched"]; W = 2 * (NHW - INSET - PAD)
     for i, (num, tm, desc) in enumerate(C["sched"]):
         cx = CX + u((i - 1) * W / 3.0)
         tracked(d, num, cx, u(y0 + 40), F(LABEL, u(30)), u(9), TXT_G)
         s = fit_line(d, tm, BODY_SB, u(W / 3.0 * 0.88), u(98))
-        d.text((cx, u(y0 + 152)), tm, font=F(BODY_SB, s), fill=TXT, anchor="mm")
+        d.text((cx, u(y0 + 152)), tm, font=F(BODY_SB, s), fill=TXT_H, anchor="mm")
         fit_block(d, desc, BODY, (cx - u(W / 6.6), u(y0 + 212), cx + u(W / 6.6), u(y1 - 14)),
-                  u(60), (226, 234, 240, 245), lead=1.28)
+                  u(60), TXT_B, lead=1.28)
 
     # -- where ---------------------------------------------------------------
-    y0, y1 = REG["venue"]; w = 2 * (NHW - FRAME - PAD)
+    y0, y1 = REG["venue"]; w = 2 * (NHW - INSET - PAD)
     s = fit_line(d, C["venue"], DISPLAY, u(w * 0.88), u(112), tracking=u(11))
-    tracked(d, C["venue"], CX, u(y0 + 58), F(DISPLAY, s), u(11), TXT)
+    tracked(d, C["venue"], CX, u(y0 + 58), F(DISPLAY, s), u(11), TXT_H)
     s = fit_line(d, C["venue_sub"], BODY_IT, u(w * 0.7), u(60))
     d.text((CX, u(y0 + 158)), C["venue_sub"], font=F(BODY_IT, s), fill=TXT_G, anchor="mm")
     s = fit_line(d, C["venue_addr"], LABEL, u(w * 0.9), u(46), tracking=u(5))
-    tracked(d, C["venue_addr"], CX, u(y0 + 246), F(LABEL, s), u(5), (206, 220, 230, 240))
+    tracked(d, C["venue_addr"], CX, u(y0 + 246), F(LABEL, s), u(5), TXT_A)
 
     # -- rsvp ----------------------------------------------------------------
     y0, y1 = REG["rsvp"]
     tracked(d, C["rsvp_label"], CX, u(y0 + 44), F(LABEL, u(32)), u(13), TXT_T)
     s = fit_line(d, C["rsvp"], BODY_SB, u(w * 0.8), u(106))
-    d.text((CX, u(y0 + 164)), C["rsvp"], font=F(BODY_SB, s), fill=TXT, anchor="mm")
+    d.text((CX, u(y0 + 164)), C["rsvp"], font=F(BODY_SB, s), fill=TXT_H, anchor="mm")
     s = fit_line(d, C["rsvp_note"], BODY_IT, u(w * 0.6), u(54))
     d.text((CX, u(y0 + 264)), C["rsvp_note"], font=F(BODY_IT, s), fill=TXT_G, anchor="mm")
 
@@ -658,16 +718,16 @@ def typeset(canvas):
 # ----------------------------------------------------------------- build ----
 def build():
     rng = np.random.default_rng(9001)
-    canvas = tadelakt(CW, CH, rng)
+    canvas = field_ground(CW, CH, rng)
     gold_tex = gold_leaf(CW, CH, rng)
-    night_tex = night_ground(CW, CH, rng)
+    night_tex = panel_ground(CW, CH, rng)
     canvas = zellij(canvas, rng)
 
     out = niche_at(0.0)
     m_out = G.poly_mask(out)
 
     # the niche is cut into the wall, not laid on it
-    canvas = inlay(canvas, m_out, night_tex, sh_off=u(9), sh_blur=u(16), sh_amt=0.46)
+    canvas = inlay(canvas, m_out, night_tex, sh_off=u(9), sh_blur=u(16), sh_amt=SHADOW)
     canvas = Image.alpha_composite(canvas.convert("RGBA"),
                                    carved_damask(m_out, rng)).convert("RGB")
 
@@ -677,13 +737,21 @@ def build():
     for i in range(len(courses) - 1):
         if i % 2: continue
         dc.rectangle([0, u(courses[i]), CW, u(courses[i + 1])], fill=255)
-    cw_ = ImageChops.multiply(cw_.filter(ImageFilter.GaussianBlur(u(1.2))), m_out)
-    a_ = np.asarray(canvas, np.float32) * 1.075 + 5.0
+    m_txt = G.poly_mask(niche_at(INSET))
+    cw_ = ImageChops.multiply(cw_.filter(ImageFilter.GaussianBlur(u(1.2))), m_txt)
+    a_ = np.asarray(canvas, np.float32) * COURSE + (5.0 if COURSE > 1 else 0.0)
     canvas.paste(Image.fromarray(np.clip(a_, 0, 255).astype(np.uint8)), (0, 0), cw_)
     del a_
 
     inner = niche_at(FRAME)
     m_in = G.poly_mask(inner)
+    if BAND_W:                       # a register of colour between gold and ground
+        rose_tex = G.rose_ground(CW, CH, rng)
+        bandm = ImageChops.subtract(m_in, m_txt)
+        sh = np.asarray(bandm.filter(ImageFilter.GaussianBlur(u(9))), np.float32) / 255.0
+        rt = np.asarray(rose_tex, np.float32) * (0.80 + 0.20 * sh)[:, :, None]
+        canvas.paste(Image.fromarray(np.clip(rt, 0, 255).astype(np.uint8)), (0, 0), bandm)
+        del rose_tex, rt, sh
     bm = ImageChops.subtract(m_out, m_in)
     canvas = inlay(canvas, bm, gold_tex, shadow=False)
     canvas = bevel(canvas, bm, up=0.26, down=0.30)
@@ -691,21 +759,29 @@ def build():
     pnt = Painter((CW, CH), rng)
     pnt.outline(out, lerp(GOLD_DK, INK, .55), u(3.4))
     pnt.outline(inner, lerp(GOLD_DK, INK, .55), u(2.6))
-    pnt.pearls(niche_at(FRAME + 23), u(31), u(7.2), GOLD_MD, hl=GOLD_LT)
+    if BAND_W:
+        pnt.outline(niche_at(INSET), lerp(GOLD_DK, INK, .55), u(2.4))
+        pnt.pearls(niche_at(FRAME + BAND_W * 0.5), u(33), u(8.4),
+                   (26, 34, 76), hl=(120, 140, 190))
+    else:
+        pnt.pearls(niche_at(FRAME + 23), u(31), u(7.2), GOLD_MD, hl=GOLD_LT)
 
     d = pnt.d
-    hw_txt = NHW - FRAME - 30
+    hw_txt = NHW - INSET - 30
     for y in MAJOR: divider(d, y, hw_txt, True)
     for y in MINOR:
-        divider(d, y, min(hw_txt, niche_hw_at(y) - FRAME - 30), False)
+        divider(d, y, min(hw_txt, niche_hw_at(y) - INSET - 30), False)
 
     y0, y1 = REG["when"]; cell_rule(d, NCX, y0 + 14, y1 - 14, 17)
-    y0, y1 = REG["sched"]; W = 2 * (NHW - FRAME - PAD)
+    y0, y1 = REG["sched"]; W = 2 * (NHW - INSET - PAD)
     for s_ in (-1, 1): cell_rule(d, NCX + s_ * W / 6.0, y0 + 14, y1 - 14, 15)
 
     # the emblem, ringed like a boss in the plaster
     lx, ly = CX, u((REG["logo"][0] + REG["logo"][1]) / 2.0)
     R = u(276)
+    if LOGO_DISC:
+        d.ellipse([lx - R * .93, ly - R * .93, lx + R * .93, ly + R * .93],
+                  fill=LOGO_DISC)
     d.ellipse([lx - R, ly - R, lx + R, ly + R], fill=None,
               outline=GOLD, width=max(1, int(u(7))))
     d.ellipse([lx - R * .90, ly - R * .90, lx + R * .90, ly + R * .90],
@@ -726,7 +802,8 @@ def build():
 
     # the niche is flanked by a slender arcade, so it belongs to a wall
     mx = (FLD + (NCX - NHW)) / 2.0
-    plaster = tadelakt(CW, CH, np.random.default_rng(77), base=CREAM_DK)
+    plaster = tadelakt(CW, CH, np.random.default_rng(77),
+                       base=CREAM if ROSEY else CREAM_DK)
     sp = Painter((CW, CH), rng)
     for cx_ in (mx, PW - mx):
         po = niche_outline(u(cx_), u(102), u(FLD + 56), u(FLD + 250),
@@ -778,7 +855,7 @@ def guide(canvas):
     order = ["quote", "title", "logo", "when", "body", "sched", "venue", "rsvp", "web"]
     for name in order:
         y0, y1 = REG[name]
-        hw = min(niche_hw_at(y0), niche_hw_at(y1)) - FRAME - PAD
+        hw = min(niche_hw_at(y0), niche_hw_at(y1)) - INSET - PAD
         x0, x1 = NCX - hw, NCX + hw
         d.rectangle([x0, y0, x1, y1], outline=(255, 90, 90, 230), width=4)
         d.rectangle([x0, y0, x1, y1], fill=(255, 90, 90, 26))
